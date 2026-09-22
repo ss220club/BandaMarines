@@ -14,7 +14,12 @@
 
 		if(icon)
 			msg += "[icon2html(icon, user)] "
-		msg += SPAN_XENOWARNING("<EM>[declent_ru(NOMINATIVE)]</EM>!<br>") // SS220 EDIT ADDICTION
+		msg += "<EM>[declent_ru(NOMINATIVE)]</EM>"
+
+		if(mob_flags & MOB_FLAYED)
+			msg += " Кожа была содрана...\n"
+		else
+			msg += "!\n"
 
 		if(species && species.flags & IS_SYNTHETIC)
 			msg += SPAN_XENOWARNING("Вы чувствуете, что это существо неорганическое.<br>") // SS220 EDIT ADDICTION
@@ -61,15 +66,14 @@
 	if(wear_mask)
 		skipface |= wear_mask.flags_inv_hide & HIDEFACE
 
-	var/t_He = ru_p_they(TRUE) // SS220 EDIT ADDICTION
-	var/t_he = ru_p_they() // SS220 EDIT ADDICTION
-	var/t_His = ru_p_them(TRUE) // SS220 EDIT ADDICTION
-	var/t_his = ru_p_them() // SS220 EDIT ADDICTION
-	var/t_theirs = ru_p_theirs() // SS220 EDIT ADDICTION
-	//var/t_has = "has" // SS220 EDIT ADDICTION
-	//var/t_is = "is" // SS220 EDIT ADDICTION
-	//var/t_do = "does" // SS220 EDIT ADDITION
-	//var/t_seem = "seems" // SS220 EDIT ADDITION
+	var/t_He = ru_p_they(TRUE)
+	var/t_his = ru_p_them()
+	var/t_him = "it" // BANDAMARINES NOTE - unused
+	var/t_has = "has" // BANDAMARINES NOTE - unused
+	var/t_is = "is" // BANDAMARINES NOTE - unused
+	//var/t_do = "does" // BANDAMARINES NOTE - unused
+	//var/t_seem = "seems" // BANDAMARINES NOTE - unused
+	var/t_theirs = ru_p_theirs()
 
 	var/id_paygrade = ""
 	var/obj/item/card/id/I = get_idcard()
@@ -97,69 +101,118 @@
 
 	if(id_paygrade)
 		msg += "<EM>[rank_display] </EM>"
-	msg += SPAN_NOTICE("<EM>[declent_ru(NOMINATIVE)]</EM>!<br>") // SS220 EDIT ADDICTION
 
-	//uniform
-	if(w_uniform && !skipjumpsuit)
-		msg += SPAN_NOTICE("[t_He] носит [w_uniform.get_examine_location(src, user, WEAR_BODY, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
+	msg += "<EM>[declent_ru(NOMINATIVE)]</EM>\n"
+
+	if(mob_flags & MOB_FLAYED)
+		msg += SPAN_ITALIC(" ...Тяжело сказать, так как у [t_theirs] нет лица!\n")
+		msg += SPAN_BOLDWARNING("[uppertext(t_his)] КОЖА БЫЛА ПОЛНОСТЬЮ СОДРАНА.\n")
+
+	if(ishuman_strict(src))
+		var/age_description
+		switch(clamp(age, AGE_MIN, AGE_MAX))
+			if(AGE_MIN to 25)
+				age_description = "young adult"
+			if(26 to 35)
+				age_description = "adult"
+			if(36 to 55)
+				age_description = "middle-aged adult"
+			if(56 to 75)
+				age_description = "older adult"
+			if(76 to AGE_MAX)
+				age_description = "elderly adult"
+
+		var/body_size_description
+		switch(body_size)
+			if(BODY_SIZE_THIN)
+				body_size_description = "thin"
+			if(BODY_SIZE_AVERAGE)
+				body_size_description = "average-sized"
+			if(BODY_SIZE_LARGE)
+				body_size_description = "large"
+
+		var/body_type_description
+		switch(body_type)
+			if(BODY_TYPE_NOMUSCLE)
+				body_type_description = "unmuscular"
+			if(BODY_TYPE_LEAN)
+				body_type_description = "lean"
+			if(BODY_TYPE_RIPPED)
+				body_type_description = "muscular"
+
+		if(!skipface && !skipjumpsuit && body_size_description && body_type_description && mob_flags & MOB_FLAYED)
+			msg += "[t_He] [SPAN_BOLD(body_size_description)] [SPAN_BOLD(body_type_description)] телосложения.\n"
+		else if(!skipface && !skipjumpsuit && body_size_description && body_type_description)
+			msg += "[t_He] [SPAN_BOLD(age_description)], [SPAN_BOLD(body_size_description)] [SPAN_BOLD(body_type_description)] телосложения.\n"
+		else if(!skipface)
+			msg += "[t_He] [SPAN_BOLD(age_description)].\n"
+		else if(!skipjumpsuit && body_size_description && body_type_description)
+			msg += "[t_his] лицо спрятано, но [t_has] [SPAN_BOLD(body_size_description)] [SPAN_BOLD(body_type_description)].\n"
+		else
+			msg += "[t_his] лицо спрятано.\n"
 
 	//head
 	if(head)
-		msg += SPAN_NOTICE("[t_He] носит [head.get_examine_line(user)] [head.get_examine_location(src, user, WEAR_HEAD, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
-
-	//suit/armor
-	if(wear_suit)
-		msg += SPAN_NOTICE("[t_He] носит [wear_suit.get_examine_location(src, user, WEAR_JACKET, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
-	//suit/armor storage
-	if(s_store && !skipsuitstorage)
-		msg += SPAN_NOTICE("[t_He] несёт [s_store.get_examine_line(user)] [s_store.get_examine_location(src, user, WEAR_J_STORE, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
-
-	//back
-	if(back)
-		msg += SPAN_NOTICE("[t_He] носит [back.get_examine_line(user)] [back.get_examine_location(src, user, WEAR_BACK, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
-
-	//left hand
-	if(l_hand)
-		msg += SPAN_NOTICE("[t_He] держит [l_hand.get_examine_line(user)] [l_hand.get_examine_location(src, user, WEAR_L_HAND, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
-
-	//right hand
-	if(r_hand)
-		msg += SPAN_NOTICE("[t_He] держит [r_hand.get_examine_line(user)] [r_hand.get_examine_location(src, user, WEAR_R_HAND, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
-
-	//gloves
-	if(gloves && !skipgloves)
-		msg += SPAN_NOTICE("[t_He] носит [gloves.get_examine_line(user)] [gloves.get_examine_location(src, user, WEAR_HANDS, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
-	else if(hands_blood_color)
-		msg += SPAN_WARNING("У [t_theirs] [(hands_blood_color == COLOR_OIL) ? "замасленные" : "окровавленные"] руки!<br>") // SS220 EDIT ADDICTION
-
-	//belt
-	if(belt)
-		msg += SPAN_NOTICE("[t_He] носит [belt.get_examine_line(user)] [belt.get_examine_location(src, user, WEAR_WAIST, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
-
-	//shoes
-	if(shoes && !skipshoes)
-		msg += SPAN_NOTICE("[t_He] носит [shoes.get_examine_line(user)] [shoes.get_examine_location(src, user, WEAR_FEET, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
-	else if(feet_blood_color)
-		msg += SPAN_WARNING("У [t_theirs] [(feet_blood_color == COLOR_OIL) ? "замасленные" : "окровавленные"] ноги!<br>") // SS220 EDIT ADDICTION
+		msg += SPAN_NOTICE("[t_He] носит [head.get_examine_line(user)] [head.get_examine_location(src, user, WEAR_HEAD, t_He, t_his, t_him, t_has, t_is)].<br>")
 
 	//mask
 	if(wear_mask && !skipmask)
-		msg += SPAN_NOTICE("[t_He] носит [wear_mask.get_examine_line(user)] [wear_mask.get_examine_location(src, user, WEAR_FACE, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
+		msg += SPAN_NOTICE("[t_He] носит [wear_mask.get_examine_line(user)] [wear_mask.get_examine_location(src, user, WEAR_FACE, t_He, t_his, t_him, t_has, t_is)].<br>")
 
 	//eyes
 	if(glasses && !skipeyes)
-		msg += SPAN_NOTICE("[t_He] носит [glasses.get_examine_line(user)] [glasses.get_examine_location(src, user, WEAR_EYES, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
+		msg += SPAN_NOTICE("[t_He] носит [glasses.get_examine_line(user)] [glasses.get_examine_location(src, user, WEAR_EYES, t_He, t_his, t_him, t_has, t_is)].<br>")
 
 	//ears
 	if(!skipears)
 		if(wear_l_ear)
-			msg += SPAN_NOTICE("[t_He] носит [wear_l_ear.get_examine_line(user)] [wear_l_ear.get_examine_location(src, user, WEAR_L_EAR, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
+			msg += SPAN_NOTICE("[t_He] носит [wear_l_ear.get_examine_line(user)] [wear_l_ear.get_examine_location(src, user, WEAR_L_EAR, t_He, t_his, t_him, t_has, t_is)].<br>")
 		if(wear_r_ear)
-			msg += SPAN_NOTICE("[t_He] носит [wear_r_ear.get_examine_line(user)] [wear_r_ear.get_examine_location(src, user, WEAR_R_EAR, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
+			msg += SPAN_NOTICE("[t_He] носит [wear_r_ear.get_examine_line(user)] [wear_r_ear.get_examine_location(src, user, WEAR_R_EAR, t_He, t_his, t_him, t_has, t_is)].<br>")
+
+	//suit/armor
+	if(wear_suit)
+		msg += "[t_He] носит [wear_suit.get_examine_location(src, user, WEAR_JACKET, t_He, t_his, t_him, t_has, t_is)].\n"
+
+	//suit/armor storage
+	if(s_store && !skipsuitstorage)
+		msg += "[t_He] несёт [s_store.get_examine_line(user)] [s_store.get_examine_location(src, user, WEAR_J_STORE, t_He, t_his, t_him, t_has, t_is)].\n"
+
+	//uniform
+	if(w_uniform && !skipjumpsuit)
+		msg += "[t_He] носит [w_uniform.get_examine_location(src, user, WEAR_BODY, t_He, t_his, t_him, t_has, t_is)].\n"
+
+	//back
+	if(back)
+		msg += "[t_He] носит [back.get_examine_line(user)] [back.get_examine_location(src, user, WEAR_BACK, t_He, t_his, t_him, t_has, t_is)].\n"
+
+	//gloves
+	if(gloves && !skipgloves)
+		msg += "[t_He] носит [gloves.get_examine_line(user)] [gloves.get_examine_location(src, user, WEAR_HANDS, t_He, t_his, t_him, t_has, t_is)].\n"
+	else if(hands_blood_color)
+		msg += SPAN_WARNING("У [t_theirs] [(hands_blood_color == COLOR_OIL) ? "замасленные" : "окровавленные"] руки!\n")
+
+	//left hand
+	if(l_hand)
+		msg += "[t_He] [t_is] держит [l_hand.get_examine_line(user)] [l_hand.get_examine_location(src, user, WEAR_L_HAND, t_He, t_his, t_him, t_has, t_is)].\n"
+
+	//right hand
+	if(r_hand)
+		msg += "[t_He] [t_is] держит [r_hand.get_examine_line(user)] [r_hand.get_examine_location(src, user, WEAR_R_HAND, t_He, t_his, t_him, t_has, t_is)].\n"
+
+	//belt
+	if(belt)
+		msg += "[t_He] носит [belt.get_examine_line(user)] [belt.get_examine_location(src, user, WEAR_WAIST, t_He, t_his, t_him, t_has, t_is)].\n"
+
+	//shoes
+	if(shoes && !skipshoes)
+		msg += "[t_He] носит [shoes.get_examine_line(user)] [shoes.get_examine_location(src, user, WEAR_FEET, t_He, t_his, t_him, t_has, t_is)].\n"
+	else if(feet_blood_color)
+		msg += SPAN_WARNING("У [t_theirs] [(feet_blood_color == COLOR_OIL) ? "замасленные" : "окровавленные"] ноги!\n")
 
 	//ID
 	if(wear_id)
-		msg += SPAN_NOTICE("[t_He] носит [wear_id.get_examine_location(src, user, WEAR_ID, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
+		msg += SPAN_NOTICE("[t_He] носит [wear_id.get_examine_location(src, user, WEAR_ID, t_He, t_his, t_him, t_has, t_is)].<br>") // SS220 EDIT ADDICTION
 
 	//Inform user if their weapon's IFF will or won't hit src, code by The32bitguy from PVE
 	if(ishuman(user))
@@ -188,7 +241,7 @@
 					msg += SPAN_DANGER("[t_He] is not compatible with your weapon's IFF. They will be shot by your weapon!\n")
 	//Restraints
 	if(handcuffed)
-		msg += SPAN_ORANGE("[t_His] руки в [handcuffed.declent_ru(PREPOSITIONAL)].\n")
+		msg += SPAN_ORANGE("[capitalize(t_his)] руки в [handcuffed.declent_ru(PREPOSITIONAL)].\n")
 
 	if(legcuffed)
 		msg += SPAN_ORANGE("[capitalize(t_his)] ноги в [handcuffed.declent_ru(PREPOSITIONAL)].\n")
@@ -261,7 +314,7 @@
 
 	if((species && !species.has_organ["brain"] || has_brain()) && stat != DEAD && stat != CONSCIOUS)
 		if(!key)
-			msg += SPAN_DEADSAY("[t_He] глубоко спит. Не похоже, что [t_he] скоро проснется.\n")
+			msg += SPAN_DEADSAY("[t_He] глубоко спит, и не похоже, что скоро проснется.\n")
 		else if(!client)
 			msg += "[t_He] внезапно засыпает.\n"
 
