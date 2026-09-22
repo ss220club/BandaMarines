@@ -17,7 +17,7 @@
 
 /datum/singleton/sound_effect/gasmask
 	suffix = "_gasmask"
-	ffmpeg_arguments = "lowpass=f=750,volume=2"
+	ffmpeg_arguments = "lowpass=f=750,volume=3"
 	priority = TTS_SOUND_EFFECT_PRIORITY_MASK
 
 /obj/item/clothing/mask/gas/clown_hat
