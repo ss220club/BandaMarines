@@ -1,0 +1,9 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aaa" = (
+/obj/effect/landmark/monkey_spawn,
+/turf/open/floor/plating,
+/area/template_noop)
+
+(1,1,1) = {"
+aaa
+"}
