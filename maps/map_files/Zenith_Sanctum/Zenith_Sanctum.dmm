@@ -1725,6 +1725,12 @@
 "aeZ" = (
 /turf/open/floor/strata/fake_wood_red,
 /area/lazarus/research)
+"afa" = (
+/obj/structure/pipes/standard/manifold/hidden/cyan{
+	dir = 1
+	},
+/turf/open/auto_turf/lv_sand/layer0,
+/area/lazarus/ground/colony/north_nexus_road)
 "afb" = (
 /obj/structure/platform/metal/strata/alt/east,
 /turf/open/floor/brown_dirt/random_rocks,
@@ -1783,6 +1789,13 @@
 /obj/structure/flora/jungle/vines/dead/light_1,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/ancient_temple/south_east/surface)
+"afo" = (
+/obj/structure/fence/dark,
+/obj/structure/pipes/standard/manifold/hidden/cyan{
+	dir = 1
+	},
+/turf/open/auto_turf/lv_sand/layer0,
+/area/lazarus/ground/colony/north_nexus_road)
 "afp" = (
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /obj/structure/flora/jungle/vines/blue/heavy,
@@ -13172,9 +13185,11 @@
 /turf/open/floor/ancient_temple/damaged/damage_2,
 /area/lazarus/ground/ancient_temple/east)
 "aIP" = (
-/obj/structure/pipes/standard/manifold/fourway/hidden/cyan,
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/structure/pipes/standard/manifold/hidden/cyan{
+	dir = 1
 	},
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/colony/north_nexus_road)
@@ -34747,13 +34762,11 @@
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/west_jungle)
 "jeq" = (
-/obj/structure/pipes/standard/simple/hidden/cyan{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
 	},
+/obj/structure/pipes/standard/manifold/hidden/cyan,
 /turf/open/gm/dirt/brown/variant_5/east,
 /area/lazarus/ground/colony/north_nexus_road)
 "jer" = (
@@ -87341,7 +87354,7 @@ dYs
 dYs
 aKi
 dYs
-vgY
+afa
 vgY
 afi
 vgY
@@ -88237,7 +88250,7 @@ aKm
 aKl
 aKl
 aKl
-qet
+afo
 qet
 qet
 qet
