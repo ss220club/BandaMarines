@@ -225,7 +225,7 @@
 // NSPA - Constables
 
 /datum/job/nspa_constable
-	title = JOB_NSPA_CST_RU
+	disp_title = JOB_NSPA_CST_RU
 
 /datum/equipment_preset/corpse/hybrisa/nspa_constable
 
