@@ -8,6 +8,11 @@
 ## Is respawn allowed on the server
 # RESPAWN
 
+## Allow M83A2-C RPGs in requisitions, FTL and ComTech vendors, supply orders and requisitions training.
+## Disabled by default. Existing game mode restrictions still apply when enabled.
+## Changes require a server restart; reloading the configuration does not apply them.
+# ENABLE_M83A2C_RPG 1
+
 
 ############### CENTRAL CONFIGURATION ##################
 CENTRAL_API_URL https://my_api_url.com/v1

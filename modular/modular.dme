@@ -13,6 +13,7 @@
 #include "cyrillic_fixes/_cyrillic_fixes.dme"
 #include "panic_bunker/_panic_bunker.dme"
 #include "quick_cast/_quick_cast.dme"
+#include "weapons/_weapons.dme"
 #include "respawn/_respawn.dme"
 #include "screentips/_screentips.dme"
 #include "xeno_customization/_xeno_customization.dme"

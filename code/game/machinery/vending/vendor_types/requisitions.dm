@@ -61,6 +61,7 @@
 		list("M40 MFHS Metal Foam Grenade", floor(scale * 6), /obj/item/explosive/grenade/metal_foam, VENDOR_ITEM_REGULAR),
 		list("Plastic Explosives", floor(scale * 3), /obj/item/explosive/plastic, VENDOR_ITEM_REGULAR),
 		list("Breaching Charge", floor(scale * 2), /obj/item/explosive/plastic/breaching_charge, VENDOR_ITEM_REGULAR),
+		list("RPG M83A2-C", SSticker.mode && MODE_HAS_MODIFIER(/datum/gamemode_modifier/heavy_specialists) ? 0 : floor(scale * 2.5), /obj/item/prop/folded_anti_tank_sadar/common, VENDOR_ITEM_REGULAR), // SS220 EDIT - RPG WEAPON
 		list("M6H-BRUTE Breaching Rocket", floor(scale * 3), /obj/item/ammo_magazine/rocket/brute, VENDOR_ITEM_REGULAR),
 
 		list("WEBBINGS", -1, null, null),
@@ -187,6 +188,13 @@
 		list("Box of High-Capacity Power Cells", 0, /obj/item/ammo_box/magazine/misc/power_cell, VENDOR_ITEM_REGULAR),
 		list("Nailgun Magazine Box (7x45mm)", floor(scale * 2), /obj/item/ammo_box/magazine/nailgun, VENDOR_ITEM_REGULAR)
 		)
+	// SS220 EDIT - RPG WEAPON: filter before dynamic stock and ammo boxes are built.
+	if(!GLOB.m83a2c_rpg_enabled)
+		for(var/index in 1 to length(listed_products))
+			var/list/product = listed_products[index]
+			if(product[3] == /obj/item/prop/folded_anti_tank_sadar/common)
+				listed_products.Cut(index, index + 1)
+				break
 
 /obj/structure/machinery/cm_vending/sorted/cargo_guns/stock(obj/item/item_to_stock, mob/user)
 	if(istype(item_to_stock, /obj/item/storage) && !istype(item_to_stock, /obj/item/storage/box/m94) && !istype(item_to_stock, /obj/item/storage/large_holster/machete))

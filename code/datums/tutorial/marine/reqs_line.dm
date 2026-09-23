@@ -119,6 +119,7 @@
 		/obj/item/explosive/grenade/sebb = list("Sonic Electric Ballbreaker", "SEBB", "G2 Electroshock"),
 		/obj/item/explosive/plastic = list("C4", "C4", "plastic explosives"),
 		/obj/item/explosive/plastic/breaching_charge = list("Breaching", "breach charge", "breaching charge"),
+		/obj/item/prop/folded_anti_tank_sadar/common = list("sadar", "rpg", "M83", "M83A2"), // SS220 EDIT - RPG WEAPON
 		/* AMMO */
 		/obj/item/ammo_magazine/rifle/m4ra/ap = list("AP M4RA", "AP M4RA mag", "M4RA AP"),
 		/obj/item/ammo_magazine/smg/m39/ap = list("M39 AP", "M39 AP", "SMG AP"),
@@ -237,6 +238,9 @@
 	// We make a custom catalogue copy to increase weighting of already requested items;
 	// this avoids getting huge lists too quickly
 	for(var/typepath in shopping_catalogue)
+		// SS220 EDIT - RPG WEAPON: disabled items cannot be supplied by the tutorial vendor.
+		if(typepath == /obj/item/prop/folded_anti_tank_sadar/common && !GLOB.m83a2c_rpg_enabled)
+			continue
 		catalogue += typepath
 	for(var/i in 1 to items_to_request)
 		request += pick(catalogue)
