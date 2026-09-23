@@ -26,22 +26,6 @@
 /obj/item/attachable/attached_gun/shotgun/m20a/unloaded
 	current_rounds = 0
 
-/obj/item/attachable/stock/m20a
-	name = "\improper M20A stock"
-	desc = "The M20A's standard polymer collapsible stock. When extended, it improves scatter, accuracy, and recoil, but slightly hinders agility."
-	icon = 'modular/weapons/icons/stock.dmi'
-	slot = "stock"
-	melee_mod = 5
-	size_mod = 1
-	icon_state = "m20astock"
-	attach_icon = "m20astock_a"
-	pixel_shift_x = 40
-	pixel_shift_y = 14
-	hud_offset_mod = 3
-
-/obj/item/attachable/stock/m20a/New()
-	..()
-
 /obj/item/attachable/flashlight/m20a
 	name = "integrated flashlight"
 	desc = "shouldnt be seeing this. . ."

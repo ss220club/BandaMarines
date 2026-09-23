@@ -18,64 +18,6 @@
 	desc = "A variant of the M41A pulse rifle adopted for use by USASF personnel whose duties take them off ships frequently. Features an integrated 30mm grenade launcher, flash & sound suppressor, and a carry-handle mounted mag-clamp."
 	starting_attachment_types = list(/obj/item/attachable/attached_gun/grenade/mk1, /obj/item/attachable/suppressor, /obj/item/attachable/magnetic_harness, /obj/item/attachable/stock/rifle/collapsible)
 
-/obj/item/weapon/gun/rifle/m20a
-	name = "\improper M20A pulse rifle"
-	desc = "A predecessor to the M41A pulse rifle still utilized by the UA's Colonial Guard and various other organizations. Aside from its 10x24mm chambering, the 'Harrington' rifle is largely considered to be in every metric the polar opposite of the M41A; featuring an obsolete three-round burst mode, lower magazine size, and it uses an integrated shotgun attachment."
-	icon = 'modular/weapons/icons/rifles.dmi'
-	item_icons = list(
-		WEAR_L_HAND = 'modular/weapons/icons/guns_lefthand.dmi',
-		WEAR_R_HAND = 'modular/weapons/icons/guns_righthand.dmi',
-		WEAR_BACK = 'modular/weapons/icons/back.dmi',
-		WEAR_J_STORE = 'modular/weapons/icons/suit_slot.dmi'
-	)
-	icon_state = "m20a"
-	item_state = "m20a"
-	reload_sound = 'sound/weapons/handling/l42_reload.ogg'
-	unload_sound = 'sound/weapons/handling/l42_unload.ogg'
-	fire_sound = "gun_oldpulse"
-	current_mag = /obj/item/ammo_magazine/rifle/m20a
-	attachable_allowed = list(
-		/obj/item/attachable/suppressor,
-		/obj/item/attachable/bayonet,
-		/obj/item/attachable/bayonet/upp,
-		/obj/item/attachable/bayonet/co2,
-		/obj/item/attachable/bayonet/wy,
-		/obj/item/attachable/reddot,
-		/obj/item/attachable/reflex,
-		/obj/item/attachable/flashlight,
-		/obj/item/attachable/lasersight,
-		/obj/item/attachable/stock/m20a,
-		/obj/item/attachable/attached_gun/shotgun,
-		/obj/item/attachable/flashlight/m20a,
-	)
-
-	flags_gun_features = GUN_AUTO_EJECTOR|GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER
-	wield_delay = WEAPON_DELAY_NORMAL
-	aim_slowdown = SLOWDOWN_ADS_RIFLE
-	starting_attachment_types = list(/obj/item/attachable/stock/m20a,/obj/item/attachable/attached_gun/shotgun/m20a)
-	map_specific_decoration = FALSE
-
-/obj/item/weapon/gun/rifle/m20a/set_gun_attachment_offsets()
-	attachable_offset = list("muzzle_x" = 32, "muzzle_y" = 19,"rail_x" = 12, "rail_y" = 20, "under_x" = 18, "under_y" = 15, "stock_x" = 22, "stock_y" = 15, "side_rail_x" = 23, "side_rail_y" = 16, "special_x" = 16, "special_y" = 16) // SS220 EDIT: Add special slot offset for M20A grenade launcher
-
-/obj/item/weapon/gun/rifle/m20a/set_gun_config_values()
-	..()
-	set_fire_delay(FIRE_DELAY_TIER_10)
-	set_burst_amount(BURST_AMOUNT_TIER_3)
-	set_burst_delay(FIRE_DELAY_TIER_10)
-	accuracy_mult = BASE_ACCURACY_MULT + HIT_ACCURACY_MULT_TIER_5
-	accuracy_mult_unwielded = BASE_ACCURACY_MULT - HIT_ACCURACY_MULT_TIER_4
-	damage_mult = BASE_BULLET_DAMAGE_MULT
-	recoil_unwielded = RECOIL_AMOUNT_TIER_4
-	damage_falloff_mult = 0
-	scatter = SCATTER_AMOUNT_TIER_9
-	burst_scatter_mult = SCATTER_AMOUNT_TIER_9
-
-/obj/item/weapon/gun/rifle/m20a/unloaded
-	flags_gun_features = GUN_AUTO_EJECTOR|GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_TRIGGER_SAFETY
-	current_mag = null
-	starting_attachment_types = list(/obj/item/attachable/stock/m20a,/obj/item/attachable/attached_gun/shotgun/m20a/unloaded)
-
 /obj/item/weapon/gun/rifle/m20a/merc
 	name = "\improper M20CW pulse carbine"
 	desc = "A heavily modified black market version of the M20A pulse rifle, often used for CQC scenarios where SMGs just aren't cutting it. Comes with an integrated grip instead of an underbarrel shotgun and downsized barrel, alongside the removed stock. It can also now shoot in automatic!"
@@ -114,19 +56,6 @@
 
 /obj/item/weapon/gun/rifle/m20a/merc/unloaded
 	current_mag = null
-
-/obj/item/weapon/gun/rifle/m20a/old
-	desc = "USCMC assault rifle chambered in 10x24 caseless, complete with an integrated 20mm grenade launcher and an integrated flashlight."
-	starting_attachment_types = list(/obj/item/attachable/stock/m20a)
-	start_automatic = TRUE
-
-/obj/item/weapon/gun/rifle/m20a/old/handle_starting_attachment()
-	..()
-	var/obj/item/attachable/flashlight/m20a/flashlight = new(src)
-	flashlight.flags_attach_features &= ~ATTACH_REMOVABLE
-	flashlight.Attach(src)
-	update_attachable(flashlight.slot)
-
 
 /obj/item/weapon/gun/rifle/m4ra/pve
 	name = "\improper M49A6 battle rifle"
