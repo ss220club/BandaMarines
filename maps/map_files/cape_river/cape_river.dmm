@@ -1202,6 +1202,10 @@
 /obj/structure/fence/slim/dark,
 /turf/open/desert/dirt/desert_transition_corner1/north,
 /area/caperiver/outdoors/landing_zone_2)
+"adH" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/closed/wall/strata_outpost/reinforced,
+/area/caperiver/indoors/caves/s)
 "adI" = (
 /obj/item/device/flashlight/lamp/tripod,
 /turf/open/mars_cave/mars_dirt_4,
@@ -3496,6 +3500,12 @@
 /obj/effect/landmark/monkey_spawn,
 /turf/open/desert/rock,
 /area/caperiver/outdoors/scrublands/south)
+"akP" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall_reinforced,
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/caperiver/indoors/caves/s)
 "akQ" = (
 /turf/open/mars_cave/mars_cave_3,
 /area/caperiver/indoors/caves/s)
@@ -4414,6 +4424,11 @@
 /obj/structure/largecrate/random/barrel/brown,
 /turf/open/desert/rock,
 /area/caperiver/outdoors/landing_zone_2)
+"anH" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall_reinforced,
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/floor/plating/platingdmg1,
+/area/caperiver/indoors/caves/s)
 "anI" = (
 /obj/structure/flora/grass/desert/lightgrass_8,
 /turf/open/desert/rock,
@@ -4935,6 +4950,12 @@
 	},
 /turf/open/mars_cave/mars_cave_2,
 /area/caperiver/indoors/caves/n)
+"apq" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall_reinforced,
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/floor/prison/ramptop/north,
+/area/caperiver/indoors/caves/s)
 "apr" = (
 /obj/structure/flora/grass/tallgrass/desert/corner{
 	dir = 6
@@ -6213,6 +6234,10 @@
 	},
 /turf/open/asphalt/cement_sunbleached,
 /area/caperiver/outdoors/road/west)
+"att" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/closed/wall/strata_outpost/reinforced,
+/area/caperiver/outdoors/con_am_exterior/north)
 "atu" = (
 /obj/structure/flora/bush/ausbushes/ausbush,
 /turf/open/desert/rock,
@@ -6411,6 +6436,10 @@
 	},
 /turf/open/desert/rock,
 /area/caperiver/outdoors/landing_zone_2/cave)
+"aue" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/desert/dirt,
+/area/caperiver/outdoors/con_am_exterior/north)
 "auf" = (
 /obj/structure/prop/colorable_rock/colorable{
 	color = "#9d7766";
@@ -6624,6 +6653,10 @@
 "auK" = (
 /turf/open/desert/dirt/desert_transition_corner1/east,
 /area/caperiver/outdoors/scrublands/south)
+"auL" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/sand/layer2,
+/area/caperiver/outdoors/con_am_exterior/north)
 "auM" = (
 /obj/structure/flora/grass/desert/heavygrass_9,
 /turf/open/desert/rock,
@@ -6655,6 +6688,10 @@
 	},
 /turf/open/floor/asteroidwarning/north,
 /area/caperiver/outdoors/mining_base_exterior/south)
+"auR" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/desert/rock/deep/transition/east,
+/area/caperiver/outdoors/con_am_exterior/north)
 "auS" = (
 /obj/effect/decal/hybrisa/dirt_2,
 /obj/structure/pipes/standard/simple/hidden/cyan{
@@ -7538,6 +7575,10 @@
 	},
 /turf/open/floor/station/metal/floor/alt3,
 /area/caperiver/telecomms/telecomm_3)
+"axw" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/desert/rock/deep/rock3,
+/area/caperiver/outdoors/con_am_exterior/north)
 "axx" = (
 /obj/structure/sign/safety/galley{
 	pixel_y = 33;
@@ -22901,13 +22942,6 @@
 	},
 /turf/open/desert/dirt/desert_transition_edge1/west,
 /area/caperiver/outdoors/con_am_exterior/south)
-"bte" = (
-/obj/effect/decal/sand_overlay/sand2/corner2{
-	dir = 1
-	},
-/obj/structure/machinery/colony_floodlight,
-/turf/open/asphalt/cement,
-/area/caperiver/outdoors/scrublands/central)
 "btf" = (
 /obj/structure/flora/grass/desert/lightgrass_1,
 /turf/open/desert/dirt/desert_transition_corner1/west,
@@ -31772,10 +31806,6 @@
 /obj/structure/flora/bush/canyon/bush,
 /turf/open/desert/dirt/desert_transition_edge1/north,
 /area/caperiver/outdoors/scrublands/north)
-"cMo" = (
-/obj/structure/blocker/forcefield/multitile_vehicles,
-/turf/open/desert/dirt,
-/area/caperiver/outdoors/con_am_exterior/north)
 "cMs" = (
 /obj/structure/flora/grass/desert,
 /turf/open/desert/rock,
@@ -36795,11 +36825,6 @@
 	},
 /turf/open/floor/kutjevo/tan/grey_edge/northeast,
 /area/caperiver/telecomms/telecomm_4)
-"gvm" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall_reinforced,
-/obj/structure/blocker/forcefield/multitile_vehicles,
-/turf/open/floor/plating/platingdmg1,
-/area/caperiver/indoors/caves/s)
 "gvE" = (
 /obj/structure/flora/grass/desert/lightgrass_9,
 /turf/open/desert/dirt/desert_transition_corner1/west,
@@ -39079,12 +39104,6 @@
 	},
 /turf/open/desert/dirt,
 /area/caperiver/outdoors/scrublands/north)
-"ilK" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall_reinforced,
-/obj/structure/blocker/forcefield/multitile_vehicles,
-/turf/open/floor/prison/ramptop/north,
-/area/caperiver/indoors/caves/s)
 "ilR" = (
 /obj/structure/prop/colorable_rock/colorable/alt{
 	color = "#9d796a";
@@ -41996,10 +42015,6 @@
 	},
 /turf/open/desert/rock,
 /area/caperiver/outdoors/bushlands)
-"knV" = (
-/obj/structure/blocker/forcefield/multitile_vehicles,
-/turf/closed/wall/strata_outpost/reinforced,
-/area/caperiver/indoors/caves/s)
 "kof" = (
 /obj/effect/decal/hybrisa/dirt_2,
 /obj/structure/machinery/computer3{
@@ -44916,10 +44931,6 @@
 /obj/structure/pipes/standard/simple/hidden/cyan,
 /turf/open/floor/kutjevo/tan/alt_edge/west,
 /area/caperiver/telecomms/telecomm_4)
-"mtr" = (
-/obj/structure/blocker/forcefield/multitile_vehicles,
-/turf/open/auto_turf/sand/layer2,
-/area/caperiver/outdoors/con_am_exterior/north)
 "mtB" = (
 /obj/structure/sign/poster/conam{
 	pixel_y = 32;
@@ -50148,10 +50159,6 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/kutjevo/tan/grey_edge,
 /area/caperiver/telecomms/telecomm_4)
-"qsq" = (
-/obj/structure/blocker/forcefield/multitile_vehicles,
-/turf/closed/wall/strata_outpost/reinforced,
-/area/caperiver/outdoors/con_am_exterior/north)
 "qss" = (
 /obj/item/stack/sheet/metal,
 /obj/effect/decal/hybrisa/dirt,
@@ -50754,10 +50761,6 @@
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
 /turf/open/mars_cave/mars_dirt_4,
 /area/caperiver/indoors/caves/s)
-"qOT" = (
-/obj/structure/blocker/forcefield/multitile_vehicles,
-/turf/open/desert/rock/deep/rock3,
-/area/caperiver/outdoors/con_am_exterior/north)
 "qOZ" = (
 /obj/structure/platform/stone/soro,
 /obj/structure/platform/stone/soro/east,
@@ -52096,12 +52099,6 @@
 /obj/structure/flora/grass/desert/lightgrass_10,
 /turf/open/desert/rock,
 /area/caperiver/outdoors/scrublands/west/antiweed)
-"rKP" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall_reinforced,
-/obj/structure/blocker/forcefield/multitile_vehicles,
-/turf/open/floor/plating/plating_catwalk/prison,
-/area/caperiver/indoors/caves/s)
 "rLB" = (
 /obj/structure/pipes/standard/simple/hidden/cyan,
 /obj/effect/decal/hybrisa/dirt_2,
@@ -58308,10 +58305,6 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/kutjevo/multi_tiles/east,
 /area/caperiver/telecomms/telecomm_4)
-"wNS" = (
-/obj/structure/blocker/forcefield/multitile_vehicles,
-/turf/open/desert/rock/deep/transition/east,
-/area/caperiver/outdoors/con_am_exterior/north)
 "wOI" = (
 /obj/structure/bed/hybrisa/hospital/hospitaldivider{
 	pixel_x = -5
@@ -78263,7 +78256,7 @@ gmy
 bwp
 bwm
 bwg
-knV
+adH
 ale
 aWm
 aEm
@@ -79280,7 +79273,7 @@ byY
 aFL
 aFL
 ale
-gvm
+anH
 xni
 asu
 asu
@@ -79484,7 +79477,7 @@ aSq
 aFL
 aBU
 ale
-knV
+adH
 eIg
 aCk
 aCk
@@ -83566,7 +83559,7 @@ akQ
 aND
 aFL
 aNz
-knV
+adH
 ale
 aCk
 auD
@@ -83770,7 +83763,7 @@ akQ
 ceN
 aSq
 aIp
-gvm
+anH
 bwc
 tNd
 aKf
@@ -83974,7 +83967,7 @@ aWQ
 hCS
 nmr
 vyp
-ilK
+apq
 bvX
 ajp
 urK
@@ -84233,7 +84226,7 @@ aFl
 aEu
 gVy
 aRq
-bte
+aWT
 aFs
 biR
 bjf
@@ -84792,7 +84785,7 @@ aND
 aIp
 aUv
 dSM
-rKP
+akP
 bvT
 atm
 akM
@@ -84997,7 +84990,7 @@ aNz
 qOS
 aIp
 ale
-knV
+adH
 aWQ
 kVJ
 dux
@@ -94984,7 +94977,7 @@ aFv
 ajL
 aVc
 aVc
-qsq
+att
 akH
 xJe
 aDN
@@ -95392,7 +95385,7 @@ awc
 aGr
 aMm
 bmd
-cMo
+aue
 gog
 gog
 gog
@@ -95596,7 +95589,7 @@ aGr
 aMm
 qSh
 bme
-mtr
+auL
 gog
 gog
 gog
@@ -96411,7 +96404,7 @@ bwe
 nmB
 tEY
 bmp
-wNS
+auR
 bwy
 lGK
 qbr
@@ -96615,7 +96608,7 @@ bzL
 nmB
 tEY
 noo
-qOT
+axw
 aIF
 aIF
 aIF
