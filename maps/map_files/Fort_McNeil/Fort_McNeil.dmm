@@ -1864,13 +1864,9 @@
 /turf/open/floor/hybrisa/metal/zbrownfloor1,
 /area/fort_mcneil/landing_zone_1/ceiling)
 "aff" = (
-/obj/structure/machinery/space_heater/radiator/red{
-	dir = 8;
-	pixel_x = 1
-	},
-/obj/effect/landmark/lv624/fog_blocker/short,
-/turf/open/floor/hybrisa/metal/zbrownfloor1,
-/area/fort_mcneil/landing_zone_1/ceiling)
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/sand_white/layer0,
+/area/fort_mcneil/indoors/caves/south)
 "afg" = (
 /obj/structure/prop/ice_colony/ground_wire{
 	dir = 1
@@ -1993,12 +1989,13 @@
 /turf/open/auto_turf/shale/layer1/weedable,
 /area/fort_mcneil/outdoors/colony_exterior/south_east)
 "afB" = (
-/obj/structure/machinery/space_heater/radiator/red{
-	dir = 4;
-	pixel_y = 4
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/lv624/fog_blocker/short,
+/obj/structure/machinery/door_control/brbutton{
+	pixel_y = 26;
+	id = "west";
+	name = "Door Control"
+	},
 /turf/open/floor/hybrisa/metal/zbrownfloor1/north,
 /area/fort_mcneil/landing_zone_1/ceiling)
 "afC" = (
@@ -3390,6 +3387,13 @@
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/shale/layer1/weedable,
 /area/fort_mcneil/outdoors/scrublands/south)
+"ajV" = (
+/obj/structure/machinery/door/poddoor/shutters/almayer/open{
+	dir = 4;
+	id = "west"
+	},
+/turf/open/floor/corsat/marked,
+/area/fort_mcneil/landing_zone_1/ceiling)
 "ajW" = (
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
 /turf/open/auto_turf/shale/layer1/weedable,
@@ -3433,12 +3437,51 @@
 /obj/effect/landmark/item_pool_spawner/survivor_ammo/buckshot,
 /turf/open/floor/prison,
 /area/fort_mcneil/indoors/storage)
+"akg" = (
+/obj/structure/machinery/door/poddoor/shutters/almayer/open{
+	dir = 4;
+	id = "east"
+	},
+/turf/open/floor/corsat/marked,
+/area/fort_mcneil/landing_zone_1/ceiling)
+"akh" = (
+/obj/effect/landmark/lv624/fog_blocker/short,
+/obj/structure/machinery/door/poddoor/shutters/almayer/open{
+	dir = 4;
+	id = "east"
+	},
+/turf/open/floor/corsat/marked,
+/area/fort_mcneil/landing_zone_1/ceiling)
+"aki" = (
+/obj/effect/landmark/lv624/fog_blocker/short,
+/obj/structure/machinery/door_control/brbutton{
+	pixel_y = 26;
+	id = "east";
+	name = "Door Control"
+	},
+/turf/open/floor/hybrisa/metal/zbrownfloor1/north,
+/area/fort_mcneil/landing_zone_1/ceiling)
 "akj" = (
 /obj/effect/decal/cleanable/blood{
 	pixel_y = 1
 	},
 /turf/open/auto_turf/shale/layer1/weedable,
 /area/fort_mcneil/outdoors/comms)
+"akk" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "E";
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/effect/landmark/lv624/fog_blocker/short,
+/obj/structure/machinery/door_control{
+	id = "west";
+	name = "Door Control";
+	pixel_x = 32;
+	needs_power = 0
+	},
+/turf/open/auto_turf/sand_white/layer0,
+/area/fort_mcneil/outdoors/scrublands/south)
 "akl" = (
 /obj/effect/landmark/corpsespawner/colonist,
 /obj/effect/decal/cleanable/blood/gibs/core,
@@ -3448,12 +3491,29 @@
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/fort_mcneil/outdoors/comms)
+"akn" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "W"
+	},
+/obj/effect/landmark/lv624/fog_blocker/short,
+/obj/structure/machinery/door_control{
+	id = "east";
+	name = "Door Control";
+	pixel_x = -32;
+	needs_power = 0
+	},
+/turf/open/auto_turf/shale/layer1/weedable,
+/area/fort_mcneil/landing_zone_1)
 "ako" = (
 /obj/effect/decal/cleanable/blood{
 	pixel_y = 1
 	},
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/fort_mcneil/outdoors/comms)
+"akp" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/sand_white/layer0,
+/area/fort_mcneil/indoors/caves/central)
 "akq" = (
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /turf/open/floor/prison/blue/north,
@@ -3469,6 +3529,14 @@
 /obj/item/prop/alien/hugger,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/fort_mcneil/indoors/command)
+"akt" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/sand_white/layer0,
+/area/fort_mcneil/indoors/caves/north)
+"aku" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/sand_white/layer0,
+/area/fort_mcneil/outdoors/scrublands/north)
 "akx" = (
 /obj/effect/glowshroom,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
@@ -4032,10 +4100,6 @@
 "aqb" = (
 /obj/structure/prop/hybrisa/cavedecor/stalagmite4,
 /turf/open/auto_turf/hybrisa_auto_turf/layer2,
-/area/fort_mcneil/indoors/caves/central)
-"aqD" = (
-/obj/structure/blocker/forcefield/multitile_vehicles,
-/turf/open/auto_turf/sand_white/layer0,
 /area/fort_mcneil/indoors/caves/central)
 "aqT" = (
 /obj/structure/flora/wood/stick3,
@@ -6017,10 +6081,6 @@
 	},
 /turf/open/floor/plating,
 /area/fort_mcneil/indoors/command)
-"ePi" = (
-/obj/structure/blocker/forcefield/multitile_vehicles,
-/turf/open/auto_turf/sand_white/layer0,
-/area/fort_mcneil/indoors/caves/south)
 "ePY" = (
 /obj/effect/decal/hybrisa/road/roadmiddle,
 /turf/open/asphalt/brown,
@@ -9487,10 +9547,11 @@
 /turf/open/auto_turf/hybrisa_auto_turf/layer0,
 /area/fort_mcneil/indoors/caves/north)
 "nba" = (
-/obj/structure/machinery/door/airlock/multi_tile/hybrisa/generic_solid/autoname{
-	dir = 1
-	},
 /obj/effect/landmark/lv624/fog_blocker/short,
+/obj/structure/machinery/door/poddoor/shutters/almayer/open{
+	dir = 4;
+	id = "west"
+	},
 /turf/open/floor/corsat/marked,
 /area/fort_mcneil/landing_zone_1/ceiling)
 "nbf" = (
@@ -9692,10 +9753,6 @@
 /obj/structure/prop/hybrisa/vehicles/Small_Truck/Medical_Cargo,
 /turf/open/asphalt/brown,
 /area/fort_mcneil/outdoors/colony_exterior/east)
-"nmR" = (
-/obj/structure/blocker/forcefield/multitile_vehicles,
-/turf/open/auto_turf/sand_white/layer0,
-/area/fort_mcneil/indoors/caves/north)
 "nnN" = (
 /obj/structure/machinery/light{
 	dir = 8
@@ -12030,10 +12087,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
 /area/fort_mcneil/outdoors/colony_exterior/south_east)
-"sIr" = (
-/obj/effect/landmark/lv624/fog_blocker/short,
-/turf/open/floor/corsat/marked,
-/area/fort_mcneil/landing_zone_1/ceiling)
 "sKk" = (
 /obj/effect/decal/strata_decals/mud_corner{
 	dir = 8
@@ -13962,10 +14015,6 @@
 "wPC" = (
 /turf/open/auto_turf/hybrisa_auto_turf/layer0,
 /area/fort_mcneil/indoors/caves/central)
-"wSF" = (
-/obj/structure/blocker/forcefield/multitile_vehicles,
-/turf/open/auto_turf/sand_white/layer0,
-/area/fort_mcneil/outdoors/scrublands/north)
 "wVr" = (
 /obj/structure/prop/hybrisa/cavedecor/stalagmite3,
 /turf/open/auto_turf/hybrisa_auto_turf/layer2,
@@ -15903,7 +15952,7 @@ htT
 htT
 htT
 aiu
-ofL
+ghG
 ghG
 htT
 htT
@@ -16209,11 +16258,11 @@ ofL
 ofL
 ofL
 ofL
-ofL
 ghG
 htT
+htT
+htT
 ghG
-ofL
 ofL
 ofL
 ofL
@@ -16282,7 +16331,7 @@ vtN
 apJ
 apJ
 vtN
-ofL
+vtN
 ofL
 ofL
 ofL
@@ -16373,7 +16422,7 @@ ofL
 ofL
 ofL
 ofL
-ofL
+vtN
 vtN
 vtN
 vtN
@@ -16754,7 +16803,7 @@ mwP
 mwP
 nqM
 mwP
-ofL
+mwP
 ofL
 ofL
 akc
@@ -16816,12 +16865,12 @@ ghG
 ofL
 ofL
 ofL
-ofL
 ghG
 htT
+htT
 lRb
+htT
 ghG
-ofL
 ofL
 ofL
 ofL
@@ -16855,7 +16904,7 @@ mwP
 mwP
 mwP
 mwP
-ofL
+kjR
 ofL
 vtN
 eMY
@@ -16957,7 +17006,7 @@ mwP
 mwP
 mwP
 kjR
-vtN
+dpY
 apJ
 kHH
 apJ
@@ -17057,8 +17106,8 @@ nqM
 nqM
 itD
 nqM
-pMK
-apJ
+nqM
+jRC
 apJ
 apJ
 apJ
@@ -17158,8 +17207,8 @@ nqM
 nqM
 nqM
 nqM
-pMK
-apJ
+nqM
+jRC
 apJ
 apJ
 apJ
@@ -18493,18 +18542,18 @@ ofL
 ofL
 ofL
 qCK
-aqD
-aqD
-aqD
-aqD
+akp
+akp
+akp
+akp
 ofL
 ofL
 ofL
-aqD
-aqD
-aqD
-aqD
-aqD
+akp
+akp
+akp
+akp
+akp
 ofL
 ofL
 ofL
@@ -20949,7 +20998,7 @@ cmc
 cmc
 cmc
 aeo
-ePi
+aff
 kWC
 htT
 htT
@@ -20978,14 +21027,14 @@ ofL
 ofL
 ofL
 ofL
-wSF
-wSF
-wSF
-nmR
-nmR
-nmR
-nmR
-nmR
+aku
+aku
+aku
+akt
+akt
+akt
+akt
+akt
 ofL
 ofL
 ofL
@@ -21051,7 +21100,7 @@ cmc
 aep
 ogi
 ogi
-ePi
+aff
 kWC
 htT
 htT
@@ -21152,7 +21201,7 @@ ogi
 cmc
 cmc
 ogi
-ePi
+aff
 kWC
 kWC
 htT
@@ -21254,7 +21303,7 @@ cmc
 cmc
 ogi
 ogi
-ePi
+aff
 kWC
 htT
 aiO
@@ -21356,7 +21405,7 @@ cmc
 ogi
 ogi
 ogi
-ePi
+aff
 kWC
 aiO
 htT
@@ -21457,7 +21506,7 @@ aep
 cmc
 ogi
 ogi
-ePi
+aff
 kWC
 htT
 htT
@@ -21559,7 +21608,7 @@ cmc
 ogi
 ogi
 ogi
-ePi
+aff
 kWC
 ghG
 ofL
@@ -21965,7 +22014,7 @@ aep
 cmc
 ofL
 ofL
-ePi
+aff
 kWC
 kWC
 htT
@@ -22067,7 +22116,7 @@ cmc
 cmc
 aeo
 ogi
-ePi
+aff
 kWC
 htT
 qhd
@@ -22168,7 +22217,7 @@ cmc
 aep
 ogi
 ogi
-ePi
+aff
 kWC
 kWC
 htT
@@ -22270,7 +22319,7 @@ cmc
 cmc
 ogi
 ogi
-ePi
+aff
 kWC
 htT
 htT
@@ -22371,7 +22420,7 @@ cmc
 aep
 cmc
 ogi
-ePi
+aff
 kWC
 htT
 htT
@@ -22473,7 +22522,7 @@ cmc
 cmc
 ogi
 ogi
-ePi
+aff
 kWC
 ghG
 lRb
@@ -27802,7 +27851,7 @@ dah
 hCh
 aad
 klv
-kvt
+akk
 kvt
 kQQ
 kQQ
@@ -27904,10 +27953,10 @@ aad
 klv
 rjF
 abR
-abR
-sIr
+ajV
 nba
-abR
+nba
+ajV
 abR
 vAK
 isd
@@ -28409,10 +28458,10 @@ isd
 nBe
 abR
 abR
-acV
+aki
 dEM
 dEM
-aff
+acT
 abR
 abR
 adF
@@ -28510,10 +28559,10 @@ lCg
 kwx
 iPs
 abR
-abR
-sIr
-nba
-abR
+akg
+akh
+akh
+akg
 abR
 ajy
 aac
@@ -28610,7 +28659,7 @@ lfs
 aan
 aac
 aac
-gAD
+akn
 gAD
 dkt
 dkt
