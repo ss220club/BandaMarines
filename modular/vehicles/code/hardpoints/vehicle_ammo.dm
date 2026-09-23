@@ -36,7 +36,7 @@
 // ammo rocket
 /datum/ammo/rocket/humvee_launcher
 	name = "white phosphorous rocket"
-	flags_ammo_behavior = AMMO_ROCKET|AMMO_EXPLOSIVE|AMMO_STRIKES_SURFACE
+	flags_ammo_behavior = AMMO_ROCKET|AMMO_HITS_TARGET_TURF|AMMO_STRIKES_SURFACE
 	damage_type = BURN
 
 	accuracy_var_low = PROJECTILE_VARIANCE_TIER_6

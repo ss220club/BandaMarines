@@ -152,6 +152,15 @@
 		if(!can_hug(human, hivenumber))
 			to_chat(src, SPAN_WARNING("Вы не можете заразить [human.declent_ru(ACCUSATIVE)]...")) // SS220 EDIT ADDICTION
 			return
+		var/hug_dir = get_dir(src, human)
+		for(var/atom/movable/atom in get_turf(src))
+			if(atom != src && atom.density && atom.BlockedExitDirs(src, hug_dir))
+				to_chat(src, SPAN_WARNING("[atom] prevents us from infecting [human]!"))
+				return
+		for(var/atom/movable/atom in get_turf(human))
+			if(atom != human && atom.density && atom.BlockedPassDirs(src, hug_dir))
+				to_chat(src, SPAN_WARNING("[atom] prevents us from infecting [human]!"))
+				return
 		visible_message(SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] начинает заползать на лицо [human.declent_ru(GENITIVE)]..."), SPAN_XENONOTICE("Вы начинаете заползать на лицо [human.declent_ru(GENITIVE)]...")) // SS220 EDIT ADDICTION
 		if(!do_after(src, FACEHUGGER_CLIMB_DURATION, INTERRUPT_ALL, BUSY_ICON_HOSTILE, human, INTERRUPT_MOVED, BUSY_ICON_HOSTILE))
 			return
@@ -161,6 +170,15 @@
 		if(!can_hug(human, hivenumber))
 			to_chat(src, SPAN_WARNING("Вы не можете заразить [human.declent_ru(ACCUSATIVE)]...")) // SS220 EDIT ADDICTION
 			return
+		hug_dir = get_dir(src, human)
+		for(var/atom/movable/atom in get_turf(src))
+			if(atom != src && atom.density && atom.BlockedExitDirs(src, hug_dir))
+				to_chat(src, SPAN_WARNING("[atom] prevents us from infecting [human]!"))
+				return
+		for(var/atom/movable/atom in get_turf(human))
+			if(atom != human && atom.density && atom.BlockedPassDirs(src, hug_dir))
+				to_chat(src, SPAN_WARNING("[atom] prevents us from infecting [human]!"))
+				return
 		handle_hug(human)
 		return
 
