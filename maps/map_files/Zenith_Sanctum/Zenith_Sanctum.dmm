@@ -2120,6 +2120,9 @@
 	},
 /obj/effect/landmark/objective_landmark/science,
 /obj/effect/decal/hybrisa/dirt,
+/obj/structure/pipes/standard/simple/hidden/cyan{
+	dir = 4
+	},
 /turf/open/floor/prison/west,
 /area/lazarus/power_plant/core)
 "agu" = (
@@ -2256,6 +2259,11 @@
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
 /turf/open/floor/brown_dirt/random_rocks,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
+"agN" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/pipes/standard/simple/hidden/cyan,
+/turf/open/floor/almayer/silverfull,
+/area/lazarus/medbay)
 "agO" = (
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/river/north_east_temple_river)
@@ -3739,6 +3747,7 @@
 	id = "control room powerplant";
 	name = "\improper Powerplant core Shutters"
 	},
+/obj/structure/pipes/standard/simple/hidden/cyan,
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/power_plant/core)
 "aku" = (
@@ -3819,6 +3828,9 @@
 	pixel_x = -10
 	},
 /obj/effect/decal/hybrisa/dirt,
+/obj/structure/pipes/standard/simple/hidden/cyan{
+	dir = 4
+	},
 /turf/open/floor/prison/west,
 /area/lazarus/power_plant/core)
 "akE" = (
@@ -3877,12 +3889,6 @@
 	},
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
-"akI" = (
-/obj/structure/machinery/cm_vending/sorted/medical/wall_med/limited{
-	pixel_y = -32
-	},
-/turf/open/floor/prison/west,
-/area/lazarus/power_plant/core)
 "akJ" = (
 /obj/structure/prop/colorable_rock/colorable{
 	color = "#ae8686";
@@ -6352,6 +6358,9 @@
 "aqX" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/landmark/survivor_spawner,
+/obj/structure/pipes/standard/simple/hidden/cyan{
+	dir = 4
+	},
 /turf/open/floor/strata/multi_tiles,
 /area/lazarus/medbay)
 "aqY" = (
@@ -7928,6 +7937,9 @@
 /area/lazarus/ground/colony/checkpoint_road)
 "aux" = (
 /obj/structure/closet/secure_closet/engineering_electrical,
+/obj/structure/pipes/standard/simple/hidden/cyan{
+	dir = 4
+	},
 /turf/open/floor/prison/west,
 /area/lazarus/power_plant/core)
 "auy" = (
@@ -8019,6 +8031,9 @@
 	name = "Reactor Turbine"
 	},
 /obj/structure/machinery/light/blue,
+/obj/structure/pipes/standard/simple/hidden/cyan{
+	dir = 4
+	},
 /turf/open/floor/prison/west,
 /area/lazarus/power_plant/core)
 "auQ" = (
@@ -9873,6 +9888,15 @@
 	},
 /turf/open/floor/strata/light_purple_tile,
 /area/lazarus/research/storage)
+"azv" = (
+/obj/structure/machinery/door/airlock/hybrisa/medical_solid/autoname{
+	dir = 1;
+	req_one_access_txt = "104;105;106";
+	name = "\improper Morgue"
+	},
+/obj/structure/pipes/standard/simple/hidden/cyan,
+/turf/open/floor/plating/prison,
+/area/lazarus/medbay)
 "azw" = (
 /obj/structure/prop/hybrisa/misc/metergreen{
 	pixel_y = 33
@@ -10612,6 +10636,12 @@
 /obj/structure/pipes/standard/simple/hidden/cyan,
 /turf/open/floor/strata/floor3,
 /area/lazarus/research/storage)
+"aBq" = (
+/obj/structure/pipes/standard/simple/hidden/cyan{
+	dir = 5
+	},
+/turf/open/floor/prison/west,
+/area/lazarus/power_plant)
 "aBr" = (
 /obj/item/trash/cigbutt,
 /turf/open/floor/strata/floor3,
@@ -12461,15 +12491,6 @@
 	},
 /turf/open/floor/prison/bright_clean2,
 /area/lazarus/comms/lz2_north)
-"aGL" = (
-/obj/structure/machinery/camera/autoname{
-	dir = 1
-	},
-/obj/structure/pipes/standard/simple/hidden/cyan{
-	dir = 4
-	},
-/turf/open/floor/prison/bright_clean2,
-/area/lazarus/comms/lz2_north)
 "aGM" = (
 /obj/structure/pipes/standard/simple/hidden/cyan{
 	dir = 10
@@ -13339,11 +13360,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/pipes/standard/simple/hidden/cyan{
-	dir = 4
-	},
 /obj/effect/landmark/crap_item,
 /obj/effect/decal/hybrisa/dirt,
+/obj/structure/pipes/standard/manifold/hidden/cyan,
 /turf/open/floor/almayer/silverfull,
 /area/lazarus/medbay)
 "aJq" = (
@@ -17880,6 +17899,12 @@
 /obj/effect/landmark/corpsespawner/colonist/random,
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/colony/north_nexus_road)
+"aWI" = (
+/obj/structure/pipes/standard/simple/hidden/cyan{
+	dir = 4
+	},
+/turf/open/floor/prison/west,
+/area/lazarus/power_plant)
 "aWJ" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
 /obj/effect/landmark/nightmare{
@@ -18123,7 +18148,9 @@
 /obj/structure/disposalpipe/junction{
 	dir = 8
 	},
-/obj/structure/pipes/standard/manifold/hidden/cyan,
+/obj/structure/pipes/standard/simple/hidden/cyan{
+	dir = 4
+	},
 /turf/open/floor/almayer/silverfull,
 /area/lazarus/medbay)
 "aXs" = (
@@ -18709,10 +18736,6 @@
 	},
 /turf/open/floor/interior/tatami,
 /area/lazarus/fitness)
-"aYT" = (
-/obj/structure/window/framed/lv_colony,
-/turf/open/space/basic,
-/area/lazarus/hydroponics)
 "aYU" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/structure/machinery/door/airlock/hybrisa/medical_solid/autoname{
@@ -18724,6 +18747,9 @@
 /area/lazarus/medbay)
 "aYV" = (
 /obj/effect/decal/hybrisa/dirt,
+/obj/structure/pipes/standard/simple/hidden/cyan{
+	dir = 4
+	},
 /turf/open/floor/strata/multi_tiles,
 /area/lazarus/medbay)
 "aYW" = (
@@ -19477,6 +19503,23 @@
 /obj/structure/flora/jungle/vines/blue/light_2,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/west_jungle)
+"bbd" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/pipes/standard/manifold/hidden/cyan{
+	dir = 4
+	},
+/turf/open/floor/prison/west,
+/area/lazarus/power_plant)
+"bbe" = (
+/obj/structure/pipes/standard/simple/hidden/cyan,
+/turf/open/floor/prison/west,
+/area/lazarus/power_plant/core)
+"bbf" = (
+/obj/structure/pipes/standard/simple/hidden/cyan{
+	dir = 10
+	},
+/turf/open/floor/prison/west,
+/area/lazarus/power_plant/core)
 "bbq" = (
 /obj/structure/surface/table{
 	color = "#8B7B5B"
@@ -24405,6 +24448,9 @@
 	dir = 4;
 	pixel_x = 11;
 	pixel_y = 17
+	},
+/obj/structure/pipes/standard/simple/hidden/cyan{
+	dir = 10
 	},
 /turf/open/floor/strata/multi_tiles,
 /area/lazarus/medbay)
@@ -29595,6 +29641,9 @@
 /area/lazarus/ground/ancient_temple/east)
 "gsO" = (
 /obj/structure/machinery/light/red,
+/obj/structure/pipes/standard/simple/hidden/cyan{
+	dir = 4
+	},
 /turf/open/floor/plating/plating_catwalk/strata,
 /area/lazarus/medbay)
 "gtm" = (
@@ -31066,7 +31115,6 @@
 "hdR" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/structure/disposalpipe/segment,
-/obj/structure/pipes/standard/simple/hidden/cyan,
 /turf/open/floor/almayer/silverfull,
 /area/lazarus/medbay)
 "hdX" = (
@@ -32167,6 +32215,7 @@
 /obj/effect/landmark/objective_landmark/medium,
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/landmark/good_item,
+/obj/structure/surface/table/reinforced/prison,
 /turf/open/floor/strata/floor3,
 /area/lazarus/medbay)
 "hGN" = (
@@ -39090,6 +39139,9 @@
 /obj/effect/decal/hybrisa/dirt,
 /obj/structure/pipes/standard/simple/hidden/cyan{
 	dir = 4
+	},
+/obj/structure/machinery/camera/autoname{
+	dir = 1
 	},
 /turf/open/floor/prison/bright_clean2,
 /area/lazarus/comms/lz2_north)
@@ -73485,7 +73537,7 @@ bBu
 bBu
 rOg
 fcK
-aGL
+aGK
 aGA
 aGq
 aGk
@@ -81972,14 +82024,14 @@ aZg
 gry
 oTx
 dHY
-aYR
-tzz
-tzz
-sRN
-sRN
-sRN
-sRN
-sRN
+azv
+agN
+agN
+aJj
+aJj
+aJj
+aJj
+aJj
 aJp
 aMm
 sVR
@@ -85055,7 +85107,7 @@ aaI
 baE
 aSb
 rpR
-akI
+axJ
 aje
 aje
 baq
@@ -85279,11 +85331,11 @@ aya
 baE
 alr
 udO
-akh
+bbf
 akt
-akh
-avR
-avR
+bbe
+aix
+aBq
 aRV
 avR
 avO
@@ -85507,7 +85559,7 @@ akh
 axT
 aSb
 avR
-avR
+aWI
 avR
 aRV
 aik
@@ -85731,7 +85783,7 @@ bau
 aje
 atM
 axu
-afV
+bbd
 afV
 afV
 sQq
@@ -94516,7 +94568,7 @@ aQP
 acZ
 piK
 aeC
-aYT
+aeC
 piK
 piK
 wKc

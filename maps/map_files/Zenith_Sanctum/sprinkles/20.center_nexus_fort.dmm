@@ -91,7 +91,7 @@
 	color = "#8B7B5B";
 	flipped = 1
 	},
-/turf/open/floor/prison/floor_plate,
+/turf/open/floor/prison/darkred2/west,
 /area/template_noop)
 "ez" = (
 /obj/effect/decal/hybrisa/dirt,
@@ -1452,7 +1452,7 @@
 /obj/effect/decal/hybrisa/dirt,
 /obj/item/stack/sheet/metal,
 /obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/prison/darkred2/west,
+/turf/open/floor/prison/floor_plate,
 /area/template_noop)
 "ZO" = (
 /obj/structure/barricade/wooden{

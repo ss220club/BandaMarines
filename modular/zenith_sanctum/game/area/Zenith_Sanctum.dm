@@ -488,12 +488,12 @@
 	icon_state = "hydro"
 
 /area/lazarus/landing/console
-	name = "\improper LZ1 - Nexus Dome - Landing Zone"
+	name = "\improper LZ1 - Cargo Arrivals"
 	icon_state = "tcomsatcham"
 	requires_power = FALSE
 
 /area/lazarus/landing/console2
-	name = "\improper LZ2 - Weyland-Yutani - Corporate Administration - Landing Zone"
+	name = "\improper LZ2 - Weyland-Yutani Corporate Administration"
 	icon_state = "tcomsatcham"
 	requires_power = FALSE
 
