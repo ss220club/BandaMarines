@@ -54,7 +54,7 @@ export const CHANGELOG_ENTRIES = [
 	],
 	
 	[
-		["soundtweak"],
+		["sound"],
 		{
 			placeholders: ["tweaked a sound thingy"],
 		},
@@ -75,16 +75,30 @@ export const CHANGELOG_ENTRIES = [
 	],
 
 	[
-		["imagetweak"],
+		["image"],
 		{
 			placeholders: ["tweaked some icons and images"],
 		},
 	],
-	
+
+	[
+		["map"],
+		{
+			placeholders: ["tweaked a map"],
+		},
+	],
+
 	[
 		["mapadd"],
 		{
 			placeholders: ["added a new map or section to a map"],
+		},
+	],
+
+	[
+		["mapdel"],
+		{
+			placeholders: ["deleted map or something on a map"],
 		},
 	],
 
@@ -148,6 +162,13 @@ export const CHANGELOG_ENTRIES = [
 		["server"],
 		{
 			placeholders: ["something server ops should know"],
+		},
+	],
+
+	[
+		["translation"],
+		{
+			placeholders: ["something got translated"],
 		},
 	],
 ];
