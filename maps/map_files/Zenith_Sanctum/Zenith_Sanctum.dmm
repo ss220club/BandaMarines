@@ -3889,6 +3889,10 @@
 	},
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
+"akI" = (
+/obj/structure/machinery/power/apc/no_power/east,
+/turf/open/floor/prison/sterile_white,
+/area/lazarus/canteen)
 "akJ" = (
 /obj/structure/prop/colorable_rock/colorable{
 	color = "#ae8686";
@@ -15412,7 +15416,6 @@
 /turf/open/floor/prison/kitchen/alt,
 /area/lazarus/kitchen)
 "aPq" = (
-/obj/structure/machinery/power/apc/no_power/east,
 /obj/effect/landmark/corpsespawner/colonist,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood{
@@ -35397,7 +35400,6 @@
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/ancient_temple/east/surface)
 "jtc" = (
-/obj/structure/machinery/light/blue,
 /obj/structure/bed/chair/comfy/teal{
 	dir = 4
 	},
@@ -49228,6 +49230,10 @@
 	pixel_y = 7
 	},
 /obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/light/small/blue{
+	light_color = "#dae2ff";
+	dir = 4
+	},
 /turf/open/floor/prison/darkred2/west,
 /area/lazarus/main_hall)
 "qtI" = (
@@ -55462,10 +55468,6 @@
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/ancient_temple/south/surface)
 "tFy" = (
-/obj/structure/machinery/light/small/blue{
-	light_color = "#dae2ff";
-	dir = 1
-	},
 /obj/structure/bed/chair{
 	pixel_x = 4;
 	pixel_y = 15
@@ -60623,6 +60625,10 @@
 /obj/structure/sign/safety/bathunisex{
 	pixel_y = 32;
 	pixel_x = 7
+	},
+/obj/structure/machinery/light/small/blue{
+	light_color = "#dae2ff";
+	dir = 1
 	},
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/main_hall)
@@ -82062,7 +82068,7 @@ wmN
 ahz
 kcv
 jJI
-gkd
+wNT
 sDy
 sDy
 sDy
@@ -82294,7 +82300,7 @@ taL
 aTB
 aPq
 wsk
-bhv
+akI
 bhv
 nPo
 jkp
@@ -82510,7 +82516,7 @@ tFy
 aiE
 maU
 jJI
-wNT
+gkd
 fYD
 akb
 taL
@@ -84305,7 +84311,7 @@ sFn
 aTL
 tZI
 ncr
-cdM
+hcO
 cdM
 aPy
 cdM
