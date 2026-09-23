@@ -659,16 +659,7 @@
 	if(show_name_numbers)
 		name_display = show_only_numbers ? " ([nicknumber])" : " ([name_client_prefix][nicknumber][name_client_postfix])"
 	name = "[name_prefix][number_decorator][age_display][declent_ru_initial(caste.display_name || caste.caste_type, NOMINATIVE, caste.display_name || caste.caste_type)][name_display]"
-	ru_names_rename(ru_names_list(
-		base = name,
-		nominative = "[name_prefix][declent_ru_initial(number_decorator, NOMINATIVE, number_decorator)][declent_ru_initial(age_display, NOMINATIVE, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, NOMINATIVE, caste.display_name || caste.caste_type)][name_display]",
-		genitive = "[name_prefix][declent_ru_initial(number_decorator, GENITIVE, number_decorator)][declent_ru_initial(age_display, GENITIVE, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, GENITIVE, caste.display_name || caste.caste_type)][name_display]",
-		dative = "[name_prefix][declent_ru_initial(number_decorator, DATIVE, number_decorator)][declent_ru_initial(age_display, DATIVE, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, DATIVE, caste.display_name || caste.caste_type)][name_display]",
-		accusative = "[name_prefix][declent_ru_initial(number_decorator, ACCUSATIVE, number_decorator)][declent_ru_initial(age_display, ACCUSATIVE, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, ACCUSATIVE, caste.display_name || caste.caste_type)][name_display]",
-		instrumental = "[name_prefix][declent_ru_initial(number_decorator, INSTRUMENTAL, number_decorator)][declent_ru_initial(age_display, INSTRUMENTAL, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, INSTRUMENTAL, caste.display_name || caste.caste_type)][name_display]",
-		prepositional = "[name_prefix][declent_ru_initial(number_decorator, PREPOSITIONAL, number_decorator)][declent_ru_initial(age_display, PREPOSITIONAL, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, PREPOSITIONAL, caste.display_name || caste.caste_type)][name_display]",
-		gender = "[declent_ru_initial(caste.display_name || caste.caste_type, "gender", caste.display_name || caste.caste_type)]",
-	))
+	ru_names = ru_names_multiple(name, name_prefix, number_decorator, age_display, caste.display_name || caste.caste_type, name_display)
 
 	//Update linked data so they show up properly
 	change_real_name(src, name)
@@ -1295,7 +1286,11 @@
 	if (mob_size != MOB_SIZE_SMALL)
 		return FALSE
 
-	var/move_dir = get_dir(src, loc)
+	var/move_dir = get_dir(src, current_structure)
+	for(var/atom/movable/atom in get_turf(src))
+		if(atom != current_structure && atom.density && atom.BlockedExitDirs(src, move_dir))
+			to_chat(src, SPAN_WARNING("[atom] prevents us from squeezing under [current_structure]!"))
+			return FALSE
 	for(var/atom/movable/atom in get_turf(current_structure))
 		if(atom != current_structure && atom.density && atom.BlockedPassDirs(src, move_dir))
 			to_chat(src, SPAN_WARNING("[atom] prevents us from squeezing under [current_structure]!"))

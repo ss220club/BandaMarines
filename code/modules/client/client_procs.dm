@@ -454,6 +454,10 @@ GLOBAL_LIST_INIT(whitelisted_client_procs, list(
 	if(holder)
 		INVOKE_ASYNC(holder, TYPE_PROC_REF(/datum/admins, associate_or_deadmin), src)
 
+	// BANDAMARINES EDIT START: Central benefit tier
+	if(CONFIG_GET(string/central_api_url))
+		donator_level = SScentral.get_player_donate_tier_blocking(src)
+	// BANDAMARINES EDIT END: Central benefit tier
 	add_pref_verbs()
 	//preferences datum - also holds some persistent data for the client (because we may as well keep these datums to a minimum)
 	prefs = GLOB.preferences_datums[ckey]
@@ -1036,6 +1040,18 @@ CLIENT_VERB(action_hide_menu)
 	if(!selected_action.player_hidden && selected_action.hidden) //Inform the player that even if they are unhiding it, itll still not be visible
 		to_chat(user, SPAN_NOTICE("[selected_action] is forcefully hidden, bypassing player unhiding."))
 
+
+// BANDAMARINES EDIT START: Central benefit tier
+/client/proc/get_donator_level()
+	var/datum/admins/admin = GLOB.admin_datums[ckey]
+	return max(donator_level, (admin?.rights & R_HOST) ? 5 : 0)
+
+// Only host can edit donator level
+/client/vv_edit_var(var_name, var_value)
+	if(var_name == NAMEOF(src, donator_level) && !CLIENT_HAS_RIGHTS(usr?.client, R_HOST))
+		return FALSE
+	return ..()
+// BANDAMARINES EDIT END: Central benefit tier
 
 /client/proc/check_whitelist_status(flag_to_check)
 	if(check_localhost_status())

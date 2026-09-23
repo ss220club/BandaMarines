@@ -14,7 +14,6 @@
 #include "code/motorbike/bike/motorbike_movement.dm"
 #include "code/motorbike/bike/motorbike_collide.dm"
 
-
 //sidecar
 #include "code/motorbike/sidecar/sidecar.dm"
 #include "code/motorbike/sidecar/sidecar_guns.dm"
@@ -48,10 +47,15 @@
 
 //hardpoints
 #include "code/hardpoints/vehicle_ammo.dm"
+#include "code/hardpoints/humvee_hardpoints.dm"
+#include "code/hardpoints/aev_hardpoints.dm"
 
 //override
 #include "code/override/supplyshuttle_override.dm"
 #include "code/override/vehicle_crew_override.dm"
+#include "code/override/ltb_try_fire.dm"
+#include "code/override/tank_weapons.dm"
+#include "code/override/vehicle_bump.dm"
 
 //humvee
 #include "code/humvee/humvee.dm"
@@ -60,13 +64,19 @@
 #include "code/humvee/humvee_transport.dm"
 #include "code/humvee/humvee_spawners.dm"
 #include "code/humvee/humvee_verbs.dm"
-#include "code/hardpoints/humvee_hardpoints.dm"
 
 //van
 #include "code/van/uscm_van.dm"
 #include "code/van/uscm_van_med.dm"
 #include "code/van/uscm_van_verbs.dm"
 #include "code/van/uscm_van_spawners.dm"
-#include "code/vehicle_bump.dm"
+
+//aev
+#include "code/aev/aev.dm"
+#include "code/aev/aev_spawners.dm"
+
+//tank
+#include "code/tank_command/tank.dm"
+#include "code/tank_command/tank_spawners.dm"
 
 #include "code/~undefs.dm"
