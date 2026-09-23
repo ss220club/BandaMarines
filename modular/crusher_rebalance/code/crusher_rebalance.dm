@@ -635,13 +635,21 @@
 			table_in_path.Crossed(xeno)
 
 	//Vehicle collision
-	else if(istype(target, /obj/vehicle/multitile))
-		handled = TRUE
-		var/obj/vehicle/multitile/vehicle_in_path = target
-		xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] врезается в [vehicle_in_path.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [vehicle_in_path.declent_ru(ACCUSATIVE)] и тормозим!"))
-		metal_pipe_random(vehicle_in_path)
-		vehicle_in_path.Collided(xeno)
-		first_obstacle_hit = TRUE
+	else if(istype(target, /obj/vehicle))
+		if(istype(target, /obj/vehicle/multitile))
+			handled = TRUE
+			var/obj/vehicle/multitile/vehicle_in_path = target
+			xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] врезается в [vehicle_in_path.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [vehicle_in_path.declent_ru(ACCUSATIVE)] и тормозим!"))
+			metal_pipe_random(vehicle_in_path)
+			vehicle_in_path.Collided(xeno)
+			first_obstacle_hit = TRUE
+		else if(istype(target, /obj/vehicle/motorbike))
+			handled = TRUE
+			var/obj/vehicle/motorbike/motorbike_in_path = target
+			xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] врезается в [motorbike_in_path.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [motorbike_in_path.declent_ru(ACCUSATIVE)] и тормозим!"))
+			metal_pipe_random(motorbike_in_path)
+			motorbike_in_path.take_damage(direct_hit_damage)
+			first_obstacle_hit = TRUE
 
 	// Anything else?
 	if(!handled && isobj(target))
@@ -701,7 +709,7 @@
 		var/turf/turf_for_obj = get_turf(object_in_path)
 		for(var/atom/movable/stuff_to_move in object_in_path.contents) stuff_to_move.forceMove(turf_for_obj)
 	playsound(object_in_path.loc, "punch", 25, 1)
-	qdel(object_in_path)
+	object_in_path.update_health(direct_hit_damage)
 
 /mob/living/carbon/xenomorph/launch_impact(atom/hit_atom) // wall bonk
 	if(HAS_TRAIT(src, TRAIT_CHARGING))
