@@ -20,7 +20,7 @@
 	. = ..()
 	shipwide_ai_announcement("Было успешно развернуто [mob_max] морпехов отряда «Фокстрот», из которых [length(members)] готовы к бою.")
 	if(mob_max > length(members))
-		announce_dchat("некоторые криомарины ещё свободны, используйте команду «Join As Freed Mob», чтобы занять одного из них.")
+		announce_dchat("некоторые криомарины ещё свободны, используйте команду «Join As Freed Mob» во кладке Ghost, чтобы занять одного из них.")
 
 /datum/emergency_call/cryo_squad/create_member(datum/mind/mind, turf/override_spawn_loc)
 	set waitfor = 0
@@ -82,6 +82,8 @@
 		to_chat(human, SPAN_ROLE_HEADER("You are a Rifleman in the USCM."))
 		to_chat(human, SPAN_ROLE_BODY("You are here to assist in the defence of [SSmapping.configs[GROUND_MAP].map_name]. Listen to the chain of command."))
 		to_chat(human, SPAN_BOLDWARNING("If you wish to cryo or ghost upon spawning in, you must ahelp and inform staff so you can be replaced."))
+
+	human.assigned_equipment_preset?.equip_spawn_lore(human)
 
 	sleep(10)
 	if(!mind)
