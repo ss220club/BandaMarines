@@ -709,7 +709,7 @@
 		var/turf/turf_for_obj = get_turf(object_in_path)
 		for(var/atom/movable/stuff_to_move in object_in_path.contents) stuff_to_move.forceMove(turf_for_obj)
 	playsound(object_in_path.loc, "punch", 25, 1)
-	object_in_path.update_health(direct_hit_damage)
+	object_in_path.update_health(direct_hit_damage * 2)
 
 /mob/living/carbon/xenomorph/launch_impact(atom/hit_atom) // wall bonk
 	if(HAS_TRAIT(src, TRAIT_CHARGING))
