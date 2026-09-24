@@ -627,7 +627,7 @@
 			var/obj/structure/fence/fence_in_path = target
 			if(!fence_in_path.cut)
 				fence_in_path.health -=  80 //Usually knocks it down.
-				fence_in_path.healthcheck(TRUE, TRUE, xeno)
+				fence_in_path.healthcheck(user = xeno)
 		//Table collision
 		else if(istype(target, /obj/structure/surface/table))
 			handled = TRUE
