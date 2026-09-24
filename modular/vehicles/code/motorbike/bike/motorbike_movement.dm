@@ -21,6 +21,15 @@
 	/// Запоминаем куда мы ДВИГАЛИСЬ вперед
 	var/forward_dir_saved = SOUTH
 
+	/// Активен ли кулдаун поворотов (когда обе руки заняты)
+	var/turn_cooldown = FALSE
+	/// Длительность кулдауна после совершённого поворота
+	var/turn_cooldown_time = 0.4 SECONDS
+	/// Разрешённое направление движения при активном кулдауне
+	var/allowed_dir = SOUTH
+	/// Модификатор скорости при движении по траве
+	var/weed_speed_mod = 1.5
+
 	// Система ускорения
 	var/current_speed_level = BIKE_SPEED_MIN
 	var/straight_move_timer = 0
@@ -70,15 +79,32 @@
 			reset_speed()
 		return ..()
 
+	update_speed() // скорость пересчитывается перед каждым движением
+
+	// Проверка двух рук – зависит от навыка
+	if(user.l_hand && user.r_hand)
+		if(can_drive_one_hand) // Есть навык – таймер на повороты
+			if(turn_cooldown)
+				// Кулдаун активен – можно двигаться только в allowed_dir
+				return ..(user, allowed_dir) // попытка поворота – игнорируем, едем прямо
+			else
+				// Кулдауна нет – проверяем, является ли нажатие поворотом
+				if(direction != forward_dir_saved) // Поворот
+					. = ..(user, direction)
+					turn_cooldown = TRUE
+					allowed_dir = direction   // запоминаем новое разрешённое направление
+					addtimer(CALLBACK(src, PROC_REF(reset_turn_cooldown)), turn_cooldown_time, TIMER_UNIQUE | TIMER_OVERRIDE)
+					return .
+				else
+					return ..(user, direction) // Движение прямо вперёд
+		else // Нет навыка – только прямо (исходное поведение)
+			return ..(user, forward_dir_saved)
+
 	if(!can_drive_one_hand && chance_lost_drive_control_when_one_hand >= 0)
 		// Проверка движения назад
 		var/back_dir = turn(dir, 180)
 		if(direction == back_dir)
 			reset_speed()
-
-		// Проверка рук
-		if(user.l_hand && user.r_hand)
-			return ..(user, forward_dir_saved)
 
 		// С одной рукой - имеешь шанс поменять направление во время дороги
 		if(user.l_hand || user.r_hand)
@@ -93,12 +119,15 @@
 				lost_drive_control_time_temp = 0
 				to_chat(user, SPAN_NOTICE("Вы восстановили управление!"))
 
-	// Движение вперед
+	/// Движение вперед
 	set_glide_size(DELAY_TO_GLIDE_SIZE(move_delay + 1))
 	. = ..()
 	if(.)
-		forward_dir = dir // Обновление направления движения при любом успешном перемещении
-		handle_acceleration() // Обновление ускорения после поворота
+		forward_dir = dir
+		handle_acceleration()
+
+/obj/vehicle/motorbike/proc/reset_turn_cooldown()
+	turn_cooldown = FALSE
 
 // ==========================================
 // ================ Скорость ================
@@ -113,6 +142,8 @@
 			move_delay = move_delay_maximum
 	if(!sidecar)
 		move_delay *= lightweight_speed_mod
+	if(locate(/obj/effect/alien/weeds) in loc)
+		move_delay *= weed_speed_mod
 
 /obj/vehicle/motorbike/proc/reset_speed()
 	straight_move_timer = 0
@@ -147,6 +178,7 @@
 	last_move_time = current_time
 
 	forward_dir_saved = forward_dir
+
 
 // ==========================================
 // ========== Движение с коляской ===========
