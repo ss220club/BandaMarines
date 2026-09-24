@@ -57,3 +57,16 @@
 /datum/action/xeno_action/activable/tumble/apply_replaces_in_desc()
 	replace_in_desc("%WEAKEN%", convert_effect_time(1, WEAKEN), DESCRIPTION_REPLACEMENT_TIME)
 	replace_in_desc("%DAMAGE%", 15) // Hardcoded
+
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/apply_replaces_in_desc()
+	. = ..()
+	desc = "Первая активация умения начинает заряжать рывок. Во время зарядки рывка увеличивается броня спереди (%ARMOR_CRUSH%) и накладывается сильное замедление.<br><br>После задержки (%WINDUP_DURATION%) умение можно применить повторно. Вы совершаете рывок на расстояние до %DASH_DISTANCE%, сбивая всё на своем пути. Рывок назад или вбок вдвое меньше. При прямом попадании наносит %DAMAGE_CRUSH% урона, опрокидывает цель (%KNOCKDOWN_TIME%) и отталкивает её на %THROW_DISTANCE%.\
+		<br><br>Попадания в ближнем бою ускоряют перезарядку на %COOLDOWN_REDUCTION% и %COOLDOWN_REDUCTION_AOE% дополнительно за каждое попадание по области."
+	replace_in_desc("%ARMOR_CRUSH%", frontal_armor)
+	replace_in_desc("%WINDUP_DURATION%", windup_duration/10, DESCRIPTION_REPLACEMENT_TIME)
+	replace_in_desc("%DASH_DISTANCE%", distance, DESCRIPTION_REPLACEMENT_DISTANCE)
+	replace_in_desc("%DAMAGE_CRUSH%", direct_hit_damage)
+	replace_in_desc("%KNOCKDOWN_TIME%", knockdown_duration, DESCRIPTION_REPLACEMENT_TIME)
+	replace_in_desc("%THROW_DISTANCE%", "1-2", DESCRIPTION_REPLACEMENT_DISTANCE) // Hardcoded
+	replace_in_desc("%COOLDOWN_REDUCTION%", 1.5, DESCRIPTION_REPLACEMENT_TIME) // Hardcoded
+	replace_in_desc("%COOLDOWN_REDUCTION_AOE%", 0.5, DESCRIPTION_REPLACEMENT_TIME) // Hardcoded
