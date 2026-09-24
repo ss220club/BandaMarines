@@ -123,6 +123,10 @@ SUBSYSTEM_DEF(tts220)
 		return SS_INIT_NO_NEED
 
 	load_replacements()
+	if(!CONFIG_GET(flag/tts_cache_enabled))
+		remove_tts_cache()
+	else
+		remove_tts_filters_cache()
 
 	return SS_INIT_SUCCESS
 
@@ -345,7 +349,7 @@ SUBSYSTEM_DEF(tts220)
 	rustutils_file_write_b64decode(voice, "[filename].ogg")
 
 	if(!CONFIG_GET(flag/tts_cache_enabled))
-		addtimer(CALLBACK(src, PROC_REF(cleanup_tts_file), "[filename].ogg"), FILE_CLEANUP_DELAY)
+		add_tts_file_to_cleanup("[filename].ogg")
 
 	for(var/datum/callback/cb in tts_queue[filename])
 		cb.InvokeAsync()
@@ -381,8 +385,6 @@ SUBSYSTEM_DEF(tts220)
 			break
 
 		filename_suffixes |= effect.suffix
-
-	sortTim(filename_suffixes, GLOBAL_PROC_REF(cmp_text_asc))
 
 	var/filename2play = "[pure_filename][filename_suffixes.Join()].ogg"
 
@@ -512,8 +514,12 @@ SUBSYSTEM_DEF(tts220)
 
 	tts_local_channels_by_owner -= owner
 
+/datum/controller/subsystem/tts220/proc/add_tts_file_to_cleanup(filename)
+	addtimer(CALLBACK(src, PROC_REF(cleanup_tts_file), filename), FILE_CLEANUP_DELAY)
+
 /datum/controller/subsystem/tts220/proc/cleanup_tts_file(filename)
-	fdel(filename)
+	if(fexists(filename))
+		fdel(filename)
 
 /datum/controller/subsystem/tts220/proc/get_available_seeds(owner)
 	var/list/_tts_seeds_names = list()
@@ -619,6 +625,37 @@ SUBSYSTEM_DEF(tts220)
 	src.cb = cb
 	if(length(effects))
 		src.effects |= effects
+
+/datum/controller/subsystem/tts220/proc/remove_tts_cache()
+	var/root = "data/tts_cache/"
+	var/list/cache_folders = flist(root)
+	if(!length(cache_folders))
+		return
+	for(var/cache_folder in cache_folders)
+		log_debug("TTS Cache - Deleting [root + cache_folder]")
+		fdel(root + cache_folder)
+		CHECK_TICK
+
+/datum/controller/subsystem/tts220/proc/remove_tts_filters_cache()
+	var/static/list/suffixes = list()
+	if(!length(suffixes))
+		for(var/datum/singleton/sound_effect/effect as anything in subtypesof(/datum/singleton/sound_effect))
+			if(!effect::suffix)
+				continue
+			suffixes.Add(effect::suffix)
+	var/root = "data/tts_cache/"
+	var/list/cache_folders = flist(root)
+	if(!length(cache_folders))
+		return
+	for(var/cache_folder in cache_folders)
+		var/list/cache_folder_content = flist(root + cache_folder)
+		for(var/cached_tts in cache_folder_content)
+			for(var/suffix in suffixes)
+				if(findtext_char(cached_tts, suffix))
+					log_debug("TTS Cache - Deleting [root + cache_folder + cached_tts]")
+					fdel(root + cache_folder + cached_tts)
+			CHECK_TICK
+
 
 #undef TTS_REPLACEMENTS_FILE_PATH
 #undef TTS_REPLACEMENTS_FALLBACK_FILE_PATH
