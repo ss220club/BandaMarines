@@ -1,7 +1,6 @@
 /datum/species/monkey/necoarc
 	name = "Necoarc"
 	name_plural = "Necoarc"
-	
 
 	icobase = 'modular/necoarc/icon/r_NecoArc.dmi'
 	deform = 'modular/necoarc/icon/r_NecoArc.dmi'
@@ -25,7 +24,7 @@
 	species_type_allowed_typecache = list(/datum/species/monkey/necoarc)
 	emote_type = EMOTE_AUDIBLE
 	audio_cooldown = 0.3 SECONDS
-	
+
 	var/category = ""
 	var/override_say = ""
 	var/no_panel = FALSE
