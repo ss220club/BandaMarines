@@ -1,5 +1,6 @@
 /mob/living
 	see_invisible = SEE_INVISIBLE_LIVING
+	rebounds = FALSE // SS220 EDIT - Living mobs use inelastic launch collisions.
 
 	//Health and life related vars
 	var/maxHealth = 100 //Maximum health that should be possible.
