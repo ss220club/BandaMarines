@@ -811,7 +811,7 @@
 		if("synthesis")
 			var/datum/chemical_reaction/reaction_generated = GLOB.chemical_reactions_list[chemical_to_generate.id]
 			// SS220 EDIT START - Prevent blank research contract papers when recipe generation fails.
-			if(!reaction_generated)
+			if(!reaction_generated && istype(chemical_to_generate, /datum/reagent/generated))
 				var/list/required_reagents = chemical_to_generate.reagent_recipe_hint ? list(chemical_to_generate.reagent_recipe_hint) : null
 				var/list/locked_reagents = chemical_to_generate.locked_reagent ? list(chemical_to_generate.locked_reagent) : null
 				reaction_generated = chemical_to_generate.generate_assoc_recipe(null, required_reagents, locked_reagents)
