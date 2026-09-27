@@ -1,4 +1,0 @@
-author: "666Evil666Child666"
-delete-after: True
-changes:
-  - bugfix: "Живые мобы теперь используют неупругие столкновения при запуске/броске."
