@@ -562,7 +562,7 @@
 
 	if(!QDELETED(AM.pulledby) && AM.pulledby != src)
 		var/mob/previous_puller = AM.pulledby
-		visible_message(SPAN_WARNING("[src] has broken [previous_puller]'s grip on [AM]!"), null, null, 5)
+		visible_message(SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] вырывает [AM.declent_ru(ACCUSATIVE)] из хватки [previous_puller.declent_ru(GENITIVE)]!"), null, null, 5)
 		previous_puller.stop_pulling()
 
 	pulling = AM
