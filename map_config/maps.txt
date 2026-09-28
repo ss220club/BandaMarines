@@ -90,4 +90,5 @@ map tyrargo_rift
 endmap
 
 map lv1021_falcons_fury
+	disabled
 endmap
