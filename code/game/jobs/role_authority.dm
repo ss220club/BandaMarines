@@ -144,7 +144,7 @@ I hope it's easier to tell what the heck this proc is even doing, unlike previou
 		if(!M.ready || M.job)
 			continue
 
-		if(M.client.admin_holder.rank == "Banda") //SS220 ADD
+		if(M.client?.admin_holder?.rank == "Banda") //SS220 ADD
 			unassigned_banda_players += M		  //SS220 ADD
 			continue							  //SS220 ADD
 		unassigned_players += M
