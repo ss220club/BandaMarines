@@ -1,8 +1,11 @@
-/obj/item/toy/plush/moth
+/obj/item/toy/moth
 	name = "moth plushie"
 	desc = "Плюшевая игрушка, изображающая очаровательного человека-мотылька. Милый пушистый жучок, которого так и хочется обнять!"
 	icon = 'icons/obj/items/toy.dmi'
 	icon_state = "moffplush"
+	w_class = SIZE_SMALL
+	COOLDOWN_DECLARE(last_hug_time)
+	var/register_attempted
 	var/moff_sound_list = list('modular/moff/sound/moth_moth_chitter.ogg', 'modular/moff/sound/moth_moth_death.ogg', 'modular/moff/sound/moth_moth_flutter.ogg', 'modular/moff/sound/moth_moth_laugh1.ogg', 'modular/moff/sound/moth_scream_moth.ogg')
 	var/moff_kill_list = list('sound/scp/firstpersonsnap.ogg', 'sound/scp/firstpersonsnap2.ogg', 'sound/scp/firstpersonsnap3.ogg')
 	var/moff_horror_list = list('sound/scp/scare1.ogg', 'sound/scp/scare2.ogg', 'sound/scp/scare3.ogg', 'sound/scp/scare4.ogg')
@@ -10,20 +13,20 @@
 	
 /datum/gear/toy/moth
 	display_name = "Moth plush"
-	path = /obj/item/toy/plush/moth
+	path = /obj/item/toy/moth
 	fluff_cost = 6
 
-/obj/item/toy/plush/moth/attack_self(mob/living/user)
+/obj/item/toy/moth/attack_self(mob/living/user)
 	if(!COOLDOWN_FINISHED(src, last_hug_time))
 		return
 	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] крепко обнимает [src.declent_ru(ACCUSATIVE)]!"), SPAN_NOTICE("Ты крепко обнимаешь [src.declent_ru(ACCUSATIVE)]."))
 	playsound(src, pick(moff_sound_list), 15, TRUE)
 	COOLDOWN_START(src, last_hug_time, 6 SECONDS)
 
-/obj/item/toy/plush/moth/strange
+/obj/item/toy/moth/strange
 	var/suicide_count = 0
 
-/obj/item/toy/plush/moth/strange/attack_self(mob/living/user)
+/obj/item/toy/moth/strange/attack_self(mob/living/user)
 	if(!COOLDOWN_FINISHED(src, last_hug_time))
 		return
 
@@ -60,8 +63,8 @@
 	user.visible_message(
 		SPAN_HIGHDANGER("[capitalize(user.declent_ru(NOMINATIVE))] крепко обнимает [src.declent_ru(ACCUSATIVE)] и та начинает пожирать [user.ru_p_them()]!")
 	)
-	playsound(src, pick(moff_kill_list), 130, TRUE)
-	playsound(src, pick(moff_horror_list), 130, TRUE)
+	playsound(src, pick(moff_kill_list), 100, TRUE)
+	playsound(src, pick(moff_horror_list), 100, TRUE)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/limb/L = H.get_limb("head")
