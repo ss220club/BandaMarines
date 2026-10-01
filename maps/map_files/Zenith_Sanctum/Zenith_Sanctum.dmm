@@ -165,9 +165,7 @@
 /area/lazarus/ground/river/central_river)
 "aaK" = (
 /obj/structure/barricade/handrail/wire,
-/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner{
-	dir = 1
-	},
+/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner/north,
 /area/lazarus/ground/river/central_river)
 "aaL" = (
 /obj/structure/prop/colorable_rock/colorable{
@@ -184,9 +182,7 @@
 /area/lazarus/ground/ancient_temple/east/surface)
 "aaM" = (
 /obj/structure/barricade/handrail/wire,
-/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner2{
-	dir = 4
-	},
+/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner2/east,
 /area/lazarus/ground/river/central_river)
 "aaN" = (
 /obj/structure/flora/grass/tallgrass/jungle_alt_2/corner{
@@ -2316,15 +2312,11 @@
 /area/lazarus/landing_zones/lz1)
 "agZ" = (
 /obj/structure/machinery/light/blue,
-/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner{
-	dir = 4
-	},
+/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner/east,
 /area/lazarus/power_plant/core)
 "aha" = (
 /obj/structure/machinery/light/blue,
-/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner{
-	dir = 8
-	},
+/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner/west,
 /area/lazarus/power_plant/core)
 "ahb" = (
 /obj/structure/fence/dark,
@@ -2339,9 +2331,7 @@
 	dir = 1;
 	pixel_y = 9
 	},
-/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner2{
-	dir = 4
-	},
+/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner2/east,
 /area/lazarus/ground/river/central_river)
 "ahd" = (
 /obj/structure/barricade/handrail/wire{
@@ -2391,9 +2381,7 @@
 	dir = 1;
 	pixel_y = 9
 	},
-/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner2{
-	dir = 1
-	},
+/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner2/north,
 /area/lazarus/ground/river/central_river)
 "ahl" = (
 /obj/structure/barricade/handrail/wire{
@@ -2401,9 +2389,7 @@
 	dir = 1;
 	pixel_y = 9
 	},
-/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner{
-	dir = 1
-	},
+/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner/north,
 /area/lazarus/ground/river/central_river)
 "ahm" = (
 /obj/structure/flora/jungle/vines/blue/light_3,
@@ -8105,9 +8091,7 @@
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/engineering)
 "avb" = (
-/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner2{
-	dir = 4
-	},
+/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner2/east,
 /area/lazarus/ground/river/central_river)
 "avc" = (
 /turf/open/gm/river/soro/no_overlay/weedable/catwalk/pipe,
@@ -8314,9 +8298,7 @@
 /area/lazarus/ground/river/central_river)
 "avL" = (
 /obj/structure/barricade/handrail/wire,
-/turf/open/gm/river/soro/no_overlay/weedable/catwalk/pipe{
-	dir = 1
-	},
+/turf/open/gm/river/soro/no_overlay/weedable/catwalk/pipe/north,
 /area/lazarus/ground/river/central_river)
 "avM" = (
 /obj/structure/barricade/handrail/wire,
@@ -8325,9 +8307,7 @@
 	layer = 2.9;
 	pixel_x = -1
 	},
-/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner{
-	dir = 8
-	},
+/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner/west,
 /area/lazarus/ground/river/central_river)
 "avN" = (
 /obj/effect/hunter/ancient_temple/deco_border{
@@ -19429,9 +19409,7 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/lazarus/power_plant/core)
 "baM" = (
-/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner{
-	dir = 8
-	},
+/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner/west,
 /area/lazarus/ground/river/central_river)
 "baN" = (
 /obj/structure/flora/jungle/vines/light_2,
@@ -28067,9 +28045,7 @@
 	layer = 2.9;
 	pixel_x = 1
 	},
-/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner{
-	dir = 1
-	},
+/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner/north,
 /area/lazarus/ground/river/central_river)
 "fvM" = (
 /obj/effect/decal/hybrisa/dirt,

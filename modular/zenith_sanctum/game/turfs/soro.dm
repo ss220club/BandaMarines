@@ -91,11 +91,38 @@
 /turf/open/gm/river/soro/no_overlay/weedable/catwalk/pipe
 	icon_state = "soro_pipe_catwalk"
 
+/turf/open/gm/river/soro/no_overlay/weedable/catwalk/pipe/north
+	dir = 1
+
+/turf/open/gm/river/soro/no_overlay/weedable/catwalk/pipe/east
+	dir = 4
+
+/turf/open/gm/river/soro/no_overlay/weedable/catwalk/pipe/west
+	dir = 8
+
 /turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner
 	icon_state = "soro_beachcorner_catwalk"
 
+/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner/north
+	dir = 1
+
+/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner/east
+	dir = 4
+
+/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner/west
+	dir = 8
+
 /turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner2
 	icon_state = "soro_beachcorner2_catwalk"
+
+/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner2/north
+	dir = 1
+
+/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner2/east
+	dir = 4
+
+/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner2/west
+	dir = 8
 
 /turf/open/gm/river/soro/no_overlay/weedable/catwalk/sand
 	icon_state = "sand_catwalk"
