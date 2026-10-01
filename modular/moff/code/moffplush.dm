@@ -22,6 +22,7 @@
 	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] крепко обнимает [src.declent_ru(ACCUSATIVE)]!"), SPAN_NOTICE("Ты крепко обнимаешь [src.declent_ru(ACCUSATIVE)]."))
 	playsound(src, pick(moff_sound_list), 15, TRUE)
 	COOLDOWN_START(src, last_hug_time, 6 SECONDS)
+	..()
 
 /obj/item/toy/moth/strange
 	var/suicide_count = 0
@@ -73,3 +74,4 @@
 	user.death(cause_data)
 
 	COOLDOWN_START(src, last_hug_time, 2.5 SECONDS)
+	..()
