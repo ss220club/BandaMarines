@@ -274,6 +274,27 @@
 	icon = 'modular/zenith_sanctum/icons/turf/floors/interior.dmi'
 	icon_state = "sun_emblem"
 
+/turf/open/floor/interior/sun_emblem/north
+	dir = 1
+
+/turf/open/floor/interior/sun_emblem/north_west
+	dir = 4
+
+/turf/open/floor/interior/sun_emblem/east
+	dir = 8
+
+/turf/open/floor/interior/sun_emblem/west
+	dir = 6
+
+/turf/open/floor/interior/sun_emblem/south_east
+	dir = 10
+
+/turf/open/floor/interior/sun_emblem/south
+	dir = 5
+
+/turf/open/floor/interior/sun_emblem/south_west
+	dir = 9
+
 /turf/open/floor/interior/sun_emblem/center
 	name = "Sun Emblem"
 	desc = "Here sits a golden emblem of the sun, meant to praise the sky in it's benevolence."

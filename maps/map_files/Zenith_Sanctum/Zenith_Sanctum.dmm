@@ -21210,9 +21210,7 @@
 "bTS" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/interior/sun_emblem{
-	dir = 10
-	},
+/turf/open/floor/interior/sun_emblem/south_east,
 /area/lazarus/main_hall)
 "bUd" = (
 /obj/item/stack/cable_coil/random,
@@ -21809,9 +21807,7 @@
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/landmark/good_item,
-/turf/open/floor/interior/sun_emblem{
-	dir = 5
-	},
+/turf/open/floor/interior/sun_emblem/south,
 /area/lazarus/main_hall)
 "ckX" = (
 /obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_4,
@@ -28084,9 +28080,7 @@
 "fwq" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/interior/sun_emblem{
-	dir = 8
-	},
+/turf/open/floor/interior/sun_emblem/east,
 /area/lazarus/main_hall)
 "fww" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble_6{
@@ -33639,9 +33633,7 @@
 	pixel_y = 1
 	},
 /obj/effect/decal/cleanable/blood/gibs,
-/turf/open/floor/interior/sun_emblem{
-	dir = 6
-	},
+/turf/open/floor/interior/sun_emblem/west,
 /area/lazarus/main_hall)
 "ipN" = (
 /obj/effect/decal/hybrisa/dirt,
@@ -33649,9 +33641,7 @@
 	pixel_x = 5;
 	pixel_y = 16
 	},
-/turf/open/floor/interior/sun_emblem{
-	dir = 9
-	},
+/turf/open/floor/interior/sun_emblem/south_west,
 /area/lazarus/main_hall)
 "ipZ" = (
 /obj/structure/platform/stone/ancient_temple/west,
@@ -59643,9 +59633,7 @@
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_y = 17
 	},
-/turf/open/floor/interior/sun_emblem{
-	dir = 1
-	},
+/turf/open/floor/interior/sun_emblem/north,
 /area/lazarus/main_hall)
 "vIR" = (
 /obj/structure/platform/metal/strata/alt/west,
@@ -60018,9 +60006,7 @@
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/landmark/corpsespawner/colonist/random,
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/interior/sun_emblem{
-	dir = 4
-	},
+/turf/open/floor/interior/sun_emblem/north_west,
 /area/lazarus/main_hall)
 "vSH" = (
 /obj/structure/barricade/handrail/wire{
