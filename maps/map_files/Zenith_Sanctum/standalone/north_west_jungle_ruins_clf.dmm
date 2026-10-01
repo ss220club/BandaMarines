@@ -4169,7 +4169,8 @@
 /obj/item/trash/cigbutt,
 /obj/item/paper/lazarus/clf{
 	pixel_x = -11;
-	pixel_y = 4
+	pixel_y = 4;
+	icon_state = "paper_stack_words"
 	},
 /obj/item/book/codebook/clf{
 	pixel_x = -1;
