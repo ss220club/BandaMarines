@@ -106,6 +106,38 @@ GLOBAL_LIST_EMPTY(ru_names)
 	else
 		gender = src::gender
 
+/// Send ONLY strings/names!
+/proc/ru_names_multiple(base, ...)
+	if(length(args) < 2)
+		CRASH("Need to send multiple args!")
+	for(var/arg in args)
+		if(isdatum(arg))
+			CRASH("Detected a non-typed argument!")
+	var/list/words_to_declent = args.Copy(2)
+	var/list/temp_ru_names =  list(
+		"base" = base,
+		NOMINATIVE = "",
+		GENITIVE = "",
+		DATIVE = "",
+		ACCUSATIVE = "",
+		INSTRUMENTAL = "",
+		PREPOSITIONAL = "",
+		"gender" = NEUTER,
+	)
+	for(var/word in words_to_declent)
+		var/list/word_to_declent_ru_names = list()
+		word_to_declent_ru_names = ru_names_toml(word)
+		temp_ru_names[NOMINATIVE] += "[word_to_declent_ru_names[NOMINATIVE] || word]"
+		temp_ru_names[GENITIVE] += "[word_to_declent_ru_names[GENITIVE] || word]"
+		temp_ru_names[DATIVE] += "[word_to_declent_ru_names[DATIVE] || word]"
+		temp_ru_names[ACCUSATIVE] += "[word_to_declent_ru_names[ACCUSATIVE] || word]"
+		temp_ru_names[INSTRUMENTAL] += "[word_to_declent_ru_names[INSTRUMENTAL] || word]"
+		temp_ru_names[PREPOSITIONAL] += "[word_to_declent_ru_names[PREPOSITIONAL] || word]"
+		if(word_to_declent_ru_names["gender"])
+			temp_ru_names["gender"] = word_to_declent_ru_names["gender"]
+	return temp_ru_names
+
+
 /**
 * Процедура выбора правильного падежа для любого предмета, если у него указан словарь «ru_names», примерно такой:
 * RU_NAMES_LIST_INIT("jaws of life", "челюсти жизни", "челюстей жизни", "челюстям жизни", "челюсти жизни", "челюстями жизни", "челюстях жизни")

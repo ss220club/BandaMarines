@@ -40,7 +40,6 @@
 	icon_state = "back_1"
 	dir = WEST
 
-
 // Med-Van interior
 /obj/structure/interior_wall/uscm_van/med
 	name = "van interior wall"
@@ -75,7 +74,6 @@
 	icon = 'icons/obj/vehicles/interiors/pizza_van_interior.dmi'
 	icon_state = "back_1"
 	dir = WEST
-
 
 // Humvee interior
 /obj/structure/interior_exit/vehicle/humvee
@@ -120,7 +118,6 @@
 
 /obj/structure/prop/vehicle/humvee
 	name = "Humvee chassis"
-
 	icon = 'modular/vehicles/icons/humvee/humvee_chassis.dmi'
 	icon_state = "humvee_chassis"
 	layer = ABOVE_TURF_LAYER
@@ -136,7 +133,6 @@
 
 /obj/structure/prop/vehicle/humvee/apc
 	icon_state = "humvee_chassis"
-
 
 /obj/effect/landmark/interior/spawn/vehicle_gunner_seat/humvee
 	icon = 'modular/vehicles/icons/humvee/general_humvee.dmi'
@@ -155,7 +151,6 @@
 	S.pixel_y = pixel_y
 
 	qdel(src)
-
 
 /obj/effect/landmark/interior/spawn/vehicle_driver_seat/armor/humvee
 	icon = 'modular/vehicles/icons/humvee/general_humvee.dmi'
@@ -177,7 +172,6 @@
 
 	qdel(src)
 
-
 /obj/effect/landmark/interior/spawn/weapons_loader/humvee
 	icon = 'modular/vehicles/icons/humvee/general_humvee.dmi'
 	icon_state = "weapons_loader"
@@ -194,7 +188,6 @@
 
 	qdel(src)
 
-
 /obj/effect/landmark/interior/spawn/interior_viewport/humvee
 	icon = 'modular/vehicles/icons/humvee/general_humvee.dmi'
 	icon_state = "viewport_door"
@@ -208,4 +201,45 @@
 	viewport.icon = icon
 	viewport.icon_state = icon_state
 	viewport.layer = layer
+	qdel(src)
+
+//tank command
+/obj/effect/landmark/interior/spawn/vehicle_commander_seat/armor
+	name = "armor commander's seat spawner"
+	icon = 'icons/obj/vehicles/interiors/general.dmi'
+	icon_state = "armor_chair"
+	color = "yellow"
+
+/obj/effect/landmark/interior/spawn/vehicle_commander_seat/armor/on_load(datum/interior/I)
+	var/obj/structure/bed/chair/comfy/vehicle/commander/S = new(loc)
+
+	S.icon = icon
+	S.icon_state = icon_state
+	S.vehicle = I.exterior
+	S.required_skill = S.vehicle.required_skill
+	S.setDir(dir)
+	S.update_icon()
+	S.alpha = alpha
+	S.handle_rotation()
+	S.pixel_x = pixel_x
+	S.pixel_y = pixel_y
+
+	qdel(src)
+
+/obj/effect/landmark/interior/spawn/interior_viewport/terminal/tank_commander
+	name = "Tank-commander viewport console spawner"
+	layer = BELOW_MOB_LAYER
+
+/obj/effect/landmark/interior/spawn/interior_viewport/terminal/tank_commander/on_load(datum/interior/I)
+	var/obj/structure/interior_viewport/terminal/tank/V = new(loc)
+
+	V.dir = dir
+	V.vehicle = I.exterior
+	V.pixel_x = pixel_x
+	V.pixel_y = pixel_y
+	V.layer = layer
+	V.alpha = alpha
+	V.layer = layer
+	V.update_icon()
+
 	qdel(src)

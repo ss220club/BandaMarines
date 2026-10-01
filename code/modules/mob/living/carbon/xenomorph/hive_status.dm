@@ -9,6 +9,7 @@
 
 	var/hivenumber = XENO_HIVE_NORMAL
 	var/mob/living/carbon/xenomorph/queen/living_xeno_queen
+	var/mob/living/carbon/xenomorph/king/living_xeno_king
 	var/egg_planting_range = 15
 
 	/// Toggles for the hive that are reset on queen death unless hive_flags_locked
@@ -1675,6 +1676,7 @@
 		return
 	xeno.visible_message(SPAN_XENOWARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] вырывает [xeno.iff_tag.declent_ru(ACCUSATIVE)]!"), SPAN_XENOWARNING("Мы вырываем из своего тела [xeno.iff_tag]! Во имя улья!")) // SS220 EDIT ADDICTION
 	xeno.adjustBruteLoss(50)
+	xeno.updatehealth()
 	xeno.iff_tag.forceMove(get_turf(xeno))
 	xeno.iff_tag = null
 
@@ -1688,6 +1690,7 @@
 			continue
 		xeno.visible_message(SPAN_XENOWARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] вырывает [xeno.iff_tag.declent_ru(ACCUSATIVE)]!"), SPAN_XENOWARNING("Мы вырываем из своего тела [xeno.iff_tag]! Во имя улья!")) // SS220 EDIT ADDICTION
 		xeno.adjustBruteLoss(50)
+		xeno.updatehealth()
 		xeno.iff_tag.forceMove(get_turf(xeno))
 		xeno.iff_tag = null
 	if(!length(defectors))
