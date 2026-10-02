@@ -32,8 +32,6 @@
 	var/list/output = world.shelleo(command)
 
 	var/errorlevel = output[SHELLEO_ERRORLEVEL]
-	var/stdout = output[SHELLEO_STDOUT]
-	var/stderr = output[SHELLEO_STDERR]
 	if(errorlevel)
 		var/effect_types = effects.Join("; ")
 		log_runtime("Error: apply_sound_effects([effect_types], [filename_input], [filename_output]) - See debug logs.")
