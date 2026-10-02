@@ -60,10 +60,10 @@
 		add_fingerprint(user)
 		src.disable = !src.disable
 		if (src.disable)
-			user.visible_message(SPAN_DANGER("[user] has disabled [src]!"), SPAN_DANGER("You disable the connection to [src]."))
+			user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] has disabled [src]!"), SPAN_DANGER("You disable the connection to [src]."))
 			icon_state = "[base_state]-d"
 		if (!src.disable)
-			user.visible_message(SPAN_DANGER("[user] has reconnected [src]!"), SPAN_DANGER("You fix the connection to [src]."))
+			user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] has reconnected [src]!"), SPAN_DANGER("You fix the connection to [src]."))
 			if(src.powered())
 				icon_state = "[base_state]"
 			else

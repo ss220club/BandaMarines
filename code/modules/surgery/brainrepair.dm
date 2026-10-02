@@ -47,8 +47,8 @@
 /datum/surgery_step/remove_bone_chips/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
 	user.affected_message(target,
 		SPAN_NOTICE("You begin picking chips of bone out of [target]'s skull with [tool]."),
-		SPAN_NOTICE("[user] begins picking chips of bone out of your skull with [tool]."),
-		SPAN_NOTICE("[user] begins picking chips of bone out of [target]'s skull with [tool]."))
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins picking chips of bone out of your skull with [tool]."),
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins picking chips of bone out of [target]'s skull with [tool]."))
 
 	target.custom_pain("You feel [user] picking around your brain. It does not hurt, but it feels alarming: like something that should never be touched!", 1)
 	log_interact(user, target, "[key_name(user)] started taking bone chips out of [key_name(target)]'s skull with [tool], possibly beginning [surgery].")
@@ -71,8 +71,8 @@
 			SPAN_NOTICE("[user] finishes extracting fragments of bone that were piercing [target]'s' auditory cortex."))
 	user.affected_message(target,
 		SPAN_NOTICE("You finish extracting sharp pieces of bone that were piercing [target]'s brain."),
-		SPAN_NOTICE("[user] finishes extracting sharp pieces of bone that were piercing your brain."),
-		SPAN_NOTICE("[user] finishes extracting sharp pieces of bone that were piercing [target]'s brain."))
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] finishes extracting sharp pieces of bone that were piercing your brain."),
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] finishes extracting sharp pieces of bone that were piercing [target]'s brain."))
 
 	user.count_niche_stat(STATISTICS_NICHE_SURGERY_BRAIN)
 
@@ -131,8 +131,8 @@
 /datum/surgery_step/treat_hematoma/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
 	user.affected_message(target,
 		SPAN_NOTICE("You begin mending the hematoma in [target]'s brain with [tool]."),
-		SPAN_NOTICE("[user] begins to mend the hematoma in your brain with [tool]."),
-		SPAN_NOTICE("[user] begins to mend the hematoma in [target]'s brain with [tool]."))
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins to mend the hematoma in your brain with [tool]."),
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins to mend the hematoma in [target]'s brain with [tool]."))
 
 	target.custom_pain("You can feel [user] messing around with the swelling in your brain, making it pulse painfully!", 1)
 	log_interact(user, target, "[key_name(user)] started mending a hematoma in [key_name(target)]'s brain with [tool].")
@@ -140,8 +140,8 @@
 /datum/surgery_step/treat_hematoma/success(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
 	user.affected_message(target,
 		SPAN_NOTICE("You finish mending the hematoma in [target]'s brain."),
-		SPAN_NOTICE("[user] finishes mending the hematoma in your brain."),
-		SPAN_NOTICE("[user] finishes mending the hematoma in [target]'s brain."))
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] finishes mending the hematoma in your brain."),
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] finishes mending the hematoma in [target]'s brain."))
 
 	log_interact(user, target, "[key_name(user)] finished mending a hematoma in [key_name(target)]'s brain with [tool], beginning [surgery].")
 

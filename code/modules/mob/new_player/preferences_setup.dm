@@ -193,6 +193,7 @@
 	var/J = job_pref_to_gear_preset()
 	if(isnull(preview_dummy))
 		preview_dummy = new()
+		RegisterSignal(preview_dummy, COMSIG_PARENT_QDELETING, PROC_REF(clear_xeno_dummy)) // BANDAMARINES EDIT
 
 	clear_equipment()
 	if(refresh_limb_status)

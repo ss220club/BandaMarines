@@ -1,0 +1,152 @@
+/obj/structure/machinery/cm_vending/gear/vehicle_crew
+	var/list/last_display_list
+
+// Анонсы
+/obj/structure/machinery/cm_vending/gear/vehicle_crew/populate_products(datum/source, obj/effect/vehicle_spawner/spawner)
+
+	selected_vehicle = spawner.category
+	switch(selected_vehicle)
+		if("APC")
+			marine_announcement("В поддержку наземных сил операции вам будет предоставлен БТР.")
+		if("ARC")
+			marine_announcement("В поддержку наземных сил операции вам будет предоставлен БРМ.")
+		if("VAN")
+			marine_announcement("В поддержку наземных сил операции вам будет предоставлен Грузовик.")
+		if("HWC")
+			marine_announcement("В поддержку наземных сил операции вам будет предоставлен Бронеавтомобиль.")
+		if("TANK")
+			available_categories &= ~(VEHICLE_INTEGRAL_AVAILABLE)
+			marine_announcement("В поддержку наземных сил операции вам будет предоставлен Танк.")
+		if("AEV")
+			available_categories &= ~(VEHICLE_INTEGRAL_AVAILABLE)
+			marine_announcement("В поддержку наземных сил операции вам будет предоставлен ИМР.")
+		else
+			if(!selected_vehicle)
+				selected_vehicle = "TANK"
+				available_categories &= ~(VEHICLE_INTEGRAL_AVAILABLE)
+				marine_announcement("В поддержку наземных сил операции вам будет предоставлен танк.")
+
+// Вендор снаряжения техники
+/obj/structure/machinery/cm_vending/gear/vehicle_crew/get_listed_products(mob/user)
+	var/list/display_list = list()
+
+	if(!user)
+		display_list += GLOB.cm_vending_vehicle_crew_tank_modul
+		display_list += GLOB.cm_vending_vehicle_crew_apc_modul
+		display_list += GLOB.cm_vending_vehicle_crew_humvee_modul
+		return display_list
+
+	switch(selected_vehicle)
+		if("TANK")
+			if(available_categories)
+				last_display_list = GLOB.cm_vending_vehicle_crew_tank_modul
+		if("APC")
+			if(available_categories)
+				last_display_list = GLOB.cm_vending_vehicle_crew_apc_modul
+		if("HWC")
+			if(available_categories)
+				last_display_list = GLOB.cm_vending_vehicle_crew_humvee_modul
+		if("AEV")
+			if(available_categories)
+				last_display_list = GLOB.cm_vending_vehicle_crew_aev_modul
+
+	if(last_display_list)
+		return last_display_list
+
+	return display_list
+
+// Листы снаряжения
+var/list/cm_vending_vehicle_crew_humvee
+
+// Танк
+GLOBAL_LIST_INIT(cm_vending_vehicle_crew_tank_modul, list(
+	list("ВЫБОР СТАРТОВОГО НАБОРА:", 0, null, null, null),
+
+	list("ОСНОВНЫЕ ЧАСТИ", 0, null, null, null),
+	list("Заряды для башенных дымовых гранатометов", 0, /obj/effect/essentials_set/tank/turret_smoke, VEHICLE_INTEGRAL_AVAILABLE, VENDOR_ITEM_MANDATORY),
+
+	list("ОСНОВНОЕ ВООРУЖЕНИЕ", 0, null, null, null),
+	list("Пушка LTB 86мм", 0, /obj/effect/essentials_set/tank/ltb, VEHICLE_PRIMARY_AVAILABLE, VENDOR_ITEM_RECOMMENDED),
+	list("Автопушка AC3-E", 0, /obj/effect/essentials_set/tank/autocannon, VEHICLE_PRIMARY_AVAILABLE, VENDOR_ITEM_REGULAR),
+	list("Наступательный огнемет DRG-N", 0, /obj/effect/essentials_set/tank/dragonflamer, VEHICLE_PRIMARY_AVAILABLE, VENDOR_ITEM_REGULAR),
+	list("Миниган LTAA-AP", 0, /obj/effect/essentials_set/tank/gatling, VEHICLE_PRIMARY_AVAILABLE, VENDOR_ITEM_REGULAR),
+
+	list("ВТОРИЧНОЕ ВООРУЖЕНИЕ", 0, null, null, null),
+	list("Гранатомет M92T", 0, /obj/effect/essentials_set/tank/tankgl, VEHICLE_SECONDARY_AVAILABLE, VENDOR_ITEM_REGULAR),
+	list("Пулемет M56 Cupola", 0, /obj/effect/essentials_set/tank/m56cupola, VEHICLE_SECONDARY_AVAILABLE, VENDOR_ITEM_REGULAR),
+	list("Огнемет LZR-N", 0, /obj/effect/essentials_set/tank/tankflamer, VEHICLE_SECONDARY_AVAILABLE, VENDOR_ITEM_RECOMMENDED),
+
+	list("МОДУЛЬ ПОДДЕРЖКИ", 0, null, null, null),
+	list("Артиллерийский модуль", 0, /obj/item/hardpoint/support/artillery_module, VEHICLE_SUPPORT_AVAILABLE, VENDOR_ITEM_REGULAR),
+	list("Интегрированный сенсорный массив оружия", 0, /obj/item/hardpoint/support/weapons_sensor, VEHICLE_SUPPORT_AVAILABLE, VENDOR_ITEM_REGULAR),
+	list("Усилитель форсажа", 0, /obj/item/hardpoint/support/overdrive_enhancer, VEHICLE_SUPPORT_AVAILABLE, VENDOR_ITEM_RECOMMENDED),
+
+	list("БРОНЯ", 0, null, null, null),
+//	list("Инженерный отвал", 0, /obj/item/hardpoint/armor/snowplow, VEHICLE_ARMOR_AVAILABLE, VENDOR_ITEM_REGULAR),
+	list("Противозрывная защита", 0, /obj/item/hardpoint/armor/paladin, VEHICLE_ARMOR_AVAILABLE, VENDOR_ITEM_REGULAR),
+	list("Химическая защита", 0, /obj/item/hardpoint/armor/caustic, VEHICLE_ARMOR_AVAILABLE, VENDOR_ITEM_REGULAR),
+	list("Защита с амортизацией ударов", 0, /obj/item/hardpoint/armor/concussive, VEHICLE_ARMOR_AVAILABLE, VENDOR_ITEM_REGULAR),
+	list("Баллистическая защита", 0, /obj/item/hardpoint/armor/ballistic, VEHICLE_ARMOR_AVAILABLE, VENDOR_ITEM_REGULAR),
+
+	list("ГУСЕНИЦЫ", 0, null, null, null),
+	list("Усиленные гусеницы", 0, /obj/item/hardpoint/locomotion/treads/robust, VEHICLE_TREADS_AVAILABLE, VENDOR_ITEM_REGULAR),
+	list("Гусеницы", 0, /obj/item/hardpoint/locomotion/treads, VEHICLE_TREADS_AVAILABLE, VENDOR_ITEM_REGULAR)))
+
+//aev
+GLOBAL_LIST_INIT(cm_vending_vehicle_crew_aev_modul, list(
+	list("ВЫБОР СТАРТОВОГО НАБОРА:", 0, null, null, null),
+
+	list("ОСНОВНЫЕ ЧАСТИ", 0, null, null, null),
+	list("Инженерный отвал", 0, /obj/item/hardpoint/armor/snowplow, VEHICLE_ARMOR_AVAILABLE, VENDOR_ITEM_REGULAR),
+
+	list("ОСНОВНОЕ ВООРУЖЕНИЕ", 0, null, null, null),
+	list("Гранатомет M92T", 0, /obj/effect/essentials_set/tank/tankgl, VEHICLE_PRIMARY_AVAILABLE, VENDOR_ITEM_REGULAR),
+	list("Пулемет M56 Cupola PWC", 0, /obj/effect/essentials_set/aev/m56_cupola, VEHICLE_PRIMARY_AVAILABLE, VENDOR_ITEM_RECOMMENDED),
+	list("Огнемет LZR-N", 0, /obj/effect/essentials_set/tank/tankflamer, VEHICLE_PRIMARY_AVAILABLE, VENDOR_ITEM_REGULAR),
+
+	list("ВТОРИЧНОЕ ВООРУЖЕНИЕ", 0, null, null, null),
+	list("Гранатометный модуль M-39Q", 0, /obj/effect/essentials_set/aev/smoke_launcher, VEHICLE_SECONDARY_AVAILABLE, VENDOR_ITEM_REGULAR),
+
+	list("МОДУЛЬ ПОДДЕРЖКИ", 0, null, null, null),
+	list("Интегрированный сенсорный массив оружия", 0, /obj/item/hardpoint/support/weapons_sensor, VEHICLE_SUPPORT_AVAILABLE, VENDOR_ITEM_REGULAR),
+	list("Усилитель форсажа", 0, /obj/item/hardpoint/support/overdrive_enhancer, VEHICLE_SUPPORT_AVAILABLE, VENDOR_ITEM_RECOMMENDED),
+
+	list("ГУСЕНИЦЫ", 0, null, null, null),
+	list("Усиленные гусеницы", 0, /obj/item/hardpoint/locomotion/treads/robust, VEHICLE_TREADS_AVAILABLE, VENDOR_ITEM_REGULAR),
+	list("Гусеницы", 0, /obj/item/hardpoint/locomotion/treads, VEHICLE_TREADS_AVAILABLE, VENDOR_ITEM_REGULAR)))
+
+// БТР
+GLOBAL_LIST_INIT(cm_vending_vehicle_crew_apc_modul, list(
+	list("ВЫБОР СТАРТОВОГО НАБОРА:", 0, null, null, null),
+
+	list("ОСНОВНОЕ ВООРУЖЕНИЕ", 0, null, null, null),
+	list("Сдвоенная пушка PARS-159 Боярин", 0, /obj/effect/essentials_set/apc/dualcannon, VEHICLE_PRIMARY_AVAILABLE, VENDOR_ITEM_MANDATORY),
+
+	list("ВТОРИЧНОЕ ВООРУЖЕНИЕ", 0, null, null, null),
+	list("Фронтальная пушка RE-RE700", 0, /obj/effect/essentials_set/apc/frontalcannon, VEHICLE_SECONDARY_AVAILABLE, VENDOR_ITEM_MANDATORY),
+
+	list("МОДУЛЬ ПОДДЕРЖКИ", 0, null, null, null),
+	list("Сигнальная ракетница M-97F", 0, /obj/effect/essentials_set/apc/flarelauncher, VEHICLE_SUPPORT_AVAILABLE, VENDOR_ITEM_MANDATORY),
+
+	list("КОЛЕСА", 0, null, null, null),
+	list("Колеса БТР", 0, /obj/item/hardpoint/locomotion/apc_wheels, VEHICLE_TREADS_AVAILABLE, VENDOR_ITEM_MANDATORY)))
+
+// Хамви с пушкой
+GLOBAL_LIST_INIT(cm_vending_vehicle_crew_humvee_modul, list(
+	list("ВЫБОР СТАРТОВОГО НАБОРА:", 0, null, null, null),
+
+	list("ОСНОВНОЕ ВООРУЖЕНИЕ", 0, null, null, null),
+	list("Автопушка M24-RC1", 0, /obj/effect/essentials_set/humvee/autocannon, VEHICLE_PRIMARY_AVAILABLE, VENDOR_ITEM_MANDATORY),
+
+	list("ВТОРИЧНОЕ ВООРУЖЕНИЕ", 0, null, null, null),
+	list("Сигнальная ракетница M-77F", 0, /obj/effect/essentials_set/humvee/humvee_flare_launcher, VEHICLE_SECONDARY_AVAILABLE, VENDOR_ITEM_MANDATORY),
+//	list("M24-RC1 Thermobaric Launcher", 0, /obj/effect/essentials_set/humvee/humvee_launcher, VEHICLE_SECONDARY_AVAILABLE, VENDOR_ITEM_MANDATORY),
+
+	list("МОДУЛЬ ПОДДЕРЖКИ", 0, null, null, null),
+	list("Навесные прожекторы JTMV", 0, /obj/item/hardpoint/support/humvee_overhead_lights, VEHICLE_SUPPORT_AVAILABLE, VENDOR_ITEM_MANDATORY),
+
+	list("БРОНЯ", 0, null, null, null),
+	list("Инженерный отвал", 0, /obj/item/hardpoint/armor/humvee_snowplow, VEHICLE_ARMOR_AVAILABLE, VENDOR_ITEM_MANDATORY),
+
+	list("КОЛЕСА", 0, null, null, null),
+	list("Колеса M24-JTMV", 0, /obj/item/hardpoint/locomotion/humvee_wheels, VEHICLE_TREADS_AVAILABLE, VENDOR_ITEM_MANDATORY)))

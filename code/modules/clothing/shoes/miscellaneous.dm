@@ -172,7 +172,7 @@
 
 /obj/item/clothing/shoes/footwrap_sandals
 	name = "foot wrapped sandals"
-	desc = "typical soldier footwear worn during old ancient times."
+	desc = "Типичная солдатская обувь, которую носили в древние времена." //SS220 EDIT
 	icon_state = "footwrap_sandals"
 	item_state = "footwrap_sandals"
 	item_icons = list(

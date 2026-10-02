@@ -128,7 +128,7 @@
 							SPAN_NOTICE("You wave the light in front of your eyes! Wow, that's trippy!"))
 			return
 
-		user.visible_message(SPAN_NOTICE("[user] directs [src] to [assestment_target]'s eyes."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] directs [src] to [assestment_target]'s eyes."),
 							SPAN_NOTICE("You direct [src] to [assestment_target]'s eyes."))
 
 		if(ishuman_strict(assestment_target)) //robots and aliens are unaffected
@@ -225,7 +225,7 @@
 				else
 
 					reaction = "don't really know what you are looking for, you don't know anything about medicine"
-			user.visible_message("[user] directs [src] to [assestment_target]'s eyes.", "You point [src] to [assestment_target.p_their()] eyes to begin analysing them further and... you [reaction].")
+			user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] directs [src] to [assestment_target]'s eyes.", "You point [src] to [assestment_target.p_their()] eyes to begin analysing them further and... you [reaction].")
 			COOLDOWN_START(user, penlight_assesment_cooldown, 10 SECONDS)
 			log_interact(user, assestment_target, "[key_name(user)] eye assessed [key_name(assestment_target)] with a [name] at [get_area_name(user.loc)] ([user.loc.x], [user.loc.y], [user.loc.z])")
 	return ..()
@@ -454,7 +454,7 @@
 		if(!on)
 			return
 		var/hand = user.hand ? "l_hand" : "r_hand"
-		user.visible_message(SPAN_WARNING("[user] snuffs out [src]."),
+		user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] snuffs out [src]."),
 		SPAN_WARNING("You snuff out [src], singing your hand."))
 		user.apply_damage(7, BURN, hand)
 		burn_out()
@@ -464,7 +464,7 @@
 	. = ..()
 	// All good, turn it on.
 	if(.)
-		user.visible_message(SPAN_NOTICE("[user] activates the flare."), SPAN_NOTICE("You pull the cord on the flare, activating it!"))
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] activates the flare."), SPAN_NOTICE("You pull the cord on the flare, activating it!"))
 		playsound(src,'sound/handling/flare_activate_2.ogg', 50, 1) //cool guy sound
 		turn_on()
 		var/mob/living/carbon/enjoyer = user
@@ -585,7 +585,7 @@
 	name = "lantern"
 	icon_state = "lantern"
 	item_state = ""
-	desc = "A mining lantern."
+	desc = "Шахтерский фонарь." //SS220 EDIT
 	light_range = 6 // luminosity when on
 	light_color = "#d69c46"
 

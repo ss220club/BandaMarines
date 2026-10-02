@@ -173,7 +173,7 @@
 		if(accessory.high_visibility)
 			ties += "\a [accessory.get_examine_line(user)]"
 	if(length(ties))
-		.+= " with [english_list(ties)] attached"
+		.+= " с [english_list(ties)]" // SS220 EDIT ADDICTION
 	if(LAZYLEN(accessories) > length(ties))
 		.+= ". <a href='byond://?src=\ref[src];list_acc=1'>\[See accessories\]</a>"
 

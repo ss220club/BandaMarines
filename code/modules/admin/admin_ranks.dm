@@ -3,6 +3,7 @@ GLOBAL_LIST_EMPTY(admin_ranks) //list of all ranks with associated rights
 //load our rank - > rights associations
 /proc/load_admin_ranks()
 	GLOB.admin_ranks.Cut()
+	var/previous_rights = NONE // SS220 EDIT
 
 	//load text from file
 	var/list/Lines = file2list("config/admin_ranks.txt")
@@ -25,7 +26,11 @@ GLOBAL_LIST_EMPTY(admin_ranks) //list of all ranks with associated rights
 			if("Removed")
 				continue //Reserved
 
-		GLOB.admin_ranks[rank] = get_rights(List.Copy(2))
+		// SS220 EDIT START
+		var/rights = get_rights(List.Copy(2), previous_rights)
+		GLOB.admin_ranks[rank] = rights
+		previous_rights = rights
+		// SS220 EDIT END
 
 	#ifdef TESTING
 	var/msg = "Permission Sets Built:\n"
@@ -34,13 +39,17 @@ GLOBAL_LIST_EMPTY(admin_ranks) //list of all ranks with associated rights
 	testing(msg)
 	#endif
 
-/proc/get_rights(input_list)
+/proc/get_rights(input_list, inherited_rights = NONE) // SS220 EDIT
 	var/rights = NONE
 
 	for(var/right in input_list)
 		right = ckey(right) // lower text + trim
 
 		switch(right)
+			// SS220 EDIT START
+			if("@","prev")
+				rights |= inherited_rights
+			// SS220 EDIT END
 			if("buildmode","build")
 				rights |= R_BUILDMODE
 			if("admin")
@@ -88,8 +97,11 @@ GLOBAL_LIST_EMPTY(admin_ranks) //list of all ranks with associated rights
 		log_debug("Clearing [admin] from APP/admin.")
 		world.SetConfig("APP/admin", admin, null)
 
-	if(CONFIG_GET(string/cmdb_url) && CONFIG_GET(string/cmdb_api_key) && fetch_api_admins())
-		return
+	// SS220 EDIT START
+	// API-backed admin loading is intentionally disabled; admins/ranks are loaded from config files only.
+	// if(CONFIG_GET(string/cmdb_url) && CONFIG_GET(string/cmdb_api_key) && fetch_api_admins())
+	// 	return
+	// SS220 EDIT END
 
 	//clear the datums references
 	GLOB.admin_datums.Cut()
@@ -140,12 +152,19 @@ GLOBAL_LIST_EMPTY(admin_ranks) //list of all ranks with associated rights
 
 	//rank follows the first "-"
 	var/rank = ""
+	var/rights = NONE //SS220 EDIT START
+	var/list/extra_titles = list()
 	if(length(List) >= 2)
 		rank = ckeyEx(List[2])
+		rights |= GLOB.admin_ranks[rank]
 
-	var/list/extra_titles = list()
-	if(length(List) >= 3)
-		extra_titles = List.Copy(3)
+	for(var/i = 3, i <= length(List), i++)
+		var/value = ckeyEx(List[i])
+
+		if(value in GLOB.admin_ranks)
+			rights |= GLOB.admin_ranks[value]
+
+		extra_titles += List[i] //SS220 EDIT END
 
 	if(mentor)
 		if(!(LAZYISIN(MentorRanks, rank)))
@@ -154,7 +173,7 @@ GLOBAL_LIST_EMPTY(admin_ranks) //list of all ranks with associated rights
 			return
 
 	//load permissions associated with this rank
-	var/rights = GLOB.admin_ranks[rank]
+	//var/rights = GLOB.admin_ranks[rank] //SS220 EDIT
 
 	//create the admin datum and store it for later use
 	var/datum/admins/D = new /datum/admins(rank, rights, ckey, extra_titles)

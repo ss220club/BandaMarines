@@ -46,7 +46,6 @@
 	see_invisible = SEE_INVISIBLE_LIVING
 	hud_possible = list(HEALTH_HUD_XENO, PLASMA_HUD, SPECIAL_HUD, PHEROMONE_HUD, QUEEN_OVERWATCH_HUD, ARMOR_HUD_XENO, XENO_STATUS_HUD, XENO_BANISHED_HUD, XENO_HOSTILE_ACID, XENO_HOSTILE_SLOW, XENO_HOSTILE_TAG, XENO_HOSTILE_TAG_SPREAD, XENO_HOSTILE_FREEZE, HUNTER_HUD, NEW_PLAYER_HUD)
 	unacidable = TRUE
-	rebounds = TRUE
 	faction = FACTION_XENOMORPH
 	gender = NEUTER
 	icon_size = 48
@@ -186,7 +185,7 @@
 
 	/// List of actions (typepaths) that a
 	/// xenomorph type is given upon spawn
-	var/base_actions
+	var/list/base_actions = list() // BANDASTATION EDIT - Bump Attacks. it's a list!
 
 	/// this is the resin mark that is currently being tracked by the xeno
 	var/obj/effect/alien/resin/marker/tracked_marker
@@ -493,6 +492,7 @@
 	toggle_xeno_mobhud() //This is a verb, but fuck it, it just werks
 
 	. = ..()
+	generate_name() // BANDASTATION ADDITION
 
 					//Set leader to the new mob
 	if(old_xeno && hive && IS_XENO_LEADER(old_xeno))
@@ -652,10 +652,13 @@
 	var/name_display = ""
 	// Rare easter egg
 	if(nicknumber == 666)
-		number_decorator = "Infernal "
+		number_decorator = "Адский "
+	if(nicknumber == 220)					// BANDAMARINES	EDIT
+		number_decorator = "Проклятый "
 	if(show_name_numbers)
 		name_display = show_only_numbers ? " ([nicknumber])" : " ([name_client_prefix][nicknumber][name_client_postfix])"
-	name = "[name_prefix][number_decorator][age_display][caste.display_name || caste.caste_type][name_display]"
+	name = "[name_prefix][number_decorator][age_display][declent_ru_initial(caste.display_name || caste.caste_type, NOMINATIVE, caste.display_name || caste.caste_type)][name_display]"
+	ru_names = ru_names_multiple(name, name_prefix, number_decorator, age_display, caste.display_name || caste.caste_type, name_display)
 
 	//Update linked data so they show up properly
 	change_real_name(src, name)
@@ -1145,7 +1148,7 @@
 		caste.aura_strength = 0
 	if(aura_strength == 0 && current_aura)
 		current_aura = null
-		to_chat(src, SPAN_XENOWARNING("We lose our pheromones."))
+		to_chat(src, SPAN_XENOWARNING("Мы перестаём выделять феромоны."))
 
 	// Also recalculate received pheros now
 	for(var/capped_aura in received_phero_caps)

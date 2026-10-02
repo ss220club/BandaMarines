@@ -305,6 +305,12 @@
 
 			prefs.predator_cape_color = sanitize_hexcolor(color)
 
+		// BANDAMARINES EDIT ADD - TTS220
+		if("tts_seed")
+			var/datum/tts_seeds_explorer/explorer = new(SPECIES_YAUTJA, "ntos_spooky")
+			explorer.tgui_interact(usr)
+		// BANDAMARINES EDIT END
+
 	prefs.update_preview_icon()
 	return TRUE
 

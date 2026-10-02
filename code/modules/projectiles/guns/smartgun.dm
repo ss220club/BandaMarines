@@ -200,7 +200,7 @@
 	if(istype(attacking_object, /obj/item/smartgun_battery))
 		var/obj/item/smartgun_battery/new_cell = attacking_object
 		if(battery)
-			visible_message(SPAN_NOTICE("[user] swaps out the power cell in [src]."),
+			visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] swaps out the power cell in [src]."),
 				SPAN_NOTICE("You swap out the power cell in [src] and drop the old one."))
 			battery.update_icon()
 			battery.forceMove(get_turf(user))

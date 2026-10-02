@@ -18,7 +18,7 @@ GLOBAL_LIST_INIT(mapless_maps, list(MAP_RUNTIME, MAP_CHINOOK, MAIN_SHIP_DEFAULT_
 
 /obj/item/map/attack_self(mob/user) //Open the map
 	..()
-	user.visible_message(SPAN_NOTICE("[user] opens the [src.name]."))
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] открывает [declent_ru(ACCUSATIVE)]."))
 	initialize_map()
 
 /obj/item/map/attack()

@@ -145,6 +145,11 @@
 					tutorial_menu()
 					return FALSE
 
+			// SS220 ADD START
+			if(!has_discord_link(client))
+				return FALSE
+			// SS220 ADD END
+
 			late_join_ui.tgui_interact(src)
 			return TRUE
 
@@ -162,6 +167,11 @@
 					tutorial_menu()
 					return FALSE
 
+			// SS220 ADD START
+			if(!has_discord_link(client))
+				return FALSE
+			// SS220 ADD END
+
 			late_choices_upp()
 			return TRUE
 
@@ -172,6 +182,11 @@
 
 			if(!client)
 				return FALSE
+
+			// SS220 ADD START
+			if(!has_discord_link(client))
+				return FALSE
+			// SS220 ADD END
 
 			if(SSticker.mode.check_xeno_late_join(src))
 				var/new_xeno = SSticker.mode.attempt_to_join_as_xeno(src, FALSE)
@@ -192,6 +207,11 @@
 				SSticker.mode.attempt_to_join_as_predator(src)
 				return TRUE
 
+			// SS220 ADD START
+			if(!has_discord_link(client))
+				return FALSE
+			// SS220 ADD END
+
 			to_chat(src, SPAN_WARNING("You are no longer able to join as predator."))
 			return FALSE
 
@@ -204,6 +224,11 @@
 				SSticker.mode.attempt_to_join_as_fax_responder(src, TRUE)
 				return TRUE
 
+			// SS220 ADD START
+			if(!has_discord_link(client))
+				return FALSE
+			// SS220 ADD END
+
 			to_chat(src, SPAN_WARNING("You are no longer able to join as a Fax Responder."))
 			return FALSE
 
@@ -212,10 +237,20 @@
 				to_chat(src, SPAN_WARNING("The game is still setting up, please try again later."))
 				return
 
+			// SS220 ADD START
+			if(!has_discord_link(client))
+				return FALSE
+			// SS220 ADD END
+
 			attempt_observe()
 			return TRUE
 
 		if("ready")
+			// SS220 ADD START
+			if(!has_discord_link(client))
+				return FALSE
+			// SS220 ADD END
+
 			if((SSticker.current_state <= GAME_STATE_PREGAME) && !ready) // Make sure we don't ready up after the round has started
 				ready = TRUE
 				GLOB.readied_players++

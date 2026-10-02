@@ -86,7 +86,7 @@ GLOBAL_LIST_EMPTY(ui_data_keybindings)
 				prefs.save_preferences()
 				return
 
-			var/full_key = keybind_to_keyboardMap(params["key"], params["key_mods"])
+			var/full_key = keybind_to_keyboardMap(convert_ru_key_to_en_key(params["key"]), params["key_mods"]) // BANDAMARINES EDIT - Fix hotkeys
 
 			if(kb_name in kbinds[full_key]) //We pressed the same key combination that was already bound here, so let's remove to re-add and re-sort.
 				kbinds[full_key] -= kb_name
