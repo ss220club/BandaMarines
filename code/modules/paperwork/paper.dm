@@ -810,6 +810,12 @@
 	switch(note_type)
 		if("synthesis")
 			var/datum/chemical_reaction/reaction_generated = GLOB.chemical_reactions_list[chemical_to_generate.id]
+			// SS220 EDIT START - Prevent blank research contract papers when recipe generation fails.
+			if(!reaction_generated && istype(chemical_to_generate, /datum/reagent/generated))
+				var/list/required_reagents = chemical_to_generate.reagent_recipe_hint ? list(chemical_to_generate.reagent_recipe_hint) : null
+				var/list/locked_reagents = chemical_to_generate.locked_reagent ? list(chemical_to_generate.locked_reagent) : null
+				reaction_generated = chemical_to_generate.generate_assoc_recipe(null, required_reagents, locked_reagents)
+			// SS220 EDIT END
 			icon_state = "paper_wy_partial_report"
 			if(!contract)
 				name = "Synthesis of [chemical_to_generate.name]"
@@ -817,17 +823,26 @@
 				name = "Contract for [chemical_to_generate.name]"
 				icon_state = "paper_wy_contract"
 			txt += "[name] </H2></center>"
+			// SS220 EDIT START - Prevent blank research contract papers when recipe generation fails.
+			if(!reaction_generated || !length(reaction_generated.required_reagents))
+				txt += "Данные о формуле реагента «[chemical_to_generate.name]» повреждены или недоступны. Запросите повторную печать контракта или свяжитесь с Вейланд-Ютани.<BR>\n"
+				txt += "<BR>\n<HR> - <I>Вейланд-Ютани</I>"
+				info = txt
+				return
+			// SS220 EDIT END
 			txt += "В ходе эксперимента <I>[pick("C","Q","V","W","X","Y","Z")][rand(100,999)][pick("a","b","c")]</I> химическое соединение, получившее название «[chemical_to_generate.name]», было успешно синтезировано по ниже указанной формуле:<BR>\n<BR>\n"
 			for(var/I in reaction_generated.required_reagents)
 				var/datum/reagent/R = GLOB.chemical_reagents_list["[I]"]
 				var/U = reaction_generated.required_reagents[I]
-				txt += "<font size = \"2\"><I> - [U] [R.name]</I></font><BR>\n"
+				var/reagent_name = R ? R.name : "Unknown reagent ([I])" // SS220 EDIT
+				txt += "<font size = \"2\"><I> - [U] [reagent_name]</I></font><BR>\n" // SS220 EDIT
 			if(LAZYLEN(reaction_generated.required_catalysts))
 				txt += "<BR>\nИспользуемые катализаторы: <BR>\n<BR>\n"
 				for(var/I in reaction_generated.required_catalysts)
 					var/datum/reagent/R = GLOB.chemical_reagents_list["[I]"]
 					var/U = reaction_generated.required_catalysts[I]
-					txt += "<font size = \"2\"><I> - [U] [R.name]</I></font><BR>\n"
+					var/reagent_name = R ? R.name : "Unknown reagent ([I])" // SS220 EDIT
+					txt += "<font size = \"2\"><I> - [U] [reagent_name]</I></font><BR>\n" // SS220 EDIT
 			if(full_report)
 				txt += "<BR>Chemical has following reaction indicators:"
 				if(CHECK_BITFIELD(reaction_generated?.reaction_type, CHEM_REACTION_BUBBLING))
@@ -1258,4 +1273,3 @@
 	// important documents should not be turned into hats
 	flags_equip_slot = FALSE
 	flags_armor_protection = FALSE
-
