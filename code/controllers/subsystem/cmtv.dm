@@ -469,7 +469,6 @@ SUBSYSTEM_DEF(cmtv)
 
 	temporarily_observing_turf = max(temporarily_observing_turf, 10 SECONDS)
 
-
 	if(current_perspective)
 		terminate_current_perspective(ticker_text = null)
 		camera_mob.clean_observe_target()

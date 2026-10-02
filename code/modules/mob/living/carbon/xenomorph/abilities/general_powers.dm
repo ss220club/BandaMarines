@@ -72,6 +72,7 @@
 
 	if(!check_and_use_plasma_owner())
 		return
+
 	var/list/to_convert
 	if(node)
 		to_convert = node.children.Copy()
