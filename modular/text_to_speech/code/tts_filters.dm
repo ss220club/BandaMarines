@@ -10,10 +10,10 @@
 	voice_effect = list(/datum/singleton/sound_effect/gasmask)
 
 /obj/item/clothing/head/helmet/marine/pyro
-	voice_effect = /datum/singleton/sound_effect/gasmask
+	voice_effect = list(/datum/singleton/sound_effect/gasmask)
 
 /obj/item/clothing/head/helmet/marine/cbrn_hood
-	voice_effect = /datum/singleton/sound_effect/gasmask
+	voice_effect = list(/datum/singleton/sound_effect/gasmask)
 
 /datum/singleton/sound_effect/gasmask
 	suffix = "_gasmask"
