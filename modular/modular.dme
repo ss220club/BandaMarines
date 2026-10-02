@@ -29,7 +29,6 @@
 #include "vehicles/_vehicles.dme"
 #include "skills/_skills.dme"
 #include "roundstart_spawns/_roundstart_spawns.dme"
-#include "attachments/_attachments.dme"
 #include "clothing/_clothing.dme"
 #include "loadout_preferences_gear/_loadout.dme"
 #include "queen_minor/_queen_minor.dme"
@@ -40,3 +39,4 @@
 #include "yaut_leap/_leap.dme"
 #include "hgmaps/_hgmaps.dme"
 #include "necoarc/_arc.dme"
+#include "weapons/_weapons.dme"
