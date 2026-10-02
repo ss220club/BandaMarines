@@ -3,6 +3,7 @@
 #define CLF_COMMAND_ANNOUNCE "Оповещение командования CLF"
 #define PMC_COMMAND_ANNOUNCE "Оповещение командования PMC"
 #define VENIR_ANNOUNCE "White Antre Central Announcement"
+#define CLF_ANNOUNCE "Объявление координатора лагеря CLF"
 #define QUEEN_ANNOUNCE "Слова Королевы звучат у вас в голове..."
 #define QUEEN_LORE_ANNOUNCE "Слова Королевы звучат у вас в голове..."
 #define QUEEN_MOTHER_ANNOUNCE "Экстрасенсорная директива Королевы-Матери"
