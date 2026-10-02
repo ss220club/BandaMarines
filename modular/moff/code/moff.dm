@@ -72,6 +72,10 @@
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE 
 	update_sight()
 	pounce_callbacks[/mob] = DYNAMIC(/mob/living/simple_animal/hostile/retaliate/moth/proc/pounced_mob_wrapper)
+	add_verb(src, list(
+		/mob/living/proc/ventcrawl,
+		/mob/living/proc/hide,
+	))
 
 /mob/living/simple_animal/hostile/retaliate/moth/apply_damage(damage, damagetype, def_zone, used_weapon, sharp, edge, force, enviro, chemical = FALSE)
 	Retaliate()
@@ -696,3 +700,40 @@
 	P.generate_bullet(ammo, 0, 0)
 
 	P.fire_at(target, src, src)
+
+
+// ДЛЯ ЕРТШКИ, до лучших времён
+///datum/emergency_call/moth_sadar
+//	name = "Fun - Moth Sadar"
+//	mob_max = 1
+//	mob_min = 1
+//	probability = 0
+//	objectives = "УБЕЙ."
+//	hostility = TRUE
+//	shuttle_id = MOBILE_SHUTTLE_ID_ERT1
+//	home_base = /datum/lazy_template/ert/pizza_station
+//	name_of_spawn = /obj/effect/landmark/ert_spawns/distress_pmc
+//	item_spawn = /obj/effect/landmark/ert_spawns/distress_pmc/item
+
+///datum/emergency_call/moth_sadar/New()
+//	..()
+//	arrival_message = "20:31. Прибыла Мофф-Садар."
+
+///datum/emergency_call/moth_sadar/create_member(datum/mind/M, turf/override_spawn_loc)
+//	var/turf/spawn_loc = override_spawn_loc ? override_spawn_loc : get_spawn_point()
+
+//	if(!istype(spawn_loc))
+//		return
+//
+//	var/mob/living/simple_animal/hostile/retaliate/moth/sadar/S = new(spawn_loc)
+//	M.transfer_to(S, TRUE)
+
+//	arm_equipment(S, /datum/equipment_preset/fun/moth/sadar, FALSE, TRUE)
+
+///datum/equipment_preset/fun/moth/sadar
+//	name = "Fun - Moth Sadar"
+//	assignment = "Moth Sadar"
+//	job_title = "Moth Sadar"
+//	paygrades = list(PAY_SHORT_ME2 = JOB_PLAYTIME_TIER_0)
+//	flags = EQUIPMENT_PRESET_EXTRA
+//	faction = FACTION_NEUTRAL
