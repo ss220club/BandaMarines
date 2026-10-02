@@ -1,5 +1,5 @@
-import { type ComponentProps, useState } from 'react';
-import { useBackend } from 'tgui/backend';
+import { type ComponentProps, useState } from "react";
+import { useBackend } from "tgui/backend";
 import {
   Box,
   Button,
@@ -9,12 +9,12 @@ import {
   Section,
   Stack,
   Tabs,
-} from 'tgui/components';
-import { Table, TableCell, TableRow } from 'tgui/components/Table';
-import { Window } from 'tgui/layouts';
+} from "tgui/components";
+import { Table, TableCell, TableRow } from "tgui/components/Table";
+import { Window } from "tgui/layouts";
 
 export interface DocumentLog {
-  ['XRF Scans']?: Array<DocumentRecord>;
+  ["XRF Scans"]?: Array<DocumentRecord>;
 }
 export interface Chemical {
   name: string;
@@ -51,11 +51,11 @@ interface TerminalProps {
 }
 
 const gen_tier_map = {
-  1: 'Simple',
-  2: 'Advanced',
-  3: 'Simple Xenobiology',
-  4: 'Advanced Xenobiology',
-  5: 'CLASSIFIED',
+  1: "Simple",
+  2: "Advanced",
+  3: "Simple Xenobiology",
+  4: "Advanced Xenobiology",
+  5: "CLASSIFIED",
 };
 
 interface ConfirmationProps extends ComponentProps<typeof Box> {
@@ -117,13 +117,13 @@ const CompoundRecord = (props: CompoundRecordProps) => {
       </TableCell>
 
       <TableCell className="chemical-td">
-        {compound.type.document.split(' ')[0] === 'Simulation' ? (
+        {compound.type.document.split(" ")[0] === "Simulation" ? (
           <span className="compound_label">
-            {compound.type.document.split(' ')[3]}
+            {compound.type.document.split(" ")[3]}
           </span>
         ) : (
           <span className="compound_label">
-            {compound.type.document.split(' ')[2]}
+            {compound.type.document.split(" ")[2]}
           </span>
         )}
       </TableCell>
@@ -132,11 +132,11 @@ const CompoundRecord = (props: CompoundRecordProps) => {
         <Flex
           className="compound_actions"
           justify="space-around"
-          align-items="stretch"
+          alignItems="stretch"
           wrap={false}
         >
           <Flex.Item>
-            <Button icon="book" onClick={() => act('read_document', doc_ref)}>
+            <Button icon="book" onClick={() => act("read_document", doc_ref)}>
               Read
             </Button>
           </Flex.Item>
@@ -145,14 +145,14 @@ const CompoundRecord = (props: CompoundRecordProps) => {
               <Button
                 disabled={data.photocopier_error || data.printer_toner === 0}
                 icon="print"
-                onClick={() => act('print', doc_ref)}
+                onClick={() => act("print", doc_ref)}
               >
                 Print
               </Button>
             </Flex.Item>
           )}
           <Flex.Item>
-            <Button icon="exclamation" onClick={() => act('announce', doc_ref)}>
+            <Button icon="exclamation" onClick={() => act("announce", doc_ref)}>
               Announce
             </Button>
           </Flex.Item>
@@ -160,7 +160,7 @@ const CompoundRecord = (props: CompoundRecordProps) => {
             <Flex.Item>
               <Button
                 icon="upload"
-                onClick={() => act('publish_document', doc_ref)}
+                onClick={() => act("publish_document", doc_ref)}
               >
                 Publish
               </Button>
@@ -170,7 +170,7 @@ const CompoundRecord = (props: CompoundRecordProps) => {
             <Flex.Item>
               <Button
                 icon="remove"
-                onClick={() => act('unpublish_document', doc_ref)}
+                onClick={() => act("unpublish_document", doc_ref)}
               >
                 Unpublish
               </Button>
@@ -258,17 +258,17 @@ export const CompoundTable = (props: CompoundTableProps) => {
       return output;
     })
     .flat() as DocumentRecord[];
-  const [sortby, setSortBy] = useState('time');
-  const [sortdir, setSortdir] = useState('asc');
+  const [sortby, setSortBy] = useState("time");
+  const [sortdir, setSortdir] = useState("asc");
   const { docs, hideOld } = props;
 
   const outputDocs: Map<String, CompoundData> = new Map();
   docs
     .map<CompoundData>((x) => {
-      const document_prefix = x.document_title.split(' ')[0];
+      const document_prefix = x.document_title.split(" ")[0];
       const doc_number = Number.parseInt(document_prefix, 10);
       const doctype: DocInfo = {
-        doctype: Number.isNaN(doc_number) ? 'Synthesis' : 'Analysis',
+        doctype: Number.isNaN(doc_number) ? "Synthesis" : "Analysis",
         document: x.document,
         time: x.time,
       };
@@ -292,7 +292,7 @@ export const CompoundTable = (props: CompoundTableProps) => {
 
         if (
           x.type.time.localeCompare(
-            outputDocs.get(x.type.document)?.type.time ?? '',
+            outputDocs.get(x.type.document)?.type.time ?? "",
           )
         ) {
           outputDocs.set(x.type.document, x);
@@ -308,18 +308,18 @@ export const CompoundTable = (props: CompoundTableProps) => {
 
   const iconRef = (name: string, isNum: boolean) =>
     sortby === name
-      ? sortdir === 'asc'
+      ? sortdir === "asc"
         ? isNum
-          ? 'arrow-down-1-9'
-          : 'arrow-down-a-z' // small to big
+          ? "arrow-down-1-9"
+          : "arrow-down-a-z" // small to big
         : isNum
-          ? 'arrow-down-9-1'
-          : 'arrow-down-z-a' // big to small
-      : 'space';
+          ? "arrow-down-9-1"
+          : "arrow-down-z-a" // big to small
+      : "space";
 
   const sortColClick = (name: string) => {
     if (sortby === name) {
-      setSortdir(sortdir === 'asc' ? 'desc' : 'asc');
+      setSortdir(sortdir === "asc" ? "desc" : "asc");
     } else {
       setSortBy(name);
     }
@@ -330,8 +330,8 @@ export const CompoundTable = (props: CompoundTableProps) => {
       <TableRow>
         <TableCell textAlign="center">
           <Button
-            icon={iconRef('time', true)}
-            onClick={() => sortColClick('time')}
+            icon={iconRef("time", true)}
+            onClick={() => sortColClick("time")}
           >
             {props.timeLabel}
           </Button>
@@ -341,8 +341,8 @@ export const CompoundTable = (props: CompoundTableProps) => {
         </TableCell>
         <TableCell textAlign="center">
           <Button
-            icon={iconRef('name', false)}
-            onClick={() => sortColClick('name')}
+            icon={iconRef("name", false)}
+            onClick={() => sortColClick("name")}
           >
             Compound
           </Button>
@@ -353,14 +353,14 @@ export const CompoundTable = (props: CompoundTableProps) => {
       </TableRow>
       {Array.from(outputDocs.values())
         .sort((a, b) => {
-          if (sortby === 'time') {
-            if (sortdir === 'asc') {
+          if (sortby === "time") {
+            if (sortdir === "asc") {
               return a.type.time < b.type.time ? -1 : 1;
             } else {
               return a.type.time > b.type.time ? -1 : 1;
             }
           } else {
-            if (sortdir === 'asc') {
+            if (sortdir === "asc") {
               return a.type.document.localeCompare(b.type.document);
             } else {
               return b.type.document.localeCompare(a.type.document);
@@ -388,7 +388,7 @@ const ImproveClearanceConfirmation = (props: {
 }) => {
   const { data, act } = useBackend<TerminalProps>();
   const { isConfirm, setConfirm } = props;
-  if (isConfirm === undefined || isConfirm !== 'broker_clearance') {
+  if (isConfirm === undefined || isConfirm !== "broker_clearance") {
     return null;
   }
   return (
@@ -396,7 +396,7 @@ const ImproveClearanceConfirmation = (props: {
       <Stack.Item>
         <ConfirmationDialogue
           onConfirm={() => {
-            act('broker_clearance');
+            act("broker_clearance");
             setConfirm(undefined);
           }}
           onCancel={() => setConfirm(undefined)}
@@ -417,7 +417,7 @@ const XClearanceConfirmation = (props: {
 }) => {
   const { data, act } = useBackend<TerminalProps>();
   const { isConfirm, setConfirm } = props;
-  if (isConfirm === undefined || isConfirm !== 'request_clearance_x_access') {
+  if (isConfirm === undefined || isConfirm !== "request_clearance_x_access") {
     return null;
   }
   return (
@@ -425,13 +425,13 @@ const XClearanceConfirmation = (props: {
       <Stack.Item>
         <ConfirmationDialogue
           onConfirm={() => {
-            act('request_clearance_x_access');
+            act("request_clearance_x_access");
             setConfirm(undefined);
           }}
           onCancel={() => setConfirm(undefined)}
         >
           <span>
-            Are you sure you wish request clearance level <u>X</u> access for{' '}
+            Are you sure you wish request clearance level <u>X</u> access for{" "}
             <u>5</u> credits?
           </span>
         </ConfirmationDialogue>
@@ -491,8 +491,8 @@ const Contracts = () => {
       ? []
       : Array.from(Array(data.contract_chems.length).keys());
   return (
-    <Box px={'7px'}>
-      <Section title={'Chemical Contracts'} mt={'5px'}>
+    <Box px={"7px"}>
+      <Section title={"Chemical Contracts"} mt={"5px"}>
         <ProgressBar
           width="100%"
           value={timeLeftPct}
@@ -510,16 +510,16 @@ const Contracts = () => {
           <Flex.Item grow={1}>
             <Section title={<span>{data.contract_chems[key].name}</span>} fill>
               <span>
-                Type:{' '}
+                Type:{" "}
                 {gen_tier_map[data.contract_chems[key].gen_tier] ||
-                  'CLASSIFIED'}
+                  "CLASSIFIED"}
               </span>
               <Flex.Item>
-                Early assesment shows one part of the recipe is{' '}
+                Early assesment shows one part of the recipe is{" "}
                 {data.contract_chems[key].recipe_hint}
               </Flex.Item>
               <Flex.Item>
-                Early testing shows property of{' '}
+                Early testing shows property of{" "}
                 {data.contract_chems[key].property_hint}
               </Flex.Item>
               <Button
@@ -528,14 +528,14 @@ const Contracts = () => {
                 icon="print"
                 disabled={data.is_contract_picked}
                 tooltip={
-                  'Taking this contract will put a 3 minute cooldown on new chemical. You can only pick one.' // SS220 EDIT
+                  "Taking this contract will put a 4 minute cooldown on new chemical. You can only pick one." // SS220 EDIT
                 }
                 tooltipPosition="top"
                 onClick={() =>
-                  act('take_contract', { id: data.contract_chems[key].id })
+                  act("take_contract", { id: data.contract_chems[key].id })
                 }
               >
-                {data.is_contract_picked ? 'UNAVAILABLE' : 'Take Contract'}
+                {data.is_contract_picked ? "UNAVAILABLE" : "Take Contract"}
               </Button>
             </Section>
           </Flex.Item>
@@ -651,9 +651,9 @@ const ClearanceImproveButton = (props: {
     <>
       <Button
         onClick={() => {
-          act('reprint_last_contract');
+          act("reprint_last_contract");
         }}
-        tooltip={'Reprint Last picked contract in the case you lost it.'}
+        tooltip={"Reprint Last picked contract in the case you lost it."}
       >
         Reprint Last Contract
       </Button>
@@ -662,7 +662,7 @@ const ClearanceImproveButton = (props: {
           disabled={isDisabled}
           onClick={() => {
             setSelectedTab(1);
-            setConfirm('broker_clearance');
+            setConfirm("broker_clearance");
           }}
         >
           Improve {data.broker_cost}CR
@@ -673,7 +673,7 @@ const ClearanceImproveButton = (props: {
           disabled={data.rsc_credits < 5}
           onClick={() => {
             setSelectedTab(1);
-            setConfirm('request_clearance_x_access');
+            setConfirm("request_clearance_x_access");
           }}
         >
           Request X (5)
