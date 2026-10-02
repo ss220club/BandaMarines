@@ -278,6 +278,12 @@
 	flags_gun_features = GUN_WIELDED_FIRING_ONLY
 	flags_item = TWOHANDED
 
+	// SSS20 EDIT - Start
+	var/fold_time = 1 SECONDS // Время для свертывания
+	var/skill_req = SKILL_ENGINEER	// Уровень для возможности закидывать на спину
+	var/skill_skip_fold_time = SKILL_ENGINEER_TRAINED // уровень для пропуска развертки
+	// SSS20 EDIT - End
+
 /obj/item/weapon/gun/launcher/rocket/anti_tank/Initialize()
 	. = ..()
 	AddElement(/datum/element/corp_label/armat)
@@ -305,17 +311,20 @@
 
 /obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/unique_action(mob/M)
 	if(fired)
-		to_chat(M, SPAN_WARNING("\The [src] has already been fired - you can't fold it back up again!"))
+		to_chat(M, SPAN_WARNING("[src] уже использован и более его нельзя сложить!")) // SS220 EDIT
 		return
 
-	M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] begins to fold up \the [src]."), SPAN_NOTICE("You start to fold and collapse closed \the [src]."))
+	M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] начинает складывать [src]."), SPAN_NOTICE("Вы начинаете складывать [src].")) // SS220 EDIT
 
-	if(!do_after(M, 2 SECONDS, INTERRUPT_ALL, BUSY_ICON_GENERIC))
-		to_chat(M, SPAN_NOTICE("You stop folding up \the [src]"))
-		return
+	// SS220 EDIT - Start
+	if(!skillcheck(usr, skill_req, skill_skip_fold_time))
+		if(!do_after(M, fold_time * M.get_skill_duration_multiplier(skill_req), INTERRUPT_ALL, BUSY_ICON_GENERIC))
+			to_chat(usr, SPAN_WARNING("Вы прекратили складывать [src.name]."))
+			return FALSE
+	// SS220 EDIT - End
 
 	fold(M)
-	M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] finishes folding \the [src]."), SPAN_NOTICE("You finish folding \the [src]."))
+	M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] заканчивает складывать [src]."), SPAN_NOTICE("Вы сложили [src].")) // SS220 EDIT
 
 /obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/proc/fold(mob/user)
 	var/obj/item/prop/folded_anti_tank_sadar/F = new /obj/item/prop/folded_anti_tank_sadar(src.loc)
@@ -355,17 +364,26 @@
 	w_class = SIZE_MEDIUM
 	garbage = FALSE
 
+	// SS220 EDIT - Start
+	var/unfold_time = 5 SECONDS // Время для развертывания
+	var/skill_req = SKILL_ENGINEER
+	var/skill_skip_fold_time = SKILL_ENGINEER_ENGI
+	// SS220 EDIT - End
+
 /obj/item/prop/folded_anti_tank_sadar/attack_self(mob/user)
-	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins to unfold \the [src]."), SPAN_NOTICE("You start to unfold and expand \the [src]."))
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает разворачивать [src.name]."), SPAN_NOTICE("Вы начинаете разворачивать [src.name].")) // SS220 EDIT
 	playsound(src, 'sound/items/component_pickup.ogg', 20, TRUE, 5)
 
-	if(!do_after(user, 4 SECONDS, INTERRUPT_ALL, BUSY_ICON_GENERIC))
-		to_chat(user, SPAN_NOTICE("You stop unfolding \the [src]"))
-		return
+	// SS220 EDIT - Start
+	if(!skillcheck(usr, skill_req, skill_skip_fold_time))
+		if(!do_after(user, unfold_time * user.get_skill_duration_multiplier(skill_req), INTERRUPT_ALL, BUSY_ICON_GENERIC))
+			to_chat(usr, SPAN_WARNING("Вы прекратили развертывать [src.name]."))
+			return FALSE
+	// SS220 EDIT - End
 
 	unfold(user)
 
-	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] finishes unfolding \the [src]."), SPAN_NOTICE("You finish unfolding \the [src]."))
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] закончил разворачивать [src.name]."), SPAN_NOTICE("Вы развернули [src.name].")) // SS220 EDIT
 	playsound(src, 'sound/items/component_pickup.ogg', 20, TRUE, 5)
 	. = ..()
 
