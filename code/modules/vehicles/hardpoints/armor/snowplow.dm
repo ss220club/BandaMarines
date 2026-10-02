@@ -6,17 +6,17 @@
 	disp_icon = "tank"
 	disp_icon_state = "snowplow"
 
-	health = 750                     // BANDAMARINES EDIT START - Original: 150
-	activatable = 0 
+	health = 1000                     // BANDAMARINES EDIT START - Original: 150
+	activatable = 0
 	var/wall_ram_damage_bonus = 500
-	var/wall_ram_self_damage = 10    // BANDAMARINES EDIT END
+	var/wall_ram_self_damage = 0    // BANDAMARINES EDIT END
 
 /obj/item/hardpoint/armor/snowplow/livingmob_interact(mob/living/M)
 	var/turf/targ = get_step(M, owner.dir)
 	targ = get_step(M, owner.dir)
 	targ = get_step(M, owner.dir)
 	M.throw_atom(targ, 4, SPEED_FAST, src, 1)
-	M.apply_damage(100 + rand(50, 50), BRUTE) //BANDAMARINES EDIT - Original: (7 + rand(0, 3)
+	M.apply_damage(25, BRUTE) //BANDAMARINES EDIT - Original: (7 + rand(0, 3)
 
 /obj/item/hardpoint/armor/snowplow/on_move(turf/old, turf/new_turf, move_dir)
 	if(health <= 0)
