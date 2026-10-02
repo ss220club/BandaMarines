@@ -14,3 +14,6 @@
 ///from base of /datum/component//datum/component/seethrough_mob/untrick_mob()
 #define COMSIG_SEETHROUGH_UNTRICK "seethrough_untrick"
 	#define COMPONENT_SEETHROUGH_UNTRICKED (1<<0)
+
+/// A mob has just equipped an item. Called on [/mob] from base of [/obj/item/equipped()]: (/obj/item/equipped_item, slot)
+#define COMSIG_MOB_EQUIPPED_ITEM "mob_equipped_item"
