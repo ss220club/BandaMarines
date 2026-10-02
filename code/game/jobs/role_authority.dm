@@ -147,19 +147,25 @@ I hope it's easier to tell what the heck this proc is even doing, unlike previou
 	//===============================================================\\
 	//PART II: Setting up our player variables and lists, to see if we have anyone to destribute.
 
+	var/unassigned_banda_players = list() //SS220 ADD
 	unassigned_players = list()
 	for(var/mob/new_player/M in GLOB.player_list) //Get all players who are ready.
 		if(!M.ready || M.job)
 			continue
 
+		if(M.client?.admin_holder?.rank == "Banda_fake") //SS220 ADD
+			unassigned_banda_players += M		  //SS220 ADD
+			continue							  //SS220 ADD
 		unassigned_players += M
 
-	if(!length(unassigned_players)) //If we don't have any players, the round can't start.
+	if(!length(unassigned_players) && !length(unassigned_banda_players)) //If we don't have any players, the round can't start. SS220 EDD banda check
 		unassigned_players = null
 		return
 
+	unassigned_banda_players = shuffle(unassigned_banda_players, 1) //SS220 ADD
 	unassigned_players = shuffle(unassigned_players, 1) //Shuffle the players.
 
+	unassigned_players = unassigned_banda_players + unassigned_players //SS220 ADD
 
 	// How many positions do we open based on total pop
 	for(var/i in roles_by_name)
