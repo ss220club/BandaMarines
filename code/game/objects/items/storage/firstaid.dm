@@ -743,7 +743,7 @@
 		if((skilllock || W.skilllock) && !skillcheck(user, SKILL_MEDICAL, SKILL_MEDICAL_MEDIC))
 			error_idlock(user)
 			return
-		dump_into(W, user)
+		dump_into(W,user)
 	else
 		return ..()
 
