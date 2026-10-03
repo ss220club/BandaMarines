@@ -2,14 +2,46 @@
 #define FORWARD_BASE_FOG_WARNING (1 MINUTES) // How many minutes before FORWARD_BASE_FOG_DURATION. 00:24 if the pre-game length wasnt changed
 #define FORWARD_BASE_COMMS_FAILURE (2 MINUTES) // How many minutes after FORWARD_BASE_FOG_DURATION. 00:25 if the pre-game length wasnt changed
 #define FORWARD_BASE_TURRET_BATTERY_DURATION (30 MINUTES) // From roundstart. 00:35 if the pre-game length wasnt changed
+#define FORWARD_BASE_PYLON_INTERVAL (5 MINUTES) // Amount of time it takes for Hive Surge to unlock after holding two pylons
+#define FORWARD_BASE_LARVA_INTERVAL (5 MINUTES) // How long it takes for xenos to start accumulating burrowed larva after holding both pylons
+#define FORWARD_BASE_LARVA_AMOUNT 1 // Amount of larva gained per interval of the above
 
 /datum/game_mode/colonialmarines/forward_base
 	name = GAMEMODE_FORWARD_BASE
 	config_tag = GAMEMODE_FORWARD_BASE
 	votable = FALSE
+	var/hive_pylon_timer
+	var/hive_pylons_charged = FALSE
+
+/datum/game_mode/colonialmarines/forward_base/proc/update_hive_surge(datum/hive_status/hive)
+	if(hive.hivenumber != XENO_HIVE_NORMAL)
+		return
+	if(LAZYLEN(hive.active_endgame_pylons) < 2)
+		deltimer(hive_pylon_timer)
+		hive_pylon_timer = null
+		hive_pylons_charged = FALSE
+		return
+	if(!hive_pylon_timer)
+		hive_pylon_timer = addtimer(CALLBACK(src, PROC_REF(pylon_rewards), hive), FORWARD_BASE_PYLON_INTERVAL, TIMER_STOPPABLE)
+
+/datum/game_mode/colonialmarines/forward_base/proc/pylon_rewards(datum/hive_status/hive)
+	hive_pylon_timer = null
+	if(LAZYLEN(hive.active_endgame_pylons) < 2)
+		return
+	if(!hive_pylons_charged)
+		hive_pylons_charged = TRUE
+		if(!(locate(/datum/hivebuff/hive_surge) in hive.used_hivebuffs))
+			xeno_announcement("Hive Surge is now available as a boon for your Queen to purchase for free. Use it to reshape your caste to assault the tallhost fortress!", hive.hivenumber, QUEEN_MOTHER_ANNOUNCE)
+	else
+		hive.stored_larva += FORWARD_BASE_LARVA_AMOUNT
+		hive.hive_ui.update_burrowed_larva()
+	hive_pylon_timer = addtimer(CALLBACK(src, PROC_REF(pylon_rewards), hive), FORWARD_BASE_LARVA_INTERVAL, TIMER_STOPPABLE)
 
 /datum/game_mode/colonialmarines/forward_base/get_roles_list()
 	return ..() - list(JOB_DROPSHIP_PILOT, JOB_FIELD_DOCTOR)
+
+/datum/game_mode/colonialmarines/forward_base/allow_early_drone_evolution()
+	return ROUND_TIME < FORWARD_BASE_FOG_DURATION
 
 /datum/game_mode/colonialmarines/forward_base/map_announcement()
 	marine_announcement("Bad timing, marines. The CLF hit the regional military communications network and demolished the nearest long-range relay station. We've got this emergency channel to you, but that's about it. I can't coordinate another unit into your area, meaning, I can't get you the reinforcements you requested. You have a fortified position and enough ammunition to finish the job. You're on your own. Cameron out.", "BRIGADIER GENERAL CAMERON - CHINOOK 91 GSO STATION", 'sound/AI/commandreport.ogg')
@@ -20,6 +52,8 @@
 
 /datum/game_mode/colonialmarines/forward_base/pre_setup()
 	. = ..()
+	SSradio.ground_to_reserved = TRUE
+	SSradio.update_cache()
 	for(var/obj/structure/machinery/computer/shuttle/dropship/flight/console in GLOB.machines)
 		if(console.linked_lz && istype(get_area(console), /area/forward_base))
 			active_lz = console
@@ -91,3 +125,6 @@
 #undef FORWARD_BASE_FOG_WARNING
 #undef FORWARD_BASE_COMMS_FAILURE
 #undef FORWARD_BASE_TURRET_BATTERY_DURATION
+#undef FORWARD_BASE_PYLON_INTERVAL
+#undef FORWARD_BASE_LARVA_INTERVAL
+#undef FORWARD_BASE_LARVA_AMOUNT
