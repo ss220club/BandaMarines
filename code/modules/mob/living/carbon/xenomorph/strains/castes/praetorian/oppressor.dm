@@ -97,7 +97,8 @@
 			var/turf/back_right = get_step(turf, right_dir)
 			if((!back_left ||  back_left.density) && (!back_right || back_right.density))
 				break
-			if((abduct_blocked_tile(back_left, left_dir, right_dir) || abduct_blocked_tile(temp, right_dir) == 1) && (abduct_blocked_tile(back_right, right_dir, left_dir) || abduct_blocked_tile(temp, left_dir) == 1))
+			if((abduct_blocked_tile(back_left, left_dir, right_dir) || abduct_blocked_tile(temp, right_dir) == 1)
+				&& (abduct_blocked_tile(back_right, right_dir, left_dir) || abduct_blocked_tile(temp, left_dir) == 1))
 				break
 
 		if(!temp || temp.density || temp.opacity)
