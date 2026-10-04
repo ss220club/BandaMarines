@@ -95,17 +95,14 @@
 			var/right_dir = turn(facing, -45)
 			var/turf/back_left = get_step(turf, left_dir)
 			var/turf/back_right = get_step(turf, right_dir)
-			if((!back_left ||  back_left.density) && (!back_right || back_right.density))
+			if((abduct_blocked_tile(left_dir, back_left, right_dir) || abduct_blocked_tile(right_dir,temp)) \
+				&& (abduct_blocked_tile(right_dir, back_right, left_dir) || abduct_blocked_tile(left_dir, temp)))
 				break
-			if((abduct_blocked_tile(back_left, left_dir, right_dir) || abduct_blocked_tile(temp, right_dir) == 1)
-				&& (abduct_blocked_tile(back_right, right_dir, left_dir) || abduct_blocked_tile(temp, left_dir) == 1))
-				break
-
-		if(!temp || temp.density || temp.opacity)
+		else if(!temp || temp.density || temp.opacity)
 			break
 
 		allow_one_more_step = FALSE
-		if(abduct_blocked_tile(temp, facing) == 1)
+		if(abduct_blocked_tile(facing, temp))
 			break
 
 		turf = temp
@@ -211,8 +208,8 @@
 
 	return ..()
 
-/datum/action/xeno_action/activable/prae_abduct/proc/abduct_blocked_tile(turf/T, direction, next_direction = direction)
-	if(!istype(T))
+/datum/action/xeno_action/activable/prae_abduct/proc/abduct_blocked_tile(direction, turf/T, next_direction = null)
+	if(!istype(T) || T.density || T.opacity)
 		return 1
 
 	//0 - the way is clear, nothing blocks
