@@ -18,9 +18,7 @@
 
 	return vehicles
 
-
 // ==========================================
-
 // Пересечение ловушек теперь ловит и тех кто посажен за кровать / стул / транспорт
 /obj/effect/alien/resin/trap/Crossed(atom/A)
 	// !!! Потом выпилить если примут фикс на оффы
@@ -40,11 +38,22 @@
 				M.apply_effect(2, WEAKEN)
 				to_chat(M, SPAN_HIGHDANGER("Вы упали с тележки после того, как байк въехал на ловушку!"))
 	. = ..()
-
 // ==========================================
+// Давим окна на машинке
+/obj/structure/barricade/wooden/handle_vehicle_bump(obj/vehicle/multitile/V)
+	visible_message(SPAN_DANGER("\The [V] crushes [src]!"))
+	playsound(V, 'sound/effects/woodhit.ogg', 20)
+	take_damage(maxhealth)
+	return TRUE
 
-// Значки на миникарте для буханок
-/obj/vehicle/multitile/uscm_van/update_minimap_icon(modules_broken)
+/obj/structure/window_frame/handle_vehicle_bump(obj/vehicle/multitile/V)
+	visible_message(SPAN_DANGER("\The [V] crushes [src]!"))
+	playsound(V, 'sound/effects/metal_crash.ogg', 20)
+	take_damage(max_health)
+	return TRUE
+
+// Значки на миникарте для модульной техники
+/obj/vehicle/multitile/modular/update_minimap_icon(modules_broken)
 	if(!minimap_icon_state)
 		return
 	SSminimaps.remove_marker(src)

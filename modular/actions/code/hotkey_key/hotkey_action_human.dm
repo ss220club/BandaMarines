@@ -36,15 +36,7 @@
 	. = ..()
 	update_hotkey_visual()
 
-/datum/action/item_action/smartgun/toggle_auto_fire/update_icon()
-	. = ..()
-	update_hotkey_visual()
-
 /datum/action/item_action/smartgun/toggle_frontline_mode/action_activate()
-	. = ..()
-	update_hotkey_visual()
-
-/datum/action/item_action/smartgun/toggle_accuracy_improvement/action_activate()
 	. = ..()
 	update_hotkey_visual()
 

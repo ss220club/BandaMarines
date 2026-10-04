@@ -227,16 +227,6 @@
 	forceMove(L.loc)
 	..()
 
-//user: The mob that is suiciding
-//damagetype: The type of damage the item will inflict on the user
-//BRUTELOSS = 1
-//FIRELOSS = 2
-//TOXLOSS = 4
-//OXYLOSS = 8
-//Output a creative message and then return the damagetype done
-/obj/item/proc/suicide_act(mob/user)
-	return
-
 /**
  * Global item proc for all of your unique item skin needs. Works with any
  * item, and will change the skin to whatever you specify here. You can also
@@ -303,20 +293,20 @@
 	var/size
 	switch(w_class)
 		if(SIZE_TINY)
-			size = "крохотного размера" // SS220 EDIT ADDICTION
+			size = SPAN_GREEN("крохотного размера") // SS220 EDIT ADDICTION)
 		if(SIZE_SMALL)
-			size = "маленького размера" // SS220 EDIT ADDICTION
+			size = SPAN_CYAN("маленького размера") // SS220 EDIT ADDICTION)
 		if(SIZE_MEDIUM)
-			size = "обычного размера" // SS220 EDIT ADDICTION
+			size = SPAN_ORANGE("обычного размера") // SS220 EDIT ADDICTION)
 		if(SIZE_LARGE)
-			size = "громоздкого размера" // SS220 EDIT ADDICTION
+			size = SPAN_DANGER("громоздкого размера") // SS220 EDIT ADDICTION)
 		if(SIZE_HUGE)
-			size = "огромного размера" // SS220 EDIT ADDICTION
+			size = SPAN_RED("огромного размера") // SS220 EDIT ADDICTION)
 		if(SIZE_MASSIVE)
-			size = "гигантского размера" // SS220 EDIT ADDICTION
+			size = SPAN_RED("гигантского размера") // SS220 EDIT ADDICTION
 	. += "Это [blood_color ? blood_color == COLOR_OIL ? "замасленн[genderize_ru(gender, "ый", "ая", "ое", "ые")] " : "окровавленн[genderize_ru(gender, "ый", "ая", "ое", "ые")] " : ""][icon2html(src, user)][declent_ru(NOMINATIVE)]. Это предмет [size]." // SS220 EDIT ADDICTION
 	if(desc)
-		. += desc
+		. += SPAN_INFO(desc)
 	if(desc_lore)
 		. += SPAN_NOTICE("This has an <a href='byond://?src=\ref[src];desc_lore=1'>extended lore description</a>.")
 
@@ -341,7 +331,7 @@
 	else if(isturf(loc) && HAS_TRAIT(user, TRAIT_HAULED))
 		return
 
-	throwing = 0
+	REMOVE_TRAIT(src, TRAIT_LAUNCHED, LAUNCHED_TRAIT)
 
 	if(loc == user)
 		if(!user.drop_inv_item_on_ground(src))
@@ -415,11 +405,12 @@
 /// Called just as an item is picked up (loc is not yet changed) and will return TRUE if the pickup wasn't canceled.
 /obj/item/proc/pickup(mob/user, silent)
 	SHOULD_CALL_PARENT(TRUE)
-	if((SEND_SIGNAL(src, COMSIG_ITEM_PICKUP, user)) & COMSIG_ITEM_PICKUP_CANCELLED)
+	if(check_pickup_blocked(user))
 		if(!silent)
 			to_chat(user, SPAN_WARNING("Can't pick [src] up!"))
 			balloon_alert(user, "can't pick up")
 		return FALSE
+	SEND_SIGNAL(src, COMSIG_ITEM_PICKUP, user)
 	SEND_SIGNAL(user, COMSIG_MOB_PICKUP_ITEM, src)
 	setDir(SOUTH)//Always rotate it south. This resets it to default position, so you wouldn't be putting things on backwards
 	if(pickup_sound && !silent && src.loc?.z)
@@ -489,6 +480,7 @@
 	SHOULD_CALL_PARENT(TRUE)
 
 	SEND_SIGNAL(src, COMSIG_ITEM_EQUIPPED, user, slot)
+	SEND_SIGNAL(user, COMSIG_MOB_EQUIPPED_ITEM, src, slot) // BANDAMARINES EDIT - ADD
 
 	if(is_valid_sticky_slot(slot))
 		last_equipped_slot = slot
@@ -1093,12 +1085,12 @@
  * Set the item up on a table.
  * @param target: table which is being used to host the item.
  */
-/obj/item/proc/set_to_table(obj/structure/surface/target)
-	if (do_after(usr, 1 SECONDS, INTERRUPT_NO_NEEDHAND, BUSY_ICON_GENERIC))
+/obj/item/proc/set_to_table(obj/structure/surface/target, mob/user)
+	if (do_after(user, 1 SECONDS, INTERRUPT_NO_NEEDHAND, BUSY_ICON_GENERIC))
 		table_setup = TRUE
-		usr.drop_inv_item_to_loc(src, target.loc)
+		user.drop_inv_item_to_loc(src, target.loc)
 	else
-		to_chat(usr, SPAN_WARNING("You fail to setup the [name]"))
+		to_chat(user, SPAN_WARNING("You fail to setup the [name]"))
 
 /**
  * Called to reset the state of the item to not be settled on the table.

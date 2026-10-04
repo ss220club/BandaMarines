@@ -9,6 +9,8 @@
 	// Holds the client's current mentorhelp thread
 	var/datum/mentorhelp/current_mhelp = null
 
+	var/datum/ticket_panel/ticket_panel
+
 	var/last_message = "" //Contains the last message sent by this client - used to protect against copy-paste spamming.
 	var/last_message_count = 0 //contins a number of how many times a message identical to last_message was sent.
 	var/talked = 0
@@ -28,6 +30,7 @@
 	var/time_died_as_mouse = null //when the client last died as a mouse
 
 	var/donator = FALSE
+	var/donator_level = 0 // BANDAMARINES EDIT: Central benefit tier
 	var/adminhelped = 0
 
 	var/datum/click_intercept = null

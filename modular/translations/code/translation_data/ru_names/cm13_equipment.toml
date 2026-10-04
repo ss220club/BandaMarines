@@ -1540,3 +1540,19 @@ accusative = "ИЛС «ЗдравКом» с диоптриями"
 instrumental = "ИЛС «ЗдравКом» с диоптриями"
 prepositional = "ИЛС «ЗдравКом» с диоптриями"
 gender = "male"
+
+["replacement m24-rc1 remote cannon (x1)"]
+nominative = "ящик для вооружения (автопушка M24-RC1 x 1)"
+tags = [ "nominative_only", "cm13",]
+
+["replacement m-77f flare launcher (x1)"]
+nominative = "ящик для вооружения (осветительная ракетница M-77F)"
+tags = [ "nominative_only", "cm13",]
+
+["replacement m24 series wheels (x1)"]
+nominative = "ящик для вооружения (колеса серии M24 x 1)"
+tags = [ "nominative_only", "cm13",]
+
+["m24 series overhead lights (x1)"]
+nominative = "ящик для вооружения (навесные прожекторы серии M24 x 1)"
+tags = [ "nominative_only", "cm13",]

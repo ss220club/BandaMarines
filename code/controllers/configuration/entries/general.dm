@@ -279,7 +279,7 @@ Voting
 
 // Gamemode to auto-switch to at the start of the round
 /datum/config_entry/string/gamemode_default
-	config_entry_value = "Extended"
+	config_entry_value = GAMEMODE_EXTENDED
 
 /datum/config_entry/number/rounds_until_hard_restart
 	config_entry_value = -1 // -1 is disabled by default, 0 is every round, x is after so many rounds
@@ -538,6 +538,12 @@ This maintains a list of ip addresses that are able to bypass topic filtering.
 /datum/config_entry/string/regular_adminhelp_webhook_url
 
 /datum/config_entry/string/profiler_webhook_url
+
+// BANDAMARINES EDIT START: Public bans
+/// Discord webhook URL for notifications about newly issued bans
+/datum/config_entry/string/ban_webhook_url
+	protection = CONFIG_ENTRY_SENSITIVE
+// BANDAMARINES EDIT END: Public bans
 
 /datum/config_entry/string/adminhelp_webhook_pfp
 

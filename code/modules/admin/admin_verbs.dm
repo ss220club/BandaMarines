@@ -33,6 +33,7 @@ GLOBAL_LIST_INIT(admin_verbs_default, list(
 	/client/proc/toggledebuglogs,
 	/client/proc/togglestatpanelsplit,
 	/client/proc/togglenichelogs,
+	/datum/admins/proc/ticket_panel,
 	/datum/admins/proc/display_tags,
 	/datum/admins/proc/player_notes_show,
 	/datum/admins/proc/check_ckey,
@@ -100,8 +101,8 @@ GLOBAL_LIST_INIT(admin_verbs_admin, list(
 GLOBAL_LIST_INIT(admin_verbs_ban, list(
 	/client/proc/unban_panel,
 	/client/proc/stickyban_panel,
-	/client/proc/ipcheck_allow,
-	/client/proc/ipcheck_revoke,
+	// /client/proc/ipcheck_allow, // SS220 EDIT
+	// /client/proc/ipcheck_revoke, // SS220 EDIT
 	// /client/proc/jobbans // Disabled temporarily due to 15-30 second lag spikes.
 ))
 
@@ -113,6 +114,8 @@ GLOBAL_LIST_INIT(admin_verbs_logs, list(
 	/datum/admins/proc/view_runtime_log, /*shows the server runtime log for this round*/
 	/datum/admins/proc/view_href_log, /*shows the server HREF log for this round*/
 	/datum/admins/proc/view_tgui_log, /*shows the server TGUI log for this round*/
+	/client/proc/opensearch_query_builder,
+	/client/proc/opensearch_quick_query,
 ))
 
 GLOBAL_LIST_INIT(admin_verbs_sounds, list(
@@ -227,6 +230,7 @@ GLOBAL_LIST_INIT(admin_verbs_debug, list(
 	/client/proc/admin_blurb,
 	/datum/admins/proc/open_shuttlepanel,
 	/client/proc/allow_browser_inspect,
+	/client/proc/debug_mapgrids,
 ))
 
 GLOBAL_LIST_INIT(admin_verbs_debug_advanced, list(
@@ -324,7 +328,8 @@ GLOBAL_LIST_INIT(mentor_verbs, list(
 	/client/proc/cmd_mentor_say,
 	/datum/admins/proc/imaginary_friend,
 	/client/proc/toggle_newplayer_ghost_hud,
-	/client/proc/toggle_newplayer_ic_hud
+	/client/proc/toggle_newplayer_ic_hud,
+	/datum/admins/proc/ticket_panel
 ))
 
 /client/proc/add_admin_verbs()
@@ -388,6 +393,7 @@ GLOBAL_LIST_INIT(mentor_verbs, list(
 		GLOB.admin_verbs_hideable,
 		GLOB.debug_verbs,
 		GLOB.admin_verbs_stealth,
+		GLOB.admin_verbs_logs
 	))
 
 /client/proc/jobbans()
