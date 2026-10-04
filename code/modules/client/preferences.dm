@@ -590,7 +590,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 				dat += "<b>Commander Sidearm:</b> <a href='byond://?_src_=prefs;preference=co_sidearm;task=input'><b>[commander_sidearm]</b></a><br>"
 				dat += "<b>Commander Affiliation:</b> <a href='byond://?_src_=prefs;preference=co_affiliation;task=input'><b>[affiliation]</b></a><br>"
 				dat += "<b>Commander Career Path:</b> <a href='byond://?_src_=prefs;preference=co_career_path;task=input'><b>[co_career_path]</b></a><br>"
-				dat += "<b>Commander Sign:</b> <a href='byond://?_src_=prefs;preference=commander_sign;task=input'><b>[signed ? signed : "Set Commander Sign"]</b></a><br>" // SS220 ADD // SS220 ADD
+				dat += "<b>Commander Sign:</b> <a href='byond://?_src_=prefs;preference=commander_sign;task=input'><b>[signed ? signed : "Set Commander Sign"]</b></a><br>" // SS220 ADD
 				dat += "</div>"
 			else
 				dat += "<b>You do not have the whitelist for this role.</b>"
@@ -1545,7 +1545,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 					if(new_signed == null)
 						return
 
-					signed = copytext(new_signed, 1, MAX_PAPER_MESSAGE_LEN) // SS220 ADD END
+					signed = strip_html(new_signed, 1, MAX_PAPER_MESSAGE_LEN) // SS220 ADD END
 
 
 				if("yautja_status")
