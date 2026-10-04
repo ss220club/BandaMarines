@@ -107,6 +107,10 @@ GLOBAL_LIST_INIT(medal_references, generate_medal_references())
 	var/citation = tgui_input_text(usr, "Что должно быть написано на медали?", "Надпись на медали", multiline = TRUE)
 	if(!citation)
 		return FALSE
+	
+	var/datum/preferences/prefs = giving_mob?.client?.prefs // SS220 ADD START
+	if(prefs?.signed)
+		citation += "\n\n[prefs.signed]" // SS220 ADD END
 
 	// Get mob information
 	var/recipient_rank = recipient_ranks[chosen_recipient]
@@ -218,6 +222,10 @@ GLOBAL_LIST_INIT(medal_references, generate_medal_references())
 	var/citation = strip_html(reason)
 	if(!citation)
 		return FALSE
+
+	var/datum/preferences/prefs = giving_mob?.client?.prefs // SS220 ADD START
+	if(prefs?.signed)
+		citation += "\n\n[prefs.signed]" // SS220 ADD END
 
 	// Get mob information
 	var/posthumous = TRUE
