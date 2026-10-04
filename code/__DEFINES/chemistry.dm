@@ -327,7 +327,7 @@
 /// Scales cost of increasing clearance using credits
 #define RESEARCH_LEVEL_INCREASE_MULTIPLIER 3
 /// Amount of contract chemicals that should be generated
-#define RESEARCH_CONTRACT_CHEM_AMOUNT 3 //SS220 EDIT
+#define RESEARCH_CONTRACT_CHEM_AMOUNT 3
 ///reroll in X minutes if our contract is NOT picked
 #define RESEARCH_CONTRACT_NOT_PICKED 1 MINUTES //SS220 EDIT
 ///reroll in X minutes if our contract IS picked
