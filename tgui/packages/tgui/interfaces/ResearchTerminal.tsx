@@ -132,7 +132,7 @@ const CompoundRecord = (props: CompoundRecordProps) => {
         <Flex
           className="compound_actions"
           justify="space-around"
-          alignItems="stretch"
+          align-items="stretch"
           wrap={false}
         >
           <Flex.Item>
