@@ -33,29 +33,23 @@
 /datum/equipment_preset/synth/uscm/engineering
 	//name = "USCM Synthetic (Engineering)"
 	assignment = JOB_SYNTH_ENG_RU
-	manifest_title = JOB_SYNTH_ENG_RU
 
 /datum/equipment_preset/synth/uscm/medical
 	//name = "USCM Synthetic (Medical)"
 	assignment = JOB_SYNTH_MED_RU
-	manifest_title = JOB_SYNTH_MED_RU
 
 /datum/equipment_preset/synth/uscm/intel
 	//name = "USCM Synthetic (Intel)"
 	assignment = JOB_SYNTH_INTEL_RU
-	manifest_title = JOB_SYNTH_INTEL_RU
 
 /datum/equipment_preset/synth/uscm/command
 	//name = "USCM Synthetic (Command)"
 	assignment = JOB_SYNTH_CMD_RU
-	manifest_title = JOB_SYNTH_CMD_RU
 
 /datum/equipment_preset/synth/uscm/mp
 	//name = "USCM Synthetic (MP)"
 	assignment = JOB_SYNTH_MP_RU
-	manifest_title = JOB_SYNTH_MP_RU
 
 /datum/equipment_preset/synth/uscm/research
 	//name = "USCM Synthetic (Research)"
 	assignment = JOB_SYNTH_SCI_RU
-	manifest_title = JOB_SYNTH_SCI_RU
