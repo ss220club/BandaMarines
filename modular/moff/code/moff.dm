@@ -248,8 +248,8 @@
 
 	start_pulling(pounced_mob, TRUE, simple_mob = TRUE)
 	break_nearby_lights()
-	playsound(pounced_mob, pick(moff_kill_list), 100, FALSE)
-	playsound(pounced_mob, pick(moff_horror_list), 100, FALSE)
+	playsound(pounced_mob, pick(moff_kill_list), 60, FALSE)
+	playsound(pounced_mob, pick(moff_horror_list), 60, FALSE)
 
 	pounced_mob.death()
 	moth_jumpscare(pounced_mob)
@@ -289,8 +289,8 @@
 
 	start_pulling(pounced_mob, TRUE, simple_mob = TRUE)
 	break_nearby_lights()
-	playsound(pounced_mob, pick(moff_kill_list), 100, FALSE)
-	playsound(pounced_mob, pick(moff_horror_list), 100, FALSE)
+	playsound(pounced_mob, pick(moff_kill_list), 60, FALSE)
+	playsound(pounced_mob, pick(moff_horror_list), 60, FALSE)
 
 	pounced_mob.death()
 	moth_jumpscare(pounced_mob)

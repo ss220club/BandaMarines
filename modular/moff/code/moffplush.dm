@@ -64,8 +64,8 @@
 	user.visible_message(
 		SPAN_HIGHDANGER("[capitalize(user.declent_ru(NOMINATIVE))] крепко обнимает [src.declent_ru(ACCUSATIVE)] и та начинает пожирать [user.ru_p_them()]!")
 	)
-	playsound(src, pick(moff_kill_list), 100, TRUE)
-	playsound(src, pick(moff_horror_list), 100, TRUE)
+	playsound(src, pick(moff_kill_list), 60, TRUE)
+	playsound(src, pick(moff_horror_list), 60, TRUE)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/limb/L = H.get_limb("head")
