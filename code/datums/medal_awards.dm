@@ -108,9 +108,7 @@ GLOBAL_LIST_INIT(medal_references, generate_medal_references())
 	if(!citation)
 		return FALSE
 	
-	var/datum/preferences/prefs = giving_mob?.client?.prefs // SS220 ADD START
-	if(prefs?.signed)
-		citation += "\n\n[prefs.signed]" // SS220 ADD END
+
 
 	// Get mob information
 	var/recipient_rank = recipient_ranks[chosen_recipient]
