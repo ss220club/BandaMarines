@@ -108,8 +108,6 @@ GLOBAL_LIST_INIT(medal_references, generate_medal_references())
 	if(!citation)
 		return FALSE
 	
-
-
 	// Get mob information
 	var/recipient_rank = recipient_ranks[chosen_recipient]
 	var/posthumous = TRUE
