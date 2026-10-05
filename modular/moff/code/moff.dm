@@ -49,8 +49,8 @@
 
 /mob/living/simple_animal/hostile/retaliate/moth/lite
 	name = "Огромная моль"
-	maxHealth = 1500
-	health = 1500
+	maxHealth = 150
+	health = 150
 
 /obj/item/holder/moth
 	name = "Огромная моль"
