@@ -149,7 +149,7 @@ I hope it's easier to tell what the heck this proc is even doing, unlike previou
 			continue							  //SS220 ADD
 		unassigned_players += M
 
-	if(!length(unassigned_players) && !length(unassigned_banda_players)) //If we don't have any players, the round can't start. SS220 EDD banda check
+	if(!length(unassigned_players) && !length(unassigned_banda_players)) //If we don't have any players, the round can't start. SS220 ADD banda check
 		unassigned_players = null
 		return
 
