@@ -31,7 +31,7 @@
 	if(!hive_pylons_charged)
 		hive_pylons_charged = TRUE
 		if(!(locate(/datum/hivebuff/hive_surge) in hive.used_hivebuffs))
-			xeno_announcement("Hive Surge is now available as a boon for your Queen to purchase for free. Use it to reshape your caste to assault the tallhost fortress!", hive.hivenumber, QUEEN_MOTHER_ANNOUNCE)
+			xeno_announcement(""Hive Surge теперь доступен как дар, который ваша Королева может приобрести бесплатно. Используйте его, чтобы сменить свою касту и уничтожить крепость носителей!", hive.hivenumber, QUEEN_MOTHER_ANNOUNCE)
 	else
 		hive.stored_larva += FORWARD_BASE_LARVA_AMOUNT
 		hive.hive_ui.update_burrowed_larva()
@@ -44,11 +44,11 @@
 	return ROUND_TIME < FORWARD_BASE_FOG_DURATION
 
 /datum/game_mode/colonialmarines/forward_base/map_announcement()
-	marine_announcement("Bad timing, marines. The CLF hit the regional military communications network and demolished the nearest long-range relay station. We've got this emergency channel to you, but that's about it. I can't coordinate another unit into your area, meaning, I can't get you the reinforcements you requested. You have a fortified position and enough ammunition to finish the job. You're on your own. Cameron out.", "BRIGADIER GENERAL CAMERON - CHINOOK 91 GSO STATION", 'sound/AI/commandreport.ogg')
-	xeno_announcement("A hive of armed tallhosts have fortified themselves in a nest at the edge of our territory. The dense mist conceals them from you, but it is beginning to fade. Be patient. Soon, the way to the hosts will be clear.", "everything", QUEEN_MOTHER_ANNOUNCE)
+	marine_announcement("Плохие новости, морпехи. КОФ поразил региональную сеть военной связи и уничтожил ближайшую дальневолновую ретрансляционную станцию. У нас есть только этот аварийный канал связи с вами - и всё. Я не могу направить в ваш район другое подразделение, а значит, не смогу обеспечить запрошенное вами подкрепление. У вас укреплённая позиция и достаточно боеприпасов, чтобы завершить задание. Вы сами по себе. Кэмерон, конец связи.", "BRIGADIER GENERAL CAMERON - CHINOOK 91 GSO STATION", 'sound/AI/commandreport.ogg')
+	xeno_announcement("Рой враждебных носителей укрепился в гнезде на краю нашей территории. Густой туман скрывает их от вас, но он начинает рассеиваться. Проявите терпение. Скоро путь к ним будет открыт.", QUEEN_MOTHER_ANNOUNCE)
 
 /datum/game_mode/colonialmarines/forward_base/ares_conclude()
-	marine_announcement("Well, marines, the regional relay is finally back online. I was halfway through getting your reinforcements moving when your all-clear came through. Seems you didn't need them after all. Saves me the trouble. Count your dead and send me the casualty reports. Cameron out.", "BRIGADIER GENERAL CAMERON - CHINOOK 91 GSO STATION", 'sound/AI/commandreport.ogg')
+	marine_announcement("Что ж, морпехи, региональный ретранслятор наконец-то снова в сети. Я как раз был на полпути к тому, чтобы отправить к вам подкрепление. Похоже, оно вам в итоге не понадобилось. Подсчитайте потери и пришлите мне отчёты о пострадавших. Кэмерон, конец связи.", "BRIGADIER GENERAL CAMERON - CHINOOK 91 GSO STATION", 'sound/AI/commandreport.ogg')
 
 /datum/game_mode/colonialmarines/forward_base/pre_setup()
 	. = ..()
@@ -70,8 +70,8 @@
 	addtimer(CALLBACK(src, PROC_REF(allow_base_burrowing)), FORWARD_BASE_FOG_DURATION - ROUND_TIME)
 	addtimer(CALLBACK(src, PROC_REF(disable_base_comms)), FORWARD_BASE_FOG_DURATION + FORWARD_BASE_COMMS_FAILURE - ROUND_TIME)
 	addtimer(CALLBACK(src, PROC_REF(warn_resin_clear)), FORWARD_BASE_FOG_DURATION - ROUND_TIME)
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_announcement), "The mist is almost gone. In one minute, the tallhosts will be exposed. Gather yourselves and prepare to tear their nest apart.", "everything", QUEEN_MOTHER_ANNOUNCE), FORWARD_BASE_FOG_DURATION - FORWARD_BASE_FOG_WARNING - ROUND_TIME)
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "WARNING. HOSTILE CONTACT IMMINENT. Atmospheric obscuration is rapidly dissipating and will be lost within sixty seconds. ALL COMBAT PERSONNEL, assume defensive positions immediately.", "BASE PERIMETER ALERT", 'sound/effects/siren.ogg'), FORWARD_BASE_FOG_DURATION - FORWARD_BASE_FOG_WARNING - ROUND_TIME)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_announcement), "Туман почти рассеялся. Через минуту носители будут на виду. Соберитесь и приготовьтесь разнести их гнездо.", QUEEN_MOTHER_ANNOUNCE), FORWARD_BASE_FOG_DURATION - FORWARD_BASE_FOG_WARNING - ROUND_TIME)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "ВНИМАНИЕ. НЕИЗБЕЖНЫЙ КОНТАКТ С ПРОТИВНИКОМ. Атмосферная маскировка стремительно рассеивается и исчезнет в течение шестидесяти секунд. ВСЕМ БОЕВЫМ ПОДРАЗДЕЛЕНИЯМ НЕМЕДЛЕННО ЗАНЯТЬ ОБОРОНИТЕЛЬНЫЕ ПОЗИЦИИ.", 'sound/effects/siren.ogg'), FORWARD_BASE_FOG_DURATION - FORWARD_BASE_FOG_WARNING - ROUND_TIME)
 	var/obj/docking_port/stationary/marine_dropship/landing_zone = SSshuttle.getDock(active_lz.linked_lz)
 	SSshuttle.action_load(SSmapping.all_shuttle_templates[/datum/map_template/shuttle/normandy], landing_zone)
 	for(var/obj/structure/machinery/computer/shuttle/dropship/flight/console in GLOB.machines)
@@ -83,7 +83,7 @@
 			bunker_area.flags_area &= ~AREA_NOBURROW
 
 /datum/game_mode/colonialmarines/forward_base/proc/disable_base_comms()
-	marine_announcement("WARNING. BASE RELAY BACKUP BATTERY DEPLETED. Military radio coverage is offline. Recommended action: hijack a civilian communications tower and reestablish contact through the colony network.", "BASE COMMUNICATIONS ALERT", 'sound/AI/commandreport.ogg')
+	marine_announcement("ВНИМАНИЕ. РЕЗЕРВНАЯ БАТАРЕЯ РЕТРАНСЛЯТОРА БАЗЫ РАЗРЯЖЕНА. Связь по военной радиосети недоступна. Рекомендуемое действие: захватить гражданскую вышку связи и восстановить контакт через сеть колонии.", "BASE COMMUNICATIONS ALERT", 'sound/AI/commandreport.ogg')
 	for(var/obj/structure/machinery/telecomms/relay/preset/tower/all/relay in GLOB.telecomms_list)
 		if(istype(get_area(relay), /area/forward_base))
 			relay.toggled = FALSE
@@ -93,7 +93,7 @@
 	if(MODE_HAS_MODIFIER(/datum/gamemode_modifier/lz_weeding))
 		return
 	clear_proximity_resin()
-	marine_announcement("WARNING. PERIMETER DECONTAMINATION ACTIVE. C10-W weedkiller is being dispersed around the base perimiter.", "BASE PERIMETER ALERT", 'sound/effects/rocketpod_fire.ogg')
+	marine_announcement("ВНИМАНИЕ. АКТИВНА ДЕЗИНФЕКЦИЯ ПЕРИМЕТРА. C10-W Weedkiller распыляется вокруг базы.", "BASE PERIMETER ALERT", 'sound/effects/rocketpod_fire.ogg')
 
 /datum/game_mode/colonialmarines/forward_base/spawn_lz_sentry(turf/target, list/structures_to_break)
 	new /obj/structure/machinery/defenses/sentry/premade/deployable/colony/landing_zone/forward_base(target)
@@ -115,7 +115,7 @@
 			main_hive.see_humans_on_tacmap = TRUE
 			main_hive.tacmap_requires_queen_ovi = FALSE
 			SEND_SIGNAL(main_hive, COMSIG_XENO_REVEAL_TACMAP)
-			xeno_announcement("There is only a handful of tallhosts left, they are now visible on our hive mind map.", XENO_HIVE_NORMAL, SPAN_ANNOUNCEMENT_HEADER_BLUE("[QUEEN_MOTHER_ANNOUNCE]"))
+			xeno_announcement("Осталась лишь небольшая горстка носителей, и теперь они видны на карте нашего улья.", XENO_HIVE_NORMAL, SPAN_ANNOUNCEMENT_HEADER_BLUE("[QUEEN_MOTHER_ANNOUNCE]"))
 	return ..()
 
 /obj/structure/machinery/defenses/sentry/premade/deployable/colony/landing_zone/forward_base
