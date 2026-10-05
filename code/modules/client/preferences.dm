@@ -1545,7 +1545,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 					if(new_signed == null)
 						return
 
-					signed = strip_html(new_signed, 1, MAX_PAPER_MESSAGE_LEN) // SS220 ADD END
+					signed = copytext(new_signed, 1, MAX_PAPER_MESSAGE_LEN) // SS220 ADD END
 
 
 				if("yautja_status")
