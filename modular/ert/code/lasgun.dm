@@ -78,8 +78,8 @@
 	name = "Imperial Hellgun"
 	desc = "For The Imperium of Mankind! With a lot of fire!"
 	icon = 'modular/ert/icons/lasgun/lasgun.dmi'
-	icon_state = "lasgun"
-	item_state = "lasgun"
+	icon_state = "hellgun"
+	item_state = "hellgun"
 	current_mag = /obj/item/ammo_magazine/rifle/lasgun/extended
 
 /obj/item/weapon/gun/rifle/lasgun/hellgun/set_gun_config_values()
@@ -102,8 +102,8 @@
 	name = "Imperial Long Lasgun"
 	desc = "For The Imperium of Mankind! With scope!"
 	icon = 'modular/ert/icons/lasgun/lasgun.dmi'
-	icon_state = "lasgun"
-	item_state = "lasgun"
+	icon_state = "longlas"
+	item_state = "longlas"
 
 /obj/item/weapon/gun/rifle/lasgun/longlas/set_gun_config_values()
 	..()
@@ -149,7 +149,7 @@
 
 /datum/ammo/energy/lasgun
 	name = "laser bolt"
-	icon = 'modular/ert/icons/projectiles2.dmi'
+	icon = 'modular/ert/icons/projectiles.dmi'
 	icon_state = "lasbolt"
 	flags_ammo_behavior = AMMO_ENERGY
 	damage = 25

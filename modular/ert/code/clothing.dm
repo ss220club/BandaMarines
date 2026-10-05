@@ -5,7 +5,7 @@
 	item_icons = list(
 		WEAR_BODY = 'modular/ert/icons/clothing/mob/uniform_mob.dmi',
 	)
-	icon_state = "guard_old"
+	icon_state = "guard_s"
 	worn_state = "guard_s"
 	specialty = "imperial guard uniform"
 	flags_item = NO_GAMEMODE_SKIN
