@@ -12,6 +12,7 @@
 	. = ..()
 	LAZYINSERT(listed_products, list(list("Barrel Charger", 0.9, /obj/item/attachable/heavy_barrel, VENDOR_ITEM_REGULAR)), 2)
 
+//rmr-6
 /datum/gear/weapon/rmr6
 	display_name = "RMR-6 revolver"
 	path = /obj/item/storage/box/fluff_gun/rmr6
@@ -31,7 +32,7 @@
 	new /obj/item/ammo_magazine/revolver/rmr6(src)
 	new /obj/item/ammo_magazine/revolver/rmr6(src)
 
-
+//pa76
 /datum/gear/weapon/pa76
 	display_name = "PA76 pistol"
 	path = /obj/item/storage/box/fluff_gun/pa76
@@ -51,7 +52,7 @@
 	new /obj/item/ammo_magazine/pistol/pa76(src)
 	new /obj/item/ammo_magazine/pistol/pa76(src)
 
-
+//rmc Vp78
 /datum/gear/weapon/l165
 	display_name = "L165A1 service pistol"
 	path = /obj/item/storage/box/fluff_gun/l165
@@ -71,7 +72,7 @@
 	new /obj/item/ammo_magazine/pistol/vp78/rmc(src)
 	new /obj/item/ammo_magazine/pistol/vp78/rmc(src)
 
-
+//vp70
 /datum/gear/weapon/vp70
 	display_name = "VP70 M5 service pistol"
 	path = /obj/item/storage/box/fluff_gun/vp70

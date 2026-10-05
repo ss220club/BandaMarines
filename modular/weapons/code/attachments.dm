@@ -12,20 +12,6 @@
 	recoil_unwielded_mod = -RECOIL_AMOUNT_TIER_2
 	scatter_unwielded_mod = -SCATTER_AMOUNT_TIER_2
 
-/obj/item/attachable/attached_gun/shotgun/m20a
-	name = "\improper U3 underbarrel shotgun"
-	desc = "An ARMAT U3 tactical shotgun. Integrated into the M20A Harrington rifle. Only capable of loading up to five buckshot shells."
-	icon_state = "masterkey"
-	attach_icon = "masterkey_a"
-	flags_attach_features = ATTACH_ACTIVATION|ATTACH_PROJECTILE|ATTACH_RELOADABLE|ATTACH_WEAPON
-	hidden = TRUE
-
-/obj/item/attachable/attached_gun/shotgun/m20a/set_bullet_traits()
-	return
-
-/obj/item/attachable/attached_gun/shotgun/m20a/unloaded
-	current_rounds = 0
-
 /obj/item/attachable/flashlight/m20a
 	name = "integrated flashlight"
 	desc = "shouldnt be seeing this. . ."
