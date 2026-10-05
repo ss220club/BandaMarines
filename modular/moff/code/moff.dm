@@ -235,7 +235,7 @@
 	pounced_mob(pounced_mob)
 
 /mob/living/simple_animal/hostile/retaliate/moth/proc/break_nearby_lights()
-	for(var/obj/structure/machinery/light/L in range(6, src))
+	for(var/obj/structure/machinery/light/L in range(5, src))
 		if(L.status != LIGHT_BROKEN)
 			L.broken()
 
@@ -248,15 +248,15 @@
 
 	start_pulling(pounced_mob, TRUE, simple_mob = TRUE)
 	break_nearby_lights()
-	playsound(pounced_mob, pick(moff_kill_list), 60, FALSE)
-	playsound(pounced_mob, pick(moff_horror_list), 60, FALSE)
+	playsound(pounced_mob, pick(moff_kill_list), 35, FALSE)
+	playsound(pounced_mob, pick(moff_horror_list), 35, FALSE)
 
 	pounced_mob.death()
 	moth_jumpscare(pounced_mob)
 	pounced_mob.chestburst = 2
 	pounced_mob.update_burst()
 
-	MoveTo(pounced_mob, 5, TRUE, 5 SECONDS, TRUE)
+	MoveTo(pounced_mob, 4, TRUE, 5 SECONDS, TRUE)
 
 	spawn(3 SECONDS)
 		if(!src)
@@ -289,13 +289,13 @@
 
 	start_pulling(pounced_mob, TRUE, simple_mob = TRUE)
 	break_nearby_lights()
-	playsound(pounced_mob, pick(moff_kill_list), 60, FALSE)
-	playsound(pounced_mob, pick(moff_horror_list), 60, FALSE)
+	playsound(pounced_mob, pick(moff_kill_list), 35, FALSE)
+	playsound(pounced_mob, pick(moff_horror_list), 35, FALSE)
 
 	pounced_mob.death()
 	moth_jumpscare(pounced_mob)
 
-	MoveTo(pounced_mob, 5, TRUE, 5 SECONDS, TRUE)
+	MoveTo(pounced_mob, 4, TRUE, 5 SECONDS, TRUE)
 
 	spawn(3 SECONDS)
 		if(!src)
@@ -702,38 +702,128 @@
 	P.fire_at(target, src, src)
 
 
-// ДЛЯ ЕРТШКИ, до лучших времён
-///datum/emergency_call/moth_sadar
-//	name = "Fun - Moth Sadar"
-//	mob_max = 1
-//	mob_min = 1
-//	probability = 0
-//	objectives = "УБЕЙ."
-//	hostility = TRUE
-//	shuttle_id = MOBILE_SHUTTLE_ID_ERT1
-//	home_base = /datum/lazy_template/ert/pizza_station
-//	name_of_spawn = /obj/effect/landmark/ert_spawns/distress_pmc
-//	item_spawn = /obj/effect/landmark/ert_spawns/distress_pmc/item
+/datum/emergency_call/moth_sadar
+	name = "Fun - Moth Sadar (solo)"
+	mob_max = 1
+	mob_min = 1
+	probability = 0
+	objectives = "УБЕЙ."
+	hostility = TRUE
+	shuttle_id = MOBILE_SHUTTLE_ID_ERT1
+	home_base = /datum/lazy_template/ert/pizza_station
+	name_of_spawn = /obj/effect/landmark/ert_spawns/distress_pmc
+	item_spawn = /obj/effect/landmark/ert_spawns/distress_pmc/item
 
-///datum/emergency_call/moth_sadar/New()
-//	..()
-//	arrival_message = "20:31. Прибыла Мофф-Садар."
+/datum/emergency_call/moth_sadar/New()
+	..()
+	arrival_message = "20:31. Прибыла Мофф-Садар."
 
-///datum/emergency_call/moth_sadar/create_member(datum/mind/M, turf/override_spawn_loc)
-//	var/turf/spawn_loc = override_spawn_loc ? override_spawn_loc : get_spawn_point()
+/datum/emergency_call/moth_sadar/create_member(datum/mind/M, turf/override_spawn_loc)
+	var/turf/spawn_loc = override_spawn_loc ? override_spawn_loc : get_spawn_point()
 
-//	if(!istype(spawn_loc))
-//		return
-//
-//	var/mob/living/simple_animal/hostile/retaliate/moth/sadar/S = new(spawn_loc)
-//	M.transfer_to(S, TRUE)
+	if(!istype(spawn_loc))
+		return
 
-//	arm_equipment(S, /datum/equipment_preset/fun/moth/sadar, FALSE, TRUE)
+	var/mob/living/simple_animal/hostile/retaliate/moth/sadar/S = new(spawn_loc)
+	M.transfer_to(S, TRUE)
 
-///datum/equipment_preset/fun/moth/sadar
-//	name = "Fun - Moth Sadar"
-//	assignment = "Moth Sadar"
-//	job_title = "Moth Sadar"
-//	paygrades = list(PAY_SHORT_ME2 = JOB_PLAYTIME_TIER_0)
-//	flags = EQUIPMENT_PRESET_EXTRA
-//	faction = FACTION_NEUTRAL
+
+/datum/emergency_call/moth_sadar_squad
+	name = "Fun - Moth Sadar Squad (up to 5)"
+	mob_max = 5
+	mob_min = 1
+	probability = 0
+	objectives = "УБЕЙ."
+	hostility = TRUE
+	shuttle_id = MOBILE_SHUTTLE_ID_ERT1
+	home_base = /datum/lazy_template/ert/pizza_station
+	name_of_spawn = /obj/effect/landmark/ert_spawns/distress_pmc
+	item_spawn = /obj/effect/landmark/ert_spawns/distress_pmc/item
+
+/datum/emergency_call/moth_sadar_squad/New()
+	..()
+	arrival_message = "20:31. Прибыла группа Мофф-Садар."
+
+/datum/emergency_call/moth_sadar_squad/create_member(datum/mind/M, turf/override_spawn_loc)
+	var/turf/spawn_loc = override_spawn_loc ? override_spawn_loc : get_spawn_point()
+
+	if(!istype(spawn_loc))
+		return
+
+	var/mob/living/simple_animal/hostile/retaliate/moth/sadar/S = new(spawn_loc)
+	M.transfer_to(S, TRUE)
+
+/datum/emergency_call/moth_light
+	name = "Fun - Moth Light (up to 3)"
+	mob_max = 3
+	mob_min = 1
+	probability = 0
+	objectives = "УБЕЙ."
+	hostility = TRUE
+	shuttle_id = MOBILE_SHUTTLE_ID_ERT1
+	home_base = /datum/lazy_template/ert/pizza_station
+	name_of_spawn = /obj/effect/landmark/ert_spawns/distress_pmc
+	item_spawn = /obj/effect/landmark/ert_spawns/distress_pmc/item
+
+/datum/emergency_call/moth_light/New()
+	..()
+	arrival_message = "20:31. Прибыла обычная моль."
+
+/datum/emergency_call/moth_light/create_member(datum/mind/M, turf/override_spawn_loc)
+	var/turf/spawn_loc = override_spawn_loc ? override_spawn_loc : get_spawn_point()
+
+	if(!istype(spawn_loc))
+		return
+
+	var/mob/living/simple_animal/hostile/retaliate/moth/lite/S = new(spawn_loc)
+	M.transfer_to(S, TRUE)
+
+/datum/emergency_call/moth_light_solo
+	name = "Fun - Moth Light (solo)"
+	mob_max = 1
+	mob_min = 1
+	probability = 0
+	objectives = "УБЕЙ."
+	hostility = TRUE
+	shuttle_id = MOBILE_SHUTTLE_ID_ERT1
+	home_base = /datum/lazy_template/ert/pizza_station
+	name_of_spawn = /obj/effect/landmark/ert_spawns/distress_pmc
+	item_spawn = /obj/effect/landmark/ert_spawns/distress_pmc/item
+
+/datum/emergency_call/moth_light_solo/New()
+	..()
+	arrival_message = "20:31. Прибыла обычная моль."
+
+/datum/emergency_call/moth_light_solo/create_member(datum/mind/M, turf/override_spawn_loc)
+	var/turf/spawn_loc = override_spawn_loc ? override_spawn_loc : get_spawn_point()
+
+	if(!istype(spawn_loc))
+		return
+
+	var/mob/living/simple_animal/hostile/retaliate/moth/lite/S = new(spawn_loc)
+	M.transfer_to(S, TRUE)
+
+/datum/emergency_call/moth
+	name = "Fun - Moth (solo)"
+	mob_max = 1
+	mob_min = 1
+	probability = 0
+	objectives = "УБЕЙ."
+	hostility = TRUE
+	shuttle_id = MOBILE_SHUTTLE_ID_ERT1
+	home_base = /datum/lazy_template/ert/pizza_station
+	name_of_spawn = /obj/effect/landmark/ert_spawns/distress_pmc
+	item_spawn = /obj/effect/landmark/ert_spawns/distress_pmc/item
+
+/datum/emergency_call/moth/New()
+	..()
+	arrival_message = "20:31. Прибыла обычная моль."
+
+/datum/emergency_call/moth/create_member(datum/mind/M, turf/override_spawn_loc)
+	var/turf/spawn_loc = override_spawn_loc ? override_spawn_loc : get_spawn_point()
+
+	if(!istype(spawn_loc))
+		return
+
+	var/mob/living/simple_animal/hostile/retaliate/moth/S = new(spawn_loc)
+	M.transfer_to(S, TRUE)
