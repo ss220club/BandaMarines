@@ -107,7 +107,7 @@ GLOBAL_LIST_INIT(medal_references, generate_medal_references())
 	var/citation = tgui_input_text(usr, "Что должно быть написано на медали?", "Надпись на медали", multiline = TRUE)
 	if(!citation)
 		return FALSE
-	
+
 	// Get mob information
 	var/recipient_rank = recipient_ranks[chosen_recipient]
 	var/posthumous = TRUE
