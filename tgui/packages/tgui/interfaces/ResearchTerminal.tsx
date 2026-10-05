@@ -528,7 +528,7 @@ const Contracts = () => {
                 icon="print"
                 disabled={data.is_contract_picked}
                 tooltip={
-                  'Taking this contract will put a 3 minute cooldown on new chemical. You can only pick one.' // SS220 EDIT
+                  'Taking this contract will put a 6 minute cooldown on new chemical. You can only pick one.' // SS220 EDIT
                 }
                 tooltipPosition="top"
                 onClick={() =>
