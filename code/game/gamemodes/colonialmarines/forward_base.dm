@@ -38,7 +38,7 @@
 	hive_pylon_timer = addtimer(CALLBACK(src, PROC_REF(pylon_rewards), hive), FORWARD_BASE_LARVA_INTERVAL, TIMER_STOPPABLE)
 
 /datum/game_mode/colonialmarines/forward_base/get_roles_list()
-	return ..() - list(JOB_DROPSHIP_PILOT, JOB_FIELD_DOCTOR)
+	return ..() - list(JOB_DROPSHIP_PILOT, JOB_FIELD_DOCTOR, JOB_TANK_CREW)
 
 /datum/game_mode/colonialmarines/forward_base/allow_early_drone_evolution()
 	return ROUND_TIME < FORWARD_BASE_FOG_DURATION

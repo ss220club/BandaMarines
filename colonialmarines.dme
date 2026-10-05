@@ -878,6 +878,7 @@
 #include "code\game\area\IceColony.dm"
 #include "code\game\area\kutjevo.dm"
 #include "code\game\area\LV522_Chances_Claim.dm"
+#include "code\game\area\LV522_Chances_Claim_forward_base.dm"
 #include "code\game\area\LV624.dm"
 #include "code\game\area\LV759_Hybrisa_Prospera.dm"
 #include "code\game\area\prison.dm"
