@@ -219,10 +219,6 @@ GLOBAL_LIST_INIT(medal_references, generate_medal_references())
 	if(!citation)
 		return FALSE
 
-	var/datum/preferences/prefs = giving_mob?.client?.prefs // SS220 ADD START
-	if(prefs?.signed)
-		citation += "\n\n[prefs.signed]" // SS220 ADD END
-
 	// Get mob information
 	var/posthumous = TRUE
 	var/mob/recipient_mob
@@ -532,6 +528,12 @@ GLOBAL_LIST_INIT(xeno_medals, list(XENO_SLAUGHTER_MEDAL, XENO_RESILIENCE_MEDAL, 
 	var/reason = strip_html(tgui_input_text(recommendation_giver, "Why does this person deserve a medal?", "Medal Recommendation", null, MAX_PAPER_MESSAGE_LEN, TRUE), MAX_PAPER_MESSAGE_LEN)
 	if(!reason)
 		return FALSE
+
+	var/datum/preferences/prefs = recommendation_giver?.client?.prefs // SS220 ADD START
+	if(prefs?.signed)
+		var/choice = tgui_alert(recommendation_giver, "Хотите вставить свой шаблон?", "Шаблон рекомендации", list("Да", "Нет"))
+		if(choice == "Да")
+			reason += "\n[prefs.signed]" // SS220 ADD END
 
 	// Get mob information
 	var/recipient_rank = recipient_ranks[chosen_recipient]
