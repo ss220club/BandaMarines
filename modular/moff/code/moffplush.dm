@@ -51,7 +51,7 @@
 		desc = "Плюшевая игрушка, изображающая нечто в облике человека-мотылька. Она погубила [suicide_count] людей. Не стоит смотреть ей в глаза слишком долго..."
 	else
 		user.visible_message(
-			SPAN_HIGHDANGER("[capitalize(src.declent_ru(NOMINATIVE)]) вспыхивает ярким пламенем!")
+			SPAN_HIGHDANGER("[src.declent_ru(NOMINATIVE)] вспыхивает ярким пламенем!")
 		)
 		playsound(src, 'modular/moff/sound/moth_scream_moth.ogg', 30, TRUE)
 		var/turf/T = get_turf(src)
@@ -68,7 +68,7 @@
 	playsound(src, pick(moff_horror_list), 60, TRUE)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		var/obj/limb/L = H.get_limb("head")
+		var/obj/limb/L = pick(H.get_limb("l_arm"), H.get_limb("r_arm"))
 		if(L)
 			L.droplimb(cause_data)
 	user.death(cause_data)
