@@ -51,7 +51,7 @@
 		desc = "Плюшевая игрушка, изображающая нечто в облике человека-мотылька. Она погубила [suicide_count] людей. Не стоит смотреть ей в глаза слишком долго..."
 	else
 		user.visible_message(
-			SPAN_HIGHDANGER("[src.declent_ru(NOMINATIVE)] Вспыхивает ярким пламенем!")
+			SPAN_HIGHDANGER("[capitalize(src.declent_ru(NOMINATIVE)]) вспыхивает ярким пламенем!")
 		)
 		playsound(src, 'modular/moff/sound/moth_scream_moth.ogg', 30, TRUE)
 		var/turf/T = get_turf(src)
