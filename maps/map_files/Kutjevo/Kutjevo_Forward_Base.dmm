@@ -1810,7 +1810,7 @@
 "agQ" = (
 /obj/structure/flora/grass/desert/lightgrass_7,
 /turf/open/auto_turf/sand/layer1,
-/area/kutjevo/exterior/lz_pad)
+/area/kutjevo/exterior/scrubland)
 "agR" = (
 /obj/structure/flora/grass/desert/lightgrass_8,
 /turf/open/auto_turf/sand/layer0,
@@ -6295,7 +6295,6 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/forward_base/hallways/lower/starboard_midship_hallway)
 "atr" = (
-/obj/structure/closet/crate,
 /obj/structure/machinery/light{
 	dir = 4
 	},
@@ -6303,12 +6302,14 @@
 	icon_state = "N";
 	pixel_y = 1
 	},
+/obj/structure/machinery/floodlight,
 /turf/open/floor/almayer/plate,
 /area/forward_base/engineering/lower/workshop)
 "ats" = (
 /obj/structure/machinery/light{
 	dir = 1
 	},
+/obj/structure/machinery/floodlight,
 /turf/open/floor/plating/plating_catwalk,
 /area/forward_base/engineering/lower/workshop)
 "att" = (
@@ -7519,7 +7520,7 @@
 /obj/effect/decal/cleanable/dirt{
 	layer = 2.52
 	},
-/turf/open/floor/asteroidwarning/northeast,
+/turf/open/auto_turf/sand/layer0,
 /area/forward_base/hallways/lower/port_midship_hallway)
 "awo" = (
 /obj/structure/barricade/metal/wired,
@@ -8016,7 +8017,7 @@
 /obj/structure/machinery/light{
 	dir = 1
 	},
-/turf/open/floor/asteroidwarning/northwest,
+/turf/open/asphalt/cement_sunbleached,
 /area/forward_base/hallways/lower/port_midship_hallway)
 "axI" = (
 /obj/structure/closet/secure_closet/guncabinet,
@@ -15129,6 +15130,7 @@
 /obj/structure/machinery/light{
 	dir = 8
 	},
+/obj/structure/machinery/autolathe,
 /turf/open/floor/almayer/plate,
 /area/forward_base/medical/medical_science)
 "aPM" = (
@@ -15398,9 +15400,21 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/forward_base/medical/medical_science)
+"aQh" = (
+/obj/effect/landmark/lv624/fog_blocker/short,
+/obj/structure/lz_sign/forward_base/solaris_base_sign,
+/turf/open/auto_turf/sand/layer2,
+/area/kutjevo/exterior/lz_pad)
+"aQi" = (
+/turf/closed/wall/almayer/outer/internal,
+/area/bigredv2/caves)
 "aQj" = (
 /obj/effect/landmark/start/researcher,
 /turf/open/floor/almayer/mono,
+/area/forward_base/medical/medical_science)
+"aQk" = (
+/obj/structure/machinery/medical_pod/sleeper,
+/turf/open/floor/almayer/test_floor4,
 /area/forward_base/medical/medical_science)
 "aQl" = (
 /obj/structure/machinery/autodispenser{
@@ -15461,18 +15475,23 @@
 "aQs" = (
 /obj/structure/machinery/chem_storage/medbay{
 	pixel_x = -2;
-	layer = 4
+	layer = 3.9
+	},
+/obj/structure/machinery/chem_storage/research{
+	pixel_x = -2;
+	pixel_y = 19;
+	layer = 4;
+	density = 0
 	},
 /turf/open/floor/almayer/mono,
 /area/forward_base/medical/medical_science)
-"aQt" = (
-/obj/structure/machinery/chem_storage/research,
-/turf/open/floor/almayer/mono,
-/area/forward_base/medical/medical_science)
 "aQu" = (
-/obj/structure/machinery/autolathe,
-/obj/structure/machinery/light{
-	dir = 4
+/obj/structure/sign/safety/ref_chem_storage{
+	pixel_y = 28;
+	pixel_x = 7
+	},
+/obj/structure/machinery/autolathe/medilathe/full{
+	dir = 8
 	},
 /turf/open/floor/almayer/mono,
 /area/forward_base/medical/medical_science)
@@ -15510,6 +15529,7 @@
 /obj/structure/sign/safety/ref_chem_storage{
 	pixel_x = 32
 	},
+/obj/item/storage/box/monkeycubes,
 /turf/open/floor/plating/plating_catwalk,
 /area/forward_base/medical/medical_science)
 "aQz" = (
@@ -15602,7 +15622,6 @@
 	pixel_x = 1
 	},
 /obj/structure/bed/roller/heavy,
-/obj/item/organ/xeno/drone,
 /obj/item/organ/xeno/drone,
 /turf/open/floor/almayer/research/containment/floor2,
 /area/forward_base/medical/medical_science)
@@ -16508,6 +16527,9 @@
 	icon_state = "W";
 	layer = 3.3
 	},
+/obj/effect/decal/cleanable/dirt{
+	layer = 2.52
+	},
 /turf/open/floor/almayer/flooredge/west,
 /area/forward_base/medical/medical_science)
 "aTC" = (
@@ -16522,14 +16544,16 @@
 	icon_state = "W";
 	layer = 3.3
 	},
+/obj/effect/decal/cleanable/dirt{
+	layer = 2.52
+	},
 /turf/open/floor/almayer/flooredge/west,
 /area/forward_base/medical/medical_science)
 "aTE" = (
-/obj/structure/sign/safety/ref_chem_storage{
-	pixel_y = 28;
-	pixel_x = 7
+/obj/structure/machinery/light{
+	dir = 4
 	},
-/turf/open/floor/almayer/mono,
+/turf/open/floor/almayer/flooredge/west,
 /area/forward_base/medical/medical_science)
 "aTF" = (
 /obj/effect/decal/warning_stripes{
@@ -32815,7 +32839,7 @@ dxF
 dxF
 dxF
 sYd
-tHh
+bXl
 sYd
 sYd
 sYd
@@ -32982,7 +33006,7 @@ dxF
 dxF
 dxF
 sYd
-tHh
+bXl
 sYd
 sYd
 sYd
@@ -33149,7 +33173,7 @@ dxF
 dxF
 dxF
 sYd
-tHh
+bXl
 bXl
 bXl
 sYd
@@ -33485,7 +33509,7 @@ sYd
 sYd
 sYd
 sYd
-tHh
+bXl
 hrz
 hrz
 hrz
@@ -33652,7 +33676,7 @@ sYd
 sYd
 sYd
 sYd
-tHh
+bXl
 hrz
 hrz
 hrz
@@ -33814,12 +33838,12 @@ dxF
 dxF
 dxF
 dxF
-tHh
-tHh
-tHh
+bXl
+bXl
+bXl
 sYd
 sYd
-tHh
+bXl
 hrz
 hrz
 hrz
@@ -33980,13 +34004,13 @@ aqv
 dxF
 dxF
 dxF
-tHh
-tHh
-tHh
-tHh
+bXl
+bXl
+bXl
+bXl
 agQ
-aaS
-tHh
+sYd
+bXl
 hrz
 hrz
 hrz
@@ -36807,7 +36831,7 @@ agq
 agr
 agr
 agr
-agr
+aQh
 agw
 agp
 agp
@@ -78548,7 +78572,7 @@ aTG
 aPu
 aPL
 aTA
-aTA
+aQk
 aPI
 aRx
 dmD
@@ -79048,7 +79072,7 @@ aQy
 aQx
 aPu
 aQu
-aQt
+aPJ
 aQs
 aRx
 aRx
@@ -79213,8 +79237,8 @@ aTI
 aRx
 aRx
 aRx
-aRx
-aRx
+aQi
+aPJ
 aTE
 aPJ
 aRx
@@ -79380,10 +79404,10 @@ aRx
 aRx
 dmD
 dmD
-dmD
-aRx
-aRx
-aRx
+aQi
+aQi
+aQi
+aQi
 aRx
 dmD
 qOu
