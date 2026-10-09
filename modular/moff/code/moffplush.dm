@@ -42,13 +42,13 @@
 		return
 
 	suicide_count++
-	var/datum/cause_data/cause_data = create_cause_data("suicide by [initial(name)]", user)
+	var/datum/cause_data/cause_data = create_cause_data("maimed by [initial(name)]", user)
 	user.last_damage_data = cause_data
 
 	if(suicide_count < 3)
-		desc = "Плюшевая игрушка, изображающая странного человека-мотылька. После того как она погубила [suicide_count] [suicide_count == 1 ? "человека" : "людей"], её уже не назовёшь такой уж милой..."
+		desc = "Плюшевая игрушка, изображающая странного человека-мотылька. После того как она искалечила [suicide_count] [suicide_count == 1 ? "человека" : "людей"], её уже не назовёшь такой уж милой..."
 	else if(suicide_count < 4)
-		desc = "Плюшевая игрушка, изображающая нечто в облике человека-мотылька. Она погубила [suicide_count] людей. Не стоит смотреть ей в глаза слишком долго..."
+		desc = "Плюшевая игрушка, изображающая нечто в облике человека-мотылька. Она искалечила [suicide_count] людей. Не стоит смотреть ей в глаза слишком долго..."
 	else
 		user.visible_message(
 			SPAN_HIGHDANGER("[capitalize(src.declent_ru(NOMINATIVE))] вспыхивает ярким пламенем!")
@@ -62,7 +62,7 @@
 		return
 
 	user.visible_message(
-		SPAN_HIGHDANGER("[capitalize(user.declent_ru(NOMINATIVE))] крепко обнимает [src.declent_ru(ACCUSATIVE)] и та начинает пожирать [user.ru_p_them()]!")
+		SPAN_HIGHDANGER("[capitalize(user.declent_ru(NOMINATIVE))] крепко обнимает [src.declent_ru(ACCUSATIVE)] и та начинает терзать [user.ru_p_them()]!")
 	)
 	playsound(src, pick(moff_kill_list), 60, TRUE)
 	playsound(src, pick(moff_horror_list), 60, TRUE)
@@ -71,7 +71,12 @@
 		var/obj/limb/L = pick(H.get_limb("l_arm"), H.get_limb("r_arm"))
 		if(L)
 			L.droplimb(cause_data)
-	user.death(cause_data)
+			H.apply_effect(2, WEAKEN)
+			H.apply_effect(3, DAZE)
+			H.apply_effect(6, SLOW)
+			H.make_jittery(55)
+			H.make_dizzy(55)
+			H.emote("pain")
 
 	COOLDOWN_START(src, last_hug_time, 2.5 SECONDS)
 	..()

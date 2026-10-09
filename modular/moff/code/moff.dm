@@ -38,8 +38,8 @@
 	var/retreat_attempts = 0
 	COOLDOWN_DECLARE(retreat_cooldown)
 	var/tameable = TRUE
-	var/datum/weakref/food_target_ref
-	var/list/acceptable_foods = list(/obj/item/reagent_container/food/snacks/mre_food, /obj/item/reagent_container/food/snacks/resin_fruit)
+	var/datum/weakref/food_target_ref	
+	var/list/acceptable_foods = list(/obj/item/reagent_container/food/snacks/mre_food, /obj/item/reagent_container/food/snacks/resin_fruit, /obj/item/clothing/under, /obj/item/clothing/head, /obj/item/clothing/suit, /obj/item/clothing/shoes, /obj/item/storage/belt, /obj/item/storage/backpack, /obj/item/storage/pouch, /obj/item/clothing/gloves)
 	var/is_eating = FALSE
 	COOLDOWN_DECLARE(food_cooldown)
 	COOLDOWN_DECLARE(growl_message)
@@ -72,6 +72,7 @@
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE 
 	update_sight()
 	pounce_callbacks[/mob] = DYNAMIC(/mob/living/simple_animal/hostile/retaliate/moth/proc/pounced_mob_wrapper)
+	pounce_callbacks[/obj/structure/machinery/light] = DYNAMIC(/mob/living/simple_animal/hostile/retaliate/moth/proc/pounced_light_wrapper)
 	add_verb(src, list(
 		/mob/living/proc/ventcrawl,
 		/mob/living/proc/hide,
@@ -234,8 +235,31 @@
 /mob/living/simple_animal/hostile/retaliate/moth/proc/pounced_mob_wrapper(mob/living/pounced_mob)
 	pounced_mob(pounced_mob)
 
+/mob/living/simple_animal/hostile/retaliate/moth/proc/pounced_light_wrapper(obj/structure/machinery/light/L)
+	if(!L || QDELETED(L))
+		return
+
+	if(L.status != LIGHT_BROKEN)
+		L.broken()
+	break_nearby_lights()
+
+/mob/living/simple_animal/hostile/retaliate/moth/proc/find_nearest_light()
+	var/obj/structure/machinery/light/nearest_light
+	var/nearest_distance = INFINITY
+
+	for(var/obj/structure/machinery/light/L in view(4, src))
+		if(QDELETED(L) || L.status == LIGHT_BROKEN)
+			continue
+
+		var/distance = get_dist(src, L)
+		if(distance < nearest_distance)
+			nearest_distance = distance
+			nearest_light = L
+
+	return nearest_light
+
 /mob/living/simple_animal/hostile/retaliate/moth/proc/break_nearby_lights()
-	for(var/obj/structure/machinery/light/L in range(5, src))
+	for(var/obj/structure/machinery/light/L in range(4, src))
 		if(L.status != LIGHT_BROKEN)
 			L.broken()
 
@@ -462,6 +486,14 @@
 
 	if(client)
 		return
+
+	if(stat != DEAD && stance == HOSTILE_STANCE_IDLE && !is_retreating && !on_fire && !target_mob && !food_target_ref?.resolve() && COOLDOWN_FINISHED(src, pounce_cooldown))
+		var/obj/structure/machinery/light/L = find_nearest_light()
+		if(L)
+			playsound(loc, 'modular/moff/sound/moth_moth_flutter.ogg', 60)
+			pounce(L)
+			break_nearby_lights()
+
 	if(aggression_value == 0 && stance == HOSTILE_STANCE_ATTACKING)
 		enemies = list()
 		LoseTarget()
@@ -492,16 +524,20 @@
 
 	var/obj/item/reagent_container/food/snacks/food_target = food_target_ref?.resolve()
 	if(tameable && !food_target && COOLDOWN_FINISHED(src, food_cooldown))
-		for(var/obj/item/reagent_container/food/snacks/food in view(6, src))
-			var/is_meat = locate(/datum/reagent/nutriment/meat) in food.reagents.reagent_list
+		for(var/obj/item/food in view(6, src))
+			if(!is_type_in_list(food, acceptable_foods))
+				continue
+
+			var/is_meat = FALSE
+			if(istype(food, /obj/item/reagent_container/food/snacks))
+				var/obj/item/reagent_container/food/snacks/snack = food
+				is_meat = locate(/datum/reagent/nutriment/meat) in snack.reagents.reagent_list
 
 			if(is_meat || is_type_in_list(food, acceptable_foods))
 				food_target_ref = WEAKREF(food)
-				if(!food_target)
-					continue
 				stance = HOSTILE_STANCE_ALERT
 				stop_automated_movement = TRUE
-				MoveTo(food_target)
+				MoveTo(food)
 				break
 
 	if(stance <= HOSTILE_STANCE_ALERT && !food_target && COOLDOWN_FINISHED(src, calm_cooldown))
@@ -556,21 +592,27 @@
 	stance = HOSTILE_STANCE_IDLE
 	COOLDOWN_START(src, food_cooldown, 30 SECONDS)
 
-/mob/living/simple_animal/hostile/retaliate/moth/proc/handle_food_client(obj/item/reagent_container/food/snacks/food)
+/mob/living/simple_animal/hostile/retaliate/moth/proc/handle_food_client(obj/item/food)
 	manual_emote("starts gnawing [food].")
-	playsound(loc,'sound/items/eatfood.ogg', 25, 1)
+	playsound(loc, 'sound/items/eatfood.ogg', 25, 1)
 	is_eating = TRUE
+
 	if(!do_after(src, 4 SECONDS, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_FRIENDLY))
 		is_eating = FALSE
 		return
 
 	is_eating = FALSE
-	if(!Adjacent(food))
+
+	if(!food || QDELETED(food) || !Adjacent(food))
 		return
 
-	playsound(loc,'sound/items/eatfood.ogg', 25, 1)
-	health += maxHealth * 0.10
+	if(!is_type_in_list(food, acceptable_foods))
+		return
+
+	playsound(loc, 'sound/items/eatfood.ogg', 25, 1)
+	health = min(maxHealth, health + maxHealth * 0.10)
 	qdel(food)
+
 
 /mob/living/simple_animal/hostile/retaliate/moth/proc/check_food_loc(obj/food)
 	if(!ismob(food.loc))
