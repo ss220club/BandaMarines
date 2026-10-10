@@ -13,6 +13,12 @@
 	icon = 'icons/obj/structures/props/landing_signs.dmi'
 	icon_state = "laz_sign"
 
+/obj/structure/lz_sign/lazarus_sign/clean
+	name = "Lazarus Landing Sign"
+	desc = "A large sign reading 'lazarus landing por-' the rest of it is smeared in blood."
+	icon = 'icons/obj/structures/props/landing_signs.dmi'
+	icon_state = "laz_sign_clean"
+
 /obj/structure/lz_sign/solaris_sign
 	name = "Solaris Ridge Sign"
 	desc = "A large sign that reads 'Solaris Ridge -', the rest of it is scraped away."
@@ -113,3 +119,17 @@
 	name = "White Antre Research Facility"
 	desc = "A medium sized sign, designating this area as the White Antre Research Facility."
 	icon_state = "antre_sign_3"
+
+/obj/structure/lz_sign/mcneil
+	name = "Fort McNeil - Colony Sign"
+	desc = "A small sign denoting this as the colony of Fort McNeil. The sign proclaims a population of 536, but a more recent lather of red paint has partially removed the 5."
+	icon_state = "antre_sign_2"
+
+/obj/structure/lz_sign/sekhmet_sign
+	name = "Sekhmet Swamp landing sign"
+	desc = "A large sign that reads 'Boloto - Sekhmet' - POP. 112' The UPP 'Star' logo is proudly emblazoned & a scientific symbol on the right side of the sign."
+	icon_state = "sekhmet_sign_1"
+
+/obj/structure/lz_sign/sekhmet_sign/interior
+	desc = "A large sign that reads 'Boloto - Sekhmet' - POP. 112' The UPP 'Star' logo is proudly emblazoned & a scientific symbol on the right side of the sign."
+	icon_state = "sekhmet_sign_2"
