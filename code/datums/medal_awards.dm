@@ -529,6 +529,12 @@ GLOBAL_LIST_INIT(xeno_medals, list(XENO_SLAUGHTER_MEDAL, XENO_RESILIENCE_MEDAL, 
 	if(!reason)
 		return FALSE
 
+	var/datum/preferences/prefs = recommendation_giver?.client?.prefs // SS220 ADD START
+	if(prefs?.signed)
+		var/choice = tgui_alert(recommendation_giver, "Хотите вставить свой шаблон?", "Шаблон рекомендации", list("Да", "Нет"))
+		if(choice == "Да")
+			reason += "\n[prefs.signed]" // SS220 ADD END
+
 	// Get mob information
 	var/recipient_rank = recipient_ranks[chosen_recipient]
 	var/recipient_ckey

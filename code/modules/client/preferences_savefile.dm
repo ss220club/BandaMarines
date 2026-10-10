@@ -402,6 +402,7 @@
 	S["co_sidearm"] >> commander_sidearm
 	S["co_affiliation"] >> affiliation
 	S["co_command_path"] >> co_career_path
+	S["commander_sign"] >> signed //SS220 ADD
 	S["yautja_status"] >> yautja_status
 	S["synth_status"] >> synth_status
 
@@ -570,6 +571,7 @@
 	commander_sidearm   = sanitize_inlist(commander_sidearm, (CO_GUNS + COUNCIL_CO_GUNS), initial(commander_sidearm))
 	co_career_path = sanitize_inlist(co_career_path, list("Infantry", "Engineering", "Medical", "Intel", "Logistics", "Aviation", "Tanker"), initial(co_career_path))
 	affiliation = sanitize_inlist(affiliation, FACTION_ALLEGIANCE_USCM_COMMANDER, initial(affiliation))
+	signed = sanitize_text(signed, initial(signed)) //SS220 ADD
 	yautja_status = sanitize_inlist(yautja_status, GLOB.whitelist_hierarchy + list("Elder"), initial(yautja_status))
 	synth_status = sanitize_inlist(synth_status, GLOB.whitelist_hierarchy, initial(synth_status))
 
@@ -715,6 +717,7 @@
 	S["co_sidearm"] << commander_sidearm
 	S["co_command_path"] << co_career_path
 	S["co_affiliation"] << affiliation
+	S["commander_sign"] << signed //SS220 ADD
 	S["yautja_status"] << yautja_status
 	S["synth_status"] << synth_status
 
