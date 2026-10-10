@@ -97,7 +97,7 @@
 	if(care_about_adjacency)
 		var/max_build_distance = hivelord.caste.max_build_dist + hivelord.extra_build_dist
 		var/distance = clamp(get_dist(owner, target_turf), 1, max_build_distance)
-		var/distance_ratio = clamp((distance - 1) / 9, 0, 1) // Reach maximum build time at 10 tiles.
+		var/distance_ratio = clamp((distance - 1) / 5, 0, 1) // Reach maximum build time at 6 tiles.
 		build_speed_mod = 1 + (distance_ratio * 1.2)
 
 		if(owner.Adjacent(target_turf))
