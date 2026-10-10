@@ -1042,3 +1042,82 @@
 <span style='color:#607c4c; font-size:95%;'>Your mission is clear—find out what happened to your supply ship and comrades, retrieve your equipment, and uncover the truth of what really happened to the colony.</span>"
 	spawn_priority = SPAWN_PRIORITY_VERY_HIGH
 	archetype = INSERT_SYNTH
+
+// AG 13
+
+/obj/effect/landmark/survivor_spawner/W_Y_Commando
+
+/obj/effect/landmark/survivor_spawner/W_Y_Commando/standart
+	icon_state = "surv_wy"
+	equipment = /datum/equipment_preset/survivor/pmc/commando
+	synth_equipment = /datum/equipment_preset/synth/survivor/pmc
+	intro_text = list("<h2>Вам удалось приземлиться на спец обьект</h2>",\
+	"<span class='notice'>Вы не знаете об угрозе со стороны ксеноморфов.</span>",\
+	"<span class='danger'>Ваша главная цель - выжить. Вам известно что на данном обьекте производили широкий спект экиперовки. Возможно вы что то возьмете не за свою зарплату.</span>")
+	story_text = "Вас перебросили сразу после выполнения предыдущей миссии, не дав даже толком пополнить припасы. Представитель сказал что они потеряли связь со своим важным производственным комплексом, так что вам нужно узнать что тут прозошло. Но что то попало в двигатель вашего челнока, из за чего вам пришлось ускоренно садиться."
+	roundstart_damage_min = 3
+	roundstart_damage_max = 10
+	roundstart_damage_times = 2
+
+	spawn_priority = SPAWN_PRIORITY_LOW
+	archetype = INSERT_STANDARD
+
+/obj/effect/landmark/survivor_spawner/W_Y_Commando/engi
+	icon_state = "surv_wy"
+	equipment = /datum/equipment_preset/survivor/pmc/commando/engi
+	synth_equipment = /datum/equipment_preset/synth/survivor/pmc
+	intro_text = list("<h2>Вам удалось приземлиться на спец обьект</h2>",\
+	"<span class='notice'>Вы не знаете об угрозе со стороны ксеноморфов.</span>",\
+	"<span class='danger'>Ваша главная цель - выжить. Вам известно что на данном обьекте производили широкий спект экиперовки. Возможно вы что то возьмете не за свою зарплату.</span>")
+	story_text = "Вас перебросили сразу после выполнения предыдущей миссии, не дав даже толком пополнить припасы. Представитель сказал что они потеряли связь со своим важным производственным комплексом, так что вам нужно узнать что тут прозошло. Но что то попало в двигатель вашего челнока, из за чего вам пришлось ускоренно садиться."
+	roundstart_damage_min = 3
+	roundstart_damage_max = 10
+	roundstart_damage_times = 2
+
+	spawn_priority = SPAWN_PRIORITY_LOW
+	archetype = INSERT_STANDARD
+
+/obj/effect/landmark/survivor_spawner/W_Y_Commando/medic
+	icon_state = "surv_wy"
+	equipment = /datum/equipment_preset/survivor/pmc/commando/medic
+	synth_equipment = /datum/equipment_preset/synth/survivor/pmc
+	intro_text = list("<h2>Вам удалось приземлиться на спец обьект</h2>",\
+	"<span class='notice'>Вы не знаете об угрозе со стороны ксеноморфов.</span>",\
+	"<span class='danger'>Ваша главная цель - выжить. Вам известно что на данном обьекте производили широкий спект экиперовки. Возможно вы что то возьмете не за свою зарплату.</span>")
+	story_text = "Вас перебросили сразу после выполнения предыдущей миссии, не дав даже толком пополнить припасы. Представитель сказал что они потеряли связь со своим важным производственным комплексом, так что вам нужно узнать что тут прозошло. Но что то попало в двигатель вашего челнока, из за чего вам пришлось ускоренно садиться."
+	roundstart_damage_min = 3
+	roundstart_damage_max = 10
+	roundstart_damage_times = 2
+
+	spawn_priority = SPAWN_PRIORITY_LOW
+	archetype = INSERT_STANDARD
+
+/obj/effect/landmark/survivor_spawner/W_Y_Commando/gunner
+	icon_state = "surv_wy"
+	equipment = /datum/equipment_preset/survivor/pmc/commando/gunner
+	synth_equipment = /datum/equipment_preset/synth/survivor/pmc
+	intro_text = list("<h2>Вам удалось приземлиться на спец обьект</h2>",\
+	"<span class='notice'>Вы не знаете об угрозе со стороны ксеноморфов.</span>",\
+	"<span class='danger'>Ваша главная цель - выжить. Вам известно что на данном обьекте производили широкий спект экиперовки. Возможно вы что то возьмете не за свою зарплату.</span>")
+	story_text = "Вас перебросили сразу после выполнения предыдущей миссии, не дав даже толком пополнить припасы. Представитель сказал что они потеряли связь со своим важным производственным комплексом, так что вам нужно узнать что тут прозошло. Но что то попало в двигатель вашего челнока, из за чего вам пришлось ускоренно садиться."
+	roundstart_damage_min = 3
+	roundstart_damage_max = 10
+	roundstart_damage_times = 2
+
+	spawn_priority = SPAWN_PRIORITY_LOW
+	archetype = INSERT_STANDARD
+
+
+/obj/effect/landmark/survivor_spawner/W_Y_Commando/leader
+	icon_state = "surv_wy"
+	equipment = /datum/equipment_preset/survivor/pmc/commando/leader
+	synth_equipment = /datum/equipment_preset/synth/survivor/pmc
+	intro_text = list("<h2>Вам удалось приземлиться на спец обьект</h2>",\
+	"<span class='notice'>Вы не знаете об угрозе со стороны ксеноморфов.</span>",\
+	"<span class='danger'>Ваша главная цель - выжить. Вам известно что на данном обьекте производили широкий спект экиперовки. Возможно вы что то возьмете не за свою зарплату.</span>")
+	story_text = "Вас перебросили сразу после выполнения предыдущей миссии, не дав даже толком пополнить припасы. Представитель сказал что они потеряли связь со своим важным производственным комплексом, так что вам нужно узнать что тут прозошло. Но что то попало в двигатель вашего челнока, из за чего вам пришлось ускоренно садиться."
+	roundstart_damage_min = 3
+	roundstart_damage_max = 10
+	roundstart_damage_times = 2
+	spawn_priority = SPAWN_PRIORITY_VERY_HIGH
+	archetype = INSERT_CO
