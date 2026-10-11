@@ -799,7 +799,7 @@
 	xeno.use_plasma(plasma_cost)
 	playsound(xeno.loc, "alien_resin_build", 25)
 	new /obj/effect/alien/resin/trap(turf, xeno)
-	to_chat(xeno, SPAN_XENONOTICE("Мы создаём смоляную ловушку на траве, попросите сестру заполнить её кислотой."))
+	to_chat(xeno, SPAN_XENONOTICE("Мы создаём смоляную ловушку на траве, попросите сестру заполнить её кислотой или лицехватом."))
 	return ..()
 
 /turf/proc/check_xeno_trap_placement(mob/living/carbon/xenomorph/xeno)
