@@ -252,7 +252,7 @@ GLOBAL_VAR_INIT(log_end, world.system_type == UNIX ? ascii2text(13) : "")
 	GLOB.admin_log.Add(text)
 	if (CONFIG_GET(flag/log_admin))
 		WRITE_LOG(GLOB.world_game_log, "ADMIN: [text]")
-		log_to_logis("ADMIN", text)
+		log_to_logis("ADMINSAY", text)
 	GLOB.STUI.staff.Add("\[[time_stamp()]]ADMIN: [text]")
 	GLOB.STUI.processing |= STUI_LOG_STAFF_CHAT
 
