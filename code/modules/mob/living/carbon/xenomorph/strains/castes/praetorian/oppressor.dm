@@ -91,53 +91,18 @@
 	for(var/distance in 0 to max_distance)
 		temp = get_step(turf, facing)
 		if(facing in GLOB.diagonals) // check if it goes through corners
-			var/reverse_face = GLOB.reverse_dir[facing]
-			var/turf/back_left = get_step(temp, turn(reverse_face, 45))
-			var/turf/back_right = get_step(temp, turn(reverse_face, -45))
-			if((!back_left || back_left.density) && (!back_right || back_right.density))
+			var/left_dir = turn(facing, 45)
+			var/right_dir = turn(facing, -45)
+			var/turf/back_left = get_step(turf, left_dir)
+			var/turf/back_right = get_step(turf, right_dir)
+			if((abduct_blocked_tile(left_dir, back_left, right_dir) || abduct_blocked_tile(right_dir,temp)) \
+				&& (abduct_blocked_tile(right_dir, back_right, left_dir) || abduct_blocked_tile(left_dir, temp)))
 				break
-		if(!temp || temp.density || temp.opacity)
+		else if(!temp || temp.density || temp.opacity)
 			break
 
-		var/blocked = FALSE
-		var/allow_one_more_step = FALSE
-		for(var/obj/structure in temp)
-			if(istype(structure, /obj/effect/particle_effect/smoke))
-				continue
-			if(!structure.density && !structure.opacity)
-				continue
-			if(istype(structure, /obj/structure/girder))
-				blocked = TRUE
-				continue
-			if(istype(structure, /obj/structure/window/reinforced))
-				var/obj/structure/window/reinforced/pane_glass = structure
-				var/pane_facing = pane_glass.dir
-				if(pane_facing == turn(facing, 180))
-					blocked = TRUE
-				else if(pane_facing == facing)
-					allow_one_more_step = TRUE
-				continue
-			if(istype(structure, /obj/structure/surface/table))
-				var/obj/structure/surface/table/flip_table = structure
-				var/table_facing = flip_table.dir
-				if(flip_table.flipped)
-					if(table_facing == turn(facing, 180))
-						blocked = TRUE
-					else if(table_facing == facing)
-						allow_one_more_step = TRUE
-				continue
-			if(istype(structure, /obj/structure/barricade))
-				var/obj/structure/barricade/cade = structure
-				var/cade_facing = cade.dir
-				if(cade_facing & turn(facing, 180))
-					blocked = TRUE
-				else if(cade_facing == facing)
-					allow_one_more_step = TRUE
-				continue
-			if(structure.pass_flags.flags_can_pass_all & PASS_HIGH_OVER)
-				continue
-			blocked = TRUE
-		if(blocked)
+		allow_one_more_step = FALSE
+		if(abduct_blocked_tile(facing, temp))
 			break
 
 		turf = temp
@@ -158,8 +123,6 @@
 
 	abduct_user.visible_message(SPAN_XENODANGER("Сегментированный хвост [abduct_user] начинает сворачиваться..."), SPAN_XENODANGER("Мы начинаем сворачивать хвост, целясь в [target_atom]...")) // SS220 EDIT ADDICTION
 	abduct_user.emote("roar")
-
-	var/throw_target_turf = get_step(abduct_user, facing)
 
 	ADD_TRAIT(abduct_user, TRAIT_IMMOBILIZED, TRAIT_SOURCE_ABILITY("Abduct"))
 	if(!do_after(abduct_user, windup, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE, numticks = 1))
@@ -188,41 +151,43 @@
 				continue
 			targets += target
 
-	var/target_count = length(targets)
+	var/num_of_targets = LAZYLEN(targets)
 	var/captured_message = null
-	switch(target_count)
+	switch(num_of_targets)
 		if(1)
 			captured_message = "slowed one target"
 		if(2)
 			captured_message = "rooted two targets"
 		if(3 to INFINITY)
-			captured_message = "stunned [target_count] targets"
+			captured_message = "stunned [num_of_targets] targets"
 
 	if(captured_message)
 		abduct_user.balloon_alert(abduct_user, captured_message, text_color = "#51a16c")
 
 	apply_cooldown()
 
+	var/turf/throw_target_turf = turflist[1]
 	for(var/mob/living/carbon/target in targets)
 		abduct_user.visible_message(SPAN_XENODANGER("Сегментированный хвост [abduct_user] обвивается вокруг [target]!"), SPAN_XENODANGER("Наш хвост обвивается вокруг [target]!"))
 
 		target.apply_effect(0.2, WEAKEN)
 
-		if(LAZYLEN(targets) == 1)
-			new /datum/effects/xeno_slow(target, abduct_user, null, null, 2.5 SECONDS)
-			target.apply_effect(1, SLOW)
-		else if(LAZYLEN(targets) == 2)
-			ADD_TRAIT(target, TRAIT_IMMOBILIZED, TRAIT_SOURCE_ABILITY("Abduct"))
-			if(ishuman(target))
-				var/mob/living/carbon/human/target_human = target
-				target_human.update_xeno_hostile_hud()
-			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(unroot_human), target, TRAIT_SOURCE_ABILITY("Abduct")), get_xeno_stun_duration(target, 2.5 SECONDS))
-			to_chat(target, SPAN_XENOHIGHDANGER("[abduct_user] прижал вас к земле из-за чего вы обездвижены!")) // SS220 EDIT ADDICTION
+		switch(num_of_targets)
+			if(1)
+				new /datum/effects/xeno_slow(target, abduct_user, null, null, 2.5 SECONDS)
+				target.apply_effect(1, SLOW)
+			if(2)
+				ADD_TRAIT(target, TRAIT_IMMOBILIZED, TRAIT_SOURCE_ABILITY("Abduct"))
+				if(ishuman(target))
+					var/mob/living/carbon/human/target_human = target
+					target_human.update_xeno_hostile_hud()
+				addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(unroot_human), target, TRAIT_SOURCE_ABILITY("Abduct")), get_xeno_stun_duration(target, 2.5 SECONDS))
+				to_chat(target, SPAN_XENOHIGHDANGER("[abduct_user] прижал вас к земле из-за чего вы обездвижены!")) // SS220 EDIT ADDICTION
 
-			target.set_effect(2, DAZE)
-		else if(LAZYLEN(targets) >= 3)
-			target.apply_effect(get_xeno_stun_duration(target, 1.3), WEAKEN)
-			to_chat(target, SPAN_XENOHIGHDANGER("Вы врезаетесь в других жертв [abduct_user]!")) // SS220 EDIT ADDICTION
+				target.set_effect(2, DAZE)
+			else
+				target.apply_effect(get_xeno_stun_duration(target, 1.3), WEAKEN)
+				to_chat(target, SPAN_XENOHIGHDANGER("Вы врезаетесь в других жертв [abduct_user]!")) // SS220 EDIT ADDICTION
 
 		shake_camera(target, 10, 1)
 
@@ -230,12 +195,67 @@
 		var/image/tail_image = image('icons/effects/status_effects.dmi', "hooked")
 		target.overlays += tail_image
 
-		target.throw_atom(throw_target_turf, get_dist(throw_target_turf, target)-1, SPEED_VERY_FAST)
+		var/target_dist = turflist.Find(target.loc)
+		var/list/turf/target_route = list()
 
+		if(target_dist)
+			target_route = turflist.Copy(1, target_dist+1)
+			target_route = reverselist(target_route)
+
+		target.throw_atom(throw_target_turf, target_dist, SPEED_VERY_FAST, route = target_route)
 		qdel(tail_beam) // hook beam catches target, throws them back, is deleted (throw_atom has sleeps), then hook beam catches another target, repeat
 		addtimer(CALLBACK(src, /datum/action/xeno_action/activable/prae_abduct/proc/remove_tail_overlay, target, tail_image), 0.5 SECONDS) //needed so it can actually be seen as it gets deleted too quickly otherwise.
 
 	return ..()
+
+/datum/action/xeno_action/activable/prae_abduct/proc/abduct_blocked_tile(direction, turf/T, next_direction = null)
+	if(!istype(T) || T.density || T.opacity)
+		return 1
+
+	//0 - the way is clear, nothing blocks
+	//1 - there is an obstacle in the way
+	//2 - there will be an obstacle in the way
+	var/result = 0
+	for(var/obj/structure in T)
+		if(!structure.can_block_movement)
+			continue
+		if(!structure.density && !structure.opacity)
+			continue
+		if(istype(structure, /obj/structure/girder))
+			result = 1
+			break
+		if(istype(structure, /obj/structure/window/reinforced))
+			var/obj/structure/window/reinforced/pane_glass = structure
+			var/pane_facing = pane_glass.dir
+			if(pane_facing & turn(direction, 180))
+				result = 1
+			else if(pane_facing & next_direction)
+				result = 2
+				allow_one_more_step = TRUE
+			continue
+		if(istype(structure, /obj/structure/surface/table))
+			var/obj/structure/surface/table/flip_table = structure
+			var/table_facing = flip_table.dir
+			if(flip_table.flipped)
+				if(table_facing & turn(direction, 180))
+					result = 1
+				else if(table_facing & next_direction)
+					result = 2
+					allow_one_more_step = TRUE
+			continue
+		if(istype(structure, /obj/structure/barricade))
+			var/obj/structure/barricade/cade = structure
+			var/cade_facing = cade.dir
+			if(cade_facing & turn(direction, 180))
+				result = 1
+			else if(cade_facing & next_direction)
+				result = 2
+				allow_one_more_step = TRUE
+			continue
+		if(structure.pass_flags.flags_can_pass_all & PASS_HIGH_OVER)
+			continue
+		result = 1
+	return result
 
 /datum/action/xeno_action/activable/prae_abduct/proc/remove_tail_overlay(mob/living/carbon/human/overlayed_human, image/tail_image)
 	overlayed_human.overlays -= tail_image
