@@ -967,8 +967,8 @@
 	// =================================
 	// SS220 EDIT - TTS
 	if(SStts220.is_enabled)
-		S["tts_seed"] >> tts_seed
-	S["declined_name"] >> declined_name
+		tts_seed = save_data["tts_seed"]
+	declined_name = save_data["declined_name"]
 	declined_name = sanitize_declined_name()
 	// =================================
 
