@@ -101,8 +101,8 @@ GLOBAL_LIST_INIT(admin_verbs_admin, list(
 GLOBAL_LIST_INIT(admin_verbs_ban, list(
 	/client/proc/unban_panel,
 	/client/proc/stickyban_panel,
-	/client/proc/ipcheck_allow,
-	/client/proc/ipcheck_revoke,
+	// /client/proc/ipcheck_allow, // SS220 EDIT
+	// /client/proc/ipcheck_revoke, // SS220 EDIT
 	// /client/proc/jobbans // Disabled temporarily due to 15-30 second lag spikes.
 ))
 
@@ -393,6 +393,7 @@ GLOBAL_LIST_INIT(mentor_verbs, list(
 		GLOB.admin_verbs_hideable,
 		GLOB.debug_verbs,
 		GLOB.admin_verbs_stealth,
+		GLOB.admin_verbs_logs
 	))
 
 /client/proc/jobbans()

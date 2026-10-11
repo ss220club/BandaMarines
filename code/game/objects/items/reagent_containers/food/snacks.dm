@@ -72,7 +72,7 @@
 
 	if(istype(M, /mob/living/carbon))
 		var/mob/living/carbon/C = M
-		var/fullness = M.nutrition + (M.reagents.get_reagent_amount("nutriment") * 25)
+		var/fullness = C.nutrition + (M.reagents.get_reagent_amount("nutriment") * 25)
 		if(fullness > NUTRITION_HIGH && world.time < C.overeat_cooldown)
 			to_chat(user, SPAN_WARNING("Вам сейчас не хочется больше есть."))
 			return FALSE
@@ -1853,7 +1853,7 @@
 
 /obj/item/reagent_container/food/snacks/jellyburger
 	name = "Jelly Burger"
-	desc = "Culinary delight..?"
+	desc = "Culinary delight...?"
 	icon_state = "jellyburger"
 	icon = 'icons/obj/items/food/burgers.dmi'
 	filling_color = "#B572AB"
@@ -2143,7 +2143,7 @@
 
 /obj/item/reagent_container/food/snacks/beetsoup
 	name = "beet soup"
-	desc = "Wait, how do you spell it again..?"
+	desc = "Wait, how do you spell it again...?"
 	icon_state = "beetsoup"
 	icon = 'icons/obj/items/food/soups_salads.dmi'
 	trash = /obj/item/trash/snack_bowl

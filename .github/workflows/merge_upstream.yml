@@ -2,6 +2,12 @@ name: Merge Upstream
 
 on:
   workflow_dispatch:
+    inputs:
+      translate_changes:
+        description: Translate changelog entries with LLM
+        required: false
+        default: true
+        type: boolean
 
 jobs:
   merge-upstream:
@@ -33,14 +39,14 @@ jobs:
       - name: Run the script
         env:
           GITHUB_TOKEN: ${{ env.GH_TOKEN }}
-          TARGET_REPO: 'ss220club/BandaMarines'
+          TARGET_REPO: ${{ github.repository }}
           TARGET_BRANCH: 'master'
           UPSTREAM_REPO: 'cmss13-devs/cmss13'
           UPSTREAM_BRANCH: 'master'
           MERGE_BRANCH: 'merge-upstream'
           CHANGELOG_AUTHOR: 'cmss13'
-          TRANSLATE_CHANGES: 'true'
-          OPENAI_API_KEY: ${{ secrets.G4F_API_KEY }}
+          TRANSLATE_CHANGES: ${{ inputs.translate_changes }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           LOG_LEVEL: ${{ runner.debug && 'DEBUG' || 'INFO' }}
         run: |
           git config --global user.email "action@github.com"

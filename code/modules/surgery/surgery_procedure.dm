@@ -62,7 +62,7 @@
 	. = ..()
 
 ///Catch-all proc for additional preconditions for starting the surgery. Return FALSE if the surgery can't be done.
-/datum/surgery/proc/can_start(mob/user, mob/living/carbon/patient, obj/limb/L, obj/item/tool)
+/datum/surgery/proc/can_start(mob/user, mob/living/carbon/patient, obj/limb/patient_limb, obj/item/tool)
 	return TRUE
 	//Might add the surgery computer later
 
@@ -97,7 +97,7 @@
 	for(var/mob/living/potential_blocker in get_turf(target))
 		if(potential_blocker == user || potential_blocker == target)
 			continue
-		to_chat(user, SPAN_WARNING("Вы не можете проводить операцию пока вам что-то мешает! Перенесите пациента в подходящее для этого место."))
+		to_chat(user, SPAN_WARNING("Вы не можете проводить операцию пока вам что-то мешает! Уберите всех остальных отсюда!"))
 		return FALSE
 
 	if(user == target)

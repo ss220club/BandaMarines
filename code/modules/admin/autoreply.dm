@@ -72,6 +72,10 @@ ON_CONFIG_LOAD(/datum/autoreply/admin/whitelist)
 	title = "A: Вне компетенции" // SS220 - EDIT
 	message = "Менторы, к сожалению, не смогут помочь вам в решении этого вопроса. Пожалуйста, свяжитесь с командой через \"AdminHelp\"." // SS220 - EDIT
 
+/datum/autoreply/mentor/mentors_helping
+	title = "L: Mentors on their way to help"
+	message = "A mentor will attend to help. Thanks for letting us know!"
+
 /datum/autoreply/mentor/whitelist
 	title = "L: Нарушение правил" // SS220 - EDIT
 
@@ -138,6 +142,12 @@ ON_CONFIG_LOAD(/datum/autoreply/mentor/xeno)
 ON_CONFIG_LOAD(/datum/autoreply/mentor/macros)
 	message = "Это <a href='[CONFIG_GET(string/wikiarticleurl)]/[URL_WIKI_MACROS]'>руководство</a> содержит инструкции по настройке макросов, включая примеры наиболее распространённых и полезных из них." // SS220 - EDIT
 
+/datum/autoreply/mentor/ability_activation
+	title = "L: Ability Activation"
+	message = "To activate an ability, ensure that it is selected on the ability bar (Top left of the game screen), then depending on the ability it may be activated immediately on clicking the button, open a UI menu, or may only activate on click of the middle mouse button. \
+The ability bar can be entirely hidden by using the leftwards arrow at the end of the ability bar (and reshown with the same arrow button). \
+You can change your ability activation button from middle click by changing it in \"Edit Characters\" (available from the escape menu or the preferences tab on the top of the chat window) then under the sub-menu Settings and section Game Settings click \"Button To Activate Xenomorph Abilities\"."
+
 /datum/autoreply/mentor/synthkey
 	title = "H: Ключ перезапуска синтетика" // SS220 - EDIT
 	message = "Для возвращения к функционированию синтетиков требуется уникальный предмет под названием \"Synthetic Reboot Key\", использование которого схоже с дефибриллятором. Его может использовать любой человек с инженерными навыками, а заполучить его можно разными способами, однако в большинстве случаев синтетики носят ключ с собой." // SS220 - EDIT
@@ -150,6 +160,17 @@ ON_CONFIG_LOAD(/datum/autoreply/mentor/macros)
 	title = "H: Бинокль и лазерные целеуказатели" // SS220 - EDIT
 	message = "Бинокль позволяет наблюдать за чем-либо на расстоянии. Чтобы воспользоваться биноклем, возьмите его в руку и активируйте, щёлкнув по нему или нажав клавишу \"Page Down\" или \"Z\". Дальномеры позволяют получить координаты плитки (долготу и широту), подсветив её ЗЕЛЁНЫМ лазером. Нажмите \"Ctrl\" + \"ЛКМ\" на плитке, чтобы получить её координаты. Нажмите \"Ctrl\" + \"ЛКМ\" на дальномере в руках, чтобы прекратить подсветку лазером без выхода из режима наблюдения. Координаты могут помочь офицерам в штабе отправить снабжение или произвести орбитальную бомбардировку. Кроме этого, вы можете использовать его для передачи координат миномётчику. Лазерные целеуказатели, кроме ЗЕЛЁНОГО, имеют второй режим (КРАСНЫЙ лазер). Для переключения между режимами нажмите \"Alt\" + \"ЛКМ\" на целеуказателе в руках или щёлкните ПКМ на нём и выберите пункт меню \"Toggle Laser Mode\". Целеуказатели имеют идентификационный номер, который будет отображаться в оружейной консоли пилота. Чтобы проверить ID своего устройства, нажмите \"Shift\" + \"ЛКМ\" на целеуказателе в руках. Важно помнить, что подсвечивать плитку красным лазером нужно столько, сколько потребуется, чтобы пилот дропшипа смог сбросить бомбы по полученным им координатам." // SS220 - EDIT
 
+/datum/autoreply/mentor/cpr
+	title = "H: CPR"
+	message = "When you find a killed ally, if they have not permanently died you can slow their permanent death by applying CPR. If without a sensormate HUD, then you can check if they have died permanently by examining then clicking \"Check Status\" at the bottom of the readout. \
+If they are dead then they will be \"...not breathing...\", and otherwise if permanently dead they will be \"...no signs of life...\". If you have a sensormate equipped and activated, you can see at range if a mob is revivable. \
+A skull means permanently dead, a solid red line means the player does not want to be revived (DNR), a red box outline means the player has disconnected, while a heartbeat line indicates someone is revivable with a colored line showing how long they have left; A green line is under 5 minutes, a yellow line is under 2 minutes, while a flashing red line is less than 1 minute. \
+To apply CPR, on help intent click on a dead human and wait 3 seconds to apply. Once completed successfully, you must wait another 5 seconds to apply CPR successfully again. CPR may be done faster with a higher medical skill."
+
+/datum/autoreply/mentor/fireman_carry
+	title = "H: Fireman Carry"
+	message = "Fireman carry allows you to transport other humans quickly without any equipment. To fireman carry, grab the target (CTRL+Click), upgrade the grab once by clicking the grab or using \"Z\" (or \"Page down\" if hotkey mode is disabled). You must have the skill to fireman carry, which can be checked by the \"Check Skills\" command."
+
 /datum/autoreply/mentor/haul
 	title = "X: Захват за ксеноморфа" // SS220 - EDIT
 	message = "Захват полезен для быстрой переноски недееспособных противников из одного места в другое. Чтобы захватить цель, нажмите на ней \"Ctrl\" + \"ЛКМ\", а затем кликните \"ЛКМ\" по себе. Цель может вырваться из вашего захвата, что может привести к вашей смерти, поэтому убедитесь, что ваша цель недееспособна. Кроме этого, примерно через 1 минуту цель будет автоматически освобождена из захвата. Чтобы освободить цель, примените способность \"Release\" вверху экрана."
@@ -161,3 +182,7 @@ ON_CONFIG_LOAD(/datum/autoreply/mentor/macros)
 /datum/autoreply/mentor/tunnel
 	title = "X: Туннели" // SS220 - EDIT
 	message = "Нажмите \"ЛКМ\" по туннелю, чтобы войти в него. Находясь в туннеле, нажмите \"Alt\" + \"ЛКМ\", чтобы выйти из него, или \"Ctrl\" + \"ЛКМ\", чтобы выбрать пункт назначения." // SS220 - EDIT
+
+/datum/autoreply/mentor/directional_assist
+	title = "X: Directional assist"
+	message = "Directional assist allows you to slash any target in the direction of your mouse rather than clicking on sprites. To enable, go to the edit characters menu (available from the escape menu or the preferences tab on the top of the chat window), then under Settings sub-menu and the Gameplay Toggles section, and click \"Toggle Directional Assist\"."

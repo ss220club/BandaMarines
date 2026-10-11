@@ -15,7 +15,7 @@
 	density = FALSE	// При коннекте - У нас уже есть колизия с мотоциклом
 	anchored = TRUE	// При коннекте - Нехай трогать и перемещать
 	stacked_size = FALSE // Иначе он будет его в нулину ломать
-	picked_up_item = null // Нам не нужно превращение в стул...
+	foldabletype = null // Нам не нужно превращение в стул...
 	var/obj/connected // Приконекченный байк
 	var/welder_time = 1 SECONDS	// Время требуемое для сварки
 	var/is_welded = FALSE	// Сейчас происходит процесс варки?
