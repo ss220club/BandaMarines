@@ -463,6 +463,7 @@
 	show_hotkeys = savefile.tree["show_hotkeys"]
 	tts_seed_predator = savefile.tree["tts_seed_predator"]
 	tts_seed_synth = savefile.tree["tts_seed_synth"]
+	signed = savefile.tree["commander_sign"]
 	// BANDAMARINES EDIT END
 
 	//Sanitize
@@ -592,6 +593,7 @@
 	commander_sidearm   = sanitize_inlist(commander_sidearm, (CO_GUNS + COUNCIL_CO_GUNS), initial(commander_sidearm))
 	co_career_path = sanitize_inlist(co_career_path, list("Infantry", "Engineering", "Medical", "Intel", "Logistics", "Aviation", "Tanker"), initial(co_career_path))
 	affiliation = sanitize_inlist(affiliation, FACTION_ALLEGIANCE_USCM_COMMANDER, initial(affiliation))
+	signed = sanitize_text(signed, initial(signed)) //SS220 ADD
 	yautja_status = sanitize_inlist(yautja_status, GLOB.whitelist_hierarchy + list("Elder"), initial(yautja_status))
 	synth_status = sanitize_inlist(synth_status, GLOB.whitelist_hierarchy, initial(synth_status))
 
@@ -789,6 +791,7 @@
 	savefile.tree["show_hotkeys"] = show_hotkeys
 	savefile.tree["tts_seed_predator"] = tts_seed_predator
 	savefile.tree["tts_seed_synth"] = tts_seed_synth
+	savefile.tree["commander_sign"] = signed
 	// BANDAMARINES EDIT END
 
 	if(write)
