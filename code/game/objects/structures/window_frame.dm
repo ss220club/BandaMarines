@@ -46,6 +46,8 @@
 				weed_found = W.parent
 				break
 	spawn(0)
+		if(QDELETED(src)) //SS220 ADD
+			return
 		relativewall()
 		relativewall_neighbours()
 		for(var/turf/closed/wall/W in orange(1))
