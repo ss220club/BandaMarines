@@ -65,7 +65,7 @@
 			var/turf/closed/wall/acided_wall = turf
 
 			// Direction from wall to the mob generating acid on the wall turf
-			var/ambiguous_dir_msg = SPAN_XENOWARNING("We are unsure which direction to melt through [acided_wall]. Face it directly and try again.")
+			var/ambiguous_dir_msg = SPAN_XENOWARNING("У нас достаточно кислоты, чтобы проделать дыру в [acided_wall.declent_ru(PREPOSITIONAL)], однако сначала нужно повернуться к ней лицом.")
 			var/dir_to = get_dir(src, acided_wall)
 			switch(dir_to)
 				if(WEST, EAST, NORTH, SOUTH)
@@ -89,12 +89,12 @@
 						to_chat(src, ambiguous_dir_msg)
 						return
 
-			var/acided_hole_type = acided_wall.acided_hole_dir & (EAST|WEST) ? "a hole horizontally" : "a hole vertically"
-			to_chat(src, SPAN_XENOWARNING("We begin generating enough acid to melt [acided_hole_type] through [acided_wall]."))
+			var/acided_hole_type = acided_wall.acided_hole_dir & (EAST|WEST) ? "горизонтальную дыру" : "вертикальную дыру"
+			to_chat(src, SPAN_XENOWARNING("У нас достаточно кислоты, чтобы проделать [acided_hole_type] в [acided_wall.declent_ru(PREPOSITIONAL)]."))
 		else
-			to_chat(src, SPAN_XENOWARNING("We begin generating enough acid to melt through [turf]."))
+			to_chat(src, SPAN_XENOWARNING("У нас достаточно кислоты, чтобы растворить [turf.declent_ru(ACCUSATIVE)]."))
 	else
-		to_chat(src, SPAN_WARNING("You cannot dissolve [acided_thing]."))
+		to_chat(src, SPAN_WARNING("Вы не можете растворить [acided_thing.declent_ru(ACCUSATIVE)]."))
 		return
 
 	if(!do_after(src, wait_time, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE))
@@ -103,11 +103,11 @@
 	// AGAIN BECAUSE SOMETHING COULD'VE ACIDED THE PLACE
 	for(var/obj/effect/xenomorph/acid/other_acid in turf)
 		if(acid_type == other_acid.type && other_acid.acid_t == acided_thing)
-			to_chat(src, SPAN_WARNING("[other_acid] is already drenched in acid."))
+			to_chat(src, SPAN_WARNING("[capitalize(other_acid.declent_ru(NOMINATIVE))] уже растворяется в кислоте."))
 			return
 
 	if(HAS_TRAIT(src, TRAIT_ABILITY_BURROWED)) //Checked again to account for people trying to place acid while channeling the burrow ability
-		to_chat(src, SPAN_WARNING("We can't melt [acided_thing] from here!"))
+		to_chat(src, SPAN_WARNING("Мы не можем растворить [acided_thing.declent_ru(ACCUSATIVE)] отсюда!"))
 		return
 
 	if(!check_state())
@@ -123,10 +123,10 @@
 		if(istype(acided_thing,/obj/item/explosive/plastic))
 			var/obj/item/explosive/plastic/acided_c4 = acided_thing
 			if(acided_c4.plant_target && !acided_c4.plant_target.Adjacent(src))
-				to_chat(src, SPAN_WARNING("We can't reach [acided_thing]."))
+				to_chat(src, SPAN_WARNING("Мы не можем достать до [acided_thing.declent_ru(GENITIVE)]."))
 				return
 		else
-			to_chat(src, SPAN_WARNING("[acided_thing] is too far away."))
+			to_chat(src, SPAN_WARNING("[capitalize(acided_thing.declent_ru(NOMINATIVE))] слишком далеко!")) // SS220 EDIT ADDICTION
 			return
 
 	use_plasma(plasma_cost)
@@ -136,8 +136,8 @@
 	if(istype(acided_thing, /obj/vehicle/multitile))
 		var/obj/vehicle/multitile/acided_vehicle = acided_thing
 		acided_vehicle.take_damage_type(40 / new_acid.acid_delay, "acid", src)
-		visible_message(SPAN_XENOWARNING("[src] vomits globs of vile stuff at \the [acided_thing]. It sizzles under the bubbling mess of acid!"),
-			SPAN_XENOWARNING("We vomit globs of vile stuff at [acided_thing]. It sizzles under the bubbling mess of acid!"), null, 5)
+		visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] выплёвывает отвратительную субстанцию на [acided_thing.declent_ru(ACCUSATIVE)], котор[genderize_ru(acided_thing.gender, "ый", "ая", "ое", "ые")] тут же начинает шипеть и растворяться от кислоты!"),
+			SPAN_XENOWARNING("Мы выплёвываем отвратительную субстанцию на [acided_thing.declent_ru(ACCUSATIVE)], котор[genderize_ru(acided_thing.gender, "ый", "ая", "ое", "ые")] тут же начинает шипеть и растворяться от кислоты!"), null, 5)
 		playsound(loc, "sound/bullets/acid_impact1.ogg", 25)
 		QDEL_IN(new_acid, 20)
 		return
@@ -156,8 +156,8 @@
 	if(!isturf(acided_thing))
 		msg_admin_attack("[src.name] ([src.ckey]) spat acid on [acided_thing] in [get_area(src)] ([src.loc.x],[src.loc.y],[src.loc.z]).", src.loc.x, src.loc.y, src.loc.z)
 		attack_log += text("\[[time_stamp()]\] <font color='green'>Spat acid on [acided_thing]</font>")
-	visible_message(SPAN_XENOWARNING("[src] vomits globs of vile stuff all over [acided_thing]. It begins to sizzle and melt under the bubbling mess of acid!"),
-	SPAN_XENOWARNING("We vomit globs of vile stuff all over [acided_thing]. It begins to sizzle and melt under the bubbling mess of acid!"), null, 5)
+	visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] выплёвывает отвратительную субстанцию на [acided_thing.declent_ru(ACCUSATIVE)],котор[genderize_ru(acided_thing.gender, "ый", "ая", "ое", "ые")] тут же начинает шипеть и растворяться от кислоты!"),
+	SPAN_XENOWARNING("Мы выплёвываем отвратительную субстанцию на [acided_thing.declent_ru(ACCUSATIVE)], котор[genderize_ru(acided_thing.gender, "ый", "ая", "ое", "ые")] тут же начинает шипеть и растворяться от кислоты!"), null, 5)
 	playsound(loc, "sound/bullets/acid_impact1.ogg", 25)
 
 /proc/unroot_human(mob/living/carbon/H, trait_source)
@@ -169,7 +169,7 @@
 	if(ishuman(H))
 		var/mob/living/carbon/human/turf = H
 		turf.update_xeno_hostile_hud()
-	to_chat(H, SPAN_XENOHIGHDANGER("We can move again!"))
+	to_chat(H, SPAN_XENOHIGHDANGER("Мы снова можем двигаться!"))
 
 /mob/living/carbon/xenomorph/proc/zoom_in()
 	if(!HAS_TRAIT(src, TRAIT_ABILITY_SIGHT_IGNORE_REST) && (stat || resting))
@@ -334,8 +334,8 @@
 	use_plasma(amount)
 	target.gain_plasma(amount)
 	target.xeno_jitter(1 SECONDS)
-	to_chat(target, SPAN_XENOWARNING("[src] has transferred [amount] plasma to us. We now have [target.plasma_stored]."))
-	to_chat(src, SPAN_XENOWARNING("We have transferred [amount] plasma to [target]. We now have [plasma_stored]."))
+	to_chat(target, SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] передаёт нам [amount] ед. плазмы. Теперь у нас [target.plasma_stored] ед. плазмы.")) // SS220 EDIT ADDICTION
+	to_chat(src, SPAN_XENOWARNING("Мы передаём [amount] ед. плазмы [target.declent_ru(DATIVE)]. У нас осталось [plasma_stored] ед. плазмы.")) // SS220 EDIT ADDICTION
 	playsound(src, "alien_drool", 25)
 
 /mob/living/carbon/xenomorph/proc/check_can_transfer_plasma(mob/living/carbon/xenomorph/target, max_range)

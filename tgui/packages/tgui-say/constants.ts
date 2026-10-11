@@ -3,14 +3,136 @@ export enum WindowSize {
   Small = 30,
   Medium = 50,
   Large = 70,
-  Width = 380,
+  Width = 325,
 }
+
+export const SMALL_WINDOW_SIZE = WindowSize.Small;
+export const MEDIUM_WINDOW_SIZE = WindowSize.Medium;
+export const LARGE_WINDOW_SIZE = WindowSize.Large;
+export const WIDTH_WINDOW_SIZE = WindowSize.Width;
 
 /** Line lengths for autoexpand */
 export enum LineLength {
-  Small = 36,
-  Medium = 70,
-  Large = 104,
+  Small = 30,
+  Medium = 60,
+  Large = 90,
+}
+
+export const SMALL_LINE_SIZE = LineLength.Small;
+export const MEDIUM_LINE_SIZE = LineLength.Medium;
+export const LARGE_LINE_SIZE = LineLength.Large;
+
+export const LIVING_TYPES = {
+  HUMAN: 'human',
+  XENO: 'xeno',
+  SYNTH: 'synth',
+  YAUTJA: 'yautja',
+} as const;
+
+export type LivingType = (typeof LIVING_TYPES)[keyof typeof LIVING_TYPES];
+
+export const RADIO_PREFIXES_MAP: Record<string, string> = {
+  й: 'q',
+  ц: 'w',
+  у: 'e',
+  к: 'r',
+  е: 't',
+  н: 'y',
+  г: 'u',
+  ш: 'i',
+  щ: 'o',
+  з: 'p',
+  ф: 'a',
+  ы: 's',
+  в: 'd',
+  а: 'f',
+  п: 'g',
+  р: 'h',
+  о: 'j',
+  л: 'k',
+  д: 'l',
+  я: 'z',
+  ч: 'x',
+  с: 'c',
+  м: 'v',
+  и: 'b',
+  т: 'n',
+  ь: 'm',
+} as const;
+
+const RU_RADIO_LABELS = {
+  'Depart.': 'Отдел',
+  Intercom: 'ВнутрСвязь',
+  'L Hand': 'Л Рука',
+  'R Hand': 'П Рука',
+  Whisper: 'Шёпот',
+  Alpha: 'Альфа',
+  'CLF Med': 'КОФ Мед',
+  Bravo: 'Браво',
+  'CLF Engi': 'КОФ Инж',
+  'Charl.': 'Чарли',
+  Charlie: 'Чарли',
+  'CLF Cmd.': 'КОФ Кмд',
+  Delta: 'Дельта',
+  'CLF CCT': 'КОФ CCT',
+  Echo: 'Эхо',
+  'PMC Engi': 'ЧВК Инж',
+  'Foxtr.': 'Фокстрот',
+  Foxtrot: 'Фокстрот',
+  'PMC Med': 'ЧВК Мед',
+  Ship: 'Корабль',
+  CLF: 'КОФ',
+  JTAC: 'JTAC',
+  'UPP CCT': 'СПН CCT',
+  SOF: 'ССО',
+  Military: 'Воен',
+  SpecOps: 'СпецОпер',
+  Provost: 'Провост',
+  MedSci: 'МедИс',
+  Engi: 'Инж',
+  'UPP Engi': 'СПН Инж',
+  Colony: 'Колония',
+  'PMC CCT': 'ЧВК CCT',
+  MP: 'ВоенПол',
+  PMC: 'ЧВК',
+  Hive: 'Улей',
+  Yautja: 'Хищники',
+  Army: 'Армия',
+  'Yautja Ovr.': 'Yautja Ovr.',
+  Int: 'Разведка',
+  Intel: 'Разведка',
+  'UPP Kdo': 'СПН Кмдс',
+  Req: 'Запросы',
+  UPP: 'СПН',
+  'Cmd.': 'Кмд',
+  Command: 'Кмд',
+  'UPP Cmd.': 'СПН Кмд',
+  Hyperdyne: 'Гипердайн',
+  'W-Y Corp': 'В-Ю Корп',
+  'W-Y Sec': 'В-Ю Безоп',
+  'W-Y Pub': 'В-Ю Общ',
+  CIA: 'ЦРУ',
+  HC: 'ВысшКмд',
+  'PMC Cmd.': 'ЧВК Кмд',
+} as const;
+
+export function RuRadioLabel(input: string) {
+  return RU_RADIO_LABELS[input] ?? input;
+}
+
+const EN_CHANNEL_LABELS = {
+  Говорить: 'say',
+  Рация: 'comms',
+  Эмоция: 'me',
+  Шёпот: 'whisper',
+  Ментор: 'mentor',
+  Админ: 'asay',
+  Улей: 'hive',
+  Хищники: 'yautja',
+} as const;
+
+export function EnChannelLabel(input: string) {
+  return EN_CHANNEL_LABELS[input] ?? input.toLowerCase();
 }
 
 /**
@@ -424,3 +546,15 @@ export const LANGUAGE_PREFIXES = {
     label: 'Primitive',
   },
 } as const;
+
+const RU_LANGUAGE_LABELS = {
+  Hivemind: 'Разум улья',
+} as const;
+
+export function RuLanguageLabel(input: string) {
+  return RU_LANGUAGE_LABELS[input] ?? input;
+}
+
+export function RuPrefixLabel(input: string) {
+  return RuLanguageLabel(RuRadioLabel(input));
+}

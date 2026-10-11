@@ -455,6 +455,16 @@
 
 	chem_presets = savefile.tree["chem_presets"]
 
+	// BANDAMARINES EDIT START
+	xeno_customization_visibility = savefile.tree["xeno_customization_visibility"]
+	xeno_customizations_string = savefile.tree["xeno_customizations"]
+	quick_cast = savefile.tree["quick_cast"]
+	screentips = savefile.tree["screentips"]
+	show_hotkeys = savefile.tree["show_hotkeys"]
+	tts_seed_predator = savefile.tree["tts_seed_predator"]
+	tts_seed_synth = savefile.tree["tts_seed_synth"]
+	// BANDAMARINES EDIT END
+
 	//Sanitize
 	load_preferences_sanitize()
 
@@ -617,7 +627,16 @@
 	if(!observer_huds)
 		observer_huds = list("Medical HUD" = FALSE, "Security HUD" = FALSE, "Squad HUD" = FALSE, "Xeno Status HUD" = FALSE, "Hunter HUD"= FALSE, HUD_MENTOR_SIGHT = FALSE)
 
-	volume_preferences = sanitize_volume_preferences(volume_preferences, list(1, 0.5, 1, 0.6)) // Game, music, admin midis, lobby music
+	volume_preferences = sanitize_volume_preferences(volume_preferences, list(1, 0.5, 1, 0.6, // Game, music, admin midis, lobby music
+		1, 0.5, 0.5, 0.5)) // Local, Radio, Announces, Hivemind - SS220 TTS EDIT from "modular/text_to_speech/code/sound.dm"
+
+	// BANDAMARINES EDIT START
+	xeno_customization_visibility = sanitize_inlist(xeno_customization_visibility, GLOB.xeno_customization_visibility_options, XENO_CUSTOMIZATION_SHOW_LORE_FRIENDLY)
+	// Xeno Customizations are sanitized in /datum/xeno_customization_picker/setup(), we need DB and player entity ready for this
+	quick_cast = sanitize_integer(quick_cast, FALSE, TRUE, FALSE)
+	screentips = sanitize_integer(screentips, FALSE, TRUE, TRUE)
+	show_hotkeys = sanitize_integer(show_hotkeys, FALSE, TRUE, TRUE)
+	// BANDAMARINES EDIT END
 
 	if(!islist(custom_keybinds))
 		custom_keybinds = new /list(KEYBIND_CUSTOM_MAX)
@@ -761,6 +780,16 @@
 	savefile.tree["chem_presets"] = chem_presets
 
 	savefile.tree["custom_keybinds"] = custom_keybinds
+
+	// BANDAMARINES EDIT START
+	savefile.tree["xeno_customization_visibility"] = xeno_customization_visibility
+	savefile.tree["quick_cast"] = quick_cast
+	savefile.tree["screentips"] = screentips
+	savefile.tree["xeno_customizations"] = xeno_customizations_string
+	savefile.tree["show_hotkeys"] = show_hotkeys
+	savefile.tree["tts_seed_predator"] = tts_seed_predator
+	savefile.tree["tts_seed_synth"] = tts_seed_synth
+	// BANDAMARINES EDIT END
 
 	if(write)
 		savefile.save()
@@ -935,6 +964,14 @@
 		preferred_squad = "None"
 	preferred_spec = sanitize_list(preferred_spec, allow=GLOB.specialist_set_name_dict)
 
+	// =================================
+	// SS220 EDIT - TTS
+	if(SStts220.is_enabled)
+		S["tts_seed"] >> tts_seed
+	S["declined_name"] >> declined_name
+	declined_name = sanitize_declined_name()
+	// =================================
+
 	return TRUE
 
 /// Assigns the save data for the character in default_slot but notably does not write to disk by default
@@ -1022,6 +1059,13 @@
 
 	save_data["uplinklocation"] = uplinklocation
 	save_data["exploit_record"] = exploit_record
+
+	// =================================
+	// SS220 EDIT
+	if(SStts220.is_enabled)
+		save_data["tts_seed"] = tts_seed
+	save_data["declined_name"] = declined_name
+	// =================================
 
 	if(write)
 		savefile.save()
