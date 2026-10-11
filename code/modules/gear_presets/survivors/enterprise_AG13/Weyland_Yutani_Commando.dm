@@ -316,7 +316,7 @@
 		ACCESS_CIVILIAN_COMMAND,
 	)
 
-/datum/equipment_preset/pmc/commando/leader/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/survivor/pmc/commando/leader/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new headset_type, WEAR_L_EAR)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/marine/veteran/pmc/leader/commando/leader, WEAR_BODY)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/patch/wy_faction, WEAR_ACCESSORY)
