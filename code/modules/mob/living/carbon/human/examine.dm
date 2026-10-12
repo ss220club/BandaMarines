@@ -141,13 +141,13 @@
 				body_type_description = "muscular"
 
 		if(!skipface && !skipjumpsuit && body_size_description && body_type_description && mob_flags & MOB_FLAYED)
-			msg += "[t_He] [SPAN_BOLD(body_size_description)] [SPAN_BOLD(body_type_description)] телосложения.\n"
+			msg += "[t_He] [SPAN_BOLD(body_size_description)], [SPAN_BOLD(body_type_description)] телосложения.\n"
 		else if(!skipface && !skipjumpsuit && body_size_description && body_type_description)
-			msg += "[t_He] [SPAN_BOLD(age_description)], [SPAN_BOLD(body_size_description)] [SPAN_BOLD(body_type_description)] телосложения.\n"
+			msg += "[t_He] [SPAN_BOLD(age_description)], [SPAN_BOLD(body_size_description)], [SPAN_BOLD(body_type_description)] телосложения.\n"
 		else if(!skipface)
 			msg += "[t_He] [SPAN_BOLD(age_description)].\n"
 		else if(!skipjumpsuit && body_size_description && body_type_description)
-			msg += "[t_his] лицо спрятано, но [t_has] [SPAN_BOLD(body_size_description)] [SPAN_BOLD(body_type_description)].\n"
+			msg += "[t_his] лицо спрятано, но телосложение [SPAN_BOLD(body_size_description)] и [SPAN_BOLD(body_type_description)].\n"
 		else
 			msg += "[t_his] лицо спрятано.\n"
 

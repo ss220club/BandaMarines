@@ -480,6 +480,7 @@
 	SHOULD_CALL_PARENT(TRUE)
 
 	SEND_SIGNAL(src, COMSIG_ITEM_EQUIPPED, user, slot)
+	SEND_SIGNAL(user, COMSIG_MOB_EQUIPPED_ITEM, src, slot) // BANDAMARINES EDIT - ADD
 
 	if(is_valid_sticky_slot(slot))
 		last_equipped_slot = slot
