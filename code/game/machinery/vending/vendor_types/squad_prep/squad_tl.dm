@@ -44,7 +44,6 @@ GLOBAL_LIST_INIT(cm_vending_gear_tl, list(
 		list("M276 Pattern Combat Toolbelt Rig", 15, /obj/item/storage/belt/gun/utility, null, VENDOR_ITEM_REGULAR),
 		list("Autoinjector Pouch (Full)", 15, /obj/item/storage/pouch/autoinjector/full, null, VENDOR_ITEM_REGULAR),
 		list("Insulated Gloves", 3, /obj/item/clothing/gloves/yellow, null, VENDOR_ITEM_REGULAR),
-		list("Night Vision Optic", 30, /obj/item/device/helmet_visor/night_vision, null, VENDOR_ITEM_RECOMMENDED),
 
 		list("ENGINEERING SUPPLIES", 0, null, null, null),
 		list("Plastic Explosive", 10, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
@@ -68,6 +67,10 @@ GLOBAL_LIST_INIT(cm_vending_gear_tl, list(
 		list("HELMET OPTICS", 0, null, null, null),
 		list("SensorMate Medical Optic", 15, /obj/item/device/helmet_visor/medical, null, VENDOR_ITEM_REGULAR),
 		list("Welding Visor", 5, /obj/item/device/helmet_visor/welding_visor, null, VENDOR_ITEM_REGULAR),
+		// SS220 EDIT - START
+		list("Night Vision Optic", 30, /obj/item/device/helmet_visor/night_vision/normal, null, VENDOR_ITEM_RECOMMENDED),
+		list("Night Vision Optimizer", 5, /obj/item/device/helmet_visor_module/night_vision_power_efficiency, null, VENDOR_ITEM_RECOMMENDED),
+		// SS220 EDIT - END
 
 		list("RADIO KEYS", 0, null, null, null),
 		list("Engineering Radio Encryption Key", 5, /obj/item/device/encryptionkey/engi, null, VENDOR_ITEM_REGULAR),
