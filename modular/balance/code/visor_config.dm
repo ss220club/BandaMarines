@@ -6,6 +6,12 @@
 	helmet_overlay_icon = 'modular/balance/icons/visor.dmi'
 	visor_glows = FALSE
 
+/obj/item/clothing/head/helmet/marine/Destroy()
+	remove_nvg_overlay()
+	return ..()
+
+/obj/item/device/helmet_visor/night_vision/normal/var/list/overlay_data = list()
+
 /obj/item/device/helmet_visor/night_vision/normal/change_view(mob/user, new_size)
 	return
 
@@ -85,12 +91,6 @@
 	. = ..()
 	if(slot == SLOT_HEAD)
 		remove_nvg_overlay()
-
-/obj/item/clothing/head/helmet/marine/Destroy()
-	remove_nvg_overlay()
-	return ..()
-
-/obj/item/device/helmet_visor/night_vision/normal/var/list/overlay_data = list()
 
 /obj/item/device/helmet_visor/night_vision/normal/proc/add_vision_overlay(obj/item/clothing/head/helmet/marine/attached_helmet)
 	var/mob/living/carbon/human/wearer = attached_helmet.loc
