@@ -100,7 +100,7 @@
 		var/mob/M = C.mob
 		if(!M)
 			continue
-		if(!(GLOB.huds[HEALTH_HUD_XENO]?.hudusers[M]) && !isxeno(M))
+		if(!(GLOB.huds[MOB_HUD_MEDICAL_OBSERVER]?.hudusers[M]) && !isxeno(M))
 			continue
 		var/image/glow = image('modular/balance/icons/visor.dmi', "nvo_installed")
 		glow.appearance_flags = RESET_COLOR | RESET_ALPHA

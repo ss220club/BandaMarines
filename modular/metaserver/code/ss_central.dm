@@ -48,12 +48,13 @@ SUBSYSTEM_DEF(central)
 	return FALSE
 
 /datum/controller/subsystem/central/proc/get_player_donate_tier_blocking(client/player)
-	var/endpoint = "[CONFIG_GET(string/central_api_url)]/donates?ckey=[player.ckey]&active_only=true&page=1&page_size=1"
+	var/endpoint = "[CONFIG_GET(string/central_api_url)]/donates?ckey=[player.ckey]&active_only=true&page=1&page_size=50"
 	var/datum/http_response/response = SShttp.make_sync_request(RUSTG_HTTP_METHOD_GET, endpoint, "", list())
 	if(response.errored || response.status_code != 200)
 		stack_trace("Failed to get player donate tier: HTTP status code [response.status_code] - [response.error] - [response.body]")
-		return 0
+		return player.donator_level
 
 	var/list/data = json_decode(response.body)
-	if(length(data["items"]))
-		return data["items"][1]["tier"]
+	. = 0
+	for(var/list/item in data["items"])
+		. = max(., item["tier"])

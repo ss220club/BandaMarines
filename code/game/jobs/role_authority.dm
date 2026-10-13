@@ -13,19 +13,9 @@ use roles_by_path as it is an accurate account of every specific role path (with
 */
 GLOBAL_DATUM(RoleAuthority, /datum/authority/branch/role)
 
-#define GET_RANDOM_JOB 0
-#define BE_MARINE 1
-#define RETURN_TO_LOBBY 2
-#define BE_XENOMORPH 3
-
-#define NEVER_PRIORITY 0
-#define HIGH_PRIORITY 1
-#define MED_PRIORITY 2
-#define LOW_PRIORITY 3
+GLOBAL_VAR_INIT(players_preassigned, 0)
 
 #define SHIPSIDE_ROLE_WEIGHT 0.25
-
-GLOBAL_VAR_INIT(players_preassigned, 0)
 
 /proc/guest_jobbans(job)
 	return (job in GLOB.ROLES_COMMAND)
@@ -112,7 +102,6 @@ GLOBAL_VAR_INIT(players_preassigned, 0)
 		squads += S
 		squads_by_type[S.type] = S
 
-//#undef FACTION_TO_JOIN
 
 /*
 Consolidated into a better collection of procs. It was also calling too many loops, and I tried to fix that as well.
@@ -132,6 +121,15 @@ I hope it's easier to tell what the heck this proc is even doing, unlike previou
 			continue
 		roles_for_mode[role_name] = J
 
+	// Also shuffle survivors since some are tied together
+	var/list/snowflakes = GLOB.ROLES_WHITELISTED|GLOB.ROLES_SPECIAL
+	var/list/shuffled_snowflakes = shuffle(snowflakes)
+	for(var/i in 1 to length(snowflakes))
+		var/old_index = roles_for_mode.Find(snowflakes[i])
+		var/new_index = roles_for_mode.Find(shuffled_snowflakes[i])
+		if(old_index && new_index)
+			roles_for_mode.Swap(old_index, new_index)
+
 	// Also register game mode specific mappings to standard roles
 	role_mappings = list()
 	default_roles = list()
@@ -149,19 +147,25 @@ I hope it's easier to tell what the heck this proc is even doing, unlike previou
 	//===============================================================\\
 	//PART II: Setting up our player variables and lists, to see if we have anyone to destribute.
 
+	var/unassigned_banda_players = list() //SS220 ADD
 	unassigned_players = list()
 	for(var/mob/new_player/M in GLOB.player_list) //Get all players who are ready.
 		if(!M.ready || M.job)
 			continue
 
+		if(M.client?.admin_holder?.rank == "Banda") //SS220 ADD
+			unassigned_banda_players += M		  //SS220 ADD
+			continue							  //SS220 ADD
 		unassigned_players += M
 
-	if(!length(unassigned_players)) //If we don't have any players, the round can't start.
+	if(!length(unassigned_players) && !length(unassigned_banda_players)) //If we don't have any players, the round can't start. SS220 ADD banda check
 		unassigned_players = null
 		return
 
+	unassigned_banda_players = shuffle(unassigned_banda_players, 1) //SS220 ADD
 	unassigned_players = shuffle(unassigned_players, 1) //Shuffle the players.
 
+	unassigned_players = unassigned_banda_players + unassigned_players //SS220 ADD
 
 	// How many positions do we open based on total pop
 	for(var/i in roles_by_name)
@@ -193,10 +197,18 @@ I hope it's easier to tell what the heck this proc is even doing, unlike previou
 	if(istype(XJ))
 		XJ.set_spawn_positions(GLOB.players_preassigned)
 
-	// Limit the number of SQUAD MARINE roles players can roll initially
+	// Limit the number of SQUAD MARINE roles players can roll initially (somereason)
 	var/datum/job/SMJ = GET_MAPPED_ROLE(JOB_SQUAD_MARINE)
 	if(istype(SMJ))
 		SMJ.set_spawn_positions(GLOB.players_preassigned)
+
+	// Set initial squad caps
+	var/datum/job/engi_job = GET_MAPPED_ROLE(JOB_SQUAD_ENGI)
+	if(istype(engi_job))
+		engi_job.set_spawn_positions(GLOB.players_preassigned)
+	var/datum/job/medic_job = GET_MAPPED_ROLE(JOB_SQUAD_MEDIC)
+	if(istype(medic_job))
+		medic_job.set_spawn_positions(GLOB.players_preassigned)
 
 	// Set survivor starting amount based on marines assigned
 	var/datum/job/SJ = temp_roles_for_mode[JOB_SURVIVOR]
@@ -296,7 +308,7 @@ I hope it's easier to tell what the heck this proc is even doing, unlike previou
 	for(var/priority in HIGH_PRIORITY to LOW_PRIORITY)
 		// Assigning xenos first.
 		assigned += assign_initial_roles(priority, roles_for_mode & GLOB.ROLES_XENO, unassigned_players)
-		// Assigning special roles second. (survivor, predator)
+		// Assigning special roles second. (survivor, predator) tho they are in random order from setup_candidates_and_roles
 		assigned += assign_initial_roles(priority, roles_for_mode & (GLOB.ROLES_WHITELISTED|GLOB.ROLES_SPECIAL), unassigned_players)
 		// Assigning command third.
 		assigned += assign_initial_roles(priority, roles_for_mode & GLOB.ROLES_COMMAND, unassigned_players)
@@ -352,12 +364,23 @@ I hope it's easier to tell what the heck this proc is even doing, unlike previou
 /datum/authority/branch/role/proc/calculate_role_weight(datum/job/J)
 	if(!J)
 		return 0
-	if(GLOB.ROLES_MARINES.Find(J.title))
+	if(J.title in GLOB.ROLES_MARINES)
 		return 1
-	if(GLOB.ROLES_XENO.Find(J.title))
+	if(J.title in GLOB.ROLES_XENO)
 		return 1
-	if(J.title == JOB_SURVIVOR)
-		return 1
+	if(J.title in FAX_RESPONDER_JOB_LIST)
+		return 0
+	switch(J.title)
+		if(JOB_SURVIVOR)
+			return 1
+		if(JOB_SYNTH_SURVIVOR)
+			return 1
+		if(JOB_CO_SURVIVOR)
+			return 1
+		if(JOB_PRED_SURVIVOR)
+			return 1
+		if(JOB_PREDATOR)
+			return 0
 	return SHIPSIDE_ROLE_WEIGHT
 
 /datum/authority/branch/role/proc/assign_random_role(mob/new_player/M, list/roles_to_iterate) //In case we want to pass on a list.
@@ -547,6 +570,8 @@ I hope it's easier to tell what the heck this proc is even doing, unlike previou
 			pod.go_in_cryopod(new_human, silent = TRUE)
 			break
 
+	new_human.assigned_equipment_preset?.equip_spawn_lore(new_human)
+
 	new_human.sec_hud_set_ID()
 	new_human.hud_set_squad()
 
@@ -728,3 +753,5 @@ I hope it's easier to tell what the heck this proc is even doing, unlike previou
 		if(new_squad.roles_in[transfer_marine.job] >= new_squad.roles_cap[transfer_marine.job])
 			return TRUE
 	return FALSE
+
+#undef SHIPSIDE_ROLE_WEIGHT
