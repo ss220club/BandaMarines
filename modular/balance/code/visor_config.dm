@@ -110,7 +110,7 @@
 		glow.layer = 10
 		glow.loc = wearer
 		C.images += glow
-		overlay_data += list(list("client" = C, "image" = glow))
+		overlay_data += C
 
 /obj/item/device/helmet_visor/night_vision/normal/proc/remove_vision_overlay()
 	for(var/list/data in overlay_data)
