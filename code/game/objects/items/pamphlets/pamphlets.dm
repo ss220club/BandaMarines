@@ -232,10 +232,10 @@
 	user.hud_set_squad()
 
 	var/obj/item/card/id/ID = user.get_idcard()
-	ID.set_assignment((user.assigned_squad ? (user.assigned_squad.name + " ") : "") + "Mortar Operator")
+	ID.set_assignment("Миномётчик" + " " + (user.assigned_squad ? user.assigned_squad.get_name_ru() : ""))	// SS220 EDIT TRANSLATE
 	ID.minimap_icon_override = "mortar"
 	user.update_minimap_icon()
-	GLOB.data_core.manifest_modify(user.real_name, WEAKREF(user), "Mortar Operator")
+	GLOB.data_core.manifest_modify(user.real_name, WEAKREF(user), "Миномётчик")	// SS220 EDIT TRANSLATE
 
 /obj/item/pamphlet/skill/k9_handler
 	name = "K9 handler instructional pamphlet"
