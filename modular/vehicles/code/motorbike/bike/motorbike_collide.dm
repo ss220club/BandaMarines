@@ -56,6 +56,8 @@
 
 	// Урон мотоциклу
 	take_damage(damage)
+	if(QDELETED(src))
+		return
 
 	// Эффекты для водителя
 	if(buckled_mob)
@@ -83,6 +85,8 @@
 
 	// Урон мотоциклу
 	take_damage(damage)
+	if(QDELETED(src))
+		return
 
 	// Урон объекту
 	if(O.health)
@@ -140,6 +144,8 @@
 			apply_collision_effects(C, mod, try_broke_bones)
 		if(isxeno(M))
 			attack_alien(M)
+			if(QDELETED(src))
+				return
 	else if(isliving(M))
 		var/mob/living/L = M
 		L.adjustBruteLoss(20 * current_speed_level)

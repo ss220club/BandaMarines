@@ -22,6 +22,11 @@
 // Пересечение ловушек теперь ловит и тех кто посажен за кровать / стул / транспорт
 /obj/effect/alien/resin/trap/Crossed(atom/A)
 	// !!! Потом выпилить если примут фикс на оффы
+	if(istype(A, /obj/structure/bed/chair/sidecar))
+		var/obj/structure/bed/chair/sidecar/attached_sidecar = A
+		if(attached_sidecar.connected && !QDELETED(attached_sidecar.connected))
+			return ..()
+
 	if((isStructure(A) && istype(A, /obj/structure/bed)) || (isVehicle(A) && !isVehicleMultitile(A))) // у нас есть передвижные кровати и коляски от них
 		var/obj/O = A
 		if(O.buckled_mob)

@@ -1,3 +1,28 @@
+// Функции выбора скина
+/proc/get_motorbike_gamemode_skin()
+	var/static/list/valid_skins = list("snow", "desert", "classic", "urban")
+	var/datum/map_config/map_config = SSmapping.configs[GROUND_MAP]
+	if(!map_config)
+		return null
+	var/skin = map_config.camouflage_type
+	if(skin in valid_skins)
+		return skin
+	return null
+
+/obj/vehicle/motorbike/proc/select_gamemode_skin()
+	if(flags_atom & NO_GAMEMODE_SKIN)
+		return
+	var/skin = get_motorbike_gamemode_skin()
+	if(skin)
+		icon_skin = skin
+
+/obj/structure/bed/chair/sidecar/proc/select_gamemode_skin()
+	if(flags_atom & NO_GAMEMODE_SKIN)
+		return
+	var/skin = get_motorbike_gamemode_skin()
+	if(skin)
+		icon_skin = skin
+
 // Мотоцикл с пассажирской коляской
 /obj/vehicle/motorbike/passenger/full
 	create_sidecar = PASSENGER_SIDECAR
@@ -26,35 +51,6 @@
 
 /obj/vehicle/motorbike/camo/cargo/full
 	create_sidecar = CARGO_SIDECAR
-
-// Функции выбора скина
-/obj/vehicle/motorbike/proc/select_gamemode_skin()
-	if(flags_atom & NO_GAMEMODE_SKIN)
-		return
-	var/skin = SSmapping.configs[GROUND_MAP].camouflage_type
-	switch(skin)
-		if("snow")
-			icon_skin = skin
-		if("desert")
-			icon_skin = skin
-		if("classic")
-			icon_skin = skin
-		if("urban")
-			icon_skin = skin
-
-/obj/structure/bed/chair/sidecar/proc/select_gamemode_skin()
-	if(flags_atom & NO_GAMEMODE_SKIN)
-		return
-	var/skin = SSmapping.configs[GROUND_MAP].camouflage_type
-	switch(skin)
-		if("snow")
-			icon_skin = skin
-		if("desert")
-			icon_skin = skin
-		if("classic")
-			icon_skin = skin
-		if("urban")
-			icon_skin = skin
 
 // ==========================================
 // ============== Desert skin ===============
