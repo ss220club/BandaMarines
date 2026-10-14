@@ -60,8 +60,14 @@
 	var/impact_dir = X.last_move_dir || X.dir
 	if(impact_dir)
 		// Импульс передаётся байку в направлении движения ксеноморфа.
-		if(step(src, impact_dir))
+		var/moved = step(src, impact_dir)
+		if(QDELETED(src))
+			return TRUE
+		if(moved)
 			sync_sidecar_after_move()
+
+	if(QDELETED(src))
+		return TRUE
 
 	var/turf/before_bike = get_step(impact_turf, turn(impact_dir, 180))
 	if(before_bike && !before_bike.density)

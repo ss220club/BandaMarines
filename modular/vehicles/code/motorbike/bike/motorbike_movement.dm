@@ -29,6 +29,7 @@
 	var/move_delay_intermediate = 2
 	var/move_delay_maximum = 1
 	var/lightweight_speed_mod = 0.7 // Модификатор скорости если не прицеплена коляска
+	var/momentum_loss_on_weeds_factor = 0.2
 
 	// Скорость
 	/// Через сколько секунд простоя сбрасываем скорость
@@ -125,6 +126,7 @@
 	)
 
 /obj/vehicle/motorbike/proc/prepare_move_glide()
+	update_speed()
 	var/old_glide_size = glide_size
 	set_glide_size(DELAY_TO_GLIDE_SIZE(move_delay + 1))
 	return old_glide_size
@@ -168,7 +170,6 @@
 		set_glide_size(old_glide_size)
 		return
 
-	sync_sidecar_after_move()
 	finalize_move(should_accelerate)
 	return .
 
@@ -185,6 +186,8 @@
 			move_delay = move_delay_maximum
 	if(!get_valid_sidecar())
 		move_delay *= lightweight_speed_mod
+	if(locate(/obj/effect/alien/weeds) in loc)
+		move_delay /= momentum_loss_on_weeds_factor
 
 /obj/vehicle/motorbike/proc/reset_speed()
 	straight_move_timer = 0

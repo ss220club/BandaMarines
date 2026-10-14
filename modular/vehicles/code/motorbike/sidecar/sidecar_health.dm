@@ -21,6 +21,8 @@
 	QDEL_NULL(src)
 
 /obj/structure/bed/chair/sidecar/update_health(damage = 0)
+	if(QDELETED(src) || is_destroying)
+		return
 	health -= damage
 	healthcheck()
 

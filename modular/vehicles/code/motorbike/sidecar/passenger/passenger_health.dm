@@ -66,7 +66,7 @@
 			unbuckle()
 			affected_mob.apply_effect(1, WEAKEN)
 			affected_mob.throw_atom(src, 1, VEHICLE_SPEED_FASTER, M, TRUE)
-			M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] сшибает [declent_ru(ACCUSATIVE)]!"), SPAN_DANGER("Мы сшибаем [declent_ru(ACCUSATIVE)]!"))
+			M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] сшибает [affected_mob.declent_ru(ACCUSATIVE)]!"), SPAN_DANGER("Мы сшибаем [affected_mob.declent_ru(ACCUSATIVE)]!"))
 		return affected_mob.attack_alien(M)	// При попадании в пассажира коляска больше не получает эту же атаку.
 	M.animation_attack_on(src)
 	playsound(src, hit_bed_sound, 25, 1)

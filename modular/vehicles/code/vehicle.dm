@@ -37,9 +37,10 @@
 			to_chat(M, SPAN_HIGHDANGER("Вы въехали на ловушку!"))
 		if(istype(O, /obj/vehicle/motorbike))
 			var/obj/vehicle/motorbike/OM = O
-			if(istype(OM.sidecar, /obj/structure/bed/chair/sidecar/passenger) && OM.sidecar.buckled_mob) // заменить на passenger
-				var/mob/living/M = OM.sidecar.buckled_mob //нужно ли делать проверку на тип дочурки?
-				OM.unbuckle() // Просто сбрасываем позади
+			var/obj/structure/bed/chair/sidecar/passenger/passenger_sidecar = OM.get_valid_sidecar()
+			if(passenger_sidecar && passenger_sidecar.buckled_mob)
+				var/mob/living/M = passenger_sidecar.buckled_mob
+				passenger_sidecar.unbuckle() // Просто сбрасываем позади
 				M.apply_effect(2, WEAKEN)
 				to_chat(M, SPAN_HIGHDANGER("Вы упали с тележки после того, как байк въехал на ловушку!"))
 	. = ..()

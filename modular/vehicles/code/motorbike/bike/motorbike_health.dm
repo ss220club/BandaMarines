@@ -54,7 +54,7 @@
 			unbuckle()
 			affected_mob.apply_effect(1, WEAKEN)
 			affected_mob.throw_atom(src, 1, VEHICLE_SPEED_FASTER, xeno, TRUE)
-			xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] сшибает [declent_ru(ACCUSATIVE)]!"), SPAN_DANGER("Мы сшибаем [declent_ru(ACCUSATIVE)]!"))
+			xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] сшибает [affected_mob.declent_ru(ACCUSATIVE)]!"), SPAN_DANGER("Мы сшибаем [affected_mob.declent_ru(ACCUSATIVE)]!"))
 		var/result = affected_mob.attack_alien(xeno)
 		if(result == XENO_ATTACK_ACTION)
 			xeno.tail_stab_animation(affected_mob, blunt_stab)
@@ -93,7 +93,7 @@
 				unbuckle()
 				affected_mob.apply_effect(1, WEAKEN)
 				affected_mob.throw_atom(src, 1, VEHICLE_SPEED_FASTER, M, TRUE)
-				M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] сшибает [declent_ru(ACCUSATIVE)]!"), SPAN_DANGER("Мы сшибаем [declent_ru(ACCUSATIVE)]!"))
+				M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] сшибает [affected_mob.declent_ru(ACCUSATIVE)]!"), SPAN_DANGER("Мы сшибаем [affected_mob.declent_ru(ACCUSATIVE)]!"))
 			return affected_mob.attack_alien(M)	// Атака водителя не проваливается в обработку байка.
 		return target.attack_alien(M)	// Коляска самостоятельно обрабатывает пассажира и собственный урон.
 	return ..(M)
