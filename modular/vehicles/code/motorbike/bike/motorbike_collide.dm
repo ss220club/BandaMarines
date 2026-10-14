@@ -45,6 +45,57 @@
 	return TRUE
 
 
+/obj/vehicle/motorbike/proc/handle_xeno_pounce(mob/living/carbon/xenomorph/X)
+	if(!X || QDELETED(X) || !HAS_TRAIT(X, TRAIT_LAUNCHED))
+		return FALSE
+
+	var/turf/impact_turf = get_turf(src)
+	if(!impact_turf)
+		return FALSE
+
+	// Обрабатываем удар так же, как столкновение с плотным тайлом.
+	X.turf_launch_collision(impact_turf)
+
+	// Байк не должен пропускать ксеноморфа на свой тайл при прыжке.
+	var/impact_dir = X.last_move_dir || X.dir
+	if(impact_dir)
+		// Импульс передаётся байку в направлении движения ксеноморфа.
+		var/moved = step(src, impact_dir)
+		if(QDELETED(src))
+			return TRUE
+		if(moved)
+			sync_sidecar_after_move()
+
+	if(QDELETED(src))
+		return TRUE
+
+	var/turf/before_bike = get_step(impact_turf, turn(impact_dir, 180))
+	if(before_bike && !before_bike.density)
+		X.forceMove(before_bike)
+
+	visible_message(
+		SPAN_DANGER("[X] врезается в [src]!"),
+		SPAN_XENOWARNING("Мы врезаемся в [src] и останавливаемся!")
+	)
+	return TRUE
+
+
+/obj/vehicle/motorbike/hitby(atom/movable/AM)
+	. = ..()
+	if(isxeno(AM))
+		var/mob/living/carbon/xenomorph/X = AM
+		handle_xeno_pounce(X)
+
+
+// Некоторые виды pounce целятся в turf, а не в сам объект. В этом случае
+// стандартный pounced_turf не замечает находящийся на тайле мотоцикл.
+/mob/living/carbon/xenomorph/pounced_turf(turf/T)
+	for(var/obj/vehicle/motorbike/B in T)
+		if(B.handle_xeno_pounce(src))
+			return
+	return ..()
+
+
 // ==========================================
 // ========= Коллизия с объектами ===========
 
@@ -56,6 +107,8 @@
 
 	// Урон мотоциклу
 	take_damage(damage)
+	if(QDELETED(src))
+		return
 
 	// Эффекты для водителя
 	if(buckled_mob)
@@ -83,6 +136,8 @@
 
 	// Урон мотоциклу
 	take_damage(damage)
+	if(QDELETED(src))
+		return
 
 	// Урон объекту
 	if(O.health)
@@ -140,6 +195,8 @@
 			apply_collision_effects(C, mod, try_broke_bones)
 		if(isxeno(M))
 			attack_alien(M)
+			if(QDELETED(src))
+				return
 	else if(isliving(M))
 		var/mob/living/L = M
 		L.adjustBruteLoss(20 * current_speed_level)

@@ -26,6 +26,8 @@
 // =============== Позиционка ===============
 
 /obj/structure/bed/chair/sidecar/proc/update_position(atom/target = null, force_update = FALSE)
+	if(QDELETED(src) || !target || QDELETED(target))
+		return
 	if(dir == target.dir && !force_update)
 		return
 	pixel_x = initial(pixel_x)
@@ -54,18 +56,18 @@
 			layer = layer_west - 0.01 //отвечает за отображение по слоям
 
 /obj/structure/bed/chair/sidecar/proc/centralize_to_turf()
-	if(!pixel_x_sides)
+	if(QDELETED(src) || !pixel_x_sides)
 		return
-	if(!connected)	// централизация только при коннекте
+	if(!connected || QDELETED(connected))	// централизация только при коннекте
 		return
 	reload_connected()
 	switch(dir)	// движок не хочет константно их сохранять в словарь по DIR'ам
 		if(NORTH, SOUTH)
 			var/ndir = dir == NORTH ? -1 : 1	// На севере нам нужно проделать всё "в другую сторону"
 			pixel_x += pixel_x_sides * ndir // Централизуем коляску
-			if(connected)
+			if(connected && !QDELETED(connected))
 				connected.pixel_x += pixel_x_sides * ndir	// Приконекченное мото
-				if(connected.buckled_mob)	// Приконекченного сидящего в мото
+				if(connected.buckled_mob && !QDELETED(connected.buckled_mob))	// Приконекченного сидящего в мото
 					connected.buckled_mob.pixel_x += pixel_x_sides * ndir
 		//if(EAST, WEST)
 			//тут пусто *звуки ветра*
@@ -74,9 +76,9 @@
 // ============== Нормализация ==============
 
 /obj/structure/bed/chair/sidecar/proc/reload_connected()
-	if(!connected)
+	if(!connected || QDELETED(connected))
 		return
-	if(connected.buckled_mob)
+	if(connected.buckled_mob && !QDELETED(connected.buckled_mob))
 		connected.buckled_mob.pixel_x = initial(connected.buckled_mob.pixel_x)
 	connected.pixel_x = initial(connected.pixel_x)
 
