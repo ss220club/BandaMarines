@@ -120,12 +120,14 @@
 
 /obj/vehicle/motorbike/proc/handle_acceleration()
 	var/current_time = world.time
+	var/turf/current_tile = get_turf(src)
 
-	var/obj/effect/alien/weeds/weed = locate(/obj/effect/alien/weeds) in loc
-	if(weed)
-		weeds_encounter_max_speed_decrease(weed)
-	else
-		noweeds_encounter_max_speed_increase()
+	if(istype(current_tile))
+		var/obj/effect/alien/weeds/weed = current_tile.weeds
+		if(istype(weed))
+			weeds_encounter_max_speed_decrease(weed)
+		else
+			noweeds_encounter_max_speed_increase()
 
 	current_max_speed_level = min(BIKE_SPEED_MIN + round(weed_slow_capacity / MAX_TIME_IN_WEEDS_PER_LEVEL), BIKE_SPEED_MAX)
 	// Сброс скорости при отпускании педали газа
@@ -162,9 +164,8 @@
 		passive_weed_clear_timer_id = addtimer(CALLBACK(src, PROC_REF(noweeds_encounter_max_speed_increase)), TIME_CLEAR_WEED, TIMER_STOPPABLE)
 
 /obj/vehicle/motorbike/proc/noweeds_encounter_max_speed_increase()
-	if(!(weed_slow_capacity < MAX_TIME_IN_WEEDS))
-		return
-	if(!(locate(/obj/effect/alien/weeds) in loc))
+	var/turf/current_tile = get_turf(src)
+	if(istype(current_tile) && !istype(current_tile.weeds))
 		weed_slow_capacity = min(MAX_TIME_IN_WEEDS, weed_slow_capacity + WEED_CLEAR_SPEED)
 	if(passive_weed_clear_timer_id)
 		deltimer(passive_weed_clear_timer_id)
