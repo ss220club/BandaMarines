@@ -23,12 +23,11 @@
 
 	// Система ускорения
 	var/current_speed_level = BIKE_SPEED_MIN
+	var/current_max_speed_level = BIKE_SPEED_MAX
 	var/straight_move_timer = 0
 	var/last_move_time = 0
-	var/move_delay_initial = 3
-	var/move_delay_intermediate = 2
-	var/move_delay_maximum = 1
-	var/lightweight_speed_mod = 0.7 // Модификатор скорости если не прицеплена коляска
+	var/weed_slow_capacity = MAX_TIME_IN_WEEDS
+
 
 	// Скорость
 	/// Через сколько секунд простоя сбрасываем скорость
@@ -105,14 +104,14 @@
 
 /obj/vehicle/motorbike/proc/update_speed()
 	switch(current_speed_level)
-		if(1)
-			move_delay = move_delay_initial
-		if(2)
-			move_delay = move_delay_intermediate
-		if(3)
-			move_delay = move_delay_maximum
+		if(BIKE_SPEED_MIN)
+			move_delay = MOVE_DELAY_MAX
+		if(BIKE_SPEED_MEDIUM)
+			move_delay = MOVE_DELAY_MEDIUM
+		if(BIKE_SPEED_MAX)
+			move_delay = MOVE_DELAY_MIN
 	if(!sidecar)
-		move_delay *= lightweight_speed_mod
+		move_delay *= LIGHTWEIGHT_SPEED_MOD
 
 /obj/vehicle/motorbike/proc/reset_speed()
 	straight_move_timer = 0
@@ -122,10 +121,20 @@
 /obj/vehicle/motorbike/proc/handle_acceleration()
 	var/current_time = world.time
 
+	var/obj/effect/alien/weeds/weed = locate(/obj/effect/alien/weeds) in loc
+	if(weed)
+		weeds_encounter_max_speed_decrease(weed)
+	else
+		noweeds_encounter_max_speed_increase()
+
+	current_max_speed_level = min(BIKE_SPEED_MIN + round(weed_slow_capacity / MAX_TIME_IN_WEEDS_PER_LEVEL), BIKE_SPEED_MAX)
 	// Сброс скорости при отпускании педали газа
 	if(current_speed_level != BIKE_SPEED_MIN && current_time - last_move_time > (move_delay + 1))
 		reset_speed()
 		return
+	if(current_speed_level > current_max_speed_level)
+		current_speed_level = current_max_speed_level
+		update_speed()
 
 	// Движение по прямой
 	if(forward_dir_saved == forward_dir)
@@ -134,7 +143,7 @@
 		else
 			straight_move_timer += current_time - last_move_time
 
-		if(current_speed_level < BIKE_SPEED_MAX && straight_move_timer >= change_speed_time)
+		if(current_speed_level < current_max_speed_level && straight_move_timer >= change_speed_time)
 			current_speed_level++
 			straight_move_timer = 0
 			update_speed()
@@ -143,10 +152,26 @@
 			current_speed_level = BIKE_SPEED_MEDIUM
 			update_speed()
 		straight_move_timer = 0
-
 	last_move_time = current_time
 
 	forward_dir_saved = forward_dir
+
+/obj/vehicle/motorbike/proc/weeds_encounter_max_speed_decrease(obj/effect/alien/weeds/weed)
+	weed_slow_capacity = max(0, weed_slow_capacity - weed.weed_strength)
+	if(!passive_weed_clear_timer_id)
+		passive_weed_clear_timer_id = addtimer(CALLBACK(src, PROC_REF(noweeds_encounter_max_speed_increase)), TIME_CLEAR_WEED, TIMER_STOPPABLE)
+
+/obj/vehicle/motorbike/proc/noweeds_encounter_max_speed_increase()
+	if(!(weed_slow_capacity < MAX_TIME_IN_WEEDS))
+		return
+	if(!(locate(/obj/effect/alien/weeds) in loc))
+		weed_slow_capacity = min(MAX_TIME_IN_WEEDS, weed_slow_capacity + WEED_CLEAR_SPEED)
+	if(passive_weed_clear_timer_id)
+		deltimer(passive_weed_clear_timer_id)
+		if(weed_slow_capacity < MAX_TIME_IN_WEEDS)
+			passive_weed_clear_timer_id = addtimer(CALLBACK(src, PROC_REF(noweeds_encounter_max_speed_increase)), TIME_CLEAR_WEED, TIMER_STOPPABLE)
+		else
+			passive_weed_clear_timer_id = TIMER_ID_NULL
 
 // ==========================================
 // ========== Движение с коляской ===========
