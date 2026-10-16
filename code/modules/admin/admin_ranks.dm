@@ -92,6 +92,8 @@ GLOBAL_LIST_EMPTY(admin_ranks) //list of all ranks with associated rights
 	return rights
 
 /proc/load_admins()
+	set waitfor = FALSE
+
 	//Clear profile access
 	for(var/admin in world.GetConfig("admin"))
 		log_debug("Clearing [admin] from APP/admin.")
@@ -99,7 +101,7 @@ GLOBAL_LIST_EMPTY(admin_ranks) //list of all ranks with associated rights
 
 	// SS220 EDIT START
 	// API-backed admin loading is intentionally disabled; admins/ranks are loaded from config files only.
-	// if(CONFIG_GET(string/cmdb_url) && CONFIG_GET(string/cmdb_api_key) && fetch_api_admins())
+	// if(fetch_api_admins())
 	// 	return
 	// SS220 EDIT END
 
@@ -263,8 +265,6 @@ GLOBAL_LIST_EMPTY(admin_ranks) //list of all ranks with associated rights
  * ```
  */
 /proc/fetch_api_admins()
-	set waitfor = FALSE
-
 	var/api_url = CONFIG_GET(string/cmdb_url)
 	var/api_key = CONFIG_GET(string/cmdb_api_key)
 
