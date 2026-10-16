@@ -95,6 +95,9 @@
 	aim_slowdown = SLOWDOWN_ADS_QUICK
 	map_specific_decoration = FALSE
 
+/obj/item/weapon/gun/rifle/m4ra/pve/set_gun_attachment_offsets()
+	attachable_offset = list("muzzle_x" = 38, "muzzle_y" = 16,"rail_x" = 22, "rail_y" = 21, "under_x" = 30, "under_y" = 13, "stock_x" = 24, "stock_y" = 13, "special_x" = 37, "special_y" = 16)
+
 /obj/item/weapon/gun/rifle/m4ra/pve/set_gun_config_values()
 	..()
 	set_fire_delay(FIRE_DELAY_TIER_4)
@@ -318,7 +321,7 @@
 	recoil = RECOIL_AMOUNT_TIER_5
 
 /obj/item/weapon/gun/rifle/isr/modded
-	starting_attachment_types = list(/obj/item/attachable/stock/isr, /obj/item/attachable/flashlight, /obj/item/attachable/reddot)
+	starting_attachment_types = list(/obj/item/attachable/stock/isr, /obj/item/attachable/reddot)
 
 /obj/item/weapon/gun/rifle/fn107
 	name = "\improper CAMAS61/78 pulse carbine"
