@@ -81,7 +81,7 @@
 	)
 	random_spawn_under = list(
 		/obj/item/attachable/lasersight,
-		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under_barrel,
 	)
 
 /obj/item/weapon/gun/smg/fp9000/tactical/set_gun_config_values()
