@@ -187,12 +187,6 @@
 	minimap_color = MINIMAP_AREA_RESEARCH
 	icon_state = "purple"
 
-// --
-
-/area/enterprise_AG13/indoors/hanger_zone
-	name = "Bunker AG13 - Hanger Zone"
-	minimap_color = MINIMAP_AREA_ENGI_CAVE
-	icon_state = "dk_yellow"
 
 // --
 

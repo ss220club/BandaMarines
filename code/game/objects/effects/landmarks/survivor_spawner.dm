@@ -1037,7 +1037,7 @@
 
 /obj/effect/landmark/survivor_spawner/W_Y_Commando
 
-/obj/effect/landmark/survivor_spawner/W_Y_Commando/standart
+/obj/effect/landmark/survivor_spawner/W_Y_Commando/standard
 	icon_state = "surv_wy"
 	equipment = /datum/equipment_preset/survivor/pmc/commando
 	synth_equipment = /datum/equipment_preset/synth/survivor/pmc
