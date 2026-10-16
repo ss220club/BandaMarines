@@ -45,6 +45,7 @@
 #define MAP_CHINOOK "Chinook 91 GSO" //admin level
 #define MAP_ROSTOCK "SSV Rostock" //UPP Warship
 #define MAP_HUNTERSHIP "Hunter Ship"
+#define MAP_ENTERPRISE_AG_13 "Enterprise_AG13"
 
 #define GAMEMODE_DISTRESS_SIGNAL "Distress Signal"
 #define GAMEMODE_WHISKEY_OUTPOST "Whiskey Outpost"
