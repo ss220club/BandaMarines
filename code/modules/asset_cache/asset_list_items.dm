@@ -482,7 +482,9 @@
 
 /datum/asset/spritesheet/gun_lineart/register()
 	var/icon_file = 'icons/obj/items/weapons/guns/lineart.dmi'
+	var/icon_file_modular = 'modular/weapons/icons/lineart.dmi' //SS220 EDIT
 	InsertAll("", icon_file)
+	InsertAll("", icon_file_modular) //SS220 EDIT
 
 	for(var/obj/item/weapon/gun/current_gun as anything in subtypesof(/obj/item/weapon/gun))
 		if(isnull(initial(current_gun.icon_state)))

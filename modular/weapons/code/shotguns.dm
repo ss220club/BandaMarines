@@ -11,6 +11,7 @@
 	)
 	icon_state = "xm50"
 	item_state = "xm50"
+	map_specific_decoration = FALSE
 	current_mag = /obj/item/ammo_magazine/rifle/xm51/lethal
 	attachable_allowed = list(
 		/obj/item/attachable/bayonet,
@@ -58,6 +59,30 @@
 	current_mag = /obj/item/ammo_magazine/internal/shotgun/p79s
 	attachable_allowed = list(
 		/obj/item/attachable/stock/p79s,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonet/upp,
+		/obj/item/attachable/bayonet/co2,
+		/obj/item/attachable/bayonet/antique,
+		/obj/item/attachable/bayonet/wy,
+		/obj/item/attachable/bayonet/custom,
+		/obj/item/attachable/bayonet/custom/red,
+		/obj/item/attachable/bayonet/custom/blue,
+		/obj/item/attachable/bayonet/custom/black,
+		/obj/item/attachable/bayonet/tanto,
+		/obj/item/attachable/bayonet/tanto/blue,
+		/obj/item/attachable/bayonet/rmc_replica,
+		/obj/item/attachable/bayonet/rmc,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/reflex,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under_barrel,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/angledgrip,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/attached_gun/extinguisher,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/attached_gun/shotgun,
 	)
 
 /obj/item/weapon/gun/shotgun/p79s/Initialize(mapload, spawn_empty)
@@ -95,6 +120,7 @@
 	caliber = "12g"
 	max_rounds = 8
 	current_rounds = 8
+	default_ammo = /datum/ammo/bullet/shotgun/buckshot
 
 /obj/item/ammo_magazine/internal/shotgun/p79s/slug
 	default_ammo = /datum/ammo/bullet/shotgun/slug

@@ -20,11 +20,28 @@
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/lasersight, // Side Rail
 		/obj/item/attachable/flashlight,
-		)
+		/obj/item/attachable/suppressor,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonet/upp,
+		/obj/item/attachable/bayonet/co2,
+		/obj/item/attachable/bayonet/antique,
+		/obj/item/attachable/bayonet/wy,
+		/obj/item/attachable/bayonet/custom,
+		/obj/item/attachable/bayonet/custom/red,
+		/obj/item/attachable/bayonet/custom/blue,
+		/obj/item/attachable/bayonet/custom/black,
+		/obj/item/attachable/bayonet/tanto,
+		/obj/item/attachable/bayonet/tanto/blue,
+		/obj/item/attachable/bayonet/rmc_replica,
+		/obj/item/attachable/bayonet/rmc,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/extended_barrel,
+		/obj/item/attachable/extended_barrel/vented,
+		/obj/item/attachable/compensator,
+	)
 
 	flags_gun_features = GUN_AUTO_EJECTOR|GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER
 	aim_slowdown = SLOWDOWN_ADS_NONE
-	start_automatic = FALSE
 
 /obj/item/weapon/gun/smg/mp47a2/set_gun_attachment_offsets()
 	attachable_offset = list("muzzle_x" = 31, "muzzle_y" = 20,"rail_x" = 14, "rail_y" = 21, "under_x" = 23, "under_y" = 16, "stock_x" = 28, "stock_y" = 17, "side_rail_x" = 23, "side_rail_y" = 20)

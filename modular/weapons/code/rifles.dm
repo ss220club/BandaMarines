@@ -21,22 +21,31 @@
 /obj/item/weapon/gun/rifle/m20a/merc
 	name = "\improper M20CW pulse carbine"
 	desc = "A heavily modified black market version of the M20A pulse rifle, often used for CQC scenarios where SMGs just aren't cutting it. Comes with an integrated grip instead of an underbarrel shotgun and downsized barrel, alongside the removed stock. It can also now shoot in automatic!"
-	icon = 'modular/weapons/icons/rifles.dmi'
-	icon_state = "m20a"
-	item_state = "m20a"
-	base_gun_icon = "m20a"
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonet/upp,
 		/obj/item/attachable/bayonet/co2,
+		/obj/item/attachable/bayonet/antique,
 		/obj/item/attachable/bayonet/wy,
+		/obj/item/attachable/bayonet/custom,
+		/obj/item/attachable/bayonet/custom/red,
+		/obj/item/attachable/bayonet/custom/blue,
+		/obj/item/attachable/bayonet/custom/black,
+		/obj/item/attachable/bayonet/tanto,
+		/obj/item/attachable/bayonet/tanto/blue,
+		/obj/item/attachable/bayonet/rmc_replica,
+		/obj/item/attachable/bayonet/rmc,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/reflex,
-		/obj/item/attachable/flashlight,
-		/obj/item/attachable/lasersight,
-		/obj/item/attachable/sling,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/extended_barrel,
+		/obj/item/attachable/extended_barrel/vented,
+		/obj/item/attachable/compensator,
+		/obj/item/attachable/stock/m20a,
+		/obj/item/attachable/attached_gun/shotgun,
 	)
+
 	starting_attachment_types = list(/obj/item/attachable/sling)
 	start_automatic = TRUE
 
@@ -166,12 +175,11 @@
 	desc = "A marksman variant of the M81M series of pulse rifles, the M81M1B sacrifices some rate of fire and it's automatic firemode for a higher accuracy and longer effective range. Favored by private military contractors and security details operating in high-threat environments. Produced by Orion Defence Systems."
 	item_state = "fal"
 	icon_state = "fal_sniper"
-	base_gun_icon = "fal"
 	attachable_allowed = list(
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/flashlight,
 	)
-	starting_attachment_types = list(/obj/item/attachable/stock/r81_sniper, /obj/item/attachable/scope/variable_zoom/fal)
+	starting_attachment_types = list(/obj/item/attachable/scope/variable_zoom/fal)
 	start_automatic = FALSE
 
 /obj/item/weapon/gun/rifle/r81m1a/m1b/set_gun_attachment_offsets()
@@ -234,7 +242,6 @@
 	desc = "A SAW variant of the M81M series of pulse rifles, the M81M1D sacrifices some accuracy for a higher rate of fire and larger magazine capacity, though at the cost of increased recoil. Favored by private military contractors and security details operating in high-threat environments. Produced by Orion Defence Systems."
 	item_state = "fal_saw"
 	icon_state = "fal_saw"
-	base_gun_icon = "fal"
 	attachable_allowed = list(
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/flashlight,
@@ -245,8 +252,7 @@
 	wield_delay = WEAPON_DELAY_NORMAL
 	aim_slowdown = SLOWDOWN_ADS_QUICK
 	start_automatic = TRUE
-
-	starting_attachment_types = list(/obj/item/attachable/bipod/r81, /obj/item/attachable/stock/r81_saw, /obj/item/attachable/scope/mini/r81)
+	starting_attachment_types = list(/obj/item/attachable/bipod/r81)
 
 /obj/item/weapon/gun/rifle/r81m1a/m1d/set_gun_attachment_offsets()
 	attachable_offset = list("muzzle_x" = 43, "muzzle_y" = 17,"rail_x" = 7, "rail_y" = 16, "under_x" = 32, "under_y" = 13, "stock_x" = 22, "stock_y" = 15, "side_rail_x" = 28, "side_rail_y" = 18, "special_x" = 34, "special_y" = 16)
@@ -276,9 +282,10 @@
 	)
 	icon_state = "isr"
 	item_state = "isr"
+	mouse_pointer = 'icons/effects/mouse_pointer/lmg_mouse.dmi'
+	fire_sound = 'sound/weapons/gun_m41ae2_old.ogg'
 	reload_sound = 'sound/weapons/handling/l42_reload.ogg'
 	unload_sound = 'sound/weapons/handling/l42_unload.ogg'
-	fire_sound = "gun_oldpulse"
 	current_mag = /obj/item/ammo_magazine/rifle/isr
 	starting_attachment_types = list(/obj/item/attachable/stock/isr)
 	attachable_allowed = list(
@@ -327,7 +334,7 @@
 	item_state = "fn107"
 	reload_sound = 'sound/weapons/handling/l42_reload.ogg'
 	unload_sound = 'sound/weapons/handling/l42_unload.ogg'
-	fire_sound = "gun_oldpulse"
+	fire_sound = 'sound/weapons/gun_su6.ogg'
 	current_mag = /obj/item/ammo_magazine/rifle/fn107
 	attachable_allowed = list(
 		/obj/item/attachable/flashlight,
@@ -384,7 +391,7 @@
 	item_state = "masm"
 	reload_sound = 'sound/weapons/handling/hpr_reload.ogg'
 	unload_sound = 'sound/weapons/handling/hpr_unload.ogg'
-	fire_sound = "gun_pulse"
+	fire_sound = 'sound/weapons/gun_mg.ogg'
 	current_mag = /obj/item/ammo_magazine/rifle/masm
 	attachable_allowed = list(
 		/obj/item/attachable/bipod/masm,
@@ -435,7 +442,7 @@
 	item_state = "fpsa"
 	reload_sound = 'sound/weapons/handling/l42_reload.ogg'
 	unload_sound = 'sound/weapons/handling/l42_unload.ogg'
-	fire_sound = "gun_oldpulse"
+	fire_sound = 'sound/weapons/gun_su6.ogg'
 	current_mag = /obj/item/ammo_magazine/rifle/fpsa
 	attachable_allowed = list(
 		/obj/item/attachable/flashlight,
@@ -492,7 +499,7 @@
 	unacidable = TRUE
 	aiming_time = 0.6 SECONDS
 	aimed_shot_cooldown_delay = 1.2 SECONDS
-	fire_sound = "gun_rmcdmr"
+	fire_sound = "gun_l64"
 	reload_sound = 'modular/weapons/sounds/gun_rmcdmr_reload.ogg'
 	unload_sound = 'modular/weapons/sounds/gun_rmcdmr_unload.ogg'
 	current_mag = /obj/item/ammo_magazine/sniper/rmc
@@ -500,7 +507,6 @@
 	aim_slowdown = SLOWDOWN_ADS_RIFLE
 	zoomdevicename = "scope"
 	attachable_allowed = list(/obj/item/attachable/bipod)
-	starting_attachment_types = list(/obj/item/attachable/stock/rmcdmr)
 	flags_gun_features = GUN_AUTO_EJECTOR|GUN_SPECIALIST|GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNTER
 	map_specific_decoration = FALSE
 	flags_item = TWOHANDED

@@ -130,9 +130,6 @@
 /obj/item/weapon/gun/pistol/mod88/vp70/unloaded
 	current_mag = null
 
-/obj/item/weapon/gun/pistol/mod88/vp70/training
-	current_mag = /obj/item/ammo_magazine/pistol/mod88/rubber
-
 //RMR6
 /obj/item/weapon/gun/revolver/rmr6
 	name = "\improper RMR-6 revolver"
@@ -174,5 +171,5 @@
 	recoil = 0
 	recoil_unwielded = 0
 
-/obj/item/weapon/gun/revolver/custom
+/obj/item/weapon/gun/revolver/m44/custom
 	flags_gun_features = GUN_INTERNAL_MAG|GUN_CAN_POINTBLANK|GUN_ONE_HAND_WIELDED|GUN_AMMO_COUNTER|GUN_TRICKSTER

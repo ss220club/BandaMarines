@@ -12,21 +12,12 @@
 	recoil_unwielded_mod = -RECOIL_AMOUNT_TIER_2
 	scatter_unwielded_mod = -SCATTER_AMOUNT_TIER_2
 
-/obj/item/attachable/flashlight/m20a
-	name = "integrated flashlight"
-	desc = "shouldnt be seeing this. . ."
-	icon = 'modular/weapons/icons/under.dmi'
-	icon_state = "m20a_flashlight"
-	slot = "special"
-	attach_icon = "m20a_flashlight_a"
-	original_state = "m20a_flashlight"
-	original_attach = "m20a_flashlight_a"
-
 /obj/item/attachable/m49a_barrel/pve
 	icon = 'modular/weapons/icons/barrel.dmi'
 	name = "M49A6 muzzle break"
 	icon_state = "pve_m49a_barrel"
 	attach_icon = "pve_m49a_barrel"
+	slot = "muzzle"
 
 /obj/item/attachable/scope/variable_zoom/fal
 	name = "ODS R94 telescopic variable scope"
@@ -57,38 +48,11 @@
 
 /obj/item/attachable/bipod/r81/New()
 	..()
-
 	delay_mod = 0
 	wield_delay_mod = WEAPON_DELAY_FAST
 	accuracy_mod = -HIT_ACCURACY_MULT_TIER_5
 	scatter_mod = SCATTER_AMOUNT_TIER_9
 	recoil_mod = -RECOIL_AMOUNT_TIER_2
-
-/obj/item/attachable/stock/r81_saw
-	name = "\improper R81M1D stock"
-	desc = "You kinda need this to even use the gun properly."
-	icon = 'modular/weapons/icons/stock.dmi'
-	icon_state = "fal_saw_stock"
-	attach_icon = "fal_saw_stock"
-	wield_delay_mod = WEAPON_DELAY_MIN
-	flags_attach_features = NO_FLAGS
-	hud_offset_mod = 3
-
-/obj/item/attachable/stock/r81_saw/New()//no stats, its cosmetic
-	..()
-
-/obj/item/attachable/stock/r81_sniper
-	name = "\improper R81M1B stock"
-	desc = "You kinda need this to even use the gun properly."
-	icon = 'modular/weapons/icons/stock.dmi'
-	icon_state = "fal_sniper_stock"
-	attach_icon = "fal_sniper_stock"
-	wield_delay_mod = WEAPON_DELAY_MIN
-	flags_attach_features = NO_FLAGS
-	hud_offset_mod = 3
-
-/obj/item/attachable/stock/r81_sniper/New()
-	..()
 
 /obj/item/attachable/stock/isr
 	name = "ISR stock"
@@ -176,28 +140,6 @@
 	zoom_offset = 8
 	zoom_viewsize = 9
 
-/obj/item/attachable/stock/rmcdmr
-	name = "L64A3 stock"
-	desc = "The non-detachable stock of a L64A3 DMR."
-	icon = 'modular/weapons/icons/stock.dmi'
-	icon_state = "rmcdmr_stock"
-	pixel_shift_x = 40
-	pixel_shift_y = 10
-	flags_attach_features = NO_FLAGS
-	hud_offset_mod = 6
-
-/obj/item/attachable/stock/rmcdmr/New()
-	..()
-	accuracy_mod = 0
-	recoil_mod = 0
-	scatter_mod = 0
-	movement_onehanded_acc_penalty_mod = 0
-	accuracy_unwielded_mod = 0
-	recoil_unwielded_mod = 0
-	scatter_unwielded_mod = 0
-	aim_speed_mod = 0
-	wield_delay_mod = WEAPON_DELAY_NONE
-
 //P79s
 /obj/item/attachable/stock/p79s
 	name = "\improper P79S stock"
@@ -228,7 +170,6 @@
 
 /obj/item/attachable/stock/xm50/Initialize(mapload, ...)
 	. = ..()
-	select_gamemode_skin(type)
 	//it makes stuff much better when two-handed
 	accuracy_mod = HIT_ACCURACY_MULT_TIER_3
 	recoil_mod = -RECOIL_AMOUNT_TIER_4
@@ -245,24 +186,8 @@
 
 /obj/item/attachable/stock/xm50/military
 	icon = 'modular/weapons/icons/stock.dmi'
-	icon_state = "xm50_military_stock"
-	attach_icon = "xm50_military_stock_a"
-
-//M38
-/obj/item/attachable/stock/m60/m38
-	name = "M38 stock"
-	icon = 'modular/weapons/icons/stock.dmi'
-	icon_state = "m38_stock"
-	attach_icon = "m38_stock"
-
-/obj/item/attachable/flashlight/tactical
-	name = "tactical flashlight"
-	icon = 'modular/weapons/icons/rail.dmi'
-	desc = "Robust and handy tactical flashlight, produced by WiseFire Inc."
-	icon_state = "flashlight_tactical"
-	attach_icon = "flashlight_tactical_a"
-	original_state = "flashlight_tactical"
-	original_attach = "flashlight_tactical_a"
+	icon_state = "xm51_military_stock"
+	attach_icon = "xm51_military_stock_a"
 
 /obj/item/attachable/scope/mini/rmcgl
 	name = "L164A3 collimator sight assembly"
@@ -280,3 +205,6 @@
 	allows_movement = TRUE
 	attach_icon = null
 	hidden = TRUE
+
+/obj/item/attachable/stock/mod88
+	flags_attach_features = ATTACH_REMOVABLE

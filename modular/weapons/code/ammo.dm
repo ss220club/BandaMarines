@@ -64,7 +64,6 @@
 	damage = 55
 	penetration = ARMOR_PENETRATION_TIER_4
 
-
 /obj/item/explosive/grenade/high_explosive/impact/rmc20mm
 	name = "\improper L103A1 20mm HE grenade"
 	icon = 'modular/weapons/icons/grenade.dmi'
@@ -252,6 +251,7 @@
 	caliber = "9x32mm"
 	icon = 'modular/weapons/icons/ammo.dmi'
 	icon_state = "fal"
+	bonus_overlay_icon = 'modular/weapons/icons/ammo.dmi'
 	bonus_overlay = "fal_overlay"
 	default_ammo = /datum/ammo/bullet/rifle/r81m1
 	max_rounds = 20
@@ -388,7 +388,6 @@
 	ammo_band_icon_empty = "+fpsa_band_e"
 	ammo_band_color = AMMO_BAND_COLOR_AP
 
-
 /datum/ammo/bullet/rifle/fn107
 	name = "7.5x28 bullet"
 	damage = 35
@@ -415,47 +414,6 @@
 	name = "armor piercing 7.5x50mm bullet"
 	damage = 40
 	penetration = ARMOR_PENETRATION_TIER_5
-
-//M38
-/obj/item/ammo_magazine/m38
-	name = "M38 belt box (12x30mm caseless)"
-	desc = "Heavy high-capacity belt box for M38 GPMG."
-	caliber = "12x30"
-	w_class = SIZE_MEDIUM
-	icon = 'modular/weapons/icons/ammo.dmi'
-	icon_state = "m60"
-
-	matter = list("metal" = 10000)
-	default_ammo = /datum/ammo/bullet/m38
-	max_rounds = 150
-	reload_delay = 4
-	gun_type = /obj/item/weapon/gun/m60/m38
-	ammo_band_icon = "+m60_band"
-	ammo_band_icon_empty = "+m60_band_e"
-
-/obj/item/ammo_magazine/m38/heap
-	name = "M38 HEAP belt box (12x30mm caseless)"
-	desc = "Heavy high-capacity belt box for M38 GPMG filled with high-explosive armor piercing rounds."
-	default_ammo = /datum/ammo/bullet/m38/heap
-	ammo_band_color = AMMO_BAND_COLOR_HEAP
-
-
-/datum/ammo/bullet/m38
-	name = "12x30 bullet"
-	damage = 65
-	headshot_state = HEADSHOT_OVERLAY_MEDIUM
-	icon_state = "bullet_red"
-	penetration = ARMOR_PENETRATION_TIER_6
-	accuracy = HIT_ACCURACY_TIER_1
-	shell_speed = AMMO_SPEED_TIER_6
-	effective_range_max = 10
-	damage_falloff = DAMAGE_FALLOFF_TIER_7
-	accurate_range = 14
-
-/datum/ammo/bullet/m38/heap
-	name = "high-explosive armor-piercing 12x30 bullet"
-	damage = 80
-	penetration = ARMOR_PENETRATION_TIER_9
 
 //RMC DMR magazine
 /obj/item/ammo_magazine/sniper/rmc
@@ -501,7 +459,7 @@
 	default_ammo = /datum/ammo/bullet/shotgun/buckshot
 	max_rounds = 12
 	gun_type = /obj/item/weapon/gun/rifle/xm51
-	transfer_handful_amount = 6
+	transfer_handful_amount = 5
 
 /obj/item/ammo_magazine/rifle/xm51/lethal/slug
 	name = "\improper XM51 magazine (12g slug)"
@@ -511,4 +469,4 @@
 	default_ammo = /datum/ammo/bullet/shotgun/slug
 	max_rounds = 12
 	gun_type = /obj/item/weapon/gun/rifle/xm51
-	transfer_handful_amount = 6
+	transfer_handful_amount = 5
