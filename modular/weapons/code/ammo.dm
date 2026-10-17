@@ -1,7 +1,6 @@
 //HP Automag
 /obj/item/ammo_magazine/pistol/highpower/automag
 	name = "\improper HG-44 'Automag' magazine (.44)"
-	icon = 'modular/weapons/icons/ammo.dmi'
 	icon_state = "highpower_b"
 	max_rounds = 13
 	default_ammo = /datum/ammo/bullet/revolver
@@ -167,11 +166,13 @@
 /obj/item/ammo_magazine/rifle/m20a/heap
 	name = "\improper M20A HEAP magazine (10x24mm)"
 	desc = "A 10mm high explosive armor piercing assault rifle magazine."
+	icon = 'modular/weapons/icons/ammo.dmi'
 	default_ammo = /datum/ammo/bullet/rifle/heap
 	ammo_band_color = AMMO_BAND_COLOR_HEAP
 
 /obj/item/ammo_magazine/rifle/m20a/ap
 	name = "\improper M20A AP magazine (10x24mm)"
+	icon = 'modular/weapons/icons/ammo.dmi'
 	desc = "A 10mm armor piercing assault rifle magazine."
 	default_ammo = /datum/ammo/bullet/rifle/ap
 	ammo_band_color = AMMO_BAND_COLOR_AP

@@ -6,8 +6,8 @@
 	item_icons = list(
 		WEAR_L_HAND = 'modular/weapons/icons/guns_lefthand.dmi',
 		WEAR_R_HAND = 'modular/weapons/icons/guns_righthand.dmi',
-		WEAR_BACK = 'modular/weapons/icons/back.dmi',
-		WEAR_J_STORE = 'modular/weapons/icons/suit_slot.dmi'
+		WEAR_WAIST = 'icons/mob/humans/onmob/clothing/belts/guns.dmi',
+		WEAR_J_STORE = 'icons/mob/humans/onmob/clothing/belts/guns.dmi'
 	)
 
 /obj/item/weapon/gun/pistol/highpower/aguila/set_gun_config_values()
@@ -55,7 +55,7 @@
 	item_icons = list(
 		WEAR_L_HAND = 'modular/weapons/icons/guns_lefthand.dmi',
 		WEAR_R_HAND = 'modular/weapons/icons/guns_righthand.dmi',
-		WEAR_BACK = 'modular/weapons/icons/back.dmi',
+		WEAR_WAIST = 'modular/weapons/icons/suit_slot.dmi',
 		WEAR_J_STORE = 'modular/weapons/icons/suit_slot.dmi'
 	)
 	icon_state = "pa76"
@@ -109,8 +109,8 @@
 	item_icons = list(
 		WEAR_L_HAND = 'modular/weapons/icons/guns_lefthand.dmi',
 		WEAR_R_HAND = 'modular/weapons/icons/guns_righthand.dmi',
-		WEAR_BACK = 'modular/weapons/icons/back.dmi',
-		WEAR_J_STORE = 'modular/weapons/icons/suit_slot.dmi'
+		WEAR_WAIST = 'icons/mob/humans/onmob/clothing/belts/guns.dmi',
+		WEAR_J_STORE = 'icons/mob/humans/onmob/clothing/belts/guns.dmi'
 	)
 	icon_state = "vp70"
 	item_state = "vp70"
@@ -138,7 +138,7 @@
 	item_icons = list(
 		WEAR_L_HAND = 'modular/weapons/icons/guns_lefthand.dmi',
 		WEAR_R_HAND = 'modular/weapons/icons/guns_righthand.dmi',
-		WEAR_BACK = 'modular/weapons/icons/back.dmi',
+		WEAR_WAIST = 'modular/weapons/icons/suit_slot.dmi',
 		WEAR_J_STORE = 'modular/weapons/icons/suit_slot.dmi'
 	)
 	icon_state = "rmr6"

@@ -7,7 +7,7 @@
 		WEAR_L_HAND = 'modular/weapons/icons/guns_lefthand.dmi',
 		WEAR_R_HAND = 'modular/weapons/icons/guns_righthand.dmi',
 		WEAR_BACK = 'modular/weapons/icons/back.dmi',
-		WEAR_J_STORE = 'modular/weapons/icons/suit_slot.dmi'
+		WEAR_J_STORE = 'modular/weapons/icons/back.dmi'
 	)
 	icon_state = "xm50"
 	item_state = "xm50"
@@ -110,9 +110,6 @@
 	. = ..()
 	if(in_chamber) . += "It has a chambered round."
 
-/obj/item/weapon/gun/shotgun/p79s/unloaded
-	current_mag = /obj/item/ammo_magazine/internal/shotgun/p79s/unloaded
-
 /obj/item/weapon/gun/shotgun/p79s/slug
 	current_mag = /obj/item/ammo_magazine/internal/shotgun/p79s/slug
 
@@ -124,6 +121,3 @@
 
 /obj/item/ammo_magazine/internal/shotgun/p79s/slug
 	default_ammo = /datum/ammo/bullet/shotgun/slug
-
-/obj/item/ammo_magazine/internal/shotgun/p79s/unloaded
-	current_rounds = 0
