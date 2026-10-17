@@ -171,7 +171,7 @@
 
 /datum/ammo/bullet/rifle/explosive/bolter
 	name = "bolter round"
-	icon = 'modular/ert/icons/projectiles2.dmi'
+	icon = 'modular/ert/icons/projectiles.dmi'
 	icon_state = "bolter"
 	damage = 40
 	accurate_range = 22
