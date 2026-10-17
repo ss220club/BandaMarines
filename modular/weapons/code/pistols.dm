@@ -1,3 +1,6 @@
+/obj/item/storage/belt/gun
+	gun_slot_icon = 'modular/weapons/icons/holstered_guns.dmi'
+
 /obj/item/weapon/gun/pistol/highpower/aguila
 	name = "\improper HG-45 'Aguila' pistol"
 	desc = "A semi-automatic Henjin-Garcia design chambered in .45 ACP that is slowly replacing the Office of the Colonial Marshals's Spearhead revolver."
