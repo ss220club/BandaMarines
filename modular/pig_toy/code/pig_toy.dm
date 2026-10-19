@@ -6,7 +6,7 @@
 	w_class = SIZE_SMALL
 	COOLDOWN_DECLARE(last_hug_time)
 	var/squeak_sound = 'modular/pig_toy/sound/khryu.ogg'
-	attack_verb = list("grunts")
+	attack_verb = list("attacked")
 
 /datum/gear/civilian/pig_toy
 	display_name = "Pig toy"
