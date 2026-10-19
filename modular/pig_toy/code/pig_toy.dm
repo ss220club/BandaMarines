@@ -1,14 +1,14 @@
 /obj/item/toy/pig_toy
 	name = "pig toy"
-	desc = "Игрушечный хряк из мягкого латекса. Внутри игрушки встроен специальный звуковой клапан."
-	icon = 'icons/obj/items/toy.dmi'
+	desc = "Игрушечный хряк из мягкого латекса. Внутри игрушки встроен специальный звуковой клапан. Штабной, неси свиней! Морпехи требуют свиней!"
+	icon = 'modular/pig_toy/icon/svin.dmi'
 	icon_state = "pig"
 	w_class = SIZE_SMALL
 	COOLDOWN_DECLARE(last_hug_time)
 	var/squeak_sound = 'modular/pig_toy/sound/khryu.ogg'
 	attack_verb = list("grunts")
 
-/datum/gear/civilian/plush/pig_toy
+/datum/gear/civilian/pig_toy
 	display_name = "Pig toy"
 	path = /obj/item/toy/pig_toy
 	fluff_cost = 2

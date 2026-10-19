@@ -599,7 +599,9 @@
 "slash" = "режете"
 "slashes" = "режет"
 "slashed" = "режет"
+"grunt" = "похрюкиваете"
 "grunts" = "похрюкивает"
+"grunted" = "похрюкивает"
 # MARK: Organs
 "kicked" = "пинаете"
 "stomped" = "растаптываете"
