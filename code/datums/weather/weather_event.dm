@@ -46,6 +46,11 @@
 /datum/weather_event/proc/start_weather_event()
 	return
 
+//SS220 ADDITION START
+/datum/weather_event/proc/end_weather_event()
+	return
+//SS220 ADDITION END
+
 // remember, this happens every five seconds or so
 /datum/weather_event/proc/handle_weather_process()
 	if(lightning_chance && prob(lightning_chance))
