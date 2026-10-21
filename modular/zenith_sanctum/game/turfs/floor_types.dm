@@ -300,15 +300,6 @@
 	desc = "Here sits a golden emblem of the sun, meant to praise the sky in it's benevolence."
 	icon_state = "sun_emblem_center"
 
-/turf/open/floor/white2
-	icon_state = "white2"
-
-/turf/open/floor/white2/southwest
-	dir = SOUTHWEST
-
-/turf/open/floor/white2/north
-	dir = NORTH
-
 /turf/open/floor/whitecorners
 	icon_state = "whitecorner"
 
@@ -318,23 +309,8 @@
 /turf/open/floor/darkyellow/north
 	dir = NORTH
 
-/turf/open/floor/white2/east
-	dir = EAST
-
 /turf/open/floor/whitecorners/east
 	dir = EAST
 
-/turf/open/floor/white2/northeast
-	dir = NORTHEAST
-
-/turf/open/floor/white2/southeast
-	dir = SOUTHEAST
-
-/turf/open/floor/white2/west
-	dir = WEST
-
 /turf/open/floor/whitecorners/west
 	dir = WEST
-
-/turf/open/floor/white2/northwest
-	dir = NORTHWEST
