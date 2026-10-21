@@ -1,6 +1,6 @@
 /obj/item/weapon/yautja/sword/damaged
 	name = "ancient sword"
-	desc = "A huge, powerful blade. Mysterious writing is carved into the weapon. This one is ancient and has suffered serious acid damage, making it near-useless."
+	desc = "Огромный, мощный клинок. На оружии вырезаны загадочные письмена. Оно очень древнее и сильно повреждено кислотой, из-за чего стало практически бесполезным."
 	icon_state = "clansword_alt"
 	force = MELEE_FORCE_NORMAL
 	throwforce = MELEE_FORCE_WEAK

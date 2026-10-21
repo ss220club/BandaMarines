@@ -35,9 +35,7 @@
 /obj/structure/platform_decoration/metal/strata/alt/west
 	dir = WEST
 
-//------------------------------//
-//    Wooden Stairs Platforms    //
-//------------------------------//
+// MARK: Wooden Stairs Platforms
 
 /obj/structure/platform/wood
 	icon_state = "wood_platform"
