@@ -12004,7 +12004,7 @@
 "aFp" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
-/obj/effect/vehicle_spawner/white_van/decrepit,
+/obj/effect/vehicle_spawner/van/white/decrepit,
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/robotics)
 "aFq" = (
