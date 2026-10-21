@@ -1,6 +1,7 @@
 /turf/open/floor/brown_dirt
 	name = "red dirt"
 	icon = 'modular/zenith_sanctum/icons/turf/floors/auto_lv_turf.dmi'
+	icon_state = ""
 	tool_flags = null
 	turf_flags = null
 
