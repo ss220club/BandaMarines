@@ -1,7 +1,7 @@
 /obj/item/toy/pig_toy
 	name = "pig toy"
 	desc = "Игрушечный хряк из мягкого латекса. Внутри игрушки встроен специальный звуковой клапан. Штабной, неси свиней! Морпехи требуют свиней!"
-	icon = 'modular/pig_toy/icon/svin.dmi'
+	icon = 'icons/obj/items/toy.dmi'
 	icon_state = "pig"
 	w_class = SIZE_SMALL
 	COOLDOWN_DECLARE(last_hug_time)
