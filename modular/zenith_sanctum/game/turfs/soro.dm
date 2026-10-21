@@ -2,6 +2,7 @@
 	name = "red dirt"
 	icon = 'modular/zenith_sanctum/icons/turf/floors/auto_lv_turf.dmi'
 	tool_flags = null
+	turf_flags = null
 
 /turf/open/floor/brown_dirt/random_rocks
 	icon_state = "sand_1_1_N"
