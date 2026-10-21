@@ -1,7 +1,7 @@
 //MP47A2 Modernised/pulse MP27
 /obj/item/weapon/gun/smg/mp47a2
 	name = "\improper MP47A2 pulse submachinegun"
-	desc = "A much pricier, modernised version of the original MP27 design, though now having been modified into a caseless pulse weapon. High accuracy and stopping power, but at the cost of a reduced magazine capacity and lack of an automatic firemode."
+	desc = "A much pricier, modernised version of the original MP27 design, though now having been modified into a caseless pulse weapon. High accuracy and stopping power, but at the cost of a reduced magazine capacity."
 	icon = 'modular/weapons/icons/rifles.dmi'
 	item_icons = list(
 		WEAR_L_HAND = 'modular/weapons/icons/guns_lefthand.dmi',

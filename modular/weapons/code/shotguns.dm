@@ -30,6 +30,9 @@
 		/obj/item/attachable/stock/xm51,
 	)
 
+/obj/item/weapon/gun/rifle/xm51/lethal/set_bullet_traits()
+	return
+
 /obj/item/weapon/gun/rifle/xm51/lethal/withstock
 	starting_attachment_types = list(/obj/item/attachable/stock/xm50)
 
@@ -44,7 +47,7 @@
 
 /obj/item/weapon/gun/shotgun/p79s
 	name = "\improper P79S semi-automatic shotgun"
-	desc = "A somewhat older semi-automatic shotgun design, chambered in 10 gauge shells. Though not as common as more modern automatic ones, the P79S is still in use with various mercenary and police forces due to its reliability and stopping power. Its internal tube magazine can store 6 shells. Produced by Orion Defence Systems."
+	desc = "A somewhat older semi-automatic shotgun design, chambered in 12 gauge shells. Though not as common as more modern automatic ones, the P79S is still in use with various mercenary and police forces due to its reliability and stopping power. Its internal tube magazine can store 8 shells. Produced by Orion Defence Systems."
 	item_icons = list(
 		WEAR_L_HAND = 'modular/weapons/icons/guns_lefthand.dmi',
 		WEAR_R_HAND = 'modular/weapons/icons/guns_righthand.dmi',

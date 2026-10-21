@@ -56,7 +56,7 @@
 	desc = "A heavy, low-angle grenade launcher. It's been in use since the Vietnam War, though this version has been modified to fire standard USCM 30mm grenades. The wooden furniture is, in fact, an attempt at modernization and is made of painted hardened polykevlon."
 	flags_item = TWOHANDED|SMARTGUNNER_BACKPACK_OVERRIDE
 
-/obj/item/weapon/gun/launcher/grenade/m81/m79/modified/handle_starting_attachment()
+/obj/item/weapon/gun/launcher/grenade/m81/m85a1/m79/modified/handle_starting_attachment()
 	..()
 	var/obj/item/attachable/scope/m79/scope = new(src)
 	scope.flags_attach_features &= ~ATTACH_REMOVABLE
@@ -82,5 +82,5 @@
 	attachable_allowed = list()
 	aim_slowdown = SLOWDOWN_ADS_RIFLE
 
-/obj/item/weapon/gun/launcher/grenade/m81/m79/modified/sawnoff/handle_starting_attachment()
+/obj/item/weapon/gun/launcher/grenade/m81/m85a1/m79/modified/sawnoff/handle_starting_attachment()
 	return
