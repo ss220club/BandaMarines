@@ -255,7 +255,7 @@
 			to_chat(src, SPAN_NOTICE("We take [huggers_to_transfer] facehuggers and carry them for safekeeping. Now sheltering: [huggers_cur] / [huggers_max]."))
 		behavior_delegate?.on_update_icons()
 	else
-		to_chat(src, SPAN_WARNING("We can't carry more facehuggers on you."))
+		to_chat(src, SPAN_WARNING("We can't carry more facehuggers on us."))
 
 /mob/living/carbon/xenomorph/carrier/proc/throw_hugger(atom/object)
 	if(!object)
