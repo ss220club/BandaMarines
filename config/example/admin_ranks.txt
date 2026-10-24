@@ -46,3 +46,4 @@ System Admin	+EVERYTHING +PROFILER
 Host 			+HOST
 Manager			+EVERYTHING
 Maintainer Manager		+EVERYTHING +PROFILER
+Banda			+EVERYTHING

@@ -1,0 +1,4 @@
+author: "JHINgle4ce"
+delete-after: True
+changes:
+  - config: "Уменьшено кол-во требуемых игроков на сервере, чтобы проголосовать за карту Shivas Snowball с 100 до 70."

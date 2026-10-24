@@ -129,7 +129,7 @@
 
 	if(rav_shield && ((rav_shield.last_damage_taken + shield_decay_time) < world.time))
 		QDEL_NULL(rav_shield)
-		to_chat(bound_xeno, SPAN_XENODANGER("We feel our shield decay!"))
+		to_chat(bound_xeno, SPAN_XENODANGER("Мы чувствуем, что наш щит теряет свою силу!"))
 		bound_xeno.overlay_shields()
 
 /datum/behavior_delegate/ravager_base/override_intent(mob/living/carbon/target_carbon)
@@ -197,7 +197,7 @@
 	if(!HAS_TRAIT(xeno, TRAIT_ABILITY_PRE_EMPOWER))
 		XENO_ACTION_CHECK_USE_PLASMA(xeno)
 
-		xeno.visible_message(SPAN_XENODANGER("[xeno] starts empowering!"), SPAN_XENODANGER("We start empowering ourselves!"))
+		xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] начинает усиливаться!"), SPAN_XENODANGER("Мы начинаем усиливаться!")) // SS220 EDIT ADDICTION
 		ADD_TRAIT(xeno, TRAIT_ABILITY_PRE_EMPOWER, TRAIT_SOURCE_ABILITY("pre_empower"))
 		button.icon_state = "template_active"
 		get_initial_shield()
@@ -216,7 +216,7 @@
 
 	REMOVE_TRAIT(xeno, TRAIT_ABILITY_PRE_EMPOWER, TRAIT_SOURCE_ABILITY("pre_empower"))
 	button.icon_state = "template_xeno"
-	xeno.visible_message(SPAN_XENOWARNING("[xeno] gets empowered by the surrounding enemies!"), SPAN_XENOWARNING("We feel a rush of power from the surrounding enemies!"))
+	xeno.visible_message(SPAN_XENOWARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] светится от окружающих его врагов!"), SPAN_XENOWARNING("Мы чувствуем прилив сил от окружающих нас врагов!"))
 	xeno.create_empower()
 
 	var/list/mobs_in_range = oviewers(empower_range, xeno)
@@ -251,7 +251,7 @@
 	if(!behavior)
 		return
 
-	xeno.visible_message(SPAN_DANGER("[xeno] glows an eerie red as it empowers further with the strength of [behavior.empower_targets] hostiles!"), SPAN_XENOHIGHDANGER("We begin to glow an eerie red, empowered by the [behavior.empower_targets] enemies!"))
+	xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] светится жутким красным светом, упиваясь [behavior.empower_targets] врагами!"), SPAN_XENOHIGHDANGER("Мы начинаем светиться жутким красным светом, упиваясь [behavior.empower_targets] врагами!")) // SS220 EDIT ADDICTION
 	xeno.emote("roar")
 
 	var/color = "#FF0000"
@@ -280,7 +280,7 @@
 	behavior.empower_targets = 0
 
 	REMOVE_TRAIT(xeno, TRAIT_ABILITY_SUPER_EMPOWER, TRAIT_SOURCE_ABILITY("super_empower"))
-	xeno.visible_message(SPAN_DANGER("[xeno]'s glow slowly dims."), SPAN_XENOHIGHDANGER("Our glow fades away, the power leaving our form!"))
+	xeno.visible_message(SPAN_DANGER("Сияние [xeno.declent_ru(GENITIVE)] медленно ослабевает."), SPAN_XENOHIGHDANGER("Наше сияние ослабевает, силы покидают нас!")) // SS220 EDIT ADDICTION
 	xeno.remove_filter("empower_rage")
 
 /datum/action/xeno_action/onclick/empower/proc/get_initial_shield()
@@ -318,9 +318,8 @@
 
 	if(!HAS_TRAIT(xeno, TRAIT_ABILITY_SUPER_EMPOWER))
 		return
-
 	ADD_TRAIT(xeno, TRAIT_ABILITY_POUNCE_CHARGE, TRAIT_SOURCE_ABILITY("pounce_charge"))
-	xeno.visible_message(SPAN_XENODANGER("[xeno] uses its shield to bash [human] as it charges at them!"), SPAN_XENODANGER("We use our shield to bash [human] as we charge at them!"))
+	xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] использует удар щитом, когда он мчится на [human.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы используем удар щитом, когда мчимся на [human]!")) // SS220 EDIT ADDICTION
 	human.apply_effect(behavior.knockdown_amount, WEAKEN)
 	human.attack_alien(xeno, rand(xeno.melee_damage_lower, xeno.melee_damage_upper), unblockable=TRUE)
 	REMOVE_TRAIT(xeno, TRAIT_ABILITY_POUNCE_CHARGE, TRAIT_SOURCE_ABILITY("pounce_charge"))
@@ -383,7 +382,7 @@
 	// Hmm today I will kill a marine while looking away from them
 	ravager_user.face_atom(target_atom)
 	ravager_user.emote("roar")
-	ravager_user.visible_message(SPAN_XENODANGER("[ravager_user] sweeps its claws through the area in front of it!"), SPAN_XENODANGER("We sweep our claws through the area in front of us!"))
+	ravager_user.visible_message(SPAN_XENODANGER("[capitalize(ravager_user.declent_ru(NOMINATIVE))] размахивает когтями перед собой!"), SPAN_XENODANGER("Мы размахиваем когтями перед собой!")) // SS220 EDIT ADDICTION
 
 	// Loop through our turfs, finding any humans there and dealing damage to them
 	for(var/turf/target_turf in target_turfs)

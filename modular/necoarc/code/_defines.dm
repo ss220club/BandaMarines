@@ -1,0 +1,1 @@
+#define NECOARC_EMOTE_CATEGORY_SPECIES "Necoarc"
