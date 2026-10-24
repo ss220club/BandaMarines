@@ -41,4 +41,5 @@
 #include "yaut_leap/_leap.dme"
 #include "hgmaps/_hgmaps.dme"
 #include "necoarc/_arc.dme"
+#include "pig_toy/_pig_toy.dme"
 #include "zenith_sanctum/_zenith_sanctum.dme"
