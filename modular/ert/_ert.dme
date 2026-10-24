@@ -1,0 +1,6 @@
+#include "_ert.dm"
+
+#include "code/lasgun.dm"
+#include "code/bolter.dm"
+#include "code/clothing.dm"
+#include "code/presets.dm"
