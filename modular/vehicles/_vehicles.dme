@@ -5,7 +5,7 @@
 #include "code/defines.dm"
 
 //мотобайк
-#include "code/motorbike/motorbike.dm"
+#include "code/motorbike/bike/motorbike.dm"
 #include "code/motorbike/bike/motorbile_sound.dm"
 #include "code/motorbike/bike/motorbike_verbs.dm"
 #include "code/motorbike/bike/motorbike_buckle.dm"
@@ -33,8 +33,8 @@
 #include "code/motorbike/sidecar/cargo/cargo_loading.dm"
 
 //другое
-#include "code/motorbike/motorbike_destroyed.dm"
-#include "code/motorbike/motorbike_skins.dm"
+#include "code/motorbike/bike/motorbike_destroyed.dm"
+#include "code/motorbike/bike/motorbike_skins.dm"
 #include "code/vehicle_choice.dm"
 #include "code/vehicle_order.dm"
 #include "code/arc/arc_fix.dm"
