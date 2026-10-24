@@ -30,6 +30,9 @@
 	var/move_delay_connected = VEHICLE_SPEED_SUPERFAST // == 2 - Скорость когда приконекчена тележка
 	drag_delay = 3 // Но медленно
 
+	// Система ускорения
+	var/passive_weed_clear_timer_id = TIMER_ID_NULL
+
 	//================ Система света ====================
 	light_system = MOVABLE_LIGHT
 	light_range = 5
@@ -83,6 +86,7 @@
 
 /obj/vehicle/motorbike/Destroy(force)
 	. = ..()
+	deltimer(passive_weed_clear_timer_id)
 	GLOB.all_spec_vehicles -= src
 
 /obj/vehicle/motorbike/proc/update_overlay()
@@ -163,3 +167,4 @@
 	containertype = /obj/structure/largecrate
 	containername = "Упакованная коляска для мотоцикла"
 	group = "Vehicle Equipment"
+
