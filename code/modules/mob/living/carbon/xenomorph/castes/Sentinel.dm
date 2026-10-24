@@ -168,7 +168,7 @@
 		return
 
 	if(!action_cooldown_check())
-		to_chat(src, SPAN_WARNING("We must wait for your spit glands to refill."))
+		to_chat(src, SPAN_WARNING("We must wait for our spit glands to refill."))
 		return
 
 	var/turf/current_turf = get_turf(scatterspit_user)

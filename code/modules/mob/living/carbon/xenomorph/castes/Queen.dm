@@ -734,7 +734,7 @@
 	if(isxeno(victim))
 		var/mob/living/carbon/xenomorph/xeno = victim
 		if(hivenumber == xeno.hivenumber)
-			to_chat(src, SPAN_WARNING("You can't bring yourself to harm a fellow sister to this magnitude."))
+			to_chat(src, SPAN_WARNING("We can't bring ourselves to harm a fellow sister to this magnitude."))
 			return FALSE
 
 	var/turf/cur_loc = victim.loc

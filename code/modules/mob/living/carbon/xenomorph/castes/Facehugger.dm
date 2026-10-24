@@ -259,7 +259,7 @@
 	return null
 
 /mob/living/carbon/xenomorph/facehugger/handle_queen_screech(mob/living/carbon/xenomorph/queen/queen)
-	to_chat(src, SPAN_DANGER("The mighty roar of the queen makes you tremble and fall over!"))
+	to_chat(src, SPAN_DANGER("The mighty roar of the queen makes us tremble and fall over!"))
 	adjust_effect(6, STUN)
 	apply_effect(6, WEAKEN)
 
@@ -288,7 +288,7 @@
 	// Otherwise, ""roar""!
 	var/current_time = world.time
 	if(current_time - last_roar_time < 1 SECONDS)
-		to_chat(src, SPAN_WARNING("You must wait before roaring again."))
+		to_chat(src, SPAN_WARNING("We must wait before roaring again."))
 		return FALSE
 
 	last_roar_time = current_time
