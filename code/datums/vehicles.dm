@@ -53,3 +53,7 @@
 /datum/map_template/interior/arc
 	name = "ARC"
 	interior_id = "arc"
+
+/datum/map_template/interior/clf_van_armored
+	name = "CLF Technical m56d"
+	interior_id = "clf_van_armored"
