@@ -2,7 +2,11 @@
 	. = ..()
 	LAZYINSERT(listed_products, list(list("R4T Scout Rifle", (1), /obj/item/storage/box/guncase/r4t_scout, VENDOR_ITEM_REGULAR)), 14)
 	LAZYINSERT(listed_products, list(list("XM51 Breaching Shotgun", (1), /obj/item/storage/box/guncase/xm51, VENDOR_ITEM_REGULAR)), 15)
-	LAZYINSERT(listed_products, list(list("NSG23 Assault Rifle", (1), /obj/item/storage/box/guncase/nsg23_marine, VENDOR_ITEM_REGULAR)), 16)
+	LAZYINSERT(listed_products, list(list("XM50 Assault Shotgun", (1), /obj/item/storage/box/guncase/xm50, VENDOR_ITEM_REGULAR)), 17)
+
+/obj/structure/machinery/cm_vending/sorted/cargo_ammo/populate_product_list(scale)
+	. = ..()
+	LAZYINSERT(listed_products, list(list("XM51 16g Breaching Magazine", floor(scale * 4), /obj/item/ammo_magazine/shotgun/light/breaching, VENDOR_ITEM_REGULAR)), 24)
 
 /obj/structure/machinery/cm_vending/sorted/attachments/populate_product_list(scale)
 	. = ..()
@@ -11,6 +15,20 @@
 /obj/structure/machinery/cm_vending/sorted/attachments/squad/populate_product_list(scale)
 	. = ..()
 	LAZYINSERT(listed_products, list(list("Barrel Charger", 0.9, /obj/item/attachable/heavy_barrel, VENDOR_ITEM_REGULAR)), 2)
+
+/obj/item/storage/box/guncase/xm50
+	name = "\improper XM50 assault scattergun case"
+	desc = "A gun case containing the XM50 Assault Scattergun. Comes with four spare magazines."
+	storage_slots = 7
+	can_hold = list(/obj/item/weapon/gun/rifle/xm51, /obj/item/ammo_magazine/rifle/xm51, /obj/item/storage/belt/gun/xm51, /obj/item/attachable/stock/xm50)
+
+/obj/item/storage/box/guncase/xm50/fill_preset_inventory()
+	new /obj/item/attachable/stock/xm50/military(src)
+	new /obj/item/weapon/gun/rifle/xm51/lethal/military(src)
+	new /obj/item/ammo_magazine/rifle/xm51/lethal(src)
+	new /obj/item/ammo_magazine/rifle/xm51/lethal(src)
+	new /obj/item/ammo_magazine/rifle/xm51/lethal/slug(src)
+	new /obj/item/ammo_magazine/rifle/xm51/lethal/slug(src)
 
 //rmr-6
 /datum/gear/weapon/rmr6
@@ -57,6 +75,7 @@
 	display_name = "L165A1 service pistol"
 	path = /obj/item/storage/box/fluff_gun/l165
 	slot = WEAR_R_HAND
+	fluff_cost = 6
 
 /obj/item/storage/box/fluff_gun/l165
 	name = "L165A1 pistol storing case"
