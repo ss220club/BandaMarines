@@ -416,8 +416,6 @@
 	return ..()
 
 
-
-
 /datum/action/xeno_action/activable/prae_retrieve/use_ability(atom/A)
 	var/mob/living/carbon/xenomorph/valkyrie = owner
 	if(!istype(valkyrie))
@@ -516,11 +514,6 @@
 	valkyrie.visible_message(SPAN_XENODANGER("[capitalize(valkyrie.declent_ru(NOMINATIVE))] готовится выпустить свой смоляной крюк в сторону [A.declent_ru(GENITIVE)]!"), SPAN_XENODANGER("Мы готовимся выпустить свой смоляной крюк в сторону [A.declent_ru(GENITIVE)]!"))
 	valkyrie.emote("roar")
 
-	var/throw_target_turf = get_step(valkyrie, facing)
-	var/turf/behind_turf = get_step(valkyrie, reversefacing)
-	if(!(behind_turf.density))
-		throw_target_turf = behind_turf
-
 	ADD_TRAIT(valkyrie, TRAIT_IMMOBILIZED, TRAIT_SOURCE_ABILITY("Praetorian Retrieve"))
 	if(windup)
 		if(!do_after(valkyrie, windup, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE, numticks = 1))
@@ -550,14 +543,20 @@
 		return
 
 	to_chat(targetXeno, SPAN_XENOBOLDNOTICE("Мы притягиваемся к [valkyrie]!")) // SS220 EDIT ADDICTION
-
 	shake_camera(targetXeno, 10, 1)
-	var/throw_dist = get_dist(throw_target_turf, targetXeno)-1
-	if(throw_target_turf == behind_turf)
-		throw_dist++
+
+	var/throw_target_turf
+	var/turf/behind_turf = get_step(valkyrie, reversefacing)
+	if(!(behind_turf.density))
+		throw_target_turf = behind_turf
+		turflist = reverselist(turflist)
+		turflist.Add(valkyrie.loc, behind_turf)
 		to_chat(valkyrie, SPAN_XENOBOLDNOTICE("Мы перекидываем [targetXeno] через себя, используя смоляной крюк!")) // SS220 EDIT ADDICTION
 	else
+		throw_target_turf = turflist[1]
+		turflist = reverselist(turflist)
 		to_chat(valkyrie, SPAN_XENOBOLDNOTICE("Мы притягиваем [targetXeno] к себе, используя смоляной крюк!")) // SS220 EDIT ADDICTION
-	targetXeno.throw_atom(throw_target_turf, throw_dist, SPEED_VERY_FAST, pass_flags = PASS_MOB_THRU)
+	var/throw_dist = LAZYLEN(turflist)
+	targetXeno.throw_atom(throw_target_turf, throw_dist, SPEED_VERY_FAST, pass_flags = PASS_MOB_THRU, route = turflist)
 	apply_cooldown()
 	return ..()
