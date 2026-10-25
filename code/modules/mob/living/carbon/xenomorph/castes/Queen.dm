@@ -330,6 +330,7 @@
 		/datum/action/xeno_action/onclick/manage_hive,
 		/datum/action/xeno_action/onclick/send_thoughts,
 		/datum/action/xeno_action/onclick/toggle_seethrough,
+		/datum/action/xeno_action/onclick/autoweeding_toggle,
 	)
 
 	inherent_verbs = list(
@@ -362,8 +363,8 @@
 		/datum/action/xeno_action/activable/info_marker/queen,
 		/datum/action/xeno_action/onclick/screech, //custom macro, Screech
 		/datum/action/xeno_action/activable/xeno_spit/queen_macro, //third macro
-		/datum/action/xeno_action/onclick/shift_spits,
-		//second macro
+		/datum/action/xeno_action/onclick/shift_spits, //second macro
+		/datum/action/xeno_action/onclick/autoweeding_toggle,
 	)
 
 	// Abilities they get when they've successfully aged.
@@ -733,7 +734,7 @@
 	if(isxeno(victim))
 		var/mob/living/carbon/xenomorph/xeno = victim
 		if(hivenumber == xeno.hivenumber)
-			to_chat(src, SPAN_WARNING("You can't bring yourself to harm a fellow sister to this magnitude."))
+			to_chat(src, SPAN_WARNING("We can't bring ourselves to harm a fellow sister to this magnitude."))
 			return FALSE
 
 	var/turf/cur_loc = victim.loc

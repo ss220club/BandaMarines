@@ -5,10 +5,6 @@
 //from base of atom/cast_tts(): (mob/listener, message, atom/location, localyze_type, effect, traits, preSFX, postSFX)
 #define COMSIG_ATOM_PRE_TTS_CAST "atom_pre_tts_cast"
 	#define COMPONENT_TTS_INTERRUPT (1<<0)
-///from base of atom/tts_trait_add(): (trait)
-#define COMSIG_ATOM_TTS_TRAIT_ADD "atom_tts_trait_add"
-///from base of atom/tts_trait_remove(): (trait)
-#define COMSIG_ATOM_TTS_TRAIT_REMOVE "atom_tts_trait_remove"
 ///from base of atom/update_filters()
 #define COMSIG_ATOM_UPDATE_FILTERS "atom_update_filters"
 ///from base of atom/get_orbit_size(): (list/orbit_size)

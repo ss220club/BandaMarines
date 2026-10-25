@@ -62,7 +62,7 @@
 	stamina = new /datum/stamina(src)
 
 /mob/living/carbon/human/Destroy()
-	SSround_recording.recorder.stop_tracking(src)
+	SSround_recording?.recorder?.stop_tracking(src)
 	remove_from_all_mob_huds()
 	despawn_fax_responder()
 	assigned_equipment_preset = null
@@ -1215,7 +1215,7 @@
 			if(target.check_tod() && target.is_revivable())
 				msg += "[target.ru_p_they(TRUE)] не дышит." // SS220 EDIT ADDICTION
 			else
-				if(has_limb("head"))
+				if(target.has_limb("head"))
 					msg += "[target.ru_p_them(TRUE)] взгляд потускнел и [target.ru_p_they()] не подаёт признаков жизни." // SS220 EDIT ADDICTION
 				else
 					msg += "[target.ru_p_they(TRUE)] определённо [target.gender == MALE ? "мёртв" : "мертва"]." // SS220 EDIT ADDICTION

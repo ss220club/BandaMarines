@@ -28,6 +28,10 @@
 	var/list/fields
 	/// Any content that should appear above the embed
 	var/content
+	// BANDAMARINES EDIT START: Allow links in embeds
+	/// Whether Discord should be allowed to embed links in descriptions and fields
+	var/allow_link_embeds = FALSE
+	// BANDAMARINES EDIT END: Allow links in embeds
 
 /datum/discord_embed/proc/convert_to_list()
 	if(color && !isnum(color))
@@ -37,7 +41,10 @@
 		data_to_list["title"] = title
 	if(description)
 		var/new_desc = replacetext(replacetext(description, "\proper", ""), "\improper", "")
-		new_desc = GLOB.has_discord_embeddable_links.Replace(replacetext(new_desc, "`", ""), " ```$1``` ")
+		// BANDAMARINES EDIT START: Allow links in embeds
+		if(!allow_link_embeds)
+			new_desc = GLOB.has_discord_embeddable_links.Replace(replacetext(new_desc, "`", ""), " ```$1``` ")
+		// BANDAMARINES EDIT END: Allow links in embeds
 		data_to_list["description"] = new_desc
 	if(url)
 		data_to_list["url"] = url
@@ -73,8 +80,13 @@
 		for(var/data as anything in fields)
 			if(!fields[data])
 				continue
+			// BANDAMARINES EDIT START: Allow links in embeds
+			var/value = fields[data]
+			if(!allow_link_embeds)
+				value = GLOB.has_discord_embeddable_links.Replace(replacetext(value, "`", ""), " ```$1``` ")
+			// BANDAMARINES EDIT END: Allow links in embeds
 			data_to_list["fields"] += list(list(
 				"name" = data,
-				"value" = GLOB.has_discord_embeddable_links.Replace(replacetext(fields[data], "`", ""), " ```$1``` "),
+				"value" = value, // BANDAMARINES EDIT: Allow links in embeds
 			))
 	return data_to_list

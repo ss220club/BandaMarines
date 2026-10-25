@@ -152,6 +152,15 @@
 		if(!can_hug(human, hivenumber))
 			to_chat(src, SPAN_WARNING("Вы не можете заразить [human.declent_ru(ACCUSATIVE)]...")) // SS220 EDIT ADDICTION
 			return
+		var/hug_dir = get_dir(src, human)
+		for(var/atom/movable/atom in get_turf(src))
+			if(atom != src && atom.density && atom.BlockedExitDirs(src, hug_dir))
+				to_chat(src, SPAN_WARNING("[atom] prevents us from infecting [human]!"))
+				return
+		for(var/atom/movable/atom in get_turf(human))
+			if(atom != human && atom.density && atom.BlockedPassDirs(src, hug_dir))
+				to_chat(src, SPAN_WARNING("[atom] prevents us from infecting [human]!"))
+				return
 		visible_message(SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] начинает заползать на лицо [human.declent_ru(GENITIVE)]..."), SPAN_XENONOTICE("Вы начинаете заползать на лицо [human.declent_ru(GENITIVE)]...")) // SS220 EDIT ADDICTION
 		if(!do_after(src, FACEHUGGER_CLIMB_DURATION, INTERRUPT_ALL, BUSY_ICON_HOSTILE, human, INTERRUPT_MOVED, BUSY_ICON_HOSTILE))
 			return
@@ -161,6 +170,15 @@
 		if(!can_hug(human, hivenumber))
 			to_chat(src, SPAN_WARNING("Вы не можете заразить [human.declent_ru(ACCUSATIVE)]...")) // SS220 EDIT ADDICTION
 			return
+		hug_dir = get_dir(src, human)
+		for(var/atom/movable/atom in get_turf(src))
+			if(atom != src && atom.density && atom.BlockedExitDirs(src, hug_dir))
+				to_chat(src, SPAN_WARNING("[atom] prevents us from infecting [human]!"))
+				return
+		for(var/atom/movable/atom in get_turf(human))
+			if(atom != human && atom.density && atom.BlockedPassDirs(src, hug_dir))
+				to_chat(src, SPAN_WARNING("[atom] prevents us from infecting [human]!"))
+				return
 		handle_hug(human)
 		return
 
@@ -241,7 +259,7 @@
 	return null
 
 /mob/living/carbon/xenomorph/facehugger/handle_queen_screech(mob/living/carbon/xenomorph/queen/queen)
-	to_chat(src, SPAN_DANGER("The mighty roar of the queen makes you tremble and fall over!"))
+	to_chat(src, SPAN_DANGER("The mighty roar of the queen makes us tremble and fall over!"))
 	adjust_effect(6, STUN)
 	apply_effect(6, WEAKEN)
 
@@ -270,7 +288,7 @@
 	// Otherwise, ""roar""!
 	var/current_time = world.time
 	if(current_time - last_roar_time < 1 SECONDS)
-		to_chat(src, SPAN_WARNING("You must wait before roaring again."))
+		to_chat(src, SPAN_WARNING("We must wait before roaring again."))
 		return FALSE
 
 	last_roar_time = current_time
@@ -288,9 +306,10 @@
 	name = "Base Facehugger Behavior Delegate"
 
 /datum/behavior_delegate/facehugger_base/on_life()
-	if(!(locate(/obj/effect/alien/weeds) in get_turf(bound_xeno)))
-		bound_xeno.adjustBruteLoss(2)
-
+	if(locate(/obj/effect/alien/weeds) in get_turf(bound_xeno))
+		return
+	bound_xeno.adjustBruteLoss(2)
+	bound_xeno.updatehealth()
 
 /datum/action/xeno_action/activable/pounce/facehugger/use_ability(atom/target_atom)
 	for(var/obj/structure/machinery/door/airlock/current_airlock in get_turf(owner))
