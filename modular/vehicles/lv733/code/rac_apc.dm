@@ -292,7 +292,7 @@
 /datum/ammo/rocket/rac_shrapnel
 	name = "Type 16-7/E shrapnel round"
 	icon_state = "ltb"
-	flags_ammo_behavior = AMMO_EXPLOSIVE|AMMO_ROCKET|AMMO_STRIKES_SURFACE
+	flags_ammo_behavior = AMMO_ROCKET|AMMO_STRIKES_SURFACE
 	accuracy = HIT_ACCURACY_TIER_3
 	accurate_range = 32
 	max_range = 32
@@ -315,7 +315,7 @@
 /datum/ammo/rocket/rac_ap
 	name = "Type 16-7/E armor-piercing round"
 	icon_state = "ltb"
-	flags_ammo_behavior = AMMO_EXPLOSIVE|AMMO_ROCKET|AMMO_STRIKES_SURFACE
+	flags_ammo_behavior = AMMO_ROCKET|AMMO_STRIKES_SURFACE
 	damage_falloff = 0
 	accuracy = HIT_ACCURACY_TIER_8
 	accurate_range = 32
@@ -348,7 +348,7 @@
 /datum/ammo/rocket/rac_incendiary
 	name = "Type 16-7/E incendiary round"
 	icon_state = "ltb"
-	flags_ammo_behavior = AMMO_EXPLOSIVE|AMMO_ROCKET|AMMO_STRIKES_SURFACE
+	flags_ammo_behavior = AMMO_ROCKET|AMMO_STRIKES_SURFACE
 	damage_type = BURN
 	accuracy_var_low = PROJECTILE_VARIANCE_TIER_6
 	accurate_range = 32
