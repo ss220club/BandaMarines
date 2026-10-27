@@ -32,6 +32,7 @@
 #include "attachments/_attachments.dme"
 #include "clothing/_clothing.dme"
 #include "lv733/_lv733.dme"
+#include "map_blips/_map_blips.dme"
 #include "weapons/_weapons.dme"
 #include "loadout_preferences_gear/_loadout.dme"
 #include "queen_minor/_queen_minor.dme"
