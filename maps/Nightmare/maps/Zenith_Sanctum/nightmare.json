@@ -1,0 +1,34 @@
+[
+    {
+        "type": "map_sprinkle",
+        "path": "sprinkles/"
+    },
+    {
+		"type": "map_insert",
+		"landmark": "corporate_dome_goon",
+		"chance": 1.0,
+		"path": "standalone/corporate_dome_goon.dmm",
+		"when": { "lvevent": "asset_protection" }
+    },
+    {
+		"type": "map_insert",
+		"landmark": "crashed_pmc_ship",
+		"chance": 1.0,
+		"path": "standalone/crashed_pmc_ship.dmm",
+		"when": { "lvevent": "pmccrash" }
+    },
+    {
+		"type": "map_insert",
+		"landmark": "hydro_pmc",
+		"chance": 1.0,
+		"path": "sprinkles/20.hydro_pmc.dmm",
+		"when": { "lvevent": "pmccrash" }
+    },
+    {
+		"type": "map_insert",
+		"landmark": "north_west_jungle_ruins_clf",
+		"chance": 1.0,
+		"path": "standalone/north_west_jungle_ruins_clf.dmm",
+		"when": { "lvevent": "clfraid" }
+    }
+]

@@ -1,0 +1,146 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"b" = (
+/obj/effect/decal/large_stain{
+	dir = 1
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
+/area/template_noop)
+"c" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/stack/rods{
+	amount = 15
+	},
+/turf/open/floor/prison/platingdmg3,
+/area/template_noop)
+"d" = (
+/obj/item/stack/sheet/metal,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
+/area/template_noop)
+"e" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/girder,
+/turf/open/floor/prison/platingdmg1,
+/area/template_noop)
+"f" = (
+/obj/effect/decal/large_stain,
+/obj/item/stack/rods{
+	amount = 15
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
+/area/template_noop)
+"g" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/sink/kitchen{
+	pixel_y = 25;
+	pixel_x = 1
+	},
+/obj/structure/prop/invuln/pipe_water{
+	pixel_x = 1;
+	pixel_y = 9
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/template_noop)
+"h" = (
+/obj/structure/bed/hybrisa/prisonbed,
+/obj/effect/landmark/objective_landmark/far,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/template_noop)
+"i" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
+/area/template_noop)
+"j" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
+/area/template_noop)
+"l" = (
+/turf/template_noop,
+/area/template_noop)
+"z" = (
+/obj/structure/machinery/light/small,
+/obj/effect/landmark/monkey_spawn,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/panelscorched,
+/area/template_noop)
+"O" = (
+/turf/closed/wall/lv_outpost/reinforced,
+/area/template_noop)
+"Q" = (
+/obj/effect/decal/large_stain{
+	dir = 1
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/stack/sheet/metal,
+/turf/open/floor/prison/panelscorched,
+/area/template_noop)
+"U" = (
+/obj/structure/machinery/door/airlock/light_grey_lv/utility{
+	dir = 8;
+	name = "\improper Secure Cell"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/plating/prison,
+/area/template_noop)
+"V" = (
+/obj/item/stack/rods{
+	amount = 15
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/platingdmg1,
+/area/template_noop)
+"Z" = (
+/obj/item/trash/USCMtray{
+	name = "\improper Meal Tray";
+	pixel_y = 8
+	},
+/obj/item/tool/kitchen/utensil/fork/plastic{
+	pixel_x = -7
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/template_noop)
+
+(1,1,1) = {"
+O
+U
+O
+O
+"}
+(2,1,1) = {"
+O
+Z
+h
+O
+"}
+(3,1,1) = {"
+O
+g
+z
+e
+"}
+(4,1,1) = {"
+l
+V
+Q
+c
+"}
+(5,1,1) = {"
+l
+i
+f
+b
+"}
+(6,1,1) = {"
+l
+j
+i
+d
+"}
