@@ -48,8 +48,8 @@
 		RegisterSignal(buckled_mob, list(COMSIG_HUMAN_ATTACK_ALIEN_PRE_GRAB, COMSIG_MOVABLE_XENO_START_PULLING), PROC_REF(can_xeno_pull_off))
 		RegisterSignal(buckled_mob, SIGNAL_ADDTRAIT(TRAIT_FLOORED), PROC_REF(on_floored))
 	else
-		if(connected)
-			push_to_left_side(buckled_mob)
+		if(connected && !QDELETED(connected) && M && !QDELETED(M))
+			push_to_left_side(M)
 		update_drag_delay()
 		reset_bike_permutated(TRUE)
 
@@ -59,11 +59,13 @@
 	unbuckle()
 
 /obj/structure/bed/chair/sidecar/passenger/unbuckle()
+	var/mob/living/old_buckled_mob = buckled_mob
 	// Отдельно, иначе возникнет ситуация где сигнал не успевает убраться,
 	// т.к. нам ВСЕГДА нужен моб чтобы убрать у него сигнал
 	update_mob_gun_signal(TRUE)
 	reload_buckle_mob()
-	UnregisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN, SIGNAL_ADDTRAIT(TRAIT_FLOORED), COMSIG_MOVABLE_PRE_THROW, COMSIG_LIVING_PRE_LAUNCH_TOWARDS, COMSIG_HUMAN_ATTACK_ALIEN_PRE_GRAB, COMSIG_MOVABLE_XENO_START_PULLING))
+	if(old_buckled_mob && !QDELETED(old_buckled_mob))
+		UnregisterSignal(old_buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN, SIGNAL_ADDTRAIT(TRAIT_FLOORED), COMSIG_MOVABLE_PRE_THROW, COMSIG_LIVING_PRE_LAUNCH_TOWARDS, COMSIG_HUMAN_ATTACK_ALIEN_PRE_GRAB, COMSIG_MOVABLE_XENO_START_PULLING))
 	. = ..()
 
 /obj/structure/bed/chair/sidecar/passenger/proc/can_xeno_pull_off(mob/living/passenger, mob/living/carbon/xenomorph/xeno)

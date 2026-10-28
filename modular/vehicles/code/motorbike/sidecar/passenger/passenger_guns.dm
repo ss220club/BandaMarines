@@ -116,6 +116,8 @@
 	to_chat(user, "Вы устанавливаете [O.declent_ru(ACCUSATIVE)] на [declent_ru(ACCUSATIVE)]...")
 	if(!do_after(user, mounted_time_to_assembly * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
 		return FALSE
+	if(QDELETED(src) || QDELETED(user) || QDELETED(O) || O.loc != user || mounted)
+		return FALSE
 
 	var/rounds_temp = 0
 
@@ -159,6 +161,8 @@
 	to_chat(user, "Вы начинаете отсоединять [mounted.declent_ru(ACCUSATIVE)] от [declent_ru(GENITIVE)]...")
 	if(!do_after(user, mounted_time_to_disassembly * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
 		to_chat(user, SPAN_DANGER("Вы прекратили отсоединять [mounted.declent_ru(ACCUSATIVE)] от [declent_ru(GENITIVE)]."))
+		return FALSE
+	if(QDELETED(src) || QDELETED(user) || !mounted || QDELETED(mounted) || mounted.loc != src)
 		return FALSE
 	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] отсоединяет [mounted.declent_ru(ACCUSATIVE)] от [declent_ru(GENITIVE)]!"), SPAN_NOTICE("Вы отсоединили [mounted.name] от [src.name]!"))
 	playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, 1)
@@ -229,7 +233,7 @@
 	user.setDir(dir)
 	user.reset_view(src)
 	user.status_flags |= IMMOBILE_ACTION
-	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] mans [src]."), SPAN_NOTICE("You man [src], locked and loaded!"))
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] занимает место у [src]."), SPAN_NOTICE("Вы заняли место у [src]. Оружие готово к бою!"))
 
 	RegisterSignal(user, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION), PROC_REF(exit_interaction))
 	RegisterSignal(user, COMSIG_MOB_MOUSEDOWN, PROC_REF(start_fire))
@@ -247,7 +251,7 @@
 	user.setDir(dir) //set the direction of the player to the direction the gun is facing
 	user.reset_view(null)
 	user.status_flags &= ~IMMOBILE_ACTION
-	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] lets go of [src]."), SPAN_NOTICE("You let go of [src], letting the gun rest."))
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] отходит от [src]."), SPAN_NOTICE("Вы отошли от [src] и оставили оружие в покое."))
 	user.remove_temp_pass_flags(PASS_MOB_THRU) // this is necessary because being knocked over while using the gun makes you incorporeal
 
 	SEND_SIGNAL(src, COMSIG_GUN_INTERRUPT_FIRE)

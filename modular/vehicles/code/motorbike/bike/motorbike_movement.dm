@@ -29,6 +29,7 @@
 	var/move_delay_intermediate = 2
 	var/move_delay_maximum = 1
 	var/lightweight_speed_mod = 0.7 // Модификатор скорости если не прицеплена коляска
+	var/momentum_loss_on_weeds_factor = 0.2
 
 	// Скорость
 	/// Через сколько секунд простоя сбрасываем скорость
@@ -61,44 +62,116 @@
 	play_move_sound()
 	set_glide_size(DELAY_TO_GLIDE_SIZE(move_delay)) // плавность
 
-/obj/vehicle/motorbike/relaymove(mob/user, direction)
-	if(user.is_mob_incapacitated())
+/obj/vehicle/motorbike/proc/can_process_move_input(mob/user)
+	if(!user || user.is_mob_incapacitated())
+		return FALSE
+
+	if(seats[VEHICLE_DRIVER] != user)
+		return FALSE
+
+	return TRUE
+
+/obj/vehicle/motorbike/proc/handle_stop_input()
+	if(current_speed_level != BIKE_SPEED_MIN)
+		reset_speed()
+
+/obj/vehicle/motorbike/proc/handle_reverse_braking(direction)
+	var/back_dir = turn(dir, 180)
+	if(direction == back_dir)
+		reset_speed()
+
+/obj/vehicle/motorbike/proc/update_drive_control_loss(mob/user)
+	var/had_control_loss_timer = lost_drive_control_time_temp
+
+	if(!lost_drive_control_time_temp && prob(chance_lost_drive_control_when_one_hand))
+		lost_drive_control_dir = turn(forward_dir_saved, (prob(50) ? 90 : -90))
+		var/lost_control_time = rand(lost_drive_control_time_min, lost_drive_control_time_max) * user.get_skill_duration_multiplier(SKILL_VEHICLE)
+		lost_drive_control_time_temp = world.time + lost_control_time
+		to_chat(user, SPAN_WARNING("Вы потеряли управление!"))
+
+	if(world.time < lost_drive_control_time_temp)
+		return TRUE
+
+	if(had_control_loss_timer)
+		lost_drive_control_time_temp = 0
+		to_chat(user, SPAN_NOTICE("Вы восстановили управление!"))
+
+	return FALSE
+
+/obj/vehicle/motorbike/proc/resolve_hand_control(mob/user, direction)
+	var/list/move_context = list(
+		"direction" = direction,
+		"should_accelerate" = TRUE
+	)
+
+	if(user.l_hand && user.r_hand)
+		move_context["direction"] = forward_dir_saved
+		return move_context
+
+	if(user.l_hand || user.r_hand)
+		if(update_drive_control_loss(user))
+			move_context["direction"] = lost_drive_control_dir
+			move_context["should_accelerate"] = FALSE
+
+	return move_context
+
+/obj/vehicle/motorbike/proc/resolve_move_direction(mob/user, direction)
+	if(!can_drive_one_hand && chance_lost_drive_control_when_one_hand >= 0)
+		handle_reverse_braking(direction)
+		return resolve_hand_control(user, direction)
+
+	return list(
+		"direction" = direction,
+		"should_accelerate" = TRUE
+	)
+
+/obj/vehicle/motorbike/proc/prepare_move_glide()
+	update_speed()
+	var/old_glide_size = glide_size
+	set_glide_size(DELAY_TO_GLIDE_SIZE(move_delay + 1))
+	return old_glide_size
+
+/obj/vehicle/motorbike/proc/finalize_move(should_accelerate)
+	forward_dir = dir
+
+	if(should_accelerate)
+		handle_acceleration()
+
+/obj/vehicle/motorbike/proc/sync_sidecar_after_move()
+	var/obj/structure/bed/chair/sidecar/active_sidecar = get_valid_sidecar()
+	if(!active_sidecar)
 		return
 
-	if(!direction) // Остановка
-		if(current_speed_level != BIKE_SPEED_MIN)
-			reset_speed()
-		return ..()
+	var/turf/current_turf = get_turf(src)
+	if(!current_turf)
+		return
 
-	if(!can_drive_one_hand && chance_lost_drive_control_when_one_hand >= 0)
-		// Проверка движения назад
-		var/back_dir = turn(dir, 180)
-		if(direction == back_dir)
-			reset_speed()
+	if(active_sidecar.loc != current_turf)
+		active_sidecar.forceMove(current_turf)
+	active_sidecar.update_position(src, TRUE)
 
-		// Проверка рук
-		if(user.l_hand && user.r_hand)
-			return ..(user, forward_dir_saved)
+/obj/vehicle/motorbike/relaymove(mob/user, direction)
+	if(!can_process_move_input(user))
+		return
 
-		// С одной рукой - имеешь шанс поменять направление во время дороги
-		if(user.l_hand || user.r_hand)
-			if(!lost_drive_control_time_temp && prob(chance_lost_drive_control_when_one_hand))
-				lost_drive_control_dir = turn(forward_dir_saved, (prob(50) ? 90 : -90))
-				var/lost_control_time = rand(lost_drive_control_time_min, lost_drive_control_time_max) * user.get_skill_duration_multiplier(SKILL_VEHICLE)
-				lost_drive_control_time_temp = world.time + lost_control_time
-				to_chat(user, SPAN_WARNING("Вы потеряли управление!"))
-			if(world.time < lost_drive_control_time_temp)
-				return ..(user, lost_drive_control_dir)
-			else if(lost_drive_control_time_temp)
-				lost_drive_control_time_temp = 0
-				to_chat(user, SPAN_NOTICE("Вы восстановили управление!"))
+	if(!direction)
+		handle_stop_input()
+		return ..(user, direction)
 
-	// Движение вперед
-	set_glide_size(DELAY_TO_GLIDE_SIZE(move_delay + 1))
-	. = ..()
-	if(.)
-		forward_dir = dir // Обновление направления движения при любом успешном перемещении
-		handle_acceleration() // Обновление ускорения после поворота
+	var/list/move_context = resolve_move_direction(user, direction)
+	var/move_direction = move_context["direction"]
+	var/should_accelerate = move_context["should_accelerate"]
+	var/old_glide_size = prepare_move_glide()
+	var/old_dir = dir
+	. = ..(user, move_direction)
+	if(dir != old_dir)
+		handle_rotation()
+	if(!.)
+		set_glide_size(old_glide_size)
+		return
+
+	finalize_move(should_accelerate)
+	return .
 
 // ==========================================
 // ================ Скорость ================
@@ -111,8 +184,10 @@
 			move_delay = move_delay_intermediate
 		if(3)
 			move_delay = move_delay_maximum
-	if(!sidecar)
+	if(!get_valid_sidecar())
 		move_delay *= lightweight_speed_mod
+	if(locate(/obj/effect/alien/weeds) in loc)
+		move_delay /= momentum_loss_on_weeds_factor
 
 /obj/vehicle/motorbike/proc/reset_speed()
 	straight_move_timer = 0
@@ -152,8 +227,9 @@
 // ========== Движение с коляской ===========
 
 /obj/vehicle/motorbike/proc/update_sidecar(force_update = FALSE)
-	if(sidecar)
-		sidecar.update_position(src, force_update)
+	var/obj/structure/bed/chair/sidecar/active_sidecar = get_valid_sidecar()
+	if(active_sidecar)
+		active_sidecar.update_position(src, force_update)
 
 /obj/vehicle/motorbike/handle_rotation()
 	if(buckled_mob)

@@ -46,12 +46,14 @@
 	unbuckle()
 
 /obj/vehicle/motorbike/unbuckle()
-	if(sidecar)
+	var/mob/living/old_buckled_mob = buckled_mob
+	var/obj/structure/bed/chair/sidecar/active_sidecar = get_valid_sidecar()
+	if(active_sidecar)
 		// Выносим сюда, а то неправильно уберет, т.к. моб уже отвязан
-		sidecar.reset_bike_permutated(TRUE)
-	if(buckled_mob)
-		buckled_mob.set_glide_size(initial(buckled_mob.glide_size))
-		UnregisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN, COMSIG_MOVABLE_PRE_THROW, COMSIG_LIVING_PRE_LAUNCH_TOWARDS, COMSIG_HUMAN_ATTACK_ALIEN_PRE_GRAB, COMSIG_MOVABLE_XENO_START_PULLING))
+		active_sidecar.reset_bike_permutated(TRUE)
+	if(old_buckled_mob && !QDELETED(old_buckled_mob))
+		old_buckled_mob.set_glide_size(initial(old_buckled_mob.glide_size))
+		UnregisterSignal(old_buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN, COMSIG_MOVABLE_PRE_THROW, COMSIG_LIVING_PRE_LAUNCH_TOWARDS, COMSIG_HUMAN_ATTACK_ALIEN_PRE_GRAB, COMSIG_MOVABLE_XENO_START_PULLING))
 	. = ..()
 
 /obj/vehicle/motorbike/proc/can_xeno_pull_off(mob/living/passenger, mob/living/carbon/xenomorph/xeno)

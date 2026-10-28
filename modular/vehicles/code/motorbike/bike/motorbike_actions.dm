@@ -39,6 +39,8 @@
 	if(!do_after(user, 10 SECONDS * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
 		to_chat(user, SPAN_WARNING("Вы отменили мытье [src.name] с помощью [O]."))
 		return FALSE
+	if(QDELETED(src) || QDELETED(user))
+		return FALSE
 	to_chat(user, SPAN_NOTICE("Вы вычистили следы крови с [src.name] с помощью [O]."))
 	L.animation_attack_on(src)
 	blooded = FALSE
@@ -52,6 +54,8 @@
 	to_chat(user, SPAN_NOTICE("Вы начинаете крутить крепежи..."))
 	if(!do_after(user, wrench_time * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
 		to_chat(user, SPAN_WARNING("Крутка крипежей прервана."))
+		return FALSE
+	if(QDELETED(src) || QDELETED(user))
 		return FALSE
 	playsound(loc, 'sound/items/Ratchet.ogg', 25, 1)
 	L.animation_attack_on(src)
@@ -75,7 +79,7 @@
 		if(!do_after(user, welder_time * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL, BUSY_ICON_BUILD))
 			to_chat(user, SPAN_NOTICE("Вы прервали сварку корпуса [src.name] с помощью [O]."))
 			return FALSE
-		if(!src || !WT.isOn())
+		if(QDELETED(src) || QDELETED(WT) || !WT.isOn())
 			to_chat(user, SPAN_NOTICE("Сварка корпуса [src.name] прервана из-за непригодных обстоятельств."))
 			return FALSE
 		var/procent = round((health / maxhealth) * 100)
