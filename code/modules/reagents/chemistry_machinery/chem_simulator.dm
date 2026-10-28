@@ -463,6 +463,10 @@
 					if(property_costs[reference_property.name] > GLOB.chemical_data.rsc_credits)
 						status_bar = "INSUFFICIENT FUNDS"
 						return FALSE
+				if(mode == MODE_ADD)
+					if(length(target.data.properties) >= GLOB.chemical_data.clearance_level + 1 && GLOB.chemical_data.clearance_level < 5)
+						status_bar = "CLEARANCE INSUFFICIENT FOR ADDITION"
+						return FALSE
 
 	if(!target)
 		status_bar = "NO TARGET INSERTED"
