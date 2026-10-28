@@ -168,6 +168,7 @@
 			newegg.flags_embryo = flags_embryo
 
 			newegg.add_hiddenprint(user)
+			log_game("EGG PLANT: [key_name(user)] planted an egg. (Location: [AREACOORD(loc)])")
 			playsound(T, 'sound/effects/splat.ogg', 15, 1)
 			qdel(src)
 			break
