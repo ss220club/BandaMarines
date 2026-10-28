@@ -20,7 +20,6 @@
 #include "code/game/turfs.dm"
 #include "code/game/objects/effects/landmarks/survivor_spawner.dm"
 #include "code/game/objects/effects/landmarks/lv733_synth_survivor_fixup.dm"
-#include "code/game/objects/items/devices/flash.dm"
 #include "code/game/objects/items/devices/glowstick.dm"
 #include "code/game/objects/items/isrg_k9_dogtag.dm"
 #include "code/game/objects/items/lv733_map.dm"

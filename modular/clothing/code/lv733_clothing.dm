@@ -310,7 +310,7 @@
 	flags_atom = FPRINT|NO_GAMEMODE_SKIN
 	flags_item = ITEM_OVERRIDE_NORTHFACE
 	actions_types = list(
-		/datum/action/item_action/rto_pack/use_phone,
+		/datum/action/item_action/rto_pack/use_phone/roaf,
 		/datum/action/item_action/specialist/toggle_cloak,
 	)
 	var/obj/structure/transmitter/internal/internal_transmitter
@@ -439,7 +439,7 @@
 	else
 		. = ..()
 
-/datum/action/item_action/rto_pack/use_phone/action_activate()
+/datum/action/item_action/rto_pack/use_phone/roaf/action_activate()
 	. = ..()
 	for(var/obj/item/storage/backpack/marine/satchel/scout_cloak/poncho_roaf/radio_backpack in owner)
 		radio_backpack.use_phone(owner)
