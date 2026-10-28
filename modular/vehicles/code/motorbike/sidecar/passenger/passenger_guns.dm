@@ -18,17 +18,17 @@
 /obj/structure/machinery/m56d_hmg/low
 	// Стрельба
 	shoot_degree = 65
-	fire_delay = 0.4 SECONDS
-	burst_fire_delay = 0.3 SECONDS
-	autofire_slow_mult = 1.2
+	fire_delay = 0.3 SECONDS
+	burst_fire_delay = 0.2 SECONDS
+	autofire_slow_mult = 1
 
 /obj/structure/machinery/m56d_hmg/auto/low
 	// Стрельба
 	shoot_degree = 45
-	fire_delay = 0.2 SECONDS
+	fire_delay = 0.1 SECONDS
 	burst_fire_delay = 0.25 SECONDS
 	cadeblockers_range = 0
-	autofire_slow_mult = 1.2
+	autofire_slow_mult = 1
 
 // ==========================================
 // ============== Безопасность ==============
