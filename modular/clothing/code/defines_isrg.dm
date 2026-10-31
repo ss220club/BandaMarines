@@ -1,0 +1,3 @@
+#define FACTION_ISRG "ISRG"
+#define MOB_HUD_FACTION_ISRG 45
+#define ISRG_FREQ 1228
