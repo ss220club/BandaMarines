@@ -14,7 +14,7 @@
 
 /datum/emergency_call/lv733_isrg_response/New()
 	..()
-	arrival_message = "Спасательная группа ISRG получила ваш сигнал. Выдвигаемся для оценки угрозы и проведении эвакуационного протокола."
+	arrival_message = "Спасательная группа ISRG получила ваш сигнал. Выдвигаемся для оценки угрозы и проведения эвакуационного протокола."
 	objectives = "Прибыть на место. Оценить угрозу. Обеспечить безопасность гражданских и сотрудников WY. Оказать поддержку и эвакуацию."
 
 /datum/emergency_call/lv733_isrg_response/create_member(datum/mind/M, turf/override_spawn_loc)
