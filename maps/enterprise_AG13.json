@@ -1,0 +1,78 @@
+{
+	"map_name": "LV-931 Enterprise_AG13",
+    "short_name": "Enterprise_AG13",
+	"map_path": "map_files/enterprise_AG13",
+	"map_file": "enterprise-AG13.dmm",
+    "webmap_url": "LV931",
+
+    "survivor_types": [
+        "/datum/equipment_preset/survivor/contractor",
+        "/datum/equipment_preset/survivor/contractor/duty/heavy",
+        "/datum/equipment_preset/survivor/contractor/duty/engi",
+        "/datum/equipment_preset/survivor/contractor/duty/medic"
+    ],
+	"synth_survivor_types": [
+        "/datum/equipment_preset/survivor/synth/contractor/duty"
+    ],
+	"CO_survivor_types": [
+        "/datum/equipment_preset/survivor/contractor/duty/leader"
+        ],
+    "CO_insert_survivor_types": [
+        "/datum/equipment_preset/survivor/clf/coordinator",
+        "/datum/equipment_preset/survivor/pmc/commando/leader"
+    ],
+    "colony_joe_types": [
+        "/datum/job/civilian/working_joe/daniel"
+    ],
+    "defcon_triggers": [
+        3300,
+        2100,
+        1450,
+        580,
+        0.0
+    ],
+    "survivor_message": "Приём. Говорит ударный отряд ВАЙПО Омега-9. Мы потерпели крушение на объекте этой чертовой компании… Твою мать…  ЧТО ЭТО?!",
+    "announce_text": "Пушь-Пушь. Говорит командир ККС \"Ганьют\", разведки КМП. В настоящее время мы находимся на планете LV-931 в непосредственной близости от \"Обьекта W-Y\". Мы не можем связаться с \"Обьектом\". Мы получили зашифрованный сигнал с данного обьекта, но он отсутвует в наших базах. Раследуйте что тут происходит",
+    "map_item_type": "-----",
+	"co_briefing": {
+        "Hawks": "maps/map_briefings/commanding_officer/enterprise_AG13/AG13cpo.html",
+        "Doves": "maps/map_briefings/commanding_officer/enterprise_AG13/AG13hmm.html",
+        "Magpies": "maps/map_briefings/commanding_officer/enterprise_AG13/AG13modi.html",
+        "Unaligned": "maps/map_briefings/commanding_officer/enterprise_AG13/AG13unaligned.html"
+    },
+    "monkey_types": [
+        "neaera",
+        "stok"
+    ],
+    "environment_traits": { "COLD": true },
+    "traits": [
+        {
+            "Ground": true,
+            "Up": 1
+        },
+        {
+            "Ground": true,
+            "Up": 1,
+            "Down": -1
+        },
+        {
+            "Ground": true,
+            "Down": -1
+        }
+    ],
+    "nightmare_path": "maps/Nightmare/maps/enterprise-AG13/",
+    "xvx_hives": {
+        "xeno_hive_alpha": 0,
+        "xeno_hive_bravo": 0,
+        "xeno_hive_charlie": 0,
+        "xeno_hive_delta": 0
+    },
+    "camouflage": "classic",
+	"gamemodes": [
+        "Distress Signal",
+        "Hunter Games",
+        "Hive Wars",
+        "Faction Clash",
+        "Infection"
+    ]
+}
