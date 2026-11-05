@@ -152,7 +152,7 @@
 
 	var/whisper = tgui_input_text(src, "Что вы хотите сказать?", "Пси-шёпот") // SS220 EDIT ADDICTION
 	if(whisper)
-		log_say("PsychicWhisper: [key_name(src)]->[target_mob.key] : [whisper] (AREA: [get_area_name(loc)])")
+		log_say("PsychicWhisper: [key_name(src)]->[target_mob.key] : [whisper] (AREA: [log_location(src)])", src) //BANDAMARINES EDIT LOGIS
 		if(!istype(target_mob, /mob/living/carbon/xenomorph))
 			to_chat(target_mob, SPAN_XENOQUEEN("Вы слышите странный, чужой голос в своей голове... '[SPAN_PSYTALK(whisper)]'")) // SS220 EDIT ADDICTION
 		else
@@ -196,7 +196,7 @@
 		return FALSE
 	var/targetstring = english_list(target_list)
 	to_chat(src, SPAN_XENONOTICE("Вы сказали: '[whisper]' обращаясь к [targetstring]")) // SS220 EDIT ADDICTION
-	log_say("PsychicRadiance: [key_name(src)]->[targetstring] : [whisper] (AREA: [get_area_name(src)])")
+	log_say("PsychicRadiance: [key_name(src)]->[targetstring] : [whisper] (AREA: [log_location(src)])", src) //BANDAMARINES EDIT LOGIS
 	FOR_DVIEW(var/mob/dead/observer/ghost, 12, src, SEE_INVISIBLE_OBSERVER)
 		if(!isobserver(ghost) || !ghost.client)
 			continue
