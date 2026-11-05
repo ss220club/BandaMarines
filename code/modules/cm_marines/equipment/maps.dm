@@ -66,6 +66,11 @@ GLOBAL_LIST_INIT(mapless_maps, list(MAP_RUNTIME, MAP_CHINOOK, MAIN_SHIP_DEFAULT_
 	desc = "A satellite printout of the Lazarus Landing colony on LV-624."
 	html_link = "images/6/6f/LV624.png"
 
+/obj/item/map/lv624_lazarus_landing_map
+	name = "\improper Lazarus Landing Map"
+	desc = "A satellite printout of the Lazarus Landing colony on LV-624."
+	html_link = "images/6/6f/LV624.png"
+
 /obj/item/map/ice_colony_map
 	name = "\improper Ice Colony map"
 	desc = "A satellite printout of the Ice Colony."
@@ -144,6 +149,11 @@ GLOBAL_LIST_INIT(mapless_maps, list(MAP_RUNTIME, MAP_CHINOOK, MAIN_SHIP_DEFAULT_
 	html_link = "images/9/94/New_Varadero.png"
 	color = "red"
 
+/obj/item/map/lv1021_map
+	name = "\improper LV-1021 map"
+	desc = "A general overview of the aproximate area of the CLF camp."
+	html_link = "images/1/1c/LV1021.png.png"
+
 /obj/item/map/tyrargo_rift
 	name = "\improper Tyrargo Rift map"
 	desc = "A labeled blueprint of the UA city Tyrargo Rift."
@@ -154,6 +164,23 @@ GLOBAL_LIST_INIT(mapless_maps, list(MAP_RUNTIME, MAP_CHINOOK, MAIN_SHIP_DEFAULT_
 	desc = "An overview of the White Antre facility schematics."
 	html_link = "images/d/da/White_Antre_Research_Facility.png"
 	color = "cyan"
+
+/obj/item/map/fort_mcneil
+	name = "\improper Fort McNeil map"
+	desc = "A labeled blueprint of Fort McNeil, a civilian colony."
+	html_link = "images/b/b5/Fort_McNeil.png"
+
+/obj/item/map/sekhmet_swamp_map
+	name = "\improper SI-391 Sekhmet Swamp map"
+	desc = "An overview of the Sekhmet Swamp medical research facility colony schematics."
+	html_link = "images/1/18/Map_icecolony.png"
+	color = "#8cab00"
+
+/obj/item/map/cape_river
+	name = "\improper Cape River map"
+	desc = "A labeled blueprint of the Con-Am mining outpost Cape River"
+	html_link = "images/4/46/Cape_River.png"
+	color = "red"
 
 /obj/item/map/galaxy
 	name = "\improper Galaxy map"
@@ -166,6 +193,7 @@ GLOBAL_LIST_INIT_TYPED(map_type_list, /obj/item/map, setup_all_maps())
 /proc/setup_all_maps()
 	return list(
 		MAP_LV_624 = new /obj/item/map/lazarus_landing_map(),
+		MAP_LV_624_LAZARUS_LANDING = new /obj/item/map/lv624_lazarus_landing_map(),
 		MAP_ICE_COLONY = new /obj/item/map/ice_colony_map(),
 		MAP_ICE_COLONY_V3 = new /obj/item/map/ice_colony_map_v3(),
 		MAP_WHISKEY_OUTPOST = new /obj/item/map/whiskey_outpost_map(),
@@ -176,11 +204,15 @@ GLOBAL_LIST_INIT_TYPED(map_type_list, /obj/item/map, setup_all_maps())
 		MAP_SOROKYNE_STRATA = new /obj/item/map/sorokyne_map(),
 		MAP_CORSAT = new /obj/item/map/corsat(),
 		MAP_KUTJEVO = new /obj/item/map/kutjevo_map(),
+		MAP_FORT_MCNEIL = new /obj/item/map/fort_mcneil(),
 		MAP_LV522_CHANCES_CLAIM = new /obj/item/map/lv522_map(),
 		MAP_LV759_HYBRISA_PROSPERA = new /obj/item/map/lv759_map(),
 		MAP_NEW_VARADERO = new /obj/item/map/new_varadero(),
+		MAP_LV1021_FALCONS_FURY = new /obj/item/map/lv1021_map(),
 		MAP_TYRARGO_RIFT = new /obj/item/map/tyrargo_rift(),
-		MAP_WHITE_ANTRE_RESEARCH_FACILITY = new /obj/item/map/white_antre_map()
+		MAP_WHITE_ANTRE_RESEARCH_FACILITY = new /obj/item/map/white_antre_map(),
+		MAP_SEKHMET_SWAMP = new /obj/item/map/sekhmet_swamp_map(),
+		MAP_CAPE_RIVER = new /obj/item/map/cape_river()
 	)
 
 //used by marine equipment machines to spawn the correct map.
