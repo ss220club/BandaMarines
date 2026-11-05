@@ -1,0 +1,4 @@
+author: "JHINgle4ce"
+delete-after: True
+changes:
+  - balance: "возвращены эластичные отскоки от препятствий для всех мобов, кроме ксеноморфов."
