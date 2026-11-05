@@ -3,6 +3,8 @@
 // =============== Позиционка ===============
 
 /obj/structure/bed/chair/sidecar/passenger/update_position(atom/target = null, force_update = FALSE)
+	if(QDELETED(src) || !target || QDELETED(target))
+		return
 	if(dir == target.dir && !force_update)
 		return
 	pixel_x = initial(pixel_x)
@@ -10,27 +12,28 @@
 	layer = initial(layer) //отвечает за отображение по слоям
 	if(target != src)
 		update_connected(target)
-	update_buckle_mob()
+	if(buckled_mob && !QDELETED(buckled_mob))
+		update_buckle_mob()
 	centralize_to_turf()
 
 /obj/structure/bed/chair/sidecar/passenger/centralize_to_turf()
-	if(!pixel_x_sides)
+	if(QDELETED(src) || !pixel_x_sides)
 		return
-	if(!connected)	// централизация только при коннекте
+	if(!connected || QDELETED(connected))	// централизация только при коннекте
 		return
 	reload_connected()
 	switch(dir)	// движок не хочет константно их сохранять в словарь по DIR'ам
 		if(NORTH, SOUTH)
 			var/ndir = dir == NORTH ? -1 : 1	// На севере нам нужно проделать всё "в другую сторону"
 			pixel_x += pixel_x_sides * ndir // Централизуем коляску
-			if(buckled_mob)
+			if(buckled_mob && !QDELETED(buckled_mob))
 				buckled_mob.pixel_x += pixel_x_sides * ndir	// Сидящего
-			if(connected)
+			if(connected && !QDELETED(connected))
 				connected.pixel_x += pixel_x_sides * ndir	// Приконекченное мото
-				if(connected.buckled_mob)	// Приконекченного сидящего в мото
+				if(connected.buckled_mob && !QDELETED(connected.buckled_mob))	// Приконекченного сидящего в мото
 					connected.buckled_mob.pixel_x += pixel_x_sides * ndir
 		if(EAST, WEST)
-			if(buckled_mob)
+			if(buckled_mob && !QDELETED(buckled_mob))
 				buckled_mob.pixel_x = get_buckled_mob_pixel_x()
 
 /obj/structure/bed/chair/sidecar/passenger/proc/get_buckled_mob_pixel_x()
@@ -43,7 +46,7 @@
 // ============== Нормализация ==============
 
 /obj/structure/bed/chair/sidecar/passenger/proc/reload_buckle_mob()
-	if(!buckled_mob)
+	if(!buckled_mob || QDELETED(buckled_mob))
 		return
 	buckled_mob.pixel_x = initial(buckled_mob.pixel_x)
 	buckled_mob.pixel_y = initial(buckled_mob.pixel_y)
@@ -66,7 +69,7 @@
 	setDir(temp_dir)
 	step(A, temp_dir)	// Толкаем в сторону, если на пути стена, то "шаг" не совершится
 	setDir(old_dir)
-	if(buckled_mob)
+	if(buckled_mob && !QDELETED(buckled_mob))
 		buckled_mob.setDir(old_dir)
 
 /obj/structure/bed/chair/sidecar/passenger/update_drag_delay()

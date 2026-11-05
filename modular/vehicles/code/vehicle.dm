@@ -22,6 +22,11 @@
 // Пересечение ловушек теперь ловит и тех кто посажен за кровать / стул / транспорт
 /obj/effect/alien/resin/trap/Crossed(atom/A)
 	// !!! Потом выпилить если примут фикс на оффы
+	if(istype(A, /obj/structure/bed/chair/sidecar))
+		var/obj/structure/bed/chair/sidecar/attached_sidecar = A
+		if(attached_sidecar.connected && !QDELETED(attached_sidecar.connected))
+			return ..()
+
 	if((isStructure(A) && istype(A, /obj/structure/bed)) || (isVehicle(A) && !isVehicleMultitile(A))) // у нас есть передвижные кровати и коляски от них
 		var/obj/O = A
 		if(O.buckled_mob)
@@ -32,9 +37,10 @@
 			to_chat(M, SPAN_HIGHDANGER("Вы въехали на ловушку!"))
 		if(istype(O, /obj/vehicle/motorbike))
 			var/obj/vehicle/motorbike/OM = O
-			if(istype(OM.sidecar, /obj/structure/bed/chair/sidecar/passenger) && OM.sidecar.buckled_mob) // заменить на passenger
-				var/mob/living/M = OM.sidecar.buckled_mob //нужно ли делать проверку на тип дочурки?
-				OM.unbuckle() // Просто сбрасываем позади
+			var/obj/structure/bed/chair/sidecar/passenger/passenger_sidecar = OM.get_valid_sidecar()
+			if(passenger_sidecar && passenger_sidecar.buckled_mob)
+				var/mob/living/M = passenger_sidecar.buckled_mob
+				passenger_sidecar.unbuckle() // Просто сбрасываем позади
 				M.apply_effect(2, WEAKEN)
 				to_chat(M, SPAN_HIGHDANGER("Вы упали с тележки после того, как байк въехал на ловушку!"))
 	. = ..()

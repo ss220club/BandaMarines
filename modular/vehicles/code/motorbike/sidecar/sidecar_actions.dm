@@ -31,6 +31,8 @@
 		if(!do_after(user, welder_time * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL, BUSY_ICON_BUILD))
 			to_chat(user, SPAN_NOTICE("Вы прервали сварку корпуса [src.name] с помощью [O]."))
 			return FALSE
+		if(!src || QDELETED(user))
+			return FALSE
 		if(!src || !WT.isOn())
 			to_chat(user, SPAN_NOTICE("Сварка корпуса [src.name] прервана из-за непригодных обстоятельств."))
 			return FALSE

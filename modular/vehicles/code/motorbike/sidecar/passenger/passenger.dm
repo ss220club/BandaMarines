@@ -29,6 +29,13 @@
 	if(buckled_mob)
 		buckled_mob.setDir(dir)
 
+/obj/structure/bed/chair/sidecar/passenger/Destroy(force)
+	if(mounted && !QDELETED(mounted) && mounted.operator && !QDELETED(mounted.operator))
+		mounted.on_unset_interaction_vc(mounted.operator)
+	if(buckled_mob)
+		unbuckle()
+	. = ..()
+
 /obj/structure/bed/chair/sidecar/passenger/update_overlay()
 	.=..()
 	//==== оверлей коляски поверх моба =======
