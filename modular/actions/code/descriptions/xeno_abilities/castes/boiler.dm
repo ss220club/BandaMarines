@@ -35,6 +35,7 @@
 	replace_in_desc("%WINDUP%", xeno.ammo.spit_windup/65, DESCRIPTION_REPLACEMENT_TIME)
 	replace_in_desc("%DISTANCE%", 1, DESCRIPTION_REPLACEMENT_DISTANCE)
 
+/*
 /datum/action/xeno_action/activable/boiler_trap
 	desc = "Создаёт линию ловушек размером 1x5. При активации не даёт передвигаться носителю %ROOT_TIME% (%ROOT_TIME_EMP% при усиленных ловушках).\
 		<br>Создание усиленных ловушек усилит нашу следующую Acid Mine.\
@@ -70,7 +71,7 @@
 	replace_in_desc("%TRAPPED_BONUS_DAMAGE%", /datum/behavior_delegate/boiler_trapper::bonus_damage_shotgun_trapped)
 	var/datum/ammo/xeno/spit = GLOB.ammo_list[ammo_type]
 	desc += "[spit.get_description()]"
-
+*/
 // Handled by basic version
 /datum/action/xeno_action/onclick/toggle_long_range/trapper
 
