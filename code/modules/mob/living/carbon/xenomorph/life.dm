@@ -81,8 +81,9 @@
 	to_chat(src, SPAN_XENODANGER("Наш панцирь трещит, а сухожилия укрепляются. Мы готовы <a href='byond://?src=\ref[src];evolve=1;'>эволюционировать</a>!")) //Makes this bold so the Xeno doesn't miss it // SS220 EDIT ADDICTION
 	playsound_client(client, sound('sound/effects/xeno_evolveready.ogg'))
 
-	var/datum/action/xeno_action/onclick/evolve/evolve_action = new()
-	evolve_action.give_to(src)
+	if(!get_action(src, /datum/action/xeno_action/onclick/evolve))
+		var/datum/action/xeno_action/onclick/evolve/evolve_action = new()
+		evolve_action.give_to(src)
 
 // Always deal 80% of damage and deal the other 20% depending on how many fire stacks mob has
 #define PASSIVE_BURN_DAM_CALC(intensity, duration, fire_stacks) intensity*(fire_stacks/duration*0.2 + 0.8)
