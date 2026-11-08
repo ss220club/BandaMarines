@@ -43,6 +43,9 @@
 		to_chat(user,SPAN_WARNING("Вас прервали во время загрузки [src]!"))
 		return
 
+	if(QDELETED(src) || QDELETED(user) || QDELETED(target))
+		return
+
 	if(check_object(target, user)) //проверяет состояние загружаемого объекта и его ивентарь на наличие живности после загрузки
 		return
 
@@ -64,6 +67,9 @@
 
 	if(!do_after(user, load_time, INTERRUPT_ALL, BUSY_ICON_GENERIC, src)) // проверка на прерывание
 		to_chat(user,SPAN_WARNING("Вас прервали во время разгрузки [src]!"))
+		return
+
+	if(QDELETED(src) || QDELETED(user) || QDELETED(crate))
 		return
 
 	if(!loaded) // повторная проверка на загруженность. Может кто-то уже разгрузил пока мы тут...
