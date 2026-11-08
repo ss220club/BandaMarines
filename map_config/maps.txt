@@ -73,6 +73,12 @@ map white_antre_research_facility
 	voteweight 0
 endmap
 
+map cape_river
+endmap
+
+map lv1021_falcons_fury
+endmap
+
 map whiskey_outpost_v2
 endmap
 
