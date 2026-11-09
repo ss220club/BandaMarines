@@ -60,6 +60,8 @@
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
 	)
 
+	water_config = /datum/water_overlay_config/xeno/small/facehugger
+
 	icon_xeno = 'icons/mob/xenos/castes/tier_0/facehugger.dmi'
 	icon_xenonid = 'icons/mob/xenonids/castes/tier_0/xenonid_crab.dmi'
 
@@ -74,6 +76,14 @@
 	/// Whether a hug was performed successfully
 	var/hug_successful = FALSE
 	var/last_roar_time = 0
+
+/mob/living/carbon/xenomorph/facehugger/Initialize(mapload, mob/living/carbon/xenomorph/old_xeno, hivenumber)
+	GLOB.xeno_ghost_role_mobs += src
+	return ..()
+
+/mob/living/carbon/xenomorph/facehugger/Destroy()
+	GLOB.xeno_ghost_role_mobs -= src
+	return ..()
 
 /mob/living/carbon/xenomorph/facehugger/Login()
 	var/last_ckey_inhabited = persistent_ckey
@@ -152,6 +162,9 @@
 		if(!can_hug(human, hivenumber))
 			to_chat(src, SPAN_WARNING("Вы не можете заразить [human.declent_ru(ACCUSATIVE)]...")) // SS220 EDIT ADDICTION
 			return
+		if(on_fire)
+			to_chat(src, SPAN_WARNING("You're on fire! Extinguish yourself before trying to infect \the [human]."))
+			return
 		var/hug_dir = get_dir(src, human)
 		for(var/atom/movable/atom in get_turf(src))
 			if(atom != src && atom.density && atom.BlockedExitDirs(src, hug_dir))
@@ -163,6 +176,8 @@
 				return
 		visible_message(SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] начинает заползать на лицо [human.declent_ru(GENITIVE)]..."), SPAN_XENONOTICE("Вы начинаете заползать на лицо [human.declent_ru(GENITIVE)]...")) // SS220 EDIT ADDICTION
 		if(!do_after(src, FACEHUGGER_CLIMB_DURATION, INTERRUPT_ALL, BUSY_ICON_HOSTILE, human, INTERRUPT_MOVED, BUSY_ICON_HOSTILE))
+			return
+		if(QDELETED(src) || stat != CONSCIOUS || on_fire)
 			return
 		if((human.body_position != LYING_DOWN) && (!HAS_TRAIT(human, TRAIT_NESTED)))
 			to_chat(src, SPAN_WARNING("Вы не можете достать до [human.declent_ru(GENITIVE)], они должны лежать или быть размещёнными на смоляной стене.")) // SS220 EDIT ADDICTION
@@ -259,7 +274,7 @@
 	return null
 
 /mob/living/carbon/xenomorph/facehugger/handle_queen_screech(mob/living/carbon/xenomorph/queen/queen)
-	to_chat(src, SPAN_DANGER("The mighty roar of the queen makes you tremble and fall over!"))
+	to_chat(src, SPAN_DANGER("The mighty roar of the queen makes us tremble and fall over!"))
 	adjust_effect(6, STUN)
 	apply_effect(6, WEAKEN)
 
@@ -288,7 +303,7 @@
 	// Otherwise, ""roar""!
 	var/current_time = world.time
 	if(current_time - last_roar_time < 1 SECONDS)
-		to_chat(src, SPAN_WARNING("You must wait before roaring again."))
+		to_chat(src, SPAN_WARNING("We must wait before roaring again."))
 		return FALSE
 
 	last_roar_time = current_time

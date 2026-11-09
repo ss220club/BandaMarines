@@ -955,13 +955,15 @@ Additional game mode variables.
 
 	original.sight = BLIND
 
-	var/selected_spawn = tgui_input_list(original, "Где вы хотите появиться вместе с вашим ульем?", "Появление Королевы", spawn_list_map, QUEEN_SPAWN_TIMEOUT, theme="hive_status") // SS220 EDIT ADDICTION
-	if(hive.living_xeno_queen)
-		to_chat(original, SPAN_XENOANNOUNCE("Вы слишком долго выбирали место для появления, Королева уже эволюционировала."))
-		player.send_to_lobby()
-	if(!selected_spawn)
-		selected_spawn = pick(spawn_list_map)
-		to_chat(original, SPAN_XENOANNOUNCE("Вы слишком долго выбирали место для появления, оно было выбрано за вас."))
+	var/selected_spawn = spawn_list_map[1]
+	if(length(spawn_list_map) > 1)
+		selected_spawn = tgui_input_list(original, "Где вы хотите появиться вместе с вашим ульем?", "Появление Королевы", spawn_list_map, QUEEN_SPAWN_TIMEOUT, theme="hive_status") // SS220 EDIT ADDICTION
+		if(hive.living_xeno_queen)
+			to_chat(original, SPAN_XENOANNOUNCE("Вы слишком долго выбирали место для появления, Королева уже эволюционировала."))
+			player.send_to_lobby()
+		if(!selected_spawn)
+			selected_spawn = pick(spawn_list_map)
+			to_chat(original, SPAN_XENOANNOUNCE("Вы слишком долго выбирали место для появления, оно было выбрано за вас."))
 
 	var/turf/QS
 	var/obj/effect/landmark/queen_spawn/QSI

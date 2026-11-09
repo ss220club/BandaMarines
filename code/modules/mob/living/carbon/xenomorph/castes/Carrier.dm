@@ -91,6 +91,8 @@
 	skull = /obj/item/skull/carrier
 	pelt = /obj/item/pelt/carrier
 
+	water_config = /datum/water_overlay_config/xeno/medium/squatter
+
 	var/list/hugger_image_index = list()
 	var/mutable_appearance/hugger_overlays_icon
 	var/mutable_appearance/eggsac_overlays_icon
@@ -255,7 +257,7 @@
 			to_chat(src, SPAN_NOTICE("We take [huggers_to_transfer] facehuggers and carry them for safekeeping. Now sheltering: [huggers_cur] / [huggers_max]."))
 		behavior_delegate?.on_update_icons()
 	else
-		to_chat(src, SPAN_WARNING("We can't carry more facehuggers on you."))
+		to_chat(src, SPAN_WARNING("We can't carry more facehuggers on us."))
 
 /mob/living/carbon/xenomorph/carrier/proc/throw_hugger(atom/object)
 	if(!object)
