@@ -2,3 +2,4 @@
 
 #include "code/announcement_config.dm"
 #include "code/vehicle_config.dm"
+#include "code/visor_config.dm"
