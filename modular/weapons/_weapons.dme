@@ -1,0 +1,10 @@
+#include "_weapons.dm"
+
+#include "code/rifles.dm"
+#include "code/pistols.dm"
+#include "code/shotguns.dm"
+#include "code/smgs.dm"
+#include "code/misc.dm"
+#include "code/ammo.dm"
+#include "code/cargo_packs.dm"
+#include "code/attachments.dm"
