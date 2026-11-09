@@ -1,6 +1,5 @@
 /mob/living
 	see_invisible = SEE_INVISIBLE_LIVING
-	rebounds = FALSE // SS220 EDIT - Living mobs use inelastic launch collisions.
 
 	//Health and life related vars
 	var/maxHealth = 100 //Maximum health that should be possible.
@@ -152,3 +151,6 @@
 	var/atom/observed_atom
 
 	var/nutrition = NUTRITION_NORMAL // This should be on /human
+
+	///for water_overlays
+	var/datum/water_overlay_config/water_config = /datum/water_overlay_config

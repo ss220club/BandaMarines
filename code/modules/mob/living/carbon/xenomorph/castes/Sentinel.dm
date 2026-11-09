@@ -56,6 +56,8 @@
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
 	)
 
+	water_config = /datum/water_overlay_config/xeno/small/squatter
+
 	icon_xeno = 'icons/mob/xenos/castes/tier_1/sentinel.dmi'
 	icon_xenonid = 'icons/mob/xenonids/castes/tier_1/sentinel.dmi'
 
@@ -168,7 +170,7 @@
 		return
 
 	if(!action_cooldown_check())
-		to_chat(src, SPAN_WARNING("We must wait for your spit glands to refill."))
+		to_chat(src, SPAN_WARNING("We must wait for our spit glands to refill."))
 		return
 
 	var/turf/current_turf = get_turf(scatterspit_user)

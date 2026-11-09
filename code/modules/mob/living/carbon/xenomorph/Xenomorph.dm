@@ -46,6 +46,7 @@
 	see_invisible = SEE_INVISIBLE_LIVING
 	hud_possible = list(HEALTH_HUD_XENO, PLASMA_HUD, SPECIAL_HUD, PHEROMONE_HUD, QUEEN_OVERWATCH_HUD, ARMOR_HUD_XENO, XENO_STATUS_HUD, XENO_BANISHED_HUD, XENO_HOSTILE_ACID, XENO_HOSTILE_SLOW, XENO_HOSTILE_TAG, XENO_HOSTILE_TAG_SPREAD, XENO_HOSTILE_FREEZE, HUNTER_HUD, NEW_PLAYER_HUD)
 	unacidable = TRUE
+	rebounds = FALSE  // SS220 EDIT - Xeno mobs use inelastic launch collisions.
 	faction = FACTION_XENOMORPH
 	gender = NEUTER
 	icon_size = 48
@@ -192,6 +193,9 @@
 	///The type of minimap this xeno has access too
 	var/datum/action/minimap/minimap_type = /datum/action/minimap/xeno
 	var/datum/weakref/minimap_ref
+
+	//water overlay configuration the xeno uses
+	water_config = /datum/water_overlay_config/xeno/medium
 
 	//////////////////////////////////////////////////////////////////
 	//
